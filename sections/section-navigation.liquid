@@ -1,0 +1,94 @@
+<div class="section-navigation">
+  <div class="two-panel help">
+    <div class="side-navigation">
+      <div class="side-navigation--container">
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'menu' %}
+              <div class="side-navigation--item">
+                <div
+                  class="side-navigation--link {% if forloop.first %}side-navigation--link--active{% endif %}"
+                  data="menu-{{ block.id }}"
+                >
+                  {{ block.settings.menu_name }}
+                </div>
+              </div>
+          {% endcase %}
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="container">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'menu' %}
+            <div
+              class="two-panel--content two-panel--content--hidden {% if forloop.first %}two-panel--content--active{% endif %}"
+              data="menu-{{ block.id }}"
+            >
+              {{ block.settings.menu_content }}
+            </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const menuItems = document.querySelectorAll(".side-navigation--link");
+  const contentPanels = document.querySelectorAll(".two-panel--content");
+
+  menuItems.forEach((item) => {
+    item.addEventListener("click", function () {
+      const target = this.getAttribute("data");
+
+      // Remove active class from all menu items and content panels
+      menuItems.forEach((el) => el.classList.remove("side-navigation--link--active"));
+      contentPanels.forEach((panel) => {
+        panel.classList.add("two-panel--content--hidden");
+        panel.classList.remove("two-panel--content--active");
+      });
+
+      // Add active class to clicked menu item
+      this.classList.add("side-navigation--link--active");
+
+      // Show the corresponding content panel and add active class
+      const activePanel = document.querySelector(`.two-panel--content[data="${target}"]`);
+      if (activePanel) {
+        activePanel.classList.remove("two-panel--content--hidden");
+        activePanel.classList.add("two-panel--content--active");
+      }
+    });
+  });
+});
+</script>
+{% schema %}
+{
+  "name": "Section navigation",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "menu",
+      "name": "Menu",
+      "settings": [
+        {
+          "type": "text",
+          "id": "menu_name",
+          "label": "Menu",
+        },
+        {
+          "type": "richtext",
+          "id": "menu_content",
+          "label": "Menu content",
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Section navigation"
+    }
+  ]
+}
+{% endschema %}
