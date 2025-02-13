@@ -12273,7 +12273,7 @@
                     const titleQuery = titles
                       .map((t) => `\\"${t}\\"`)
                       .join(" OR ");
-
+  
                     let query = `
                       {
                         products(first: 250, query:"title:${titleQuery}*") {
@@ -12283,6 +12283,7 @@
                               handle
                               title
                               id
+                              tags
                               featuredImage {
                                 url
                               }
@@ -12315,6 +12316,7 @@
                                 handle
                                 title
                                 id
+                                tags
                                 featuredImage {
                                   url
                                 }
@@ -12393,7 +12395,8 @@
 
                     window.all_products = products;
                     products.forEach(function (t) {
-                      var n = t.node.title.trim().split(" | "),
+                      if(window.location.pathname.includes("private-collection")) {
+                        var n = t.node.title.trim().split(" | "),
                         r = n[0],
                         i = n[1],
                         o = t.node.featuredImage
@@ -12415,7 +12418,34 @@
                           }
                         }),
                       });
-                    });
+                      } else {
+                        if(!t.node.tags.includes("hidden_collection")) {
+                          var n = t.node.title.trim().split(" | "),
+                          r = n[0],
+                          i = n[1],
+                          o = t.node.featuredImage
+                            ? t.node.featuredImage.url
+                            : null;
+                        e.productData[r] || (e.productData[r] = []);
+                        e.productData[r].push({
+                          colour: i,
+                          id: P(t.node.id),
+                          image: o,
+                          handle: t.node.handle,
+                          title: t.node.title,
+                          variants: t.node.variants.edges.map(function (t) {
+                            if (t.node.title != "Default Title") {
+                              return t.node;
+                            } else {
+                              t.node.title = "Add to cart";
+                              return t.node;
+                            }
+                          }),
+                        });
+                        }
+                      }
+                      
+                    })
 
                     e.createRelatedProducts();
                   });
@@ -19451,6 +19481,19 @@
                     ".klaviyo-back-in-stock--submit"
                   );
                   u && u.setAttribute("data-backinstock-variant", t);
+
+                var selectedVariant = document.querySelector(
+                  '.product--details--variant-list--value.selected'
+                );
+                
+                if (selectedVariant) {
+                  var quantity = parseInt(selectedVariant.getAttribute("data-variant-quantity"), 10);
+                  var cartButtonMessage = document.querySelector(".add-cart-button--message");
+                
+                  if (cartButtonMessage) {
+                    cartButtonMessage.textContent = quantity > 0 ? "Add to cart" : "Pre Order";
+                  }
+                }
                 },
               },
               {
@@ -19512,11 +19555,26 @@
                       r.classList.contains("override") && (l = c);
                   }
                   if (!1 === h) {
-                    var v = [{ quantity: 1, id: l, properties: d }];
-                    if (u) {
-                      var y = s.getAttribute("data-customisation-id");
-                      v.push({ quantity: u, id: y });
-                    }
+                        var selectedVariant = document.querySelector(
+                          '.product--details--variant-list--value.selected'
+                        );
+                        
+                        var isPreOrder = selectedVariant && selectedVariant.getAttribute("data-variant-quantity") === "0";
+                    var v = [
+                        {
+                          quantity: 1,
+                          id: l,
+                          properties: {
+                            ...d,
+                            ...(isPreOrder ? { preorder: "true" } : {}),
+                          },
+                        },
+                      ];
+                      
+                      if (u) {
+                        var y = s.getAttribute("data-customisation-id");
+                        v.push({ quantity: u, id: y });
+                      }
                     n.forEach(function (t) {
                       t.classList.add("adding");
                     }),
