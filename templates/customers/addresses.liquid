@@ -1,0 +1,44 @@
+{%- assign form_type = blank -%}
+
+<div class="two-panel account account--dashboard">
+
+  {% include 'side-navigation--account' %}
+
+  <div class="container">
+  
+    <div class="account--details">
+
+      <h2 class="container--title">{{ 'customer.addresses.title' | t }}</h2>
+
+      {% for address in customer.addresses %}
+        <div class="account--address--block">
+          <h4>{{ address.name }}</h4>
+          <p>{{ address.address1 }}<br/>
+            {{ address.city }} {{ address.province_code }} {{ address.zip }}<br/>
+            {{ address.country }}<br/>
+            {{ address.phone }}</p>
+
+          <a href="/account/addresses?view=details&addressId={{ address.id }}" class="button button--black" type="submit">
+            <span>{{ 'customer.addresses.edit' | t }}</span>
+          </a>
+        </div>
+      {% endfor %}
+
+      <div class="account--address--block">
+        {% if customer.addresses_count > 0 %}
+          <h4>{{ 'customer.addresses.new' | t }}</h4>
+        {% else %}
+          <h4>{{ 'customer.addresses.no_addresses' | t }}</h4>
+        {% endif %}
+      	<p>{{ 'customer.addresses.incentive' | t }}</p>
+
+    		<a href="/account/addresses?view=details" class="button button--black" type="submit">
+    			<span>{{ 'customer.addresses.add' | t }}</span>
+    		</a>
+		</div>
+
+    </div>
+  
+  </div>
+
+</div>

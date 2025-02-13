@@ -1,0 +1,38 @@
+{%- assign product_types = '' -%}
+
+{%- if types == true -%}
+    {%- for product in products -%}
+        {%- unless forloop.first -%}
+            {%- assign product_types = product_types | append: "|" -%}
+        {%- endunless -%}
+        {%- assign product_types = product_types | append: product.type -%}
+    {%- endfor -%}
+
+    {%- assign product_types = product_types | split: '|' | uniq -%}
+
+{%- elsif types != blank -%}
+    {%- assign product_types = types | split: ',' -%}
+
+{%- endif -%}
+
+<div class="product-gallery">
+
+    {% if types != blank %}
+        <div class="product-gallery--filters">
+            {% if product_types != '' %}
+                {%- for type in product_types -%}
+                    {%- assign type_handle = type | handleize -%}
+                    {%- assign type_translation = translation | append: type_handle | replace: '-', '_' -%}
+                    <h3 class="product-gallery--title" data-product-type="{{ type }}">{{ type_translation | t }}</h3>
+                {%- endfor -%}
+            {%- endif -%}
+        </div>
+    {% endif %}
+
+    <div class="product-gallery--products">
+        {%- for product in products -%}
+            {% render 'product-gallery-item', product: product %}
+        {%- endfor -%}
+    </div>
+
+</div>

@@ -1,0 +1,108 @@
+<header>
+
+    <div class="header--left">
+
+        <a href="#" class="header--hamburger" data-turbolinks="false">
+            {% render 'icon', icon: 'hamburger' %}
+            {% render 'icon', icon: 'cross' %}
+        </a>
+
+        {%- section 'region-selector' -%}
+
+        <nav>
+            {% section 'header-link' %}
+
+            {% section 'navigation-features' %}
+
+        </nav>
+
+    </div>
+
+    <a href="/" class="logo">
+        {%- render 'logo.svg' -%}
+    </a>
+
+    <div class="header--right">
+
+        {% comment %}
+        {% if currency_count > 1 %}
+            {%- render 'header-currency' -%}
+        {% endif %}
+        {% endcomment %}
+
+        <a href="{% if customer != blank %}/account{% else %}#{% endif %}" class="header--account{% if customer == blank %} header--sidebar-toggle{% endif %}">
+            {% render 'icon', icon: 'account' %}
+        </a>
+
+        <a href="#" class="header--search-toggle">
+            {% render 'icon', icon: 'search' %}
+        </a>
+
+
+        {%- assign customisation_target = 0 -%}
+        {%- assign customisation_count = 0 -%}
+        {%- assign cart_count = 0 -%}
+
+        {%- for item in cart.items -%}
+            {%- if item.product.id != customisation_product.id -%}
+                {%- assign cart_count = cart_count | plus: item.quantity -%}
+                
+                {%- for property in item.properties -%}
+                    {%- if property.first contains 'Customisation' -%}
+                        {%- assign customisation_target = customisation_target | plus: item.quantity -%}
+                    {%- endif -%}
+                {%- endfor -%}
+
+            {%- else -%}
+
+                {%- assign customisation_count = item.quantity -%}
+                {%- assign customisation_line = item.key -%}
+
+            {%- endif -%}
+
+        {%- endfor -%}
+
+        <a href="#" class="header--cart" 
+            data-item-count="{{ cart_count }}" 
+            data-customisation-count="{{ customisation_count }}" 
+            data-customisation-target="{{ customisation_target }}" 
+            data-customisation-line="{{ customisation_line }}"
+            data-customisation-id="{{ customisation_product.id }}">
+
+            {% render 'icon', icon: 'cart' %}
+            {% render 'icon', icon: 'cart-full' %}
+            <span class="header--cart--count">
+                <span class="counts">
+                    <span class="count--down">&nbsp;</span>
+                    <span class="count">{{ cart_count }}</span>
+                    <span class="count--up">&nbsp;</span>
+                </span>
+            </span>
+        </a>
+
+    </div>
+
+    <div class="header--search" id="search-interface">
+        <div class="search--input">
+            <div class="search--form-wrapper">
+                <span class="search-prompt">{%- render 'icon' icon: 'magnifying' -%}</span>
+                {%- assign placeholder = 'search.search_large' | t -%}
+                {%- render 'search-form' icon: 'arrow', placeholder: placeholder -%}
+            </div>
+            <a
+                href="#"
+                class="header--search--close"
+                aria-hidden="true">
+                {%- render 'icon' icon: 'cross' -%}
+            </a>
+        </div>
+        <div class="search--results--wrapper">
+            {%- render 'header-search', collections: false, products: false -%}
+        </div>
+    </div>
+
+    {% render 'header-minicart', customisation_product: customisation_product %}
+
+    {% render 'header-sidebar' %}
+
+</header>

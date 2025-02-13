@@ -1,0 +1,130 @@
+<div class="image-feature layout--half-left layout--flex layout--half">
+    <div class="image-feature--wrapper image-anim--scale">
+        <div class="image-feature--images image-anim--wrapper lazyload-animation">
+            {% render 'responsive-image', classes: 'image-feature--image', image: section.settings.cover_image, sizes: '768,1536,2048,3600' %}
+        </div> 
+        <div class="image-feature--titles title-align--left title-align--center title-color--black">
+            <div class="image-feature--titles--wrapper image-feature--titles--wrapper--stacked">
+                {% form 'contact' %}
+                <div class="form--row">
+                    <div class="form--row--cell">
+                        <div class="stocklist--form">
+                            <h1 class="image-feature--titles--title">{{ page.title }}</h1>
+                            {% if form.posted_successfully? %}
+                            <p class="form--text">{{ 'contact.enquiry.success' | t }}</p>
+                            {% elsif form.errors %} 
+                            <div class="form--errors">{{ form.errors | default_errors }}</div>
+                            {% else %}
+                            <p class="stocklist--form--desciption">{{ page.content }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="form--row">
+                    <div class="form--row--cell">
+                        <input type="text" id="company" name="contact[Company]" placeholder="Company*" required>
+                    </div>
+                </div>
+                <div class="form--row">
+                    <div class="form--row--cell">
+                        <input type="text" id="website" name="contact[Website]" placeholder="Website*" required>
+                    </div>
+                </div>
+                <div class="form--row">
+                    <div class="form--row--cell">
+                        <input type="text" id="instagram_handle" name="contact[Instagram Handle]" placeholder="Instagram Handle*" required>
+                    </div>
+                </div>
+                <div class="form--row">
+                    <div class="form--row--cell">
+                        <input type="text" id="firstname" name="contact[Firstname]" placeholder="First Name*" required>
+                    </div>
+                    <div class="form--row--cell">
+                        <input type="text" id="lastname" name="contact[Lastname]" placeholder="Last Name*" required>
+                    </div>
+                </div>
+                <div class="form--row">
+                    <div class="form--row--cell">
+                        <input type="email" id="email" name="contact[email]" placeholder="Email*" required>
+                    </div>
+                    <div class="form--row--cell">
+                        <input type="text" id="phone_number" name="contact[Phone Number]" placeholder="Phone Number*" required>
+                    </div>
+                </div>
+                <div class="form--row">
+                    <div class="form--row--cell">
+                        <input type="text" id="street_address" name="contact[Street Address]" placeholder="Street Address*" required>
+                    </div>
+                </div>
+                <div class="form--row">
+                    <div class="form--row--cell">
+                        <input type="text" id="city" name="contact[city]" placeholder="City*" required>
+                    </div>
+                </div>
+                <div class="form--row">
+                    <div class="form--row--cell">
+                        <input type="text" id="address1" name="contact[State / Province / Region]" placeholder="State / Province / Region*" required>
+                    </div>
+                </div>
+                <div class="form--row">
+                    <div class="form--row--cell">
+                        <div class="form--select--wrapper">
+                            <select id="country" name="contact[Country]" required>
+                                {% render 'option-countries' %}
+                            </select>
+                            {% render 'icon', icon: 'chevron-heavy' %}
+                        </div>
+                    </div>
+                    <div class="form--row--cell">
+                        <input type="text" id="postal_code" name="contact[postal_code]" placeholder="Postal Code*" required>
+                    </div>
+                </div>
+                <div class="form--row">
+                    <div class="form--row--cell">
+                        <input type="text" id="description1" name="contact[How long have you been trading?]" placeholder="How long have you been trading?*" required>
+                    </div>
+                </div>
+                <div class="form--row">
+                    <div class="form--row--cell">
+                        <input type="text" id="description2" name="contact[Which brands do you currently stock?]" placeholder="Which brands do you currently stock?*" required>
+                    </div>
+                </div>
+                <div class="form--row">
+                    <div class="form--row--cell">
+                        <input type="text" id="description3" name="contact[Which brands are you looking to stock?]" placeholder="Which brands are you looking to stock?*" required>
+                    </div>
+                </div>
+                <div class="form--row">
+                    <div class="form--row--cell">
+                        <input type="text" id="description4" name="contact[What is your key demographic?]" placeholder="What is your key demographic?*" required>
+                    </div>
+                </div>
+                <div class="form--row">
+                    <div class="form--row--cell">
+                        <label for="ContactFormMessage">Is there anything else we need to know about your enquiry?</label>
+                        <textarea rows="8" id="message" name="contact[Is there anything else we need to know about your enquiry?]"></textarea>
+                    </div>
+                </div>
+                <div class="form--row">
+                    <div class="form--row--cell">
+                        <input type="submit" value="Submit">
+                    </div>
+                </div>
+                {% endform %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "Stocklist Inquiries",
+    "settings": [
+      {
+        "type": "image_picker",
+        "label": "Cover image",
+        "id": "cover_image"
+      }
+    ]
+}
+{% endschema %}

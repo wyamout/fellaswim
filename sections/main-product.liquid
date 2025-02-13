@@ -1,0 +1,872 @@
+          {% assign checkCommasCollection = false %}
+            {% for collection in product.collections %}
+              {% if collection.handle == 'commas' %}
+                 {% assign checkCommasCollection = true %}
+                {% endif %}
+            {% endfor %}
+{%- capture product_colour_title -%}{%- render 'product-colour', product: product, title: true -%}{%- endcapture -%}
+
+{%- capture gallery_start -%}
+    <div class="product--image">
+        <div class="product--image--container product--image--carousel">
+{%- endcapture -%}
+
+{%- capture gallery_end -%}
+        {% unless checkCommasCollection %}
+            <a href="#" class="product--image--scroll previous">
+                {% render 'icon', icon: 'chevron' %}
+            </a>
+
+            <a href="#" class="product--image--scroll next">
+                {% render 'icon', icon: 'chevron' %}
+            </a>
+          {% endunless %}
+        </div>
+    </div>
+{%- endcapture -%}
+
+{%- liquid
+assign product_title_formatted = product.title | replace: ',', '|' | split: '|'
+assign product_title_formatted = product_title_formatted[0] | trim
+assign product_colour = product_colour_title | downcase | replace: ' ', '-' | replace: '-(textured)', ''
+
+if product.type == 'Tops'
+    assign is_top = true
+    assign back_collection = collections.tops
+elsif product.type == 'Bottoms'
+    assign is_bottom = true
+    assign back_collection = collections.bottoms
+elsif product.type == 'Full Pieces'
+    assign is_full = true
+    assign back_collection = collections.full-pieces
+endif
+
+assign is_on_sale = false
+assign on_final_sale = false
+assign is_customisable = false
+assign has_variant_choices = true
+assign coming_soon = false
+
+if product.compare_at_price > product.price
+    assign is_on_sale = true
+
+    if product.tags contains 'final_sale'
+        assign on_final_sale = true
+    endif
+endif
+
+if is_top or is_bottom
+    assign is_customisable = true
+endif 
+
+assign variant_count = 0
+for variant in product.variants
+    if variant.title == 'Custom'
+        assign customisation_variant = variant
+    else
+        assign variant_count = variant_count | plus: 1
+    endif
+endfor
+
+if variant_count == 1
+    assign has_variant_choices = false
+endif 
+
+assign preorder_description = product.metafields.custom_fields.pre_order_description
+
+if product.tags contains 'coming_soon' and preorder_description == blank
+    assign has_variant_choices = false
+    assign coming_soon = true
+endif
+
+-%}
+
+{%- assign fa = product.selected_or_first_available_variant -%}
+
+<div class="product {% if section.settings.enable_red_color %}product--enable-red-color{% endif %}">
+
+    <div class="product--row product--row--feature{% if product.tags contains "small_image" %} product--image--small{% endif %}" {%- for image in product.images -%}{%- if image.alt == 'with' -%} data-image-with="{{ image | img_url: '1024x' }}"{%- endif -%}{%- if image.alt == 'without' -%} data-image-without="{{ image | img_url: '1024x' }}"{%- endif -%}{%- endfor -%}>
+        {{ gallery_start }}
+
+            {%- for image in product.images -%}
+
+                {%- if image.aspect_ratio > 1 -%}
+                    {%- break -%}
+                {%- endif -%}
+
+                {%- if image.alt contains 'campaign' or image.alt contains 'model' -%}
+                    {%- assign only_mobile = true -%}
+                {%- else -%}
+                    {%- assign only_mobile = false -%}
+                {%- endif -%}
+
+                {%- if image.alt contains 'with' or image.alt contains 'without' -%}
+                {%- else -%}
+                    <div class="product--image--wrapper lazyload-animation {% if only_mobile == true %}product--image--wrapper--mobile-only{% endif %}">
+                         {% if checkCommasCollection %}
+                        {% render 'responsive-image', classes: 'product--image--image product--image--image-commas', image: image, sizes: '1920,4500' %}
+                        {% else %}
+                        {% render 'responsive-image', classes: 'product--image--image', image: image, sizes: '1920,4500' %}
+                      {% endif %}
+                    </div>
+                {%- endif -%}
+                
+            {%- endfor -%}
+
+        {{ gallery_end }}
+
+        <div class="product--details">
+            <div class="product--details--container">
+
+                {% form 'product', product %}
+
+                    <input type="hidden" name="id" class="product-form-customise-id" value="{{ customisation_variant.id }}" />
+                    <input type="hidden" name="id" class="product-form-id" value="{% if fa.available %}{{ fa.id }}{% endif %}" />
+
+                    <h1 class="product--details--title">{{ product_title_formatted }}</h1>
+                    <p class="product--details--price">
+                        {{ product.price | money_without_trailing_zeros }} {{ cart.currency.iso_code }}
+                        {%- if product.compare_at_price > product.price -%}
+                            <span class="product--details--price--compare">{{ product.compare_at_price | money }}</span>
+                        {%- endif -%}
+                        {%- if on_final_sale -%}
+                            <span class="product--details--price--final-sale">{{ 'cart.callouts.final_sale' | t }}</span>
+                        {%- endif -%}
+                    </p>
+
+                    {% unless request.host contains 'international' %}
+                        {%- render 'product-afterpay' -%}
+                    {% endunless %}
+
+                    <div class="product--details--description">
+                        {{ product.description }}
+                    </div>
+
+                    <p class="product--details--colour" style="{% if product_colour_title == '' %}display: none;{% endif %}">
+                        <span class="colour--title">{{ 'product.colour' | t }}</span>
+                        <span class="colour--name" data-original="{{ product_colour_title }}">{{ product_colour_title }}</span>
+                    </p>
+
+
+                    {%- for collection in product.collections -%}
+                        {%- if product_title_formatted contains collection.title -%}
+                            {%- assign related_collection = collection -%}
+                            <div class="product--details--swatches">
+                                <div class="product--details--swatch-list" data-title="{{product_title_formatted}}">
+                                    {%- for related_product in collection.products -%}
+                                        {%- capture related_product_colour_title -%}{%- render 'product-colour', product: related_product, title: true -%}{%- endcapture -%}
+                                        {%- assign related_product_colour = related_product_colour_title | downcase | replace: ' ', '-' | replace: '-(textured)', '' -%}
+                                        {%- assign related_is_on_sale = false -%}
+                                        {%- if related_product.compare_at_price > related_product.price -%}
+                                            {%- assign related_is_on_sale = true -%}
+                                        {%- endif -%}
+                                        {%- if is_on_sale and related_is_on_sale -%}
+                                            <a href="{{ related_product.url }}" data-product-id="{{ related_product.id }}" title="{{ related_product_colour_title }}" class="swatch swatch--{{ related_product_colour }}{% if related_product.id == product.id %} selected{% endif %} "></a>
+                                        {%- endif -%}
+                                        {%- if is_on_sale == false and related_is_on_sale == false -%}
+                                            <a href="{{ related_product.url }}" data-product-id="{{ related_product.id }}" title="{{ related_product_colour_title }}" class="swatch swatch--{{ related_product_colour }}{% if related_product.id == product.id %} selected{% endif %} "></a>
+                                        {%- endif -%}
+                                    {%- endfor -%}
+                                </div>
+                            </div>
+                            {%- break -%}
+                        {%- endif -%}
+                    {%- endfor -%}
+
+
+                    {%- if has_variant_choices -%}
+
+                        {%- assign options_length = product.options_with_values | size -%}
+                        {%- capture override_msg -%}<div class="product--details--variant--override">{{ 'product.override' | t }}</div>{%- endcapture -%}
+                        {%- assign binding_length = product.options_by_name['Binding'].values | size -%}
+
+                        <div class="product--details--variants" data-option-length="{{options_length}}">
+
+                            {%- if options_length == 1 -%}
+                                {%- assign option_name = product.options_with_values[0].name -%}
+                                
+                                <div class="product--details--variant-list">
+                                    <span class="product--details--variant-list--title">{{ 'product.variant_list_title' | t: option_name: option_name }}</span>
+                                    <div class="product--details--variant-list--values">
+
+                                        {%- for variant in product.variants -%}
+                                            {% assign variant_classes = '' %}
+
+                                            {%- if variant.id == customisation_variant.id -%}
+                                                {%- assign variant_classes = variant_classes | append: 'product--details--variant-list--value--custom ' -%}
+                                            {%- elsif variant.available and variant.inventory_quantity <= 0 and product.tags contains "made_to_order" -%}
+                                                {%- assign variant_classes = variant_classes | append: 'product--details--variant-list--value--made-to-order ' -%}
+                                            {%- elsif variant.available == false -%}
+                                                {%- assign variant_classes = variant_classes | append: 'product--details--variant-list--value--sold-out ' -%}
+                                            {%- endif -%}
+
+                                            {%- assign ten_d = false -%}
+                                            {% if variant.title == '10/D' %}
+                                                {%- assign ten_d = true -%}
+                                                {%- assign variant_classes = variant_classes | append: 'is-ten-d ' -%}
+                                            {% endif %}
+
+                                            <a href="#" class="product--details--variant-list--value {{ variant_classes }}" data-variant-id="{{ variant.id }}">
+                                                {{ variant.title }}
+                                            </a>
+
+                                            {% if ten_d == true %}
+                                                <a class="ten-d" href="#">
+                                                    <span class="ten-d-link">?</span>
+                                                    <span class="ten-d-info">Large Bust with Small Underbust &amp; Straps</span>
+                                                </a>
+                                            {% endif %}
+
+                                        {%- endfor -%}
+
+                                        {{ override_msg }}
+
+                                        {%- if option_name == 'Size' -%}
+
+                                            {% assign table_tags = 'Table:Tops, Table:Underwired tops, Table:Bottoms, Table:Full pieces, Table:Ready to wear' | split: ", " %}
+
+                                            {% for tag in table_tags %}
+                                                {% if product.tags contains tag %}
+                                                    {% assign show_size = true %}
+                                                {% endif %}
+
+                                                {% if forloop.last and show_size != true %}
+                                                    {% assign show_size = false %}
+                                                {% endif %}
+                                            {% endfor %}
+
+                                            {% if show_size == true %}
+                                                <div class="product--details--variant-list--size-guide--link">
+                                                    <a href="#" class="size-guide--toggle" data-modal="modal-1">{{ 'product.size_guide' | t }}</a>
+                                                </div>
+                                            {% endif %}
+                                            
+                                        {%- endif -%}
+
+                                    </div>
+
+                                </div>
+
+                            {%- elsif binding_length > 0 -%}
+                                {%- assign option_name = product.options_with_values[0].name -%}
+                                {%- assign option_name_binding = product.options_with_values[1].name -%}
+
+                                <div class="product--details--variant-list-binding" data-option-name="{{option_name_binding}}">
+                                    <span class="product--details--variant-list--title">Select Option</span>
+
+                                    <div class="product--details--variant-list-binding--values">
+                                        
+                                        {% for binding in product.options_by_name['Binding'].values %}
+                                            {%- if binding == 'WITH BINDING' -%}
+                                                <a href="javascript:;" class="product--form--binding--option option--customisation" data-option="Binding" data-option-value="{{ binding }}">{{ binding }}</a>
+                                            {%- else -%}
+                                                <a href="javascript:;" class="product--form--binding--option option--customisation selected" data-option="Binding" data-option-value="{{ binding }}">{{ binding }}</a>
+                                            {%- endif -%}
+                                        {% endfor %}
+
+                                        {{ override_msg }}
+                                    </div>
+                                </div>
+
+                                {%- assign sizes_length = product.options_by_name['Size'].values | size -%}
+
+                                {%- if sizes_length > 0 -%}
+                                    <div class="product--details--variant-list">
+                                        <span class="product--details--variant-list--title">{{ 'product.variant_list_title' | t: option_name: option_name }}</span>
+                                        <div class="product--details--variant-list--values">
+
+                                            {%- for variant in product.variants -%}
+                                                {% assign variant_classes = '' %}
+                                                {% assign variant_titles_all = variant.title | split: ' / ' %}
+                                                {%- if variant.id == customisation_variant.id -%}
+                                                    {%- assign variant_classes = variant_classes | append: 'product--details--variant-list--value--custom ' -%}
+                                                {%- elsif variant.available and variant.inventory_quantity <= 0 and product.tags contains "made_to_order" -%}
+                                                    {%- assign variant_classes = variant_classes | append: 'product--details--variant-list--value--made-to-order ' -%}
+                                                {%- elsif variant.available == false -%}
+                                                    {%- assign variant_classes = variant_classes | append: 'product--details--variant-list--value--sold-out ' -%}
+                                                {%- endif -%}
+
+                                                {%- assign ten_d = false -%}
+                                                {% if variant.title == '10/D' %}
+                                                    {%- assign ten_d = true -%}
+                                                    {%- assign variant_classes = variant_classes | append: 'is-ten-d ' -%}
+                                                {% endif %}
+
+                                                {%- if variant_titles_all[1] == 'WITH BINDING' -%}
+                                                    <a href="#" class="product--details--variant-list--value {{ variant_classes }} hidden" data-variant-id="{{ variant.id }}" data-variant-binding="{{variant_titles_all[1]}}" data-variant-size="{{variant_titles_all[0]}}">
+                                                        {{ variant_titles_all[0] }}
+                                                    </a>
+                                                {%- else -%}
+                                                    <a href="#" class="product--details--variant-list--value {{ variant_classes }}" data-variant-id="{{ variant.id }}" data-variant-binding="{{variant_titles_all[1]}}" data-variant-size="{{variant_titles_all[0]}}">
+                                                        {{ variant_titles_all[0] }}
+                                                    </a>
+                                                {%- endif -%}
+
+                                        
+
+                                                {% if ten_d == true %}
+                                                    <a class="ten-d" href="#">
+                                                        <span class="ten-d-link">?</span>
+                                                        <span class="ten-d-info">Large Bust with Small Underbust &amp; Straps</span>
+                                                    </a>
+                                                {% endif %}
+
+                                            {%- endfor -%}
+
+                                            {{ override_msg }}
+
+                                            {%- if option_name == 'Size' -%}
+
+                                                {% assign table_tags = 'Table:Tops, Table:Underwired tops, Table:Bottoms, Table:Full pieces, Table:Ready to wear' | split: ", " %}
+
+                                                {% for tag in table_tags %}
+                                                    {% if product.tags contains tag %}
+                                                        {% assign show_size = true %}
+                                                    {% endif %}
+
+                                                    {% if forloop.last and show_size != true %}
+                                                        {% assign show_size = false %}
+                                                    {% endif %}
+                                                {% endfor %}
+
+                                                {% if show_size == true %}
+                                                    <div class="product--details--variant-list--size-guide--link">
+                                                        <a href="#" class="size-guide--toggle">{{ 'product.size_guide' | t }}</a>
+                                                    </div>
+                                                {% endif %}
+
+                                            {%- endif -%}
+
+                                        </div>
+
+                                    </div>
+                                {%- endif -%}
+
+                            {%- else -%}
+                                <fieldset class="product--details--variant-select">
+                                    <div class="form--group">
+                                        <div class="select-wrapper">
+                                            <select class="product--details--variant-select--select" data-default="{{ fa.id }}">
+                                                {%- for variant in product.variants -%}
+                                                    <option value="{{ variant.id }}"{% if variant.available == false %} class="product--details--variant-select--sold-out"{% elsif product.tags contains "made_to_order" %} class="product--details--variant-select--made-to-order"{% endif %}>{{ variant.title }}</option>
+                                                {%- endfor -%}
+                                            </select>
+                                            {% render 'icon', icon: 'chevron' %}
+                                        </div>
+                                    </div>
+                                </fieldset>
+
+                                {{ override_msg }}
+
+                            {%- endif -%}
+
+                        </div>
+                    {%- endif -%}
+
+                    {% if settings.customisation_product != blank %}
+                        {%- capture open_tag -%}
+                        <div class="product--details--customise" data-customisation-id="{{ all_products[settings.customisation_product].first_available_variant.id }}" data-customisation-price="{{ all_products[settings.customisation_product].price | money_without_currency }}" data-customisation-currency="{{ cart.currency.iso_code }}" data-customisation-symbol="{{ cart.currency.symbol }}">
+
+                            <a class="button button--secondary product--details--customise--trigger">
+                                {{ 'product.customise.title' | t }}
+                                {% render 'icon', icon: 'chevron' %}
+                            </a>
+
+                            <fieldset class="product--details--customise--content">
+                                <div class="product--details--customise--content--wrapper">
+
+                        {%- endcapture -%}
+
+                        {%- assign opened = false -%}
+
+                        {%- for block in section.blocks -%}
+                            {%- if block.type == 'customisations' -%}
+                                {%- if block.settings.collection != blank -%}
+
+                                    {%- assign is_in_collection = false -%}
+                                    {%- for collection in product.collections -%}
+                                    
+                                        {%- if block.settings.collection == collection.handle -%}
+                                            {%- assign is_in_collection = true -%}
+                                        {%- endif -%}
+
+                                    {%- endfor -%}
+
+                                    {%- if is_in_collection == true -%}
+                                        
+                                        {%- if opened == false -%}
+                                            {%- assign opened = true -%}
+                                            {{ open_tag }}
+                                        {%- endif -%}
+
+                                        {%- assign type_slug = block.settings.customisation_type -%}
+                                        {%- assign id_slug = block.settings.description | downcase | replace: ' ', '_' | replace: '(', '' | replace: ')', '' -%}
+
+                                        <div class="product--details--customise--option">
+                                            <div class="form--group">
+                                                <div class="checkbox-wrapper">
+                                                    <input type="checkbox" name="customisations[{{ type_slug }}]" id="customisation_{{ id_slug }}" data-size-override="{{ block.settings.size_override }}" data-custom-cup="{{ block.settings.cup_size }}" />
+                                                    <label class="product--details--customise--option--description" for="customisation_{{ id_slug }}">{{ block.settings.description }}</label>
+                                                </div>
+
+                                                {%- if block.settings.cup_size -%}
+                                                <div class="select-wrapper cup-size-select">
+                                                    <select required class="select-wrapper--select" name="properties[cup size]">
+                                                    <option selected disabled value="">Select your size</option>
+                                                    <option name="a">A</option>
+                                                    <option name="b">B</option>
+                                                    <option name="c">C</option>
+                                                    <option name="d">D</option>
+                                                    <option name="dd">DD</option>
+                                                    </select>
+                                                </div>
+                                                {%- endif -%}
+                                            </div>
+                                        </div>
+                                        
+                                        {%- continue -%}
+                                    {%- endif -%}
+                                {%- endif -%}
+                            {%- endif -%}
+                        {%- endfor -%}
+
+                        {%- if opened == true -%}
+
+                                    <div class="product--details--customise--total">
+                                        <div class="product--details--customise--total--wrapper">
+                                            <span class="product--details--customise--total--title">{{ 'product.customise.additional_cost' | t }}</span>
+                                            <span class="product--details--customise--total--price"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </fieldset>
+                        </div>
+                        {%- endif -%}
+                    {% endif %}
+
+                    {% if preorder_description != blank %}
+                        <div class="product--pre-order--message">{{ preorder_description }}</div>
+                    {% endif %}
+
+                    <a href="#" class="product--add-cart-button add-cart-button button button--black {% if coming_soon %} coming-soon{% elsif has_variant_choices == false and fa.available == false %} sold-out{% endif %}" {%- if has_variant_choices -%}disabled="true"{%- endif -%}
+                      >
+                        <span class="add-cart-button--message add-cart-button--add">
+                            {% if preorder_description == blank %}
+                                {{ 'product.add_to_cart.add' | t }}
+                            {% else %}
+                                {{ 'product.add_to_cart.pre_order' | t }}
+                            {% endif %}
+                        </span>
+                        <span class="add-cart-button--message add-cart-button--adding">{{ 'product.add_to_cart.adding' | t }}</span>
+                        <span class="add-cart-button--message add-cart-button--added">{{ 'product.add_to_cart.added' | t }}</span>
+                        <span class="add-cart-button--message add-cart-button--sold-out">{{ 'product.add_to_cart.sold-out' | t }}</span>
+                        <span class="add-cart-button--message add-cart-button--coming-soon">{{ 'product.add_to_cart.coming-soon' | t }}</span>
+                        <span class="add-cart-button--message add-cart-button--made-to-order">{{ 'product.add_to_cart.made-to-order' | t }}</span>
+                        <span class="add-cart-button--message add-cart-button--error">{{ 'product.add_to_cart.error' | t }}</span>
+                        <span class="loader spinner-grey-dark background-black"></span>
+                    </a>
+                  <!-- thediep094 5/11/2024 -->
+                          {% unless product.metafields.custom.enable_back_in_stock %}
+                            {% unless product.tags contains "legacy_product" %}
+                                {% if settings.klaviyo_back_in_stock != blank %}
+                                    {% assign prepop_variant_id = '' %}
+                                    {% assign placeholder_text = 'product.waitlist' | t %}
+                                    {% if coming_soon %}
+                                        {% assign prepop_variant_id = product.variants[0].id %}
+                                        {% assign placeholder_text = 'product.coming_soon' | t %}
+                                    {% endif %}
+                                    {% include 'klaviyo-back-in-stock' prepop_variant_id: prepop_variant_id %}
+                                {% endif %}
+                            {% endunless %}
+                          {% endunless %}
+
+                    <div class="product--mobile-sticky-add">
+
+                        {%- if product.has_only_default_variant == false -%}
+                            <a href="#" class="product--select-variant--button button button--black">
+                                {%- if options_length == 1 -%}
+                                    {{ 'product.variant_list_title' | t: option_name: option_name }}
+                                {%- else -%}
+                                    {{ 'product.variant_select' | t }}
+                                {%- endif -%}
+                                {% render 'icon', icon: 'chevron' %}
+                            </a>
+                        {%- endif -%}
+
+                    </div>
+                    
+                    {%- for block in section.blocks -%}
+                        {%- if block.type == 'product-alert' -%}
+                            {%- if block.settings.collection != blank -%}
+                                {%- if product.collections contains collections[block.settings.collection] -%}
+                                    <div class="product--alert">
+                                        {{ block.settings.description | newline_to_br }}
+                                    </div>
+                                {%- endif -%}
+                            {%- endif -%}
+                        {%- endif -%}
+                    {%- endfor -%}
+
+                    {%- for block in section.blocks -%}
+                        {%- if block.type == 'product-info' -%}
+                            {%- if block.settings.collection != blank -%}
+
+                                {%- if product.collections contains collections[block.settings.collection] -%}
+                                    <div class="product--details--info-box">
+
+                                        <a href="#" class="product--details--info-box--title">
+                                            {{ block.settings.title }}
+                                        
+                                            <span class="product--details--info-box--toggle">
+                                                {% render 'icon', icon: 'plus' %}
+                                                {% render 'icon', icon: 'minus' %}
+                                            </span>
+                                        </a>
+                                        
+                                        <div class="product--details--info-box--description">
+                                            <div class="product--details--info-box--description--wrapper">
+                                                {{ block.settings.description | newline_to_br }}
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                {%- endif -%}
+                            {%- endif -%}
+                        {%- endif -%}
+                    {%- endfor -%}
+                    
+
+                     {%- if section.settings.shipping_info != blank -%}
+                    
+                        <div class="product--details--info-box">
+                            <a href="#" class="product--details--info-box--title">
+                                {{ 'product.shipping' | t }}
+                                <span class="product--details--info-box--toggle">
+                                    {% render 'icon', icon: 'plus' %}
+                                    {% render 'icon', icon: 'minus' %}
+                                </span>
+                            </a>
+                            <div class="product--details--info-box--description">
+                                <div class="product--details--info-box--description--wrapper">
+                                    {{ section.settings.shipping_info | newline_to_br }}
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    {% if product.tags contains "made_to_order" %}
+                        {%- if section.settings.made_to_order_info != blank -%}
+                            <div class="product--details--info-box product-made-to-order">
+
+                                <a href="#" class="product--details--info-box--title">
+                                    {{ 'product.made_to_order' | t }}
+                                        
+                                    <span class="product--details--info-box--toggle">
+                                        {% render 'icon', icon: 'plus' %}
+                                        {% render 'icon', icon: 'minus' %}
+                                    </span>
+                                </a>
+                                
+                                <div class="product--details--info-box--description">
+                                    <div class="product--details--info-box--description--wrapper">
+                                        <div id="shopify-product-made-to-order" class="product-made-to-order--content">{{ section.settings.made_to_order_info | newline_to_br }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                    
+                    {% render 'product-styled-with', product: product, colour: product_colour_title %}
+
+                {%- endform -%}
+
+            </div>
+
+            {% if back_collection != blank %}
+                <a href="{{ back_collection.url }}" class="return-to--link">
+                    {% render 'icon', icon: 'chevron' %}
+                    {{ 'product.return_to' | t: collection: back_collection.title }}
+                </a>
+            {% endif %}
+
+        </div>
+    </div>
+
+    <div class="product--row product--row--supplementary">
+          <div class="product--row--supplementary-image">
+  
+     
+        {%- for image in product.images -%}
+            {%- if image.alt contains 'model' -%}
+               <div class="product--image">
+        <div class="product--image--container">
+                <div class="product--image--wrapper lazyload-animation">
+                    {% render 'responsive-image', classes: 'product--image--image', image: image, sizes: '1920,4500' %}
+                </div>   </div>   </div>
+            {%- endif -%}
+        {%- endfor -%}
+
+
+        {%- assign landscapes = '' -%}
+        {%- for image in product.images -%}
+            {%- if image.alt contains 'campaign' or checkCommasCollection -%}
+                {%- if image.aspect_ratio > 1 -%}
+                    {% capture landscapes %}{{ landscapes }}{% render 'product-campaign-image', image: image %}{% endcapture %}
+                {%- else -%}
+                    {% render 'product-campaign-image', image: image %}
+                {%- endif -%}
+            {%- endif -%}
+        {%- endfor -%}
+
+        {{ landscapes }}
+          </div>
+    </div>
+
+    {%- assign section_types = 'recently_viewed' -%}
+    {%- assign translation = 'product.related_products.' -%}
+            
+    {%- if product.type == 'Tops' or product.type == 'Bottoms' -%}
+
+        {%- if product.type == 'Tops' -%}
+            {%- assign discount_collection = collections['bottoms'] -%}
+        {%- else -%}
+            {%- assign discount_collection = collections['tops'] -%}
+        {%- endif -%}
+
+        {%- if discount_collection != blank -%}
+            {%- assign section_types = 'combination_discounts,' | append: section_types -%}
+            {%- capture discount_collection_products -%}{%- render 'product-gallery-random', collection: discount_collection, title_filter: product_colour_title -%}{%- endcapture -%}
+        {%- endif -%}
+
+    {%- endif -%}
+
+    {%- assign all_products_collection = collections['all-products'] -%}
+    {%- if all_products_collection != blank -%}
+        {%- assign section_types = section_types | append: ',you_might_like'  -%}
+        {%- capture all_products_products -%}{%- render 'product-gallery-random', collection: all_products_collection -%}{%- endcapture -%}
+    {%- endif -%}
+
+    {%- assign section_types = section_types | split: ',' -%}
+
+    <div class="product-gallery product-gallery--sections">
+
+        <div class="product-gallery--filters">
+            {%- for section_type in section_types -%}
+                {%- if section_type == 'combination_discounts' and discount_collection_products == blank -%}
+                    {%- continue -%}
+                {%- endif -%}
+                {%- assign type_translation = translation | append: section_type -%}
+                <h3 class="product-gallery--title" data-product-type="{{ section_type }}">{{ type_translation | t: discount: settings.cart_pair_discount_rate }}</h3>
+            {%- endfor -%}
+        </div>
+
+        {%- for section_type in section_types -%}
+            {%- assign type_translation = translation | append: section_type -%}
+
+            <div class="product-gallery--section" data-product-type="{{ section_type }}">
+                <h3 class="product-gallery--title" data-product-type="{{ section_type }}">{{ type_translation | t }}</h3>
+                <div class="product-gallery--products">
+                    {%- if section_type == 'combination_discounts' -%}
+                        {{ discount_collection_products }}
+                    {%- elsif section_type == 'you_might_like' -%}
+                        {{ all_products_products }}
+                    {%- endif -%}
+                </div>
+            </div>
+
+        {%- endfor -%}
+
+    </div>
+
+    {% render 'product-seen-on', product: product %}
+
+    {% if product.tags contains "Table:Tops" %}
+	    {% assign page_handle = 'tops-size-conversion' %}
+    {% elsif product.tags contains "Table:Underwired tops" %}
+        {% assign page_handle = 'underwire-size-conversion' %}
+    {% elsif product.tags contains "Table:Bottoms" %}
+        {% assign page_handle = 'bottoms-size-conversion' %}
+    {% elsif product.tags contains "Table:Full pieces" %}
+        {% assign page_handle = 'full-piece-size-conversion' %}
+    {% elsif product.tags contains "Table:Ready to wear" %}
+        {% assign page_handle = 'ready-to-wear-size-conversion' %}
+    {% endif %}
+
+    {% if pages[page_handle] != blank %}
+
+        <div id="shopify-section-size-guide">
+            <div class="size-guide">
+                <div class="size-guide-modal modal size-guide--page" data-pg-handle="{{ page_handle }}" id="modal-1">
+                    <div class="modal-bg modal-exit"></div>
+                        
+                        <div class="modal-container">
+                            <button class="modal-close modal-exit">{% render 'icon', icon: 'cross' %}</button>
+
+                            <div class="size-guide-modal-header ">
+                
+                                <div class="modal-title-header feature-page--heading">{{pages[page_handle].title }}</div>
+                                
+                            </div>
+
+                            <div class="size-guide-modal-content modal-contant">
+                                <div class="size-guide-chart-tab-container">
+                                    <div class="size-guide-table-wrapper">
+                                        {{ pages[page_handle].content }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% render 'okendo-reviews-widget', product: product %}
+</div>
+
+<div class="instagram product-gallery product-gallery--sections">
+    <div class="instagram-wrapper">
+        <div id="foursixty-hideable-container" style="display:none"><h2 class="product-gallery--title product-gallery--title--active">Styled on Instagram</h2><script src="//foursixty.com/media/scripts/fs.slider.v2.5.js" data-feed-id="fella_2" data-theme="slider_v2_5" data-open-links-in-same-page="true" data-cell-size="25%" data-has-posts-selector="#foursixty-hideable-container" data-for-url="true"></script></div>
+        <style>.fs-has-links { display:none; } .fs-wrapper { height:auto; } .fs-slider_v2_5  .fs-entry-container { height:0 !important;width:25%!important;padding-top:25%!important; } .fs-wrapper div.fs-text-container .fs-entry-title, div.fs-detail-title { font-family:Times New Roman, serif;font-style:normal;font-weight:normal;font-size:14px; } div.fs-text-container .fs-entry-date, div.fs-detail-container .fs-post-info, div.fs-wrapper div.fs-has-links::after, .fs-text-product, .fs-overlink-text { font-family:Helvetica Neue, Helvetica, Arial, sans-serif;font-style:normal;font-weight:normal;font-size:14px; } .fs-wrapper div.fs-text-container * { color:#ffffff; } .fs-wrapper div.fs-text-container { background-color:rgba(0, 0, 0, 0.6);margin:0px; } div.fs-entry-date { display:none; } div.fs-entry-title { display:none; } .fs-slider_v2_5 .fs-wrapper div.fs-timeline-entry { margin:5px; } </style>
+    </div>
+</div>
+
+
+{% unless product == empty %}
+<script type="application/json" id="product_json">
+  {{ product | json }}
+</script>
+<script type="application/json" id="product_json_klaviyo">
+    {
+        "Name": {{ product.title | json }},
+        "ProductID": {{ product.id | json }},
+        "Categories": {{ product.collections | map:'title' | json }},
+        "ImageURL": "https:{{ product.featured_image.src | img_url: 'grande' }}",
+        "URL": "{{ shop.secure_url }}{{ product.url }}",
+        "Brand": {{ product.vendor | json }},
+        "Price": {{ product.price | money | json }},
+        "CompareAtPrice": {{ product.compare_at_price_max | money | json }}
+    }
+</script>
+{% endunless %}
+
+
+{% schema %}
+{
+    "name": "Product",
+    "tag": "section",
+    "settings": [
+        {
+            "label": "Shipping Info",
+            "id": "shipping_info",
+            "type": "textarea"
+        },
+        {
+            "label": "Made to Order Info",
+            "id": "made_to_order_info",
+            "type": "textarea"
+        },
+        {
+            "label": "Enable Red Color for Price",
+            "id": "enable_red_color",
+            "type": "checkbox",
+           "default": false
+        }
+    ],
+    "blocks": [
+        {
+            "name": "Customisations",
+            "type": "customisations",
+            "settings": [
+                {
+                    "label": "Description",
+                    "id": "description",
+                    "type": "text"
+                },
+                {
+                    "label": "Show cup size",
+                    "id": "cup_size",
+                    "type": "checkbox",
+                    "default": false
+                },
+                {
+                    "label": "Collection",
+                    "id": "collection",
+                    "type": "collection",
+                    "info": "Collection of products to allow this customisation on"
+                },
+                {
+                    "label": "Size Override",
+                    "id": "size_override",
+                    "type": "checkbox",
+                    "default": false
+                },
+                {
+                    "label": "Customisation Type",
+                    "id": "customisation_type",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "type": "product-alert",
+            "name": "Product Alert",
+            "settings": [
+                {
+                    "label": "Alert text",
+                    "id": "description",
+                    "type": "textarea"
+                },
+                {
+                    "label": "Collection",
+                    "id": "collection",
+                    "type": "collection",
+                    "info": "Collection of products to show this alert for"
+                }
+            ]
+        },
+        {
+            "type": "product-info",
+            "name": "Product Info",
+            "settings": [
+                {
+                    "label": "Title",
+                    "id": "title",
+                    "type": "text"
+                },
+                {
+                    "label": "Description",
+                    "id": "description",
+                    "type": "textarea"
+                },
+                {
+                    "label": "Collection",
+                    "id": "collection",
+                    "type": "collection",
+                    "info": "Collection of products to show this product info for"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}
+<script type="text/javascript">
+((document, window) => {
+    const handleDocumentLoaded = function (e) {
+        if (window.okeWidgetApi) {
+            window.okeWidgetApi.initAllWidgets();
+        }
+    }
+
+    if (document.readyState !== 'interactive' && document.readyState !== 'complete') {
+        document.addEventListener('readystatechange', () => {
+            handleDocumentLoaded();
+        }, { once: true });
+    }
+    else {
+        handleDocumentLoaded();
+    }
+})(document, window);
+</script>
+

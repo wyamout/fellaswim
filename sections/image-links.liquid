@@ -1,0 +1,108 @@
+{% if section.blocks.size > 0 %}
+  {% assign num_blocks = section.blocks | size | minus: 1 %}
+  {% assign num_blocks_words = 'single,double,triple' | split: ',' %}
+  <div class="image-links image-links--{{ num_blocks_words[num_blocks] }}">
+    {% for block in section.blocks %}
+      {%- assign has_video = false -%}
+      {%- if block.settings.vimeo_desktop != blank or block.settings.vimeo_mobile != blank -%}
+        {%- assign has_video = true -%}
+      {%- endif -%}
+      {% if block.settings.image %}
+        <a
+          href="{{ block.settings.link }}"
+          {% if block.settings.link contains 'http://' or block.settings.link contains 'https://' %}
+            target="_blank"
+          {% endif -%}
+          class="image-links--block image-anim--scale image-feature--wrapper"
+        >
+          <div class="image-links--wrapper image-anim--wrapper lazyload-animation">
+            {% render 'responsive-image',
+              classes: 'image-links--image image--mobile',
+              image: block.settings.image,
+              sizes: '768,1536,2048,3600'
+            %}
+            {% if block.settings.title != blank -%}
+              <span class="image-links--title image-links--title--{{ block.settings.text-color }}">
+                {{- block.settings.title -}}
+              </span>
+            {%- endif %}
+            {%- if has_video -%}
+              {% assign random = 'now' | date: '%N' | modulo: 90000 | plus: 10001 %}
+              <div
+                class="video-loop"
+                data-vimeo-desktop="{{ block.settings.vimeo_desktop.id }}"
+                data-vimeo-mobile="{{ block.settings.vimeo_mobile.id }}"
+                id="feature_video_{{ random }}"
+              ></div>
+            {%- endif -%}
+          </div>
+        </a>
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endif %}
+
+{% schema %}
+{
+    "name": "Image Links",
+    "max_blocks": 3,
+    "blocks": [
+        {
+            "type": "link-block",
+            "name": "Link Block",
+            "settings": [
+                {
+                    "label": "Image",
+                    "id": "image",
+                    "type": "image_picker",
+                    "info": "1500 x 1500"
+                },
+                {
+                    "label": "Link",
+                    "id": "link",
+                    "type": "url"
+                },
+                {
+                    "label": "Title",
+                    "id": "title",
+                    "type": "text"
+                },
+                {
+                    "label": "Text Colour",
+                    "id": "text-color",
+                    "type": "select",
+                    "default": "white",
+                    "options": [
+                        {
+                            "value": "white",
+                            "label": "White"
+                        },
+                        {
+                            "value": "black",
+                            "label": "Black"
+                        }
+                    ]
+                },
+                  {
+            "label": "Vimeo (Desktop)",
+            "id": "vimeo_desktop",
+            "accept": ["vimeo"],
+            "type": "video_url",
+            "info": "Video to play in a loop (full width layout only)"
+        },
+        {
+            "label": "Vimeo (Mobile)",
+            "id": "vimeo_mobile",
+            "type": "video_url",
+            "accept": ["vimeo"],
+            "info": "Video to play in a loop for mobile (full width layout only)"
+        },
+            ]
+        }
+    ],
+    "presets": [{
+        "name": "Image Links",
+        "category": "Custom Content"
+    }]
+}
+{% endschema %}

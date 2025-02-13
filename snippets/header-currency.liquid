@@ -1,0 +1,25 @@
+
+{% for c in shop.enabled_currencies %}
+    {% if c.iso_code == cart.currency.iso_code %}
+        {% assign current_currency = c %}
+    {% endif %}
+{% endfor %}
+<div class="header--currency">
+    <ul class="header--currency--list">
+        <li class="header--currency--list--item header--currency--list--item--active">
+            <a href="?currency={{ current_currency.iso_code }}" class="header--currency--list--item--link" data-currency="{{ current_currency.iso_code }}">
+                <span class="header--currency--list--item--symbol">{{ current_currency.symbol }}</span>{{ current_currency.iso_code }}
+                {% render 'icon', icon: 'tick' %}
+            </a>
+        </li>
+        {% for c in shop.enabled_currencies %}
+            {% if current_currency.iso_code != c.iso_code %}
+                <li class="header--currency--list--item">
+                    <a href="?currency={{ c.iso_code }}" class="header--currency--list--item--link" data-currency="{{ c.iso_code }}">
+                        <span class="header--currency--list--item--symbol">{{ c.symbol }}</span>{{ c.iso_code }}
+                    </a>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</div>

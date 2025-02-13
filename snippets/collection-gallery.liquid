@@ -1,0 +1,25 @@
+<div class="product-gallery product-gallery--collections">
+
+    <h1 class="product-gallery--header">{{ 'collection.all' | t }}</h1>
+
+    <div class="product-gallery--products">
+        {%- capture collection_set_picks -%}{{ 'collection.set_picks' | t }}{%- endcapture -%}
+        {%- capture collection_suggestions -%}{{ 'collection.suggestions' | t }}{%- endcapture -%}
+        {%- for collection in collections -%}
+            {%- unless collection.title contains collection_set_picks or collection.title contains collection_suggestions -%}
+              {%- if collection.image -%}
+                {%- assign collection_image = collection.image -%}
+              {%- else -%}
+                {%- assign collection_image = collection.products[0].featured_image -%}
+              {%- endif -%}
+              <div class="product-gallery--item" data-product-id="{{ collection.id }}" data-product-handle="{{ collection.handle }}">
+                  <a href="{{ collection.url }}" class="product-gallery--item--image lazyload-animation">
+                    {% render 'responsive-image', classes: 'image-feature--image', image: collection_image, sizes: '768,1536,2048,3600' %}
+                  </a>
+                  <a href="{{ collection.url }}" class="product-gallery--item--link">{{ collection.title }}</a>
+              </div>
+            {%- endunless -%}
+        {%- endfor -%}
+    </div>
+
+</div>

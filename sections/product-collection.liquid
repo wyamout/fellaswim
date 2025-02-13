@@ -1,0 +1,73 @@
+<div class="collection {% if section.settings.enable_red_color %}collection--enable-red-color{% endif %}">
+  {%- liquid
+    assign selected = 'stock_all,'
+    if collection.sort_by != blank
+      assign selected = selected | append: collection.sort_by
+    else
+      assign selected = selected | append: collection.default_sort_by
+    endif
+
+    assign swatches = ''
+    assign styles = ''
+    for tag in collection.all_tags
+      assign substring_color = tag | slice: 0, 7
+      assign substring_style = tag | slice: 0, 6
+
+      if substring_color == 'colour_'
+        assign color = tag | replace: 'colour_', '' | replace: '_', '-'
+        assign swatches = swatches | append: color | append: ','
+      elsif substring_style == 'style_'
+        assign style = tag | replace: 'style_', ''
+        assign styles = styles | append: style | append: ','
+      endif
+    endfor
+  -%}
+
+  {%- render 'collection-header',
+    collection_title: collection.title,
+    collection_handle: collection.handle,
+    selected: selected,
+    swatches: swatches,
+    styles: styles
+  -%}
+
+  {% paginate collection.products by 24 %}
+    <div class="collection--product">
+      <div class="product-index {% if request.path == '/collections/shop-all' or request.path == '/collections/sale' %}six-col{% else %}four-col{% endif %}">
+        {% for product in collection.products %}
+          {% render 'product-index', product: product %}
+        {% endfor %}
+      </div>
+
+      <p class="product-index--no-results {% if collection_products_length == 0 %}show{% endif %}">
+        <span class="product-index--no-results--title">{{ 'collection.no-results' | t }}</span>
+        <a href="#" class="product-index--no-results--clear">
+          {{ 'filters.clear-filters' | t }}
+        </a>
+      </p>
+
+      <div class="pagination--next {% unless paginate.next.is_link %}hidden{% endunless %}">
+        <a href="{{ paginate.next.url }}" class="pagination--link">{{ 'pagination.next-page' | t }}</a>
+        <span class="pagination--loading">{{ 'pagination.next-page-loading' | t }}</span>
+      </div>
+    </div>
+  {% endpaginate %}
+</div>
+
+<script>
+  var productCollectionAtPage = {{ collection.products | json }}
+</script>
+
+{% schema %}
+{
+    "name": "Product Collection",
+    "settings": [
+       {
+            "label": "Enable Red Color for Price",
+            "id": "enable_red_color",
+            "type": "checkbox",
+           "default": false
+        },
+    ]
+}
+{% endschema %}

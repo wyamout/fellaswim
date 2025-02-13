@@ -1,0 +1,115 @@
+<div class="stockists">
+    
+    <div class="stockists--header">
+        
+        <h1 class="stockists--title">Stockists</h1>
+
+        <div class="stockists--regions">
+
+        	{% if section.blocks.size > 0 %}
+        		<div class="stockists--regions--container">
+					{% for block_region in section.blocks %}
+						{% if block_region.type == "region" %}
+	        				<a href="#{{ block_region.settings.title | handleize }}" class="stockists--regions--single">{{ block_region.settings.title }}</a>
+	        			{% endif %}
+					{% endfor %}
+				</div>
+			{% endif %}
+
+    	</div>
+
+    </div>
+
+    <div class="stockists--index">
+
+    	{% if section.blocks.size > 0 %}
+			{% for block_region in section.blocks %}
+				{% if block_region.type == "region" %}
+			    	<div class="stockists--index--section" id="{{ block_region.settings.title | handleize }}">
+			    		<div class="stockists--index--section--region">{{ block_region.settings.title }}</div>
+			    		<div class="stockists--index--section--list">
+
+			    			{% assign block_store_offset = forloop.index %}
+							{% for block_store in section.blocks offset: block_store_offset %}
+								{% if block_store.type == "store" %}
+					    			<div class="stockists--index--section--list--item">
+										<div class="stockists--index--section--list--item--title">{{ block_store.settings.title }}</div>
+										{% if block_store.settings.address != "" %}
+											<div class="stockists--index--section--list--item--address">{{ block_store.settings.address | newline_to_br }}</div>
+										{% endif %}
+										{% if block_store.settings.phone_number != "" %}
+											<div class="stockists--index--section--list--item--phone_number">
+												<a href="tel:{{ block_store.settings.phone_number | replace: "+", "" | replace: " ", "" }}" class="stockists--index--section--list--item--link" target="_blank">{{ block_store.settings.phone_number }}</a>
+											</div>
+										{% endif %}
+										{% if block_store.settings.website contains "http" %}
+											<div class="stockists--index--section--list--item--website">
+												<a href="{{ block_store.settings.website }}" class="stockists--index--section--list--item--link" target="_blank">{{ block_store.settings.website | replace: "https://", "" | replace: "http://", "" }}</a>
+											</div>
+										{% endif %}
+										{% if block_store.settings.address != "" %}
+											<div class="stockists--index--section--list--item--directions">
+												<a href="https://www.google.com/maps/dir/?api=1&destination={{ block_store.settings.address | url_encode | replace: "%0A", "%20" }}" class="stockists--index--section--list--item--link" target="_blank">Directions{% render 'icon', icon: 'chevron' %}</a>
+											</div>
+										{% endif %}
+									</div>
+								{% else %}
+									{% break %}
+								{% endif %}
+							{% endfor %}
+
+			    		</div>
+
+					</div>
+    			{% endif %}
+			{% endfor %}
+		{% endif %}
+
+    </div>
+
+</div>
+
+{% schema %}
+{
+    "name": "Stockists",
+    "blocks": [
+        {
+            "name": "Region",
+            "type": "region",
+            "settings": [
+                {
+                    "label": "Title",
+                    "id": "title",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "name": "Store",
+            "type": "store",
+            "settings": [
+                {
+                    "label": "Title",
+                    "id": "title",
+                    "type": "text"
+                },
+                {
+                    "label": "Address",
+                    "id": "address",
+                    "type": "textarea"
+                },
+                {
+                    "label": "Phone number",
+                    "id": "phone_number",
+                    "type": "text"
+                },
+                {
+                    "label": "Website",
+                    "id": "website",
+                    "type": "url"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

@@ -1,0 +1,158 @@
+.product-index--item.processed-links:hover
+  .product-index--interface
+  .product-index--interface--link
+  [data-oke-star-rating] {
+  display: block !important;
+}
+.product-index
+  .product-index--item
+  .product-index--interface
+  .product-index--interface--link
+  [data-oke-star-rating] {
+  display: none;
+}
+a.product-index--interface--swatch-trigger.color--count {
+  position: relative !important;
+}
+
+/* thediep094 fix here */
+.product-index
+  .product-index--item
+  .product-index--interface
+  .product-index--interface--swatch-list {
+  padding-bottom: 0px !important;
+  top: -8px;
+  position: relative;
+  user-select: none;
+  cursor: grab;
+  scroll-behavior: smooth;
+}
+.product-index
+  .product-index--item
+  .product-index--interface
+  .product-index--interface--swatch-list.active {
+  cursor: grabbing;
+}
+.product-index--interface--swatch-list .swatch {
+  width: 19px;
+  height: 22px;
+}
+.product-index--interface--swatch-list .swatch:before {
+  width: 19px;
+  height: 19px;
+}
+.product-index--interface--swatch-list .swatch:after {
+  width: 18px;
+  height: 18px;
+}
+.product-index--item.processed-links:hover
+  a.product-index--interface--swatch-trigger.color--count {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  a.product-index--interface--swatch-trigger.color--count {
+    display: none !important;
+  }
+}
+.product-index--images--wrapper .main-img {
+  transition: opacity 0.3s ease-in-out;
+}
+.product-index--images--wrapper
+  img.lazyload.second-img.entered.lazyload-loaded {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.product-index--item.processed-links
+  .product-index--images:hover
+  img.lazyload.second-img.entered.lazyload-loaded,
+.product-index--item
+  .product-index--images:hover
+  img.lazyload.second-img.entered.lazyload-loaded {
+  opacity: 1;
+}
+
+.product-index--item.processed-links .product-index--images:hover .main-img {
+  opacity: 0;
+}
+.product-index--interface--swatch-list a.swatch {
+  margin: 5px;
+}
+.product-index--interface--swatch-list.hide-colored-text {
+  overflow-x: unset !important;
+}
+
+.product-index--item.loading-class .product-index--images--image .main-img,
+.product-index--item.loading-class .product-index--images--image .second-img {
+  opacity: 0 !important;
+}
+.product-index--item.loading-class .product-index--images--image:after {
+  opacity: 1 !important;
+}
+
+.product-index
+  .product-index--item
+  .product-index--images--overlay--image.show {
+  z-index: 9;
+}
+
+.product-index--interface--swatch-list::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: transparent;
+}
+
+.product-index--interface--swatch-list::-webkit-scrollbar {
+  width: 0px;
+  background-color: transparent;
+}
+
+.product-index--interface--swatch-list::-webkit-scrollbar-thumb {
+  border-radius: 0px;
+  background-color: transparent;
+}
+
+.product-index--interface--swatch-list .slick-track {
+  width: 100% !important;
+  display: flex;
+}
+.product-index--interface--swatch-list .slick-slide {
+  width: auto !important;
+}
+
+/*thediep094 fixhere */
+.product-index--interface--swatch-list {
+  /* width: 100% !important; */
+}
+
+a[href="/collections/sale"] {
+  color: red;
+}
+.product-index--item .product-index--images:hover .second-img {
+  opacity: 1;
+}
+.product-index--images img.second-img {
+  top: 0;
+  position: absolute;
+  left: 0;
+  opacity: 0;
+}
+.product-index--item .product-index--images:hover .main-img {
+  opacity: 0;
+}
+@media (max-width: 767px) {
+  #shopify-section-size-guide-carousel
+    .size-guide
+    .size-guide--bottom
+    .size-guide--carousel-product-info
+    .size-guide--carousel-product-image {
+    max-width: 140px !important;
+  }
+}
+.cozy-crd__modal .cozy-crd__ContentWrapper .cozy-crd__modal-body-text .button-container .cz_anchor button
+{color:black!important}
+
+#shopify-section-work-with-us-b .image-feature .image-feature--titles.title-align--center .image-feature--titles--wrapper {top:20%!important}
+

@@ -1,0 +1,122 @@
+{% comment %}
+  Add these settings to your Shopify section
+  - Section Title
+  - Section Description
+  - Blocks (Repeater field with fields Title, Subtitle, Description)
+{% endcomment %}
+
+<div class="gift-level-section">
+  <div class="gift-level-section--title">{{ section.settings.section_title }}</div>
+  <p class="gift-level-section-description">{{ section.settings.section_description }}</p>
+
+<div class="gift-level-wrapper">
+    <table class="gift-level-table">
+      <thead>
+        <tr>
+          <th class="gift-title-col"></th> <!-- Tiêu đề gift title -->
+          <th class="level-col">{{ section.settings.level1 }}<br><div class="level-col--subtitle">{{ section.settings.level1_sub }}</div></th>
+          <th class="level-col">{{ section.settings.level2 }}<br><div class="level-col--subtitle">{{ section.settings.level2_sub }}</div></th>
+          <th class="level-col">{{ section.settings.level3 }}<br><div class="level-col--subtitle">{{ section.settings.level3_sub }}</div></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for block in section.blocks %}
+        <tr>
+          <td class="gift-title-col">{{ block.settings.gift_title }}</td>
+          <td class="level-col">{% if block.settings.level1 %}<div class="wrap-dot"><div class="dot"></div></div> {% endif %}</td>
+          <td class="level-col">{% if block.settings.level2 %} <div class="wrap-dot"><div class="dot"></div></div>{% endif %}</td>
+          <td class="level-col">{% if block.settings.level3 %}<div class="wrap-dot"><div class="dot"></div></div> {% endif %}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Gift Level",
+    "settings": [ {
+          "type": "text",
+          "id": "section_title",
+          "label": "Section Title"
+      },
+      {
+          "type": "richtext",
+          "id": "section_description",
+          "label": "Section Description"
+      },
+      {
+        "type": "text",
+        "id": "level1",
+        "label": "Level 1 Title",
+        "default": "Level 01"
+      },
+       {
+        "type": "text",
+        "id": "level1_sub",
+        "label": "Level 1 Subtitle",
+        "default": "0-229 POINTS"
+      },
+     {
+        "type": "text",
+        "id": "level2",
+        "label": "Level 2 Title",
+        "default": "Level 02"
+      },
+       {
+        "type": "text",
+        "id": "level2_sub",
+        "label": "Level 2 Subtitle",
+        "default": "300-749 POINTS"
+      },{
+        "type": "text",
+        "id": "level3",
+        "label": "Level 3 Title",
+        "default": "Level 03"
+      },
+       {
+        "type": "text",
+        "id": "level3_sub",
+        "label": "Level 3 Subtitle",
+        "default": "750+ POINTS"
+      },
+    ],
+    "blocks": [
+      {
+        "type": "gift-level-item",
+        "name": "Gift Level Item",
+        "settings": [
+           {
+          "type": "text",
+          "id": "gift_title",
+          "label": "Gift Title",
+             "default": "Gift level"
+      },
+          {
+            "type": "checkbox",
+            "id": "level1",
+            "label": "Level 1",
+            "default": false
+          },
+           {
+            "type": "checkbox",
+            "id": "level2",
+            "label": "Level 2",
+            "default": false
+          },
+           {
+            "type": "checkbox",
+            "id": "level3",
+            "label": "Level 3",
+            "default": false
+          }
+        ]
+      }
+    ],
+  "presets": [{
+      "name": "Gift Level",
+      "category": "Custom Content"
+  }]
+  }
+{% endschema %}

@@ -1,0 +1,58 @@
+<div class="product product--{{ template | replace: 'product', '' | replace: '.', '' }}">
+
+    <div class="product--row product--row--feature">
+
+        <div class="product--image">
+            <div class="product--image--container">
+                {% assign current_variant = product.selected_or_first_available_variant %}
+                {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
+                {% render 'responsive-image', classes: 'product--image--gift-card--image', image: featured_image, sizes: '768,1536,2048,3600' %}
+            </div>
+        </div>
+        <div class="product--details">
+            <div class="product--details--container">
+                <h1 class="product--details--title">{{ product.title }}</h1>
+                {% unless request.host contains 'international' %}
+                    {% render 'product-afterpay' %}
+                {% endunless %}
+                <div class="product--details--description">{{ product.description }}</div>
+                <form action="/cart/add" class="form product--details--form" method="post" enctype="multipart/form-data" id="AddToCartForm">
+
+                    <fieldset>
+
+                        <div class="form--group">
+                            <div class="select-wrapper">
+                                <select name="id" id="productSelect">
+                                    {% for variant in product.variants %}
+                                        {% if variant.available %}
+                                            <option value="{{ variant.id }}">
+                                                {{ variant.price | money_without_trailing_zeros }}
+                                            </option>
+                                        {% else %}
+                                            <option disabled="disabled">
+                                                {{ variant.price | money_without_trailing_zeros }} - sold out
+                                            </option>
+                                        {% endif %}
+                                    {% endfor %}
+                                </select>
+                                {% render 'icon', icon: 'chevron' %}
+                            </div>
+                        </div>
+
+                        <button href="#" class="product--add-cart-button add-cart-button button button--black" id="AddToCart" type="submit">
+                            <span class="add-cart-button--message add-cart-button--add">{{ 'product.add_to_cart.add' | t }}</span>
+                            <span class="add-cart-button--message add-cart-button--adding">{{ 'product.add_to_cart.adding' | t }}</span>
+                            <span class="add-cart-button--message add-cart-button--added">{{ 'product.add_to_cart.added' | t }}</span>
+                            <span class="add-cart-button--message add-cart-button--sold-out">{{ 'product.add_to_cart.sold-out' | t }}</span>
+                            <span class="add-cart-button--message add-cart-button--made-to-order">{{ 'product.add_to_cart.made-to-order' | t }}</span>
+                            <span class="add-cart-button--message add-cart-button--error">{{ 'product.add_to_cart.error' | t }}</span>
+                            <span class="loader spinner-grey-dark background-black"></span>
+                        </button>
+
+                    </fieldset>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

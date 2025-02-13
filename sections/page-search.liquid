@@ -1,0 +1,25 @@
+<div class="search">
+
+    {% if search.performed %}
+        {% paginate search.results by 24 %}
+
+            <div class="search--products">
+                <div class="product-index six-col">
+                    {% for product in search.results %}
+                        {% render 'product-index', product: product %}
+                    {% endfor %}
+                </div>
+
+	            {% if paginate.next.is_link %}
+	                <div class="pagination--next">
+	                    <a href="{{ paginate.next.url }}" class="pagination--link">{{ 'pagination.next-page' | t }}</a>
+	                    <span class="pagination--loading">{{ 'pagination.next-page-loading' | t }}</span>
+	                </div>
+	            {% endif %}
+                
+            </div>
+
+        {% endpaginate %}
+    {% endif %}
+
+</div>

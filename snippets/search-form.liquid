@@ -1,0 +1,7 @@
+<form action="/search" method="get" role="search" class="search--form">
+    <input type="hidden" name="type" value="product">
+    <textarea name="q" class="search--text-input" rows="1" placeholder="{{ placeholder }}"></textarea>
+    <a href="#" class="search-submit" value="submit">
+        {%- render 'icon' icon: icon -%}
+    </a>
+</form>

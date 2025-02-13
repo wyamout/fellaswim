@@ -1,0 +1,107 @@
+<div class="collection--header">
+  <meta id="collection-handle" name="collection-handle" content="{{ collection_handle }}">
+  <meta id="collection-selected-options" name="collection-selected-options" content="{{ selected }}">
+  <meta id="collection-allowed-swatches" name="collection-selected-swatches" content="{{ swatches }}">
+
+  <h1 class="collection-title">{{ collection_title }}</h1>
+
+  <div class="collection--filter-controls">
+    <a href="#" class="collection-header--link filter-controls filter-controls--sort">{{ 'collection.sort' | t }}</a>
+    <a href="#" class="collection-header--link filter-controls filter-controls--filter">
+      {{- 'collection.filter' | t -}}
+    </a>
+  </div>
+
+  <div class="collection--view-controls">
+    <a href="#" class="collection-header--link view-controls  four-col-div" data-view="four-col">
+      {{- 'collection.four-view' | t -}}
+    </a>
+    <a href="#" class="collection-header--link view-controls selected" data-view="six-col">
+      {{- 'collection.six-view' | t -}}
+    </a>
+  </div>
+
+  <div class="filters">
+    <template class="filter--option--template">
+      <a href="#" data-tag="" class="filter--option filter--option--swatch">
+        <span href="#" class="swatch"></span>
+        <span class="title">
+          {% render 'icon', icon: 'tick' %}
+        </span>
+      </a>
+    </template>
+
+    <div class="filter sort--filter">
+      <a href="#" class="filter--close">{% render 'icon', icon: 'cross' %}</a>
+      {%- render 'collection-filter-section',
+        title_and_toggle: false,
+        is_filterable: false,
+        autorun: true,
+        is_radio: true,
+        option_name: 'sort_by',
+        options: 'title-ascending,title-descending,price-ascending,price-descending',
+        default: 'title-ascending'
+      -%}
+    </div>
+
+    <div class="filter collection--filter">
+      <a href="#" class="filter--close">{% render 'icon', icon: 'cross' %}</a>
+
+      <div class="collection--filter--wrapper">
+        <div class="filter--section--group">
+          {%- render 'collection-filter-section',
+            title_and_toggle: true,
+            is_filterable: true,
+            autorun: false,
+            option_name: 'size',
+            options: 'xs,s,m,l,xl,xxl,10d,10dd'
+          -%}
+          {%- render 'collection-filter-section',
+            title_and_toggle: true,
+            is_filterable: true,
+            autorun: false,
+            is_radio: true,
+            option_name: 'stock',
+            options: 'in-stock,all'
+          -%}
+        </div>
+        {%- render 'collection-filter-section',
+          title_and_toggle: true,
+          is_filterable: true,
+          autorun: false,
+          is_radio: false,
+          option_name: 'fit',
+          options: 'underwire,triangle,halter,strapless,supportive,highrise,lowrise,cheeky'
+        -%}
+        {%- render 'collection-filter-swatches', option_name: 'colour', is_filterable: true, title_name: 'colours' -%}
+        {%- render 'collection-filter-swatches',
+          option_name: 'colour',
+          is_filterable: true,
+          title_name: 'prints',
+          border: settings.show_style_filters
+        -%}
+
+        {%- if settings.show_style_filters == true -%}
+          {%- render 'collection-filter-section',
+            title_and_toggle: true,
+            is_filterable: true,
+            autorun: false,
+            border: false,
+            columns: true,
+            option_name: 'style',
+            options: styles
+          -%}
+        {%- endif -%}
+      </div>
+
+      <div class="collection--filter--actions">
+        <a href="" class="collection--filter--actions--button apply">
+          {{ 'filters.apply' | t }}
+        </a>
+        <a href="" class="collection--filter--actions--button clear">
+          {{ 'filters.clear' | t }}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,70 @@
+{%- assign matches = '' -%}
+{%- assign prices = '' -%}
+{%- assign allotted = '' -%}
+{%- assign discounted_amount = 0 -%}
+{%- assign discount_rate = settings.cart_pair_discount_rate | divided_by: 100.0 -%}
+{%- assign valid_types = 'Tops,Bottoms' -%}
+{%- assign allotment_index = 0 -%}
+{%- assign allotted = '' | split: ',' -%}
+
+{%- for item in cart.items -%}
+    {%- if valid_types contains item.product.type and item.variant.compare_at_price == blank -%}
+        {%- capture product_colour -%}{%- render 'product-colour', product: item.product, title: true -%}{%- endcapture -%}
+        {%- for i in (1..item.quantity) -%}
+            {%- assign matches = matches | append: ',', | append: product_colour, | append: '_' | append: item.product.type -%}
+            {%- assign prices = prices | append: ',' | append: item.original_price -%}
+        {%- endfor -%}
+    {%- endif -%}
+{%- endfor -%}
+
+{%- assign matches = matches | remove_first: ',' | split: ',' -%}
+{%- assign prices = prices | remove_first: ',' | split: ',' -%}
+
+{%- for item in cart.items -%}
+
+    {%- if valid_types contains item.product.type and item.variant.compare_at_price == blank -%}
+        {%- capture product_colour -%}{%- render 'product-colour', product: item.product, title: true -%}{%- endcapture -%}
+
+        {%- assign match_type = 'Tops' -%}
+        {%- if item.product.type == 'Tops' -%}{%- assign match_type = 'Bottoms' -%}{%- endif -%}
+        {%- assign match_search = product_colour, | append: '_' | append: match_type -%}
+
+        {%- for i in (1..item.quantity) -%}
+
+            {%- assign allotment_index_search = allotment_index | append: '' -%}
+            {%- assign found = false -%}
+
+            {%- unless allotted contains allotment_index_search -%}
+                {%- for match_item in matches -%}
+
+                    {%- assign inner_allotment_index = forloop.index0 -%}
+                    {%- assign inner_allotment_index_search = inner_allotment_index | append: '' -%}
+
+                    {%- unless found == true or allotted contains inner_allotment_index_search -%}
+                        {%- if match_search == match_item -%}
+
+                            {%- assign allotted = allotted | join: ',' -%}
+                            {%- if allotted != '' -%}{%- assign allotted = allotted | append: ',' -%}{%- endif -%}
+                            {%- assign allotted = allotted | append: inner_allotment_index | append: ',' | append: allotment_index | split: ',' -%}
+
+                            {%- assign discount_outer = prices[allotment_index] | plus: 0 | times: discount_rate -%}
+                            {%- assign discount_inner = prices[inner_allotment_index] | plus: 0 | times: discount_rate -%}
+                            {%- assign discounted_amount = discounted_amount | plus: discount_inner | plus: discount_outer -%}
+
+                            {%- assign found = true -%}
+
+                        {%- endif -%}
+                    {%- endunless -%}
+
+                {%- endfor -%}
+            {%- endunless -%}
+
+            {%- assign allotment_index = allotment_index | plus: 1 -%}
+
+        {%- endfor -%}
+
+    {%- endif -%}
+
+{%- endfor -%}
+
+{{ discounted_amount }}

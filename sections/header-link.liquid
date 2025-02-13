@@ -1,0 +1,149 @@
+<style>
+  {% assign indexLink = 1 %}
+{% for link in linklists['main-menu'].links %}
+      {% assign showDropdown = false %}
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'nav' %}
+            {% assign navNameUp = block.settings.navName | upcase %}
+            {% assign linkTitleUp = link.title | upcase %}
+            {% if navNameUp == linkTitleUp %}
+              .sub-nav:not(:has(.sub-sub-nav--wrapper))[data-index="{{ indexLink }}"] .sub-nav--features {
+                grid-template-columns: repeat(1, minmax(0, 1fr));
+              }
+              @media screen and (min-width: 1024px) {
+                 .sub-nav:not(:has(.sub-sub-nav--wrapper))[data-index="{{ indexLink }}"] .sub-nav--features {
+                    grid-template-columns: repeat({{ block.settings.itemPerRow }}, minmax(0, 1fr));
+                    padding-top: 30px;
+                    padding-bottom: 30px;
+                    aspect-ratio: 4 / 1;
+                  }
+              }
+
+              .sub-nav:not(:has(.sub-sub-nav--wrapper))[data-index="{{ indexLink }}"] {
+                min-height: 300px;
+              }
+            {% endif %}
+        {% endcase %}
+      {% endfor %}
+  {% assign indexLink = indexLink | plus: 1 %}
+    {% endfor %}
+</style>
+
+<div class="nav--wrapper--scrollup">
+  <div class="nav--wrapper">
+    {% for link in linklists['main-menu'].links %}
+      {% assign showDropdown = false %}
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'nav' %}
+            {% assign navNameUp = block.settings.navName | upcase %}
+            {% assign linkTitleUp = link.title | upcase %}
+            {% if navNameUp == linkTitleUp %}
+              {% assign showDropdown = true %}
+            {% endif %}
+        {% endcase %}
+      {% endfor %}
+      <a
+        class="nav--link"
+        {% if link.links != blank or showDropdown %}
+          data-turbolinks="false"
+        {% endif %}
+        data-title="{{ link.title }}"
+        href="{{ link.url }}"
+      > 
+        {{- link.title -}}
+      </a>
+    {% endfor %}
+
+  </div>
+</div>
+
+<div class="sub-nav--wrapper">
+  {%- assign mobile_quicklinks = false -%}
+ {% assign indexLinkTwo = 1 %}
+  {% for link in linklists['main-menu'].links %}
+    <div class="sub-nav" data-index="{{ indexLinkTwo }}" data-title="{{ link.title }}" >
+      {% for sublink in link.links %}
+        <div class="sub-sub-nav--wrapper link-list">
+          <a class="sub-nav--link link-list--title" href="{{ sublink.url }}">{{ sublink.title | escape }}</a>
+          {% if sublink.links != blank %}
+            <div class="sub-sub-nav link-list--list">
+              {% for subsublink in sublink.links %}
+                <a
+                  class="sub-sub-nav--link link-list--link{% if subsublink.title == 'Sale' %} sale-link{% endif %}"
+                  href="{{ subsublink.url }}"
+                >
+                  {{- subsublink.title | escape -}}
+                </a>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+
+      {% if mobile_quicklinks == false %}
+        {%- assign mobile_quicklinks = true -%}
+
+        <div class="mobile-quicklinks">
+          <a
+            href="{% if customer != blank %}/account{% endif %}"
+            class="quicklink quicklinks--account{% if customer == blank %} quicklinks--sidebar-toggle{% endif %}"
+          >
+            {% render 'icon', icon: 'account' %}
+            <span class="quicklink--title">
+              {{ 'customer.login.account' | t }}
+            </span>
+          </a>
+          {%- section 'region-selector' -%}
+        </div>
+      {% endif %}
+      {% assign countNav = 0 %}
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'nav' %}
+            {% assign navNameUp = block.settings.navName | upcase %}
+            {% for link in linklists['main-menu'].links %}
+              {% assign linkTitleUp = link.title | upcase %}
+              {% if navNameUp == linkTitleUp %}
+                {% assign countNav = countNav | plus: 1 %}
+                <div class="sub-nav--features"  style="display: none !important;"></div>
+              {% endif %}
+            {% endfor %}
+        {% endcase %}
+      {% endfor %}
+      {% if countNav == 0 %}
+        <div class="sub-nav--features"></div>
+      {% endif %}
+       {% assign indexLinkTwo = indexLinkTwo | plus: 1 %}
+    </div>
+  {% endfor %}
+</div>
+
+{% schema %}
+{
+  "name": "Header dropdown",
+  "blocks": [
+    {
+      "type": "nav",
+      "name": "Nav",
+      "settings": [
+        {
+          "type": "text",
+          "default": "Nav Name",
+          "label": "Nav name",
+          "id": "navName"
+        },
+        {
+          "type": "range",
+          "default": 3,
+          "label": "Items per row",
+          "id": "itemPerRow",
+          "min": 1,
+          "max": 4
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,60 @@
+{%- assign outputted_products = '' -%}
+{%- assign outputted_collections = '' -%}
+{%- assign data = '' -%}
+<div class="product-index">
+    {% assign collection_products_length = collection_products | size %}
+    {% if collection_products_length == 0 %}
+        <p class="product-index--no-results">
+            <span class="product-index--no-results--title">{{ 'collection.no-results' | t }}</span>
+            <a href="#" class="product-index--no-results--clear">
+                {{ 'filters.clear-filters' | t }}
+            </a>
+        </p>
+    {% else %}
+        {% for product in collection_products %}
+            {%- assign related_products = '' -%}
+            {%- if product.id == blank -%}
+                {%- assign the_product = all_products[product] -%}
+            {%- else -%}
+                {%- assign the_product = product -%}
+            {%- endif -%}
+
+            {%- assign related_products = '' -%}
+            {%- assign related_collection = false -%}
+            
+            {%- for collection in the_product.collections -%}
+                {%- if the_product.title contains collection.title -%}
+                    {%- assign related_collection = collection -%}
+                    {%- assign related_collection_key = collection.id | append: ',' -%}
+                    {%- unless outputted_collections contains related_collection_key -%}
+                        {%- assign outputted_collections = outputted_collections | append: related_collection_key -%}
+                        {%- for related_product in collection.products -%}
+                            {%- assign related_product_key = ',' | append: related_product.id -%}
+                            {%- assign related_products = related_products | append: related_product_key -%}
+                            {%- unless outputted_products contains related_product_key -%}
+                                {%- capture product_colour_title -%}{%- render 'product-colour', product: related_product, title: true -%}{%- endcapture -%}
+                                {%- assign product_colour = product_colour_title | downcase | replace: ' ', '-' | replace: '-(textured)', '' -%}
+                                {%- capture product_variants -%}
+                                    {% for variant in related_product.variants %}
+                                    ,{"id": "{{ variant.id }}", "title": "{{ variant.title }}", "available": {{ variant.available }}}
+                                    {% endfor %}
+                                {%- endcapture -%}
+                                {%- capture feature_image -%}{% render 'responsive-image', classes: '', image: related_product.featured_image, sizes: '320,1600' %}{%- endcapture -%}
+                                {%- assign feature_image = feature_image | replace: '"', '\"' | strip | strip_newlines -%}
+                                {%- capture data -%}{{ data }}<script id="product_data_{{ related_product.id }}" type="application/json">{"title":"{{ related_product.title }}","colour":"{{ product_colour }}","colour_title":"{{ product_colour_title }}","image":"{{ feature_image }}","variants":[{{ product_variants | strip | strip_newlines | remove_first: ',' }}]}</script>{%- endcapture -%}
+                                {%- assign outputted_products = outputted_products | append: related_product_key -%}
+                            {%- endunless -%}
+                        {%- endfor -%}
+                        {%- capture data -%}{{ data }}<script id="collection_data_{{ related_collection.id }}" type="application/json">{"products":[{{ related_products | remove_first: ',' }}]}</script>{%- endcapture -%}
+                        {%- break -%}
+                    {%- endunless -%}
+                {%- endif -%}
+            {%- endfor -%}
+            {%- assign related_products_count = related_collection.products | size -%}
+            {% render 'product-index', product: the_product, related_collection_id: related_collection.id, related_products_count: related_products_count %}
+        {% endfor %}
+    {% endif %}
+</div>
+<div class="product-index--data">
+    {{ data }}
+</div>

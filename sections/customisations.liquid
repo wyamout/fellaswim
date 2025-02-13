@@ -1,0 +1,123 @@
+{% if settings.customisation_product != blank %}
+    {%- capture open_tag -%}
+    <div class="product--details--customise" data-customisation-id="{{ all_products[settings.customisation_product].first_available_variant.id }}" data-customisation-price="{{ all_products[settings.customisation_product].price | money_without_currency }}" data-customisation-currency="{{ cart.currency.iso_code }}" data-customisation-symbol="{{ cart.currency.symbol }}">
+
+        <a class="button button--secondary product--details--customise--trigger">
+            {{ 'product.customise.title' | t }}
+            {% render 'icon', icon: 'chevron' %}
+        </a>
+
+        <fieldset class="product--details--customise--content">
+            <div class="product--details--customise--content--wrapper">
+
+    {%- endcapture -%}
+
+    {%- assign opened = false -%}
+
+    {%- for block in section.blocks -%}
+
+        {%- if block.settings.collection != blank -%}
+
+            {%- assign is_in_collection = false -%}
+            {%- for collection in product.collections -%}
+            
+                {%- if block.settings.collection == collection.handle -%}
+                    {%- assign is_in_collection = true -%}
+                {%- endif -%}
+
+            {%- endfor -%}
+
+            {%- if is_in_collection == true -%}
+                
+                {%- if opened == false -%}
+                    {%- assign opened = true -%}
+                    {{ open_tag }}
+                {%- endif -%}
+
+                {%- assign type_slug = block.settings.customisation_type -%}
+                {%- assign id_slug = block.settings.description | downcase | replace: ' ', '_' | replace: '(', '' | replace: ')', '' -%}
+
+                <div class="product--details--customise--option">
+                    <div class="form--group">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" name="customisations[{{ type_slug }}]" id="customisation_{{ id_slug }}" data-size-override="{{ block.settings.size_override }}" data-custom-cup="{{ block.settings.cup_size }}" />
+                            <label class="product--details--customise--option--description" for="customisation_{{ id_slug }}">{{ block.settings.description }}</label>
+                        </div>
+
+                        {%- if block.settings.cup_size -%}
+                          <div class="select-wrapper cup-size-select">
+                            <select required class="select-wrapper--select" name="properties[cup size]">
+                              <option selected disabled value="">Select your size</option>
+                              <option name="a">A</option>
+                              <option name="b">B</option>
+                              <option name="c">C</option>
+                              <option name="d">D</option>
+                              <option name="dd">DD</option>
+                            </select>
+                          </div>
+                        {%- endif -%}
+                    </div>
+                </div>
+                
+                {%- continue -%}
+            {%- endif -%}
+        {%- endif -%}
+    {%- endfor -%}
+
+    {%- if opened == true -%}
+
+                <div class="product--details--customise--total">
+                    <div class="product--details--customise--total--wrapper">
+                        <span class="product--details--customise--total--title">{{ 'product.customise.additional_cost' | t }}</span>
+                        <span class="product--details--customise--total--price"></span>
+                    </div>
+                </div>
+
+            </div>
+
+        </fieldset>
+    </div>
+    {%- endif -%}
+{% endif %}
+
+{% schema %}
+{
+    "name": "Customisations",
+    "blocks": [
+        {
+            "type": "customisation-block",
+            "name": "Customisation Type",
+            "settings": [
+                {
+                    "label": "Description",
+                    "id": "description",
+                    "type": "text"
+                },
+                {
+                    "label": "Show cup size",
+                    "id": "cup_size",
+                    "type": "checkbox",
+                    "default": false
+                },
+                {
+                    "label": "Collection",
+                    "id": "collection",
+                    "type": "collection",
+                    "info": "Collection of products to allow this customisation on"
+                },
+                {
+                    "label": "Size Override",
+                    "id": "size_override",
+                    "type": "checkbox",
+                    "default": false
+                },
+                {
+                    "label": "Customisation Type",
+                    "id": "customisation_type",
+                    "type": "text"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

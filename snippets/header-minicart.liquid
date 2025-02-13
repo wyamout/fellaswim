@@ -1,0 +1,213 @@
+{% if settings.cart_pair_discount_status == true and settings.cart_pair_discount_rate > 0 %}
+    {%- capture discount_amount -%}{%- render 'cart-get-discount', cart: cart -%}{%- endcapture -%}
+    {%- assign discount_amount = discount_amount | plus: 0 -%}
+{% endif %}
+
+<div class="header--minicart">
+
+    <a href="#" class="minicart--close">
+        {% render 'icon', icon: 'cross' %}
+    </a>
+
+    <div class="cart-interaction"{%- if discount_amount != blank and discount_amount > 0 -%} data-needs-discount="true"{%- endif -%}>
+
+        <meta id="cart-pair-discount-check-endpoint" name="cart-pair-discount-check-endpoint" content="{{ settings.cart_pair_discount_check_endpoint }}">
+        <meta id="cart-pair-discount-check-status" name="cart-pair-discount-check-status" content="{{ settings.cart_pair_discount_status }}">
+
+        <script id="cart-data" name="cart-data" type="application/json">
+            [{% for item in cart.items %}{"product_type": "{{ item.product.type}}","product_id":"{{ item.product.id}}","quantity":{{ item.quantity }},"discounted":{% if item.variant.compare_at_price == blank %}false{% else %}true{% endif %}}{% if forloop.last != true %},{% endif %}{% endfor %}]
+        </script>
+
+        <div class="minicart--header">{{ 'cart.general.title' | t }}</div>
+
+        {% if cart.item_count > 0 %}
+
+            <div class="header--minicart--error">
+                <span class="error--quantity">
+                    {{ 'cart.errors.quantity' | t }}
+                </span>
+                <span class="error--remove">
+                    {{ 'cart.errors.remove' | t }}
+                </span>
+            </div>
+
+            <div class="header--minicart--items">
+
+                {% for item in cart.items %}
+                    {% liquid
+                    assign preorder_description = item.product.metafields.custom_fields.pre_order_description
+
+                    if item.product.id == customisation_product.id
+                        continue
+                    endif
+
+                    assign price_increase = 0
+
+                    %}
+
+                    <div class="minicart--product cart-interaction--line" data-line="{{ item.key }}">
+
+                        <div class="minicart--product--image image-anim--wrapper lazyload-animation">
+                            {%- assign featured_image = item.variant.featured_image | default: item.product.featured_image -%}
+                            <img class="lazyload minicart--product--image--image" data-src="{{ featured_image | img_url: '300x' }}" alt="{{ featured_image.alt | escape }}" width="{{ featured_image.width }} height="{{ featured_image.height }}" />
+                        </div>
+                        
+                        <div class="minicart--product--content--outer">
+
+                            <div class="minicart--product--content--columns">
+
+                                <a class="minicart--product--title" href="{{ item.product.url }}">
+                                    {%- capture product_colour_title -%}{%- render 'product-colour', product: item.product -%}{%- endcapture -%}
+                                    {%- assign product_title = item.product.title | replace: ',', '|' | split: ' | ' -%}
+                                    {%- assign product_title = product_title[0] -%}
+                                    {{ product_title }}
+                                </a>
+
+                                <div class="minicart--product--price">
+                                    {% if item.variant.compare_at_price > item.variant.price %}
+                                        {%- assign compare_at_price = item.variant.compare_at_price | plus: price_increase -%}
+                                        <span class="minicart--product--price--compare">{{ compare_at_price | money_without_trailing_zeros }}</span>
+                                    {% endif %}
+                                    {%- assign price = item.variant.price | plus: price_increase -%}
+                                    <span class="minicart--product--price--current">{{ price | money_without_trailing_zeros }}</span>
+                                </div>
+
+                            </div>
+                        
+                            <div class="minicart--product--content">
+                                {% if product_colour_title != blank %}
+                                    {%- assign product_colour_title = product_colour_title | capitalize -%}
+                                    <span class="minicart--product--colour">
+                                        {{ 'cart.general.colour' | t: colour: product_colour_title }}
+                                    </span>
+                                {% endif %}
+    
+                                {%- assign variant_count = item.product.variants | size -%}
+                                {%- capture item_customisation_count -%}{%- render 'cart-item-customisation-count', item: item -%}{%- endcapture -%}
+                                {%- assign price_increase = item_customisation_count | plus: 0 | times: customisation_product.price -%}
+                                {%- assign custom_size = item.properties['Size'] -%}
+    
+                                {%- if item.product.has_only_default_variant or variant_count == 1 -%}
+    
+                                    {% for option in item.variant.options %}
+                                        {%- if option != blank -%}
+                                            <span class="minicart--product--option">{{ item.product.options[forloop.index0] }}: {{ option }}</span>
+                                        {%- endif -%}
+                                    {% endfor %}
+    
+                                {%- elsif item.variant.title == 'Custom' -%}
+    
+                                    {% if custom_size != blank %}
+                                        <span class="minicart--product--option">
+                                            {{ 'cart.general.size' | t: size: custom_size }}
+                                        </span>
+                                    {% endif %}
+    
+                                {%- else -%}
+                                
+                                    <div class="minicart--product--option">
+                                        {% render 'cart-interface-option', product: item.product, option: item.variant.title %}
+                                    </div>
+    
+                                {%- endif -%}
+    
+                                {%- if item_customisation_count != '0' -%}
+                                    <span class="minicart--product--option minicart--product--option--customised">{{ 'cart.general.customised' | t }} </span>
+                                {%- endif -%}
+    
+                                <div class="minicart--product--qty">
+                                    <span class="minicart--product--qty--title">{{ 'cart.general.quantity' | t }}</span>
+                                    {% render 'cart-interface-qty', item: item %}
+                                </div>
+                                    
+                                {% if preorder_description != blank %}
+                                    <div class="minicart--property--highlight">{{ preorder_description }}</div>
+                                {% endif %}
+                                
+                                {%- if item.variant.compare_at_price > item.variant.price -%}
+                                    <div class="minicart--property--highlight">{{ 'cart.callouts.final_sale_msg' | t }}</div>
+                                {%- endif -%}
+    
+                                <div class="minicart--product--remove">
+                                    <a href="#" class="cart-interface--remove">
+                                        {{ 'cart.general.remove' | t }}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+            <div class="header--minicart--footer" data-customisation-target="{{ customisation_target }}" data-customisation-count="{{ customisation_count }}">
+
+                {% if settings.cart_free_shipping_rate != blank %}
+                    {% assign rate = settings.cart_free_shipping_rate | money_without_trailing_zeros %}
+                    <div class="header--minicart--footer--free-shipping">
+                        {{ 'cart.general.free_shipping' | t: rate: rate }}
+                    </div>
+                {% endif %}
+
+                <div class="header--minicart--footer--price-line">
+
+                    <div class="price--item">
+                        <span class="price--item--title">{{ 'cart.general.subtotal' | t }}</span>
+                        <span class="price--item--value">{{ cart.original_total_price | money_without_trailing_zeros }}</span>
+                    </div>
+
+                    {%- if settings.cart_pair_discount_status == true and discount_amount != blank and discount_amount > 0 -%}
+                        <div class="price--item price--item--discount">
+                            <span class="price--item--title">{{ 'cart.general.match_discount' | t: percent: settings.cart_pair_discount_rate }}</span>
+                            <span class="price--item--value">-{{ discount_amount | money_without_trailing_zeros }}</span>
+                        </div>
+                    {% endif %}
+
+                    <div class="price--item">
+                        {{ 'cart.general.shipping_at_checkout' | t }}
+                    </div>
+
+                </div>
+
+                <div class="header--minicart--footer--price-line">
+
+                    <div class="price--item">
+                        <span class="price--item--title">{{ 'cart.general.total' | t }}</span>
+                        <span class="price--item--value">
+                            {%- assign total_price = cart.total_price | minus: discount_amount -%}
+                            {{ total_price | money_without_trailing_zeros }}
+                        </span>
+                    </div>
+
+                </div>
+
+                <a href="/cart" class="header--minicart--footer--view-cart button button--secondary">
+                    {{ 'cart.general.view_cart' | t }}
+                </a>
+
+                <div class="form--group">
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" name="agree-terms" id="agree-terms-minicart" class="agree-terms" />
+                        <label class="agree-terms-description" for="agree-terms"></label>
+                    </div>
+                </div>
+
+                <a href="/checkout" class="header--minicart--footer--checkout checkout-button button button--black">
+                    {{ 'cart.general.checkout' | t }}
+                    <span class="loader spinner-grey-dark background-eucalyptus"></span>
+                </a>
+
+            </div>
+
+        {% else %}
+
+            <div class="header--minicart--empty">
+                {{ 'cart.general.empty' | t }}
+            </div>
+
+        {% endif %}
+
+    </div>
+    
+</div>

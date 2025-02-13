@@ -1,0 +1,24 @@
+{%- if settings.global_note_status == 'yes' and settings.global_note_text != blank -%}
+    {%- assign notes = settings.global_note_text | newline_to_br | split: '<br />' -%}
+    <div class="ribbon color-{{ settings.global_note_color }}">
+        
+        <div class="ribbon--notes">
+            {% for note in notes %}
+                {%- assign note_parts = note | split: '[' -%}
+                {%- assign url = note_parts[1] | remove_first: ']' -%}
+
+                <div class="ribbon--note">
+                    <div class="ribbon--note--content">
+                        {%- if url != blank -%}<a href="{{ url }}">{%- endif -%}
+                        {{ note_parts[0] }}
+                        {%- if url != blank -%}</a>{%- endif -%}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <a href="#" class="ribbon--close color-{{ settings.global_note_color }}">{% render 'icon', icon: 'cross' %}</a>
+
+    </div>
+
+{%- endif -%}

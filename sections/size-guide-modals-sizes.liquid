@@ -1,0 +1,92 @@
+<div id="shopify-section-size-guide-modals-sizes" class="shopify-section">
+<div class="size-guide size-guide--modals">
+
+	<div class="size-guide--top">
+		<div class="size-guide--heading size-guide--title">{{ section.settings.sec_title }}</div>
+		<div class="size-guide--nav size-guide--btns-modal-wrap">
+			{% for block in section.blocks %}
+				<button class="size-guide-modal-button button button--transparent" data-modal="modal-{{forloop.index}}">{{ block.settings.btn_title }}</button>
+			{% endfor %}
+		</div>
+	</div>
+
+	<div class="size-guide--bottom">
+		{% for block in section.blocks %}
+			<div class="size-guide-modal modal size-guide--page" data-pg-handle="{{ block.settings.page.handle }}" id="modal-{{forloop.index}}">
+
+				<div class="modal-bg modal-exit"></div>
+				<div class="modal-container">
+					<button class="modal-close modal-exit">{% render 'icon', icon: 'cross' %}</button>
+					<div class="size-guide-modal-header ">
+	
+						<div class="modal-title-header feature-page--heading">{{ block.settings.page.title }}</div>
+						
+					</div>
+					<div class="size-guide-modal-content modal-contant">
+						<div class="size-guide-chart-tab-container">
+							{% if block.settings.size_guide_des != blank %}
+								<div class="size-guide-p-wrapper desktop">
+									{{ block.settings.size_guide_des }}
+								</div>
+							{% endif %}
+							<div class="size-guide-table-wrapper">
+
+								{% if block.settings.page.content != blank %}
+									{{ block.settings.page.content }}
+								{% endif %}
+							</div>
+							{% if block.settings.size_guide_des_m != blank %}
+								<div class="size-guide-p-wrapper mobile">
+									{{ block.settings.size_guide_des_m }}
+								</div>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+</div>
+</div>
+{% schema %}
+{
+    "name": "Size Guide size modals",
+    "settings": [
+        {
+            "type": "text",
+            "id": "sec_title",
+            "label": "Section Title"
+        }
+    ],
+    "blocks": [
+        {
+            "name": "Block",
+            "type": "size-modal",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "btn_title",
+                    "label": "Button Title"
+                },
+				{
+                    "type": "html",
+                    "id": "size_guide_des",
+                    "label": "(Top) size guide description"
+                },
+				{
+                    "type": "html",
+                    "id": "size_guide_des_m",
+                    "label": "(Mobile bottom) size guide description"
+                },
+                {
+                    "type": "page",
+                    "id": "page",
+                    "label": "Page with table",
+                    "info":"Select page with table"
+                }
+            ]
+        }
+    ],
+    "presets": []
+}
+{% endschema %}

@@ -1,0 +1,119 @@
+{% comment %} Hack to get pageUrl with query string {% endcomment %}
+{%- capture contentForQuerystring -%}{{ content_for_header }}{%- endcapture -%}
+{%- assign pageUrl = contentForQuerystring | split:'"pageurl":"' | last | split:'"' | first | split:'.com' | last |
+replace:'\/','/' |
+replace:'%20',' ' |
+replace:'\u0026','&'
+-%}
+{% assign orderIdSplit = pageUrl | split: "orderId=" %}
+{% assign orderId = orderIdSplit[1] %}
+{% assign order = false %}
+
+{% for orderThis in customer.orders %}
+  {% assign orderIdThis = orderThis.order_number | append: "" %}
+  {% if orderId == orderIdThis %}
+    {% assign order = orderThis %}
+  {% endif %}
+{% endfor %}
+
+<div class="two-panel account account--dashboard account--orders">
+    {% include 'side-navigation--account' %}
+    <div class="container">
+        <div class="account--orders--detail">
+            {% if order %}
+            <h2 class="container--title">{{ 'customer.orders.order_with_number' | t: order_number: order.order_number }}</h2>
+
+            <div class="account--orders--table">
+                <div class="account--orders--table--row account--orders--table--row--header">
+                    <div class="account--orders--table--row--placed">{{ 'customer.orders.placed' | t }} {{ order.created_at | date: "%b %d, %Y" }}</div>
+                </div>
+                {% for item in order.line_items %}
+                  <div class="account--orders--table--row account--orders--table--row--product">
+                      <div class="account--orders--table--row--image">
+                          {% render 'responsive-image', classes: '', image: item.image, sizes: '768,1536,2048,3600' %}
+                      </div>
+                      <div class="account--orders--table--row--middle">
+                        <div class="account--orders--table--row--info">
+
+                            {%- assign product_name_split = item.product.title | replace: ",", "|" | split: "|" -%}
+                            {%- assign product_name = product_name_split[0] | trim %}
+                            <div class="account--orders--table--row--property">{{ product_name }}</div>
+
+                            {%- capture product_colour_title -%}{%- render 'product-colour', product: item.product -%}{%- endcapture -%}
+                            {%- assign product_colour = product_colour_title | downcase | replace: ' ', '-' | capitalize -%}
+                            <div class="account--orders--table--row--property">{{ 'customer.orders.colour' | t: colour: product_colour }}</div>
+
+                        </div>
+                        <div class="account--orders--table--row--size">
+                            {{ 'customer.orders.size' | t: size: item.variant.title }}
+                        </div>
+                        <div class="account--orders--table--row--quantity">
+                            {{ 'customer.orders.quantity' | t: quantity: item.quantity }}
+                        </div>
+                      </div>
+                      <div class="account--orders--table--row--price">
+                          {{ item.line_price | money_without_trailing_zeros }}
+                      </div>
+                  </div>
+                {% endfor %}
+                <div class="account--orders--table--row account--orders--table--row--summary">
+                    <div class="account--orders--table--row--left">
+                        {{ 'customer.orders.subtotal' | t }}
+                    </div>
+                    <div class="account--orders--table--row--right">
+                        {{ order.line_items_subtotal_price | money_without_trailing_zeros }}
+                    </div>
+                </div>
+                <div class="account--orders--table--row account--orders--table--row--summary">
+                    <div class="account--orders--table--row--left">
+                        {{ 'customer.orders.tax' | t }}
+                    </div>
+                    <div class="account--orders--table--row--right">
+                        {{ order.tax_price | money_without_trailing_zeros }}
+                    </div>
+                </div>
+                <div class="account--orders--table--row account--orders--table--row--summary">
+                    <div class="account--orders--table--row--left">
+                        {{ 'customer.orders.shipping' | t }}
+                    </div>
+                    <div class="account--orders--table--row--right">
+                        {{ order.shipping_price | money_without_trailing_zeros }}
+                    </div>
+                </div>
+                <div class="account--orders--table--row account--orders--table--row--summary">
+                    <div class="account--orders--table--row--left">
+                        {{ 'customer.orders.total' | t }}
+                    </div>
+                    <div class="account--orders--table--row--right">
+                        {{ order.total_price | money_without_trailing_zeros }}
+                    </div>
+                </div>
+                <div class="account--orders--table--row account--orders--table--row--address">
+                    <div class="account--orders--table--row--property">
+                        <div class="account--orders--table--row--subheading">{{ 'customer.orders.billing_address' | t }}</div>
+                        {{ order.billing_address.address1 }}<br />
+                        {{ order.billing_address.city }} {{ order.billing_address.province_code }} {{ order.billing_address.zip }}<br />
+                        {{ order.billing_address.country }}<br />
+                        {{ order.billing_address.phone }}
+                        <div class="account--orders--table--row--highlight">{{ 'customer.orders.payment_status' | t }} - {{ order.financial_status_label }}</div>
+                    </div>
+                    <div class="account--orders--table--row--property">
+                        <div class="account--orders--table--row--subheading">{{ 'customer.orders.shipping_address' | t }}</div>
+                        {{ order.shipping_address.address1 }}<br />
+                        {{ order.shipping_address.city }} {{ order.shipping_address.province_code }} {{ order.shipping_address.zip }}<br />
+                        {{ order.shipping_address.country }}<br />
+                        {{ order.shipping_address.phone }}
+                        <div class="account--orders--table--row--highlight">{{ 'customer.orders.fulfillment_status' | t }} - {{ order.fulfillment_status_label }}</div>
+                    </div>
+                </div>
+                <div class="account--orders--table--row account--orders--table--row--return">
+                  <a class="account--orders--table--row--return--link" href="/account?view=orders">{{ 'customer.orders.return' | t }}</a>
+                  <a target="account--orders--table--row--download--link _blank" href="{{ shop.url }}/apps/sufio/invoice/download/?id={{ order.id }}&number={{ order.order_number }}">{{ 'customer.orders.download_invoice' | t }}</a>
+                </div>
+            </div>
+            {% else %}
+              <h2>{{ 'customer.orders.not_found' | t }}</h2>
+            {% endif %}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+{%- assign product_title_split = product.title | split: ' | ' -%}
+{%- assign product_title_formatted = product_title_split.first -%}
+{%- if product_title_split.first != product_title_split.last -%}
+	{%- assign product_title_formatted = product_title_formatted | append: ", " | append: product_title_split.last -%}	
+{%- endif -%}
+
+<div class="product-gallery--item" data-product-id="{{ product.id }}" data-product-type="{{ product.type }}" data-product-handle="{{ product.handle }}">
+    <a href="{{ product.url }}" class="product-gallery--item--image lazyload-animation image-anim--wrapper image-anim--scale image-anim--scale--medium">
+        {% render 'responsive-image', classes: 'image-feature--image', image: product.images[0], sizes: '768,1536,2048,3600' %}
+    </a>
+
+    <a href="{{ product.url }}" class="product-gallery--item--link">
+        {{ product_title_formatted }}
+    </a>
+
+    <a href="{{ product.url }}" class="product-gallery--item--link">
+    	{%- if product.compare_at_price > product.price -%}
+            <span class="product-gallery--item--price product-gallery--item--price--compare">
+                {{ product.compare_at_price | money_without_trailing_zeros }}
+            </span>
+        {%- endif -%}
+    	<span class="product-gallery--item--price product-gallery--item--price--current">
+            {{ product.price | money_without_trailing_zeros }}
+        </span>
+    </a>
+
+</div>

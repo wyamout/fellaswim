@@ -1,0 +1,67 @@
+<h2 class="image-feature--pretitle">{{ page.title }}</h2>
+
+{% if section.blocks.size > 0 %}
+    {% assign block_odd = true %}
+    {% for block in section.blocks %}
+
+        <div class="image-feature layout--flex {% if block.settings.layout == "standard" %}layout--half {% if block_odd %}layout--half-left{% else %}layout--half-right{% endif %}{% else %}layout--full-width{% endif %}">
+            <div class="image-feature--wrapper image-anim--scale">
+
+                {% if block.settings.image != blank %}
+                    <div class="image-feature--images image-anim--wrapper lazyload-animation">
+                        {% render 'responsive-image', classes: 'image-feature--image', image: block.settings.image, sizes: '768,1536,2048,3600' %}
+                    </div>
+                {% endif %}
+                {% if block.settings.layout == "standard" %}
+                    {% if block_odd %}{% assign block_odd = false %}{% else %}{% assign block_odd = true %}{% endif %}
+                    <div class="image-feature--titles title-align--left title-align--center title-color--black">
+                        <div class="image-feature--titles--wrapper image-feature--titles--wrapper--stacked">
+                            {% if block.settings.title != "" %}<h2 class="image-feature--titles--title">{{ block.settings.title }}</h2>{% endif %}
+                            <div class="image-feature--titles--wysiwyg image-feature--titles--wysiwyg--large-breaks">{{ block.settings.text | replace: '<p><br>', '<p>' }}</div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+    {% endfor %}
+{% endif %}
+
+{% schema %}
+{
+    "name": "Contact Us",
+    "blocks": [
+        {
+            "type": "Content",
+            "name": "Content",
+            "settings": [
+                {
+                    "label": "Layout",
+                    "id": "layout",
+                    "type": "radio",
+                    "options": [
+                        { "value": "standard", "label": "Standard" },
+                        { "value": "no-text", "label": "No text (full width image)" }
+                    ],
+                    "default": "standard"
+                },
+                {
+                    "label": "Image",
+                    "id": "image",
+                    "type": "image_picker"
+                },
+                {
+                    "label": "Title",
+                    "id": "title",
+                    "type": "text"
+                },
+                {
+                    "label": "Text",
+                    "id": "text",
+                    "type": "richtext"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

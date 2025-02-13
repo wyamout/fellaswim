@@ -1,0 +1,244 @@
+{% assign url_parts = request.path | split: '/' %}
+{% assign page_handle = url_parts | last %}
+{% if page_handle == 'press' %}
+  <div class="blogs--archive--posts blogs--archive--posts-custom">
+    {% assign blog_handle = 'press' %}
+    {% assign articles = blogs[blog_handle].articles %}
+     {% assign ordered_articles = '' %}
+    {% assign unordered_articles = '' %}
+    {% assign article_count = 0 %}
+    {% for article in articles %}
+      {% assign order_value = article.metafields.custom.order_position_date | default: '9999-12-31' %}
+      {% if order_value != '9999-12-31' %}
+        {% assign ordered_articles = ordered_articles
+          | append: order_value
+          | append: ':'
+          | append: article.id
+          | append: ','
+        %}
+      {% else %}
+        {% assign unordered_articles = unordered_articles | append: article.id | append: ',' %}
+      {% endif %}
+    {% endfor %}
+    {% assign ordered_articles = ordered_articles | split: ',' | sort | reverse %}
+    {% assign unordered_articles = unordered_articles | remove_last: ',' | split: ',' %}
+
+    <!-- Display ordered articles -->
+    {% for item in ordered_articles %}
+      {% assign article_id = item | split: ':' | last %}
+      {% for article in articles %}
+        {% assign clean_article_id = article_id | strip %}
+        {% assign clean_comparison_id = article.id | strip %}
+        {% if clean_article_id == clean_comparison_id %}
+          {% render 'blog-article-item', article: article, index: article_count %}
+          {% assign article_count = article_count | plus: 1 %}
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+
+    <!-- Display ordered articles -->
+    {% for item in unordered_articles %}
+      {% assign article_id = item | split: ':' | last %}
+      {% for article in articles %}
+        {% assign clean_article_id = article_id | strip %}
+        {% assign clean_comparison_id = article.id | strip %}
+        {% if clean_article_id == clean_comparison_id %}
+          {% render 'blog-article-item', article: article, index: article_count %}
+          {% assign article_count = article_count | plus: 1 %}
+        {% endif %}
+      {% endfor %}
+  
+    {% endfor %}
+  </div>
+{% elsif page_handle == 'journal' %}
+  <div class="blogs--archive--posts blogs--archive--posts-custom">
+    {% assign blog_handle = 'collaborations' %}
+    {% assign articles = blogs[blog_handle].articles %}
+     {% assign ordered_articles = '' %}
+    {% assign unordered_articles = '' %}
+    {% assign article_count = 0 %}
+    {% for article in articles %}
+      {% assign order_value = article.metafields.custom.order_position_date | default: '9999-12-31' %}
+      {% if order_value != '9999-12-31' %}
+        {% assign ordered_articles = ordered_articles
+          | append: order_value
+          | append: ':'
+          | append: article.id
+          | append: ','
+        %}
+      {% else %}
+        {% assign unordered_articles = unordered_articles | append: article.id | append: ',' %}
+      {% endif %}
+    {% endfor %}
+    {% assign ordered_articles = ordered_articles | split: ',' | sort | reverse %}
+    {% assign unordered_articles = unordered_articles | remove_last: ',' | split: ',' %}
+
+    <!-- Display ordered articles -->
+    {% for item in ordered_articles %}
+      {% assign article_id = item | split: ':' | last %}
+      {% for article in articles %}
+        {% assign clean_article_id = article_id | strip %}
+        {% assign clean_comparison_id = article.id | strip %}
+        {% if clean_article_id == clean_comparison_id %}
+          {% render 'blog-article-item', article: article, index: article_count %}
+          {% assign article_count = article_count | plus: 1 %}
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+
+    <!-- Display ordered articles -->
+    {% for item in unordered_articles %}
+      {% assign article_id = item | split: ':' | last %}
+      {% for article in articles %}
+        {% assign clean_article_id = article_id | strip %}
+        {% assign clean_comparison_id = article.id | strip %}
+        {% if clean_article_id == clean_comparison_id %}
+          {% render 'blog-article-item', article: article, index: article_count %}
+          {% assign article_count = article_count | plus: 1 %}
+        {% endif %}
+      {% endfor %}
+  
+    {% endfor %}
+  </div>
+{% elsif page_handle == 'campaigns' %}
+  <div class="blogs--archive--posts blogs--archive--posts-custom">
+    {% assign blog_handle = 'campaigns' %}
+    {% assign articles = blogs[blog_handle].articles %}
+     {% assign ordered_articles = '' %}
+    {% assign unordered_articles = '' %}
+    {% assign article_count = 0 %}
+    {% for article in articles %}
+      {% assign order_value = article.metafields.custom.order_position_date | default: '9999-12-31' %}
+      {% if order_value != '9999-12-31' %}
+        {% assign ordered_articles = ordered_articles
+          | append: order_value
+          | append: ':'
+          | append: article.id
+          | append: ','
+        %}
+      {% else %}
+        {% assign unordered_articles = unordered_articles | append: article.id | append: ',' %}
+      {% endif %}
+    {% endfor %}
+    {% assign ordered_articles = ordered_articles | split: ',' | sort | reverse %}
+    {% assign unordered_articles = unordered_articles | remove_last: ',' | split: ',' %}
+
+    <!-- Display ordered articles -->
+    {% for item in ordered_articles %}
+      {% assign article_id = item | split: ':' | last %}
+      {% for article in articles %}
+        {% assign clean_article_id = article_id | strip %}
+        {% assign clean_comparison_id = article.id | strip %}
+        {% if clean_article_id == clean_comparison_id %}
+          {% render 'blog-article-item', article: article, index: article_count %}
+          {% assign article_count = article_count | plus: 1 %}
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+
+    <!-- Display ordered articles -->
+    {% for item in unordered_articles %}
+      {% assign article_id = item | split: ':' | last %}
+      {% for article in articles %}
+        {% assign clean_article_id = article_id | strip %}
+        {% assign clean_comparison_id = article.id | strip %}
+        {% if clean_article_id == clean_comparison_id %}
+          {% render 'blog-article-item', article: article, index: article_count %}
+          {% assign article_count = article_count | plus: 1 %}
+        {% endif %}
+      {% endfor %}
+  
+    {% endfor %}
+  </div>
+{% else %}
+  <div class="blogs--archive--posts blogs--archive--posts-custom">
+  {% assign ordered_articles = '' %}
+  {% assign unordered_articles = '' %}
+  {% assign article_count = 0 %}
+
+  <!-- Categorize Articles -->
+  {% for article in articles %}
+    {% assign order_value = article.metafields.custom.order_position_date | default: '9999-12-31' %}
+    {% if order_value != '9999-12-31' %}
+      {% assign ordered_articles = ordered_articles
+        | append: order_value
+        | append: ':'
+        | append: article.id
+        | append: ','
+      %}
+    {% else %}
+      {% assign unordered_articles = unordered_articles | append: article.id | append: ',' %}
+    {% endif %}
+  {% endfor %}
+
+  <!-- Clean Up and Sort -->
+  {% assign ordered_articles = ordered_articles | remove_last: ',' | split: ',' | sort | reverse %}
+  {% assign unordered_articles = unordered_articles | remove_last: ',' | split: ',' %}
+
+  <!-- Display Ordered Articles -->
+  {% for item in ordered_articles %}
+    {% assign article_id = item | split: ':' | last %}
+    {% for article in articles %}
+      {% assign clean_article_id = article_id | strip %}
+      {% assign clean_comparison_id = article.id | strip %}
+      {% if clean_article_id == clean_comparison_id %}
+        {% render 'blog-article-item', article: article, index: article_count %}
+        {% assign article_count = article_count | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+
+  <!-- Display Unordered Articles -->
+  {% for item in unordered_articles %}
+    {% assign article_id = item | strip %}
+    {% for article in articles %}
+      {% assign clean_comparison_id = article.id | strip %}
+      {% if article_id == clean_comparison_id %}
+        {% render 'blog-article-item', article: article, index: article_count %}
+        {% assign article_count = article_count | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+</div>
+
+{% endif %}
+
+<div class="finding-more-blogs" style="opacity: 0;">Finding more blogs...</div>
+
+<!-- thediep094 -->
+<script>
+ document.addEventListener('DOMContentLoaded', () => {
+    const blogHiddenClass = 'blog--archive--hidden';
+    const itemsToShow = 6; // Number of items to reveal at a time
+     const revealDelay = 500;
+     function revealItems() {
+      const hiddenItems = document.querySelectorAll(`.${blogHiddenClass}`);
+      const itemsToReveal = Math.min(itemsToShow, hiddenItems.length);
+      setTimeout(() => {
+        for (let i = 0; i < itemsToReveal; i++) {
+          hiddenItems[i].classList.remove(blogHiddenClass);
+        }
+
+        document.querySelector('.finding-more-blogs').style.opacity = 0
+
+        if (hiddenItems.length <= itemsToReveal) {
+          window.removeEventListener('scroll', checkScroll);
+        }
+      }, revealDelay);
+    }
+   
+
+    function checkScroll() {
+      // Check if the user has scrolled to the bottom of the page
+      if (window.innerHeight + window.scrollY + 50 >= document.documentElement.scrollHeight) {
+        revealItems();
+             document.querySelector('.finding-more-blogs').style.opacity = 1;
+      }
+    }
+
+    // Add scroll event listener
+    window.addEventListener('scroll', checkScroll);
+    // Initial call to reveal items if already scrolled to bottom
+    checkScroll();
+  });
+</script>

@@ -1,0 +1,144 @@
+<div class="style-guide--wrapper">
+{%- if page.template_suffix == 'style-guide' -%}
+	<div class="style-guide--index">
+        <h2 class="feature-page--heading">{{ 'style_guide.heading' | t }}</h2>
+    	<p class="feature-page--subheading">{{ 'style_guide.subheading' | t }}</p>
+        <div class="style-guide--grid">
+            {%- for block in section.blocks -%}
+                {%- assign block_page = block.settings.page | prepend: '/pages/' -%}
+                <a href="{{ block_page }}" class="style-guide--grid--item" data-style-guide-title="{{ block.settings.title }}">
+
+    				<div class="style-guide--grid--item--hover-border"></div>
+    	    		<span class="style-guide--grid--item--title">{{ block.settings.title }}</span>
+
+            		<div class="image-feature--wrapper image-anim--scale">
+    		    		<div class="image-feature image-anim--wrapper lazyload-animation">
+    		    			{% render 'responsive-image', classes: 'image-feature--image', image: block.settings.image, sizes: '768,1536,2048,3600' %}
+    	    			</div>
+        			</div>
+
+    			</a>
+            {%- endfor -%}
+        </div>
+    </div>
+{%- else -%}
+    {%- assign style = false -%}
+
+    {%- for block in section.blocks -%}
+        {%- assign block_page = block.settings.page | prepend: '/pages/' -%}
+        {%- if page.url == block_page -%}
+            {%- assign style = block -%}
+            {%- break -%}
+        {%- endif -%}
+    {%- endfor -%}
+
+    {%- if style != false -%}
+        <div class="style-guide--feature">
+            <div class="style-guide--feature--top">
+                <div class="style-guide--feature--top--left">
+                    <div class="image-feature--wrapper">
+                        <div class="image-feature lazyload-animation">
+                            {% render 'responsive-image', classes: 'image-feature--image', image: style.settings.image, sizes: '768,1536,2048,3600' %}
+                        </div>
+                    </div>
+                </div>
+                <div class="style-guide--feature--top--right">
+                    <h2 class="style-guide--feature--top--right--heading feature-page--heading">{{ 'style_guide.style_guide_prefix' | t }}{{ page.title }}</h2>
+                    <p class="style-guide--feature--top--right--description feature-page--subheading">{{ style.settings.description }}</p>
+                    {%- if style.settings.hot_tips != "" -%}
+                        <h4 class="style-guide--feature--top--right--subheading">{{ 'style_guide.hot_tips' | t }}</h4>
+                        <p class="style-guide--feature--top--right--description feature-page--subheading">{{ style.settings.hot_tips | newline_to_br | strip_newlines | replace: '<br />', '</p><p class="style-guide--feature--top--right--description">' }}</p>
+                    {%- endif -%}
+                </div>
+                <a href="/pages/{{ section.settings.index_page }}" class="style-guide--feature--top--back">
+                    {% render 'icon', icon: 'chevron' %} Back to start
+                </a>
+            </div>
+            {%- assign set_picks = collections[style.settings.set_picks] -%}
+            {%- if set_picks != blank -%}
+                <div class="style-guide--feature--middle">
+                    <h3 class="style-guide--feature--middle--title">{{ 'style_guide.set_picks' | t }}
+                        {%- for product in set_picks.products -%}
+                            {% if forloop.index == 2 %} with {% elsif forloop.index > 2 %} and {% endif %}
+                            {%- assign product_title = product.title | split: "|" -%}
+                            {%- assign product_title = product_title.first | strip -%}
+                            {{ product_title }}
+                        {%- endfor -%}
+                    </h3>
+                    <div class="style-guide--feature--middle--products style-guide--products">
+                        {% render 'product-gallery', products: set_picks.products %}
+                    </div>
+                </div>
+            {%- endif -%}
+            <div class="style-guide--feature--bottom">
+                {%- assign suggestions = collections[style.settings.suggestions] -%}
+
+                <div class="style-guide--feature--bottom--products style-guide--products">
+                    {% render 'product-gallery', products: suggestions.products, types: true, translation: 'style_guide.suggested.' %}
+                </div>
+
+            </div>
+            <div class="style-guide--feature--contact">
+                <h3 class="style-guide--feature--contact--heading">{{ 'style_guide.unsure' | t }}</h3>
+                <a class="style-guide--feature--contact--link" href="mailto:{{ shop.email }}">{{ shop.email }}</a>
+            </div>
+        </div>
+    {%- endif -%}
+{%- endif -%}
+</div>
+
+{% schema %}
+{
+    "name": "Style Guide",
+    "settings": [
+        {
+            "label": "Style Guide Index Page",
+            "id": "index_page",
+            "type": "page"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "Feature",
+            "name": "Feature",
+            "settings": [
+                {
+                    "label": "Title",
+                    "id": "title",
+                    "type": "text"
+                },
+                {
+                    "label": "Page",
+                    "id": "page",
+                    "type": "page"
+                },
+				{
+					"label": "Image",
+					"id": "image",
+					"type": "image_picker"
+				},
+                {
+                    "label": "Description",
+                    "id": "description",
+                    "type": "textarea"
+                },
+                {
+                    "label": "Hot Tips",
+                    "id": "hot_tips",
+                    "type": "textarea"
+                },
+                {
+                    "label": "Set Picks",
+                    "id": "set_picks",
+                    "type": "collection"
+                },
+                {
+                    "label": "Suggestions",
+                    "id": "suggestions",
+                    "type": "collection"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

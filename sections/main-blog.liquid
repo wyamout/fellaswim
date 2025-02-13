@@ -1,0 +1,15 @@
+{%- if blog.title == "Campaigns" -%}
+  <script type="text/javascript">
+    location.href = "/pages/campaigns";
+  </script>
+
+{%- elsif blog.title == "Journal" -%}
+  <script type="text/javascript">
+    location.href = "/pages/journal";
+  </script>
+
+{%- elsif blog.title == "Press" -%}
+  <script type="text/javascript">
+    location.href = "/pages/press";
+  </script>
+{%- endif -%}

@@ -1,0 +1,55 @@
+{%- for block in section.blocks -%}
+    {%- if block.settings.collection != blank -%}
+
+        {%- if product.collections contains collections[block.settings.collection] -%}
+            <div class="product--details--info-box">
+
+                <a href="#" class="product--details--info-box--title">
+                    {{ block.settings.title }}
+                
+                    <span class="product--details--info-box--toggle">
+                        {% render 'icon', icon: 'plus' %}
+                        {% render 'icon', icon: 'minus' %}
+                    </span>
+                </a>
+                
+                <div class="product--details--info-box--description">
+                    <div class="product--details--info-box--description--wrapper">
+                        {{ block.settings.description | newline_to_br }}
+                    </div>
+                </div>
+
+            </div>
+        {%- endif -%}
+    {%- endif -%}
+{%- endfor -%}
+
+{% schema %}
+{
+    "name": "Product Info",
+    "blocks": [
+        {
+            "type": "product-info",
+            "name": "Product Info",
+            "settings": [
+                {
+                    "label": "Title",
+                    "id": "title",
+                    "type": "text"
+                },
+                {
+                    "label": "Description",
+                    "id": "description",
+                    "type": "textarea"
+                },
+                {
+                    "label": "Collection",
+                    "id": "collection",
+                    "type": "collection",
+                    "info": "Collection of products to show this product info for"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

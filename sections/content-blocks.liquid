@@ -1,0 +1,239 @@
+{%- liquid
+  assign grid_gap_value = 0
+  if section.settings.grid_gap_value != blank
+    assign grid_gap_value = section.settings.grid_gap_value
+    assign grid_gap_clamp = section.settings.grid_gap_value | divided_by: 14.4
+  endif
+-%}
+
+{%- liquid
+  assign grid_gap_value_vertical = 0
+  if section.settings.grid_gap_value != blank
+    assign grid_gap_value_vertical = section.settings.grid_gap_value_vertical
+    assign grid_gap_clamp_vertical = section.settings.grid_gap_value_vertical | divided_by: 14.4
+  endif
+-%}
+<div class="article-wrapper article--row content-blocks-{{ section.id }} padding_{{ section.settings.horizontal_padding }} padding_vertical_{{ section.settings.vertical_padding }} vertical-{{ section.settings.vertical_alignment }}">
+  {% for block in section.blocks %}
+    <div class="content-blocks-item-{{ block.id }} content-blocks-item  content-blocks-item_{{ block.type | handle }} image-feature image-anim--wrapper  {% if block.type == 'image' %}lazyload-animation{% else %} layout--text-only{% endif %}">
+      {% if block.type == 'image' %}
+        <div class="image-feature--wrapper image-anim--scale">
+          {% if block.settings.video %}
+            {{
+              block.settings.video
+              | video_tag: autoplay: true, muted: true, loop: true, class: 'image-feature--image lazyload'
+            }}
+
+          {% else %}
+            <img class="image-feature--image lazyload" data-src="{{ block.settings.image | img_url: '1600x' }}">
+          {% endif %}
+        </div>
+
+        {% if block.settings.popup_products != blank %}
+          {%- assign popup_1_products = row.popup_1 | split: ',' -%}
+          <div class="image-feature--popup">
+            {{ 'blogs.shop_the_look' | t }}
+            {%- for product in block.settings.popup_products -%}
+              {% unless forloop.first %}, {% endunless %}
+              <a class="image-feature--popup--link" target="_blank" href="/products/{{ product.handle }}">
+                {{- product.title -}}
+              </a>
+            {%- endfor -%}
+          </div>
+        {% endif %}
+
+        {% if block.settings.image_title != blank or block.settings.image_subtitle != blank %}
+          <div class="image-feature--titles title-align--center title-color--white">
+            <div class="image-feature--titles--wrapper image-feature--titles--wrapper--stacked">
+              <span class="image-feature--titles--subtitle">{{ block.settings.image_subtitle }}</span>
+              <h2 class="image-feature--titles--title">{{ block.settings.image_title }}</h2>
+            </div>
+          </div>
+        {% endif %}
+
+      {% elsif block.type == 'text' %}
+        <div class="article--text">
+          <div class="article--text-container">
+            {% if block.settings.text_title != blank %}
+              <h2>{{ block.settings.text_title }}</h2>
+            {% endif %}
+            {% if block.settings.description != blank %}
+              {{ block.settings.description }}
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
+
+<style>
+    .content-blocks-{{ section.id }} {gap: clamp({{grid_gap_value}}px,  {{ grid_gap_clamp }}vw, {{ grid_gap_value }}px);}
+  .content-blocks-{{ section.id }} {
+        padding-top: clamp({{grid_gap_value_vertical}}px, {{ grid_gap_clamp_vertical }}vw, {{grid_gap_value_vertical}}px) !important;
+    padding-bottom: clamp({{grid_gap_value_vertical}}px, {{ grid_gap_clamp_vertical }}vw, {{grid_gap_value_vertical}}px) !important;
+  }
+    {%- for block in section.blocks -%}
+        {%- liquid
+            assign grid_x = 0
+            if block.settings.grid_x != blank
+                assign grid_x = block.settings.grid_x
+            endif
+            assign grid_x = grid_x | append: ".0" | plus: 0 | divided_by: 12 | times: 100
+        -%}
+        @media (min-width: 768px) {.content-blocks-item-{{ block.id }} { width: {{ grid_x }}%!important; }}
+
+    {%- endfor -%}
+</style>
+
+{% schema %}
+{
+    "name": "Content Blocks",
+    "settings": [
+        {
+            "type": "text",
+            "id": "grid_gap_value",
+            "label": "Grid gap value",
+            "info": "Target value in pixels for desktop screens"
+        },
+      {
+            "type": "text",
+            "id": "grid_gap_value_vertical",
+            "label": "Grid gap value vertical",
+            "info": "Target value in pixels for desktop screens"
+        },
+        {
+            "id": "horizontal_padding",
+            "type": "radio",
+            "label": "Horizontal Padding",
+            "options": [
+                {
+                    "value": "large",
+                    "label": "Large"
+                },
+                {
+                    "value": "small",
+                    "label": "Small"
+                },
+                {
+                    "value": "no",
+                    "label": "No padding"
+                }
+            ],
+            "default": "small"
+        },
+        {
+            "id": "vertical_padding",
+            "type": "radio",
+            "label": "Vertical Padding",
+            "options": [
+                {
+                    "value": "large",
+                    "label": "Large"
+                },
+                {
+                    "value": "medium",
+                    "label": "Medium"
+                },
+                {
+                    "value": "small",
+                    "label": "Small"
+                },
+                {
+                    "value": "no",
+                    "label": "No padding"
+                }
+            ],
+            "default": "medium"
+        },
+        {
+            "id": "vertical_alignment",
+            "type": "radio",
+            "label": "Vertical alignment",
+            "options": [{
+              "value": "top",
+              "label": "Top"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            }],
+            "default": "center"
+        }
+    ],
+    "blocks": [
+        {
+            "name": "Image",
+            "type": "image",
+            "settings": [
+                {
+                  "type": "range",
+                  "id": "grid_x",
+                  "min": 0,
+                  "max": 12,
+                  "step": 1,
+                  "default": 12,
+                  "unit": "col",
+                  "label": "Block Width"
+                },
+                {
+                  "type": "image_picker",
+                  "id": "image",
+                  "label": "Image"
+                },
+                {
+                  "type": "video",
+                  "id": "video",
+                  "label": "Video"
+                },
+                {
+                    "type": "textarea",
+                    "id": "image_title",
+                    "label": "Title"
+                },
+                {
+                    "type": "text",
+                    "id": "image_subtitle",
+                    "label": "Subtitle"
+                },
+                {
+                    "type": "product_list",
+                    "id": "popup_products",
+                    "label": "Popup Products"
+                }
+            ]
+        },
+        {
+            "name": "Text",
+            "type": "text",
+            "settings": [
+                {
+                  "type": "range",
+                  "id": "grid_x",
+                  "min": 0,
+                  "max": 12,
+                  "step": 1,
+                  "default": 12,
+                  "unit": "col",
+                  "label": "Block Width"
+                },
+                {
+                    "type": "textarea",
+                    "id": "text_title",
+                    "label": "Title"
+                },
+                {
+                    "type": "richtext",
+                    "id": "description",
+                    "label": "Description"
+                }
+            ]
+        }
+    ],
+    "presets": [
+    {
+      "name": "Content Blocks",
+      "category": "Custom"
+    }]
+}
+{% endschema %}

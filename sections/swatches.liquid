@@ -1,0 +1,53 @@
+<style>
+  {%- assign swatch_names = '' -%}
+  {%- if section.blocks.size > 0 -%}
+      {%- for block in section.blocks -%}
+          {% assign swatch_name = block.settings.name | downcase | replace: ' ', '-' %}
+          {%- assign swatch_name_key = swatch_name | append: ',' -%}
+          {% assign swatch_name_array = swatch_names | split: ',' %}
+          {%- if swatch_name_array contains swatch_name -%}{%- continue -%}{%- endif -%}
+          {%- assign swatch_names = swatch_names | append: swatch_name_key -%}
+          .swatch.swatch--{{ swatch_name }}:after{
+              {%- if block.settings.image != blank -%}
+                  background-image: url('{{ block.settings.image | img_url: '150x' }}');
+                  {%- capture script_images -%}{{ script_images }},"{{ swatch_name }}":"{{ block.settings.name }}"{%- endcapture -%}
+              {%- else -%}
+                  background-color: {{ block.settings.color }};
+                  {%- capture script_colours -%}{{ script_colours }},"{{ swatch_name }}":"{{ block.settings.name }}"{%- endcapture -%}
+              {%- endif -%}
+          }
+      {%- endfor -%}
+  {%- endif -%}
+</style>
+
+<script id="swatches_data" type="application/json">
+  {"prints": { {{ script_images | remove_first: ',' }} },"colours": { {{ script_colours | remove_first: ',' }} }}
+</script>
+
+{% schema %}
+{
+    "name": "Swatches",
+    "blocks": [
+      {
+        "type": "swatch",
+        "name": "Swatch",
+        "settings": [{
+            "id": "name",
+            "type": "text",
+            "label": "Colour name",
+            "default": "White"
+        },
+        {
+            "type": "color",
+            "id": "color",
+            "label": "Color",
+            "default": "#ffffff"
+        },
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+        }]
+    }]
+}
+{% endschema %}

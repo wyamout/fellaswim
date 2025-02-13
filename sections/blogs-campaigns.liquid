@@ -1,0 +1,139 @@
+{%- assign blogs_archive_handle = 'Campaigns' -%}
+{%- assign blogs_archive_size = blogs[blogs_archive_handle].articles | size -%}
+{%- assign blogs_archive_offset = 0 -%}
+{%- assign blogs_archive_limit = 50 -%}
+
+<div class="blogs--wrapper{% if blog == blank %} blog--with-header{% endif %}">
+  {% if blog %}
+    {%- assign blogs_archive_limit = 500 -%}
+    {%- assign blog_articles = blog.articles -%}
+  {% else %}
+    {% render 'blogs-index-header', page: page, blog: blogs[blogs_archive_handle] %}
+    {%- assign blog_articles = blogs[blogs_archive_handle].articles -%}
+  {% endif %}
+
+  {% if section.blocks.size > 0 %}
+    {% for block in section.blocks %}
+      {%- assign article_link = block.settings.article | prepend: '/blogs/' -%}
+
+      {% unless blog %}
+        {% render 'blogs-index-image',
+          link: article_link,
+          image: block.settings.image,
+          title: block.settings.title,
+          subtitle: block.settings.subtitle,
+          layout: block.settings.layout,
+          text_alignment: block.settings['text-alignment'],
+          text_color: block.settings['text-color']
+        %}
+      {% endunless %}
+
+      {%- for article in blog_articles -%}
+        {%- if article_link == article.url -%}
+          {%- assign blogs_archive_offset = blogs_archive_offset | at_least: forloop.index -%}
+        {%- endif -%}
+      {%- endfor -%}
+    {% endfor %}
+  {% endif %}
+
+  {% if blogs_archive_offset < blogs_archive_size %}
+    <div class="blogs--archive">
+      {% render 'blogs-archive-header' %}
+      {% render 'blogs-archive-posts',
+        articles: blog_articles,
+        offset: blogs_archive_offset,
+        limit: blogs_archive_limit
+      %}
+
+      {% unless blog %}
+        {% render 'blogs-archive-all', url: blogs[blogs_archive_handle].url %}
+      {% endunless %}
+    </div>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+    "name": "Campaigns",
+    "blocks": [
+        {
+            "type": "Content",
+            "name": "Content",
+            "settings": [
+                {
+                    "label": "Article",
+                    "id": "article",
+                    "type": "article"
+                },
+                {
+                    "label": "Image",
+                    "id": "image",
+                    "type": "image_picker"
+                },
+                {
+                    "label": "Title",
+                    "id": "title",
+                    "type": "text"
+                },
+                {
+                    "label": "Subtitle",
+                    "id": "subtitle",
+                    "type": "text"
+                },
+                {
+                    "label": "Layout",
+                    "id": "layout",
+                    "type": "select",
+                    "default": "full-width",
+                    "options": [
+                        {
+                            "value": "full-width",
+                            "label": "Full Width"
+                        },
+                        {
+                            "value": "half-left",
+                            "label": "Half Left"
+                        },
+                        {
+                            "value": "half-right",
+                            "label": "Half Right"
+                        }
+                    ]
+                },
+                {
+                    "label": "Text Alignment",
+                    "id": "text-alignment",
+                    "type": "select",
+                    "default": "center",
+                    "options": [
+                        {
+                            "value": "center",
+                            "label": "Center"
+                        },
+                        {
+                            "value": "bottom-left",
+                            "label": "Bottom Left"
+                        }
+                    ]
+                },
+                {
+                    "label": "Text Colour",
+                    "id": "text-color",
+                    "type": "select",
+                    "default": "white",
+                    "options": [
+                        {
+                            "value": "white",
+                            "label": "White"
+                        },
+                        {
+                            "value": "black",
+                            "label": "Black"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

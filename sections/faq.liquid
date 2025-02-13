@@ -1,0 +1,95 @@
+<div class="multi-column-section faq-section">
+  <div class="multi-column-section--title">{{ section.settings.section_title }}</div>
+  <p class="multi-column-section-description" style="margin-bottom: 40px;">{{ section.settings.section_description }}</p>
+  <div class="accordion-wrap ">
+         {%- for block in section.blocks -%}
+
+            <div class="accordion"> 
+
+                <a href="#" class="accordion--title">
+                    <span class="accordion--toggle">
+                        {% render 'icon', icon: 'plus' %}
+                        {% render 'icon', icon: 'minus' %}
+                    </span>
+                    <div class="accordion--title--wrapper">
+                        {{ block.settings.title }}
+                    </div>
+                </a>
+                
+                <div class="accordion--description">
+                    <div class="accordion--description--wrapper">
+                        {{ block.settings.description | newline_to_br }}
+                    </div>
+                </div>
+
+            </div>
+
+        {%- endfor -%}
+  </div>
+
+
+    <!-- <div class="faq-wrap">
+      <button class="faq-button">{{ section.settings.button_text }}</button>
+  </div> -->
+</div>
+
+<!-- <script>
+document.addEventListener("DOMContentLoaded", function() {
+  const faqButton = document.querySelector(".faq-button");
+  const accordionWrap = document.querySelector(".accordion-wrap");
+ const wrapHeight = accordionWrap.scrollHeight + 1000 + "px";
+    accordionWrap.style.maxHeight = wrapHeight;
+  faqButton.addEventListener("click", function() {
+    accordionWrap.classList.remove("faq-section-hidden"); 
+    faqButton.style.display = "none"; 
+  });
+});
+  
+</script> -->
+
+{% schema %}
+{
+  "name": "FAQ",
+  "settings": [
+
+  {
+        "type": "text",
+        "id": "section_title",
+        "label": "Section Title"
+    },
+    {
+        "type": "richtext",
+        "id": "section_description",
+        "label": "Section Description"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "READ MORE"
+    }
+  ],
+  "blocks": [
+    {
+        "type": "text",
+        "name": "FAQs",
+        "settings": [
+            {
+                "id": "title",
+                "type": "text",
+                "label": "Title"
+            },
+            {
+                "id": "description",
+                "type": "textarea",
+                "label": "Description"
+            }
+        ]
+    }
+  ],
+"presets": [{
+    "name": "FAQ",
+    "category": "Custom Content"
+}]
+}
+{% endschema %}

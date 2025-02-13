@@ -1,0 +1,110 @@
+{%- assign form_type = blank -%}
+
+<div class="two-panel account padded-page">
+
+    <div class="container">
+
+        <div class="account--login">
+
+            <h2 class="container--title">{{ 'customer.register.title' | t }}</h2>
+
+            {% form 'create_customer', class: 'form form--login-register page--form no-ajax', id: 'customer_register_account' %}
+
+                <div class="form--errors hidden">
+                    {{ form.errors | default_errors }}
+                </div>
+
+                <fieldset>
+
+                    <div class="form--group">
+
+                        <div class="input-with-label">
+                            <label for="FirstName">{{ 'customer.register.first_name' | t }}<span class="required">*</span></label>
+
+                            <input type="text"
+                                name="customer[first_name]"
+                                id="FirstName"
+                                required
+                                {% if form.first_name %}value="{{ form.first_name }}"{% endif %} />
+
+                        </div>
+
+                    </div>
+
+                    <div class="form--group">
+
+                        <div class="input-with-label">
+                            <label for="LastName">{{ 'customer.register.last_name' | t }}<span class="required">*</span></label>
+
+                            <input type="text"
+                                name="customer[last_name]"
+                                id="LastName"
+                                required
+                                {% if form.last_name %}value="{{ form.last_name }}"{% endif %} />
+
+                        </div>
+
+                    </div>
+
+                    <div class="form--group">
+                        <div class="input-with-label">
+                            <label for="Email">{{ 'customer.register.email' | t }}<span class="required">*</span></label>
+
+                            <input type="email"
+                                name="customer[email]"
+                                id="Email"
+                                class="{% if form.errors contains 'email' %}input-error{% endif %}"
+                                spellcheck="false"
+                                autocomplete="off"
+                                autocapitalize="off"
+                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                                required
+                                {% if form.email %}value="{{ form.email }}"{% endif %} />
+
+                        </div>
+                    </div>
+
+                    <div class="form--group">
+                        <div class="input-with-label">
+                            <label for="CreatePassword">{{ 'customer.register.password' | t }}<span class="required">*</span></label>
+
+                            <div class="input-password-wrapper">
+                                <input type="password"
+                                    name="customer[password]"
+                                    id="CreatePassword"
+                                    required
+                                    class="{% if form.errors contains 'password' %}input-error{% endif %}" />
+                                {% render 'icon', icon: 'eye' %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form--group">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" 
+                                name="customer[accepts_marketing]" 
+                                id="AcceptsMarketing" 
+                                {% if form.accepts_marketing %} checked="checked"{% endif %} />
+                            <label for="AcceptsMarketing">{{ 'customer.register.accept_marketing' | t }}</label>
+                        </div>
+                    </div>
+
+                    <button class="button button--black" type="submit" disabled>
+                        <span>{{ 'customer.register.submit' | t }}</span>
+                    </button>
+
+                    <hr>
+
+                    <div class="form--group">
+                        <a class="form-link form-link--return" href="/account/login" id="Login">{% render 'icon', icon: 'chevron' %} {{ 'customer.register.cancel' | t }}</a>
+                    </div>
+
+                </fieldset>
+
+            {% endform %}
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,154 @@
+
+<nav class="footer-navs">
+
+    {% for link in linklists.footer.links %}
+        <div class="footer-navs--nav link-list">
+            <a class="footer-navs--nav--link link-list--title" href="{{ link.url }}">{{ link.title | escape }}</a>
+            {% if link.links != blank %}
+                <div class="footer-navs--sub-nav link-list--list">
+                    {% for sublink in link.links %}
+                        <a class="footer-navs--sub-nav--link link-list--link{% if sublink.title == 'Sale' %} sale-link{% endif %}" href="{{ sublink.url }}">{{ sublink.title | escape }}</a>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    {% endfor %}
+
+    {%- assign contact = section.settings.footer_contact_page -%}
+    {%- assign call = section.settings.footer_call_number -%}
+    {%- assign email = section.settings.footer_email_address -%}
+
+    {% if contact != blank or call != blank or email != blank %}
+    <div class="footer-navs--nav link-list footer-navs--contact-social-nav contact-social-nav--contact">
+        <div class="footer-navs--nav--link link-list--title">{{ 'footer.contact' | t }}</div>
+        <div class="footer-navs--sub-nav link-list--list">
+            {% if contact != blank %}
+                <a class="footer-navs--sub-nav--link link-list--link" href="/pages/{{ contact }}">
+                    {% render 'icon', icon: 'mouse' %}
+                    {{ 'footer.contact_details' | t }}
+                </a>
+            {% endif %}
+            {% if call != blank %}
+                <a class="footer-navs--sub-nav--link link-list--link" href="tel:{{ call }}">
+                    {% render 'icon', icon: 'call' %}
+                    <span class="contact-social-nav--title">{{ 'footer.call' | t }}</span>
+                </a>
+            {% endif %}
+            {% if email != blank %}
+                <a class="footer-navs--sub-nav--link link-list--link" href="mailto:{{ email }}">
+                    {% render 'icon', icon: 'email' %}
+                    <span class="contact-social-nav--title">{{ 'footer.email' | t }}</span>
+                </a>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+
+    {% if section.blocks.size > 0 %}
+        <div class="footer-navs--nav link-list footer-navs--contact-social-nav contact-social-nav--social">
+            <div class="footer-navs--nav--link link-list--title">{{ 'footer.follow' | t }}</div>
+            <div class="footer-navs--sub-nav link-list--list">
+                {% for block in section.blocks %}
+                    <a class="footer-navs--sub-nav--link link-list--link" target="_blank" href="{{ block.settings.link }}">
+                        {% render 'icon', icon: block.settings.type %}
+                        <span class="contact-social-nav--title">{{ block.settings.name }}</span>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="footer-navs--signup">
+
+        <h3 class="footer-navs--signup--title">
+            {{ section.settings.signup_title }}
+            {% render 'icon', icon: 'plus' %}
+            {% render 'icon', icon: 'minus' %}
+        </h3>
+
+        {% if settings.klaviyo_newsletter_id != blank %}
+            <div class="footer-navs--signup--form">
+
+                <div class="klaviyo-form-{{ settings.klaviyo_newsletter_id }}"></div>
+
+            </div>
+        {% endif %}
+
+        <span class="footer--copyright">&copy;{{ "now" | date: "%Y" }} {{ 'footer.company_name' | t }}</span>
+
+    </div>
+
+</nav>
+
+{% schema %}
+{
+    "name": "Footer",
+    "settings": [
+        {
+            "label": "Contact details page",
+            "id": "footer_contact_page",
+            "type": "page"
+        },
+        {
+            "label": "Call number",
+            "id": "footer_call_number",
+            "type": "text"
+        },
+        {
+            "label": "Email address",
+            "id": "footer_email_address",
+            "type": "text"
+        },
+        {
+            "label": "Signup title",
+            "id": "signup_title",
+            "type": "text"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "follow",
+            "name": "Follow Links",
+            "settings": [
+                {
+                    "label": "Name",
+                    "id": "name",
+                    "type": "text"
+                },
+                {
+                    "label": "Link",
+                    "id": "link",
+                    "type": "url"
+                },
+                {
+                    "label": "Type",
+                    "id": "type",
+                    "type": "select",
+                    "options": [
+                        {
+                            "value": "facebook",
+                            "label": "Facebook"
+                        },
+                        {
+                            "value": "instagram",
+                            "label": "Instagram"
+                        },
+                        {
+                            "value": "pinterest",
+                            "label": "Pinterest"
+                        },
+                        {
+                            "value": "youtube",
+                            "label": "Youtube"
+                        },
+                        {
+                            "value": "spotify",
+                            "label": "Spotify"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

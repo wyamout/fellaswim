@@ -1,0 +1,22 @@
+<div class="blogs--header">
+    <div class="blogs--header--link--container blogs--header--link--container--left">
+        {% for item in linklists.blogs-menu.links %}
+            <a href="{{ item.url }}" class="blogs--header--link{% if item.url == page.url %} selected{% endif %}">{{ item.title }}</a>
+        {% endfor %}
+    </div>
+        
+    <h1 class="blogs--header--title">{{ page.title }}</h1>
+
+    <div class="blogs--header--link--container blogs--header--link--container--right">
+        {% if blog.tags != blank %}
+            <div class="blogs--header--link">
+    	     
+    	        <div class="blogs--header--link--submenu--container">
+                    {% for tag in blog.tags %}
+                        <a href="{{ blog.url }}/tagged/{{ tag | handle }}" class="blogs--header--link">{{ tag }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>

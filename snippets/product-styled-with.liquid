@@ -1,0 +1,73 @@
+{%- assign styled_with = product.metafields.custom_fields.styled_with | split: '|' -%}
+{%- assign styled_with_size = styled_with | size -%}
+{%- assign can_discount = false -%}
+
+{%- if product.type == 'Tops' or product.type == 'Bottoms' -%}
+    {%- if product.compare_at_price == blank and settings.cart_pair_discount_status == true -%}
+        {%- assign can_discount = true -%}
+    {%- endif -%}
+{%- endif -%}
+
+{% if styled_with_size > 0 %}
+    <div class="product--details--info-box">
+
+        <a href="#" class="product--details--info-box--title">
+            {{ 'product.styled_with.title' | t }}
+                
+            <span class="product--details--info-box--toggle">
+                {% render 'icon', icon: 'plus' %}
+                {% render 'icon', icon: 'minus' %}
+            </span>
+            
+        </a>
+        
+        <div class="product--details--info-box--description">
+            <div class="product--details--info-box--description--wrapper">
+                {%- for handle in styled_with -%}
+                    {%- assign styled_with_product = all_products[handle] -%}
+                    {%- if styled_with_product != blank -%}
+                        <a href="{{ styled_with_product.url }}" class="styled-with-product">
+
+                            <div class="styled-with--image lazyload-animation">
+                                {%- assign featured_image = styled_with_product.featured_image -%}
+                                <img class="lazyload styled-with--image--image" data-src="{{ featured_image | img_url: '300x' }}" alt="{{ featured_image.alt | escape }}" width="{{ featured_image.width }} height="{{ featured_image.height }}" />
+                            </div>
+
+                            <div class="styled-with--content">
+                                <div class="styled-with--content--title">
+                                    {{ styled_with_product.title | replace: ',', '|' | split: '|' }}
+                                </div>
+
+                                <div class="styled-with--content--price">
+                                    {%- if styled_with_product.compare_at_price and styled_with_product.compare_at_price != 0 -%}
+                                        {% if styled_with_product.compare_at_price > styled_with_product.price %}
+                                            <span class="styled-with--content--price--compare">
+                                                {{ styled_with_product.compare_at_price | money_without_trailing_zeros }}
+                                            </span>
+                                        {% endif %}
+                                    {%- endif -%}
+                                    <span class="styled-with--content--price--current">
+                                        {{ styled_with_product.price | money_without_trailing_zeros }}
+                                    </span>
+                                </div>
+
+                                {%- if can_discount and styled_with_product.type != product.type -%}
+                                    {% if styled_with_product.type == 'Tops' or styled_with_product.type == 'Bottoms' %}
+                                        {%- capture styled_with_product_colour -%}{%- render 'product-colour', product: styled_with_product, title: true -%}{%- endcapture -%}
+                                        {% if styled_with_product_colour == colour %}
+                                            <div class="styled-with--content--discountable">
+                                                {{ 'product.styled_with.discountable' | t: discount: settings.cart_pair_discount_rate }}
+                                            </div>
+                                        {% endif %}
+                                    {% endif %}
+                                {%- endif -%}
+                            </div>
+
+                        </a>
+                    {%- endif -%}
+                {%- endfor -%}
+            </div>
+        </div>
+
+    </div>
+{% endif %}

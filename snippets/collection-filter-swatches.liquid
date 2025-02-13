@@ -1,0 +1,11 @@
+<div class="filter--section filter--section--{{ title_name }}{% if border == false %} no-border{% endif %}" data-filter-section="{{ option_name }}">
+    <div class="filter--section--title">
+        <span>{{ 'filters.' | append: title_name | t }}</span>
+        <a href="#" class="filter--section--title--expand">
+            {% render 'icon', icon: 'plus' %}
+            {% render 'icon', icon: 'minus' %}
+        </a>
+    </div>
+    <div class="filter--section--options filter--section--options--collapsible filter--section--options--swatches{% if is_filterable %} filter--section--options--filterable{% endif %}">
+    </div>
+</div>

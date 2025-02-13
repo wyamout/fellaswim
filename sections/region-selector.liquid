@@ -1,0 +1,74 @@
+<div class="region-selector">
+
+	<a href="#" class="region-selector--close">
+		{% render 'icon', icon: 'cross' %}
+	</a>
+	<div class="region-selector--list">
+		<div class="region-selector--content">
+			<div class="header--region">
+			    <ul class="header--region--list">
+
+					{%- if section.blocks.size > 0 -%}
+					    {%- for block in section.blocks -%}
+			    	
+					        <li class="header--region--list--item{% if forloop.first %} header--region--list--item--active{% endif %}">
+					            <a href="{{ block.settings.url }}" class="header--region--list--item--link">
+					                {% render 'icon', icon: 'cart' %}{{ block.settings.name }}
+					                {% if forloop.first %}
+					                	<svg viewBox="0 0 50 50" class="icon icon--tick"><use xlink:href="#tick"></use></svg>
+					                {% endif %}
+					            </a>
+					        </li>
+
+				    	{%- endfor -%}
+				    {%- endif -%}
+
+			    </ul>
+			</div>
+		</div>
+	</div>
+	<div class="region-selector--dropdown">
+		<div class="region-selector--content">
+			<div class="region-selector--copy">{{ 'region_selector.copy' | t }}</div>
+			<form class="form region-selector--form">
+				<fieldset>
+		          	<div class="form--group">
+						<div class="select-wrapper">
+							<select class="select-wrapper--select" name="region">
+								{%- if section.blocks.size > 0 -%}
+								    {%- for block in section.blocks -%}
+										<option data-option-href="{{ block.settings.url }}">{{ block.settings.name }}</option>
+							    	{%- endfor -%}
+							    {%- endif -%}
+							</select>
+							<label class="select-wrapper--display"></label>
+							{% render 'icon', icon: 'chevron' %}
+						</div>
+					</div>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+
+</div>
+
+{% schema %}
+{
+    "name": "Regions",
+    "blocks": [
+      {
+        "type": "region",
+        "name": "Region",
+        "settings": [{
+            "id": "name",
+            "type": "text",
+            "label": "Region name"
+        },
+        {
+		  "id": "url",
+		  "type": "url",
+		  "label": "URL"
+        }]
+    }]
+}
+{% endschema %}

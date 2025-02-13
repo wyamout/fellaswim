@@ -1,0 +1,498 @@
+{% include 'page-classes' %}
+{% include 'page-title' %}
+<!doctype html>
+<html lang="{{ shop.locale }}" class="no-js">
+  <head>
+    <meta name="google-site-verification" content="-ZtadGzBxaeWzI5ziLk3J2fdUJBUpAKWv66q95_qZOo">
+
+    <script>
+      !function(i,n,s,t,a,u,d){i.InstantConfig=i.InstantConfig||{},i.InstantConfig.siteId='site_Ew3TErV8BxeoJICGwwJOgbBE',i.InstantConfig.customerEmail='{{ customer.email }}',i.InstantConfig.platform='SHOPIFY',d=i.InstantJS=i.InstantJS||{},d.trackQueue=[],d.track=function(){d.trackQueue.push(arguments)},u=n.createElement(s),u.async=!0,u.src=t,a=n.getElementsByTagName(s)[0],a.parentNode.insertBefore(u,a)}(window,document,'script','https://js.instant.one/v1/instant.min.js');
+    </script>
+
+    <script>
+      const ensureInstantJS=()=>{window.InstantJS||(window.InstantJS={}),window.InstantJS.track||(window.InstantJS.trackQueue=[],window.InstantJS.track=function(){window.InstantJS.trackQueue.push(arguments)})};ensureInstantJS();const trackEvent=(()=>{const t=new Set;return e=>{const n=JSON.stringify(e);t.has(n)||!e[0].includes("track")||(t.add(n),window.InstantJS.track("MARKETING_PIXEL_EVENT_FIRED",[{event:e,provider:"META_PLATFORMS"}]))}})();(function(){const e=()=>{if(window.fbq?.callMethod){const t=window.fbq,e=function(){trackEvent([...arguments]),t.apply(this,arguments)};for(const n in t)t.hasOwnProperty(n)&&(e[n]=t[n]);window.fbq=e}else setTimeout(e,1)},t=()=>{const{_fbq:e}=window;if(e&&e.queue){e.queue.forEach(t=>trackEvent([...t]));const n=e.queue.push;e.queue.push=function(...t){trackEvent([...t[0]]);return n.apply(e.queue,t)}}else setTimeout(t,1)};e(),t()})();
+    </script>
+
+    <title>{{ page_title }}</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    {% include 'social-meta-tags' %}
+    <meta name="description" content="{{ page_description | escape }}">
+    <link rel="canonical" href="{{ canonical_url }}">
+    <link rel="stylesheet" href="{{ 'custom.css' | asset_url }}">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <!--
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
+    -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    >
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" async></script>
+    {% if settings.google_site_verification != blank %}
+      <meta name="google-site-verification" content="{{ settings.google_site_verification }}">
+    {% endif %}
+
+    {% if settings.facebook_domain_verification != blank %}
+      <meta name="facebook-domain-verification" content="{{ settings.facebook_domain_verification }}">
+    {% endif %}
+
+    <script type="text/javascript">
+      (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "myeedt6ram");
+    </script>
+
+    {% render 'style-bundle', layout: 'theme', bundles: '' %}
+    {% render 'fonts' %}
+    {% render 'inline-scripts' %}
+
+    {{ content_for_header }}
+
+    {% render 'script-bundle', layout: 'theme', bundles: '' %}
+
+    {% if settings.tag_manager_id != blank %}
+      {% render 'google-tag-manager-head' %}
+    {% endif %}
+
+    <link rel="shortcut icon" href="{{ settings.favicon | img_url }}" type="image/png">
+    <meta name="storefront-key" content="{{ settings.storefront_api_key }}">
+
+    <meta name="turbolinks-cache-control" content="no-preview">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script> -->
+
+    <script type="text/javascript">
+      (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "myeedt6ram");
+    </script>
+    <!--
+      <script
+        async
+        type="text/javascript"
+        src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=UjrSZZ"
+      ></script>
+    -->
+  </head>
+  <body
+    class="{{ page_class }}"
+    {% if blog %}
+      data-blog-handle="{{ blog.handle }}"
+    {% endif %}
+  >
+    {% if settings.tag_manager_id != blank %}
+      {% render 'google-tag-manager-body' %}
+    {% endif %}
+
+    {% section 'swatches' %}
+
+    {%- assign customisation_product = all_products[settings.customisation_product] -%}
+
+    {% include 'ribbon' %}
+    {% include 'header', customisation_product: customisation_product %}
+
+    <main role="main">
+      {{ content_for_layout }}
+    </main>
+
+    <!-- thediep094 zoom image -->
+    <div id="layer" onclick="closeLayer()"></div>
+    {% render 'global-cursor' %}
+    {% include 'icons' %}
+    {% include 'footer' %}
+
+    {% if settings.tag_manager_id != blank %}
+      {% render 'er-tracking-end' %}
+    {% endif %}
+
+    {% if settings.gorgias_active == true %}
+      {% include 'gorgias' %}
+    {% endif %}
+
+    {% if request.host contains 'international' %}
+      {% render 'afterpay' %}
+    {% endif %}
+
+    {% section 'checkout-terms' %}
+
+    {%- render 'product-index-templates' -%}
+
+    <script>
+      // $('.product-index--item').each(function() {
+      //   $(this).hover(function() {
+      //     var image = $(this).find('.product-index--images--image .second-img').attr('data-src');
+      //     if (image) {
+      //       $(this).find('.product-index--images--image .second-img').attr('src', image);
+      //       $(this).find('.product-index--images--image .second-img').attr('srcset', image);
+      //       $(this).find('.product-index--images--image .second-img').addClass('lazyload-loaded');
+      //       $(this).find('.product-index--images--image .second-img').removeClass('excited');
+      //       $(this).find('.product-index--images--image .second-img').attr('data-ll-status', 'loaded');
+      //     }
+      //   });
+      // });
+
+      // $(document).ready(function() {
+      //     function updateSwatchVisibility() {
+      //         $('.product-index--item').each(function() {
+      //             var $swatchList = $(this).find(".product-index--interface--swatch-list");
+      //             var colors_count = $swatchList.children().length;
+      //             var $swatchTrigger = $(this).find('.product-index--interface--swatch-trigger.color--count');
+      //             var count = $swatchTrigger.find('.count').text().trim();
+      //             if (colors_count > 0 || (count !== "" && count !== "0")) {
+      //                 $swatchTrigger.css('display', 'inline-block');
+      //               $swatchList.removeClass('hide-colored-text');
+      //             } else {
+      //                 $swatchTrigger.hide();
+      //               $swatchList.addClass('hide-colored-text');
+      //             }
+      //         });
+      //     }
+      //     setInterval(updateSwatchVisibility, 1000);
+      // });
+    </script>
+    <script>
+
+      // thediep094
+      
+      var shopCurrency = '{{ shop.currency }}';
+      var moneyFormat = '{{ shop.money_format }}';
+
+      function formatMoney(cents, format) {
+        if (typeof cents === 'string') {
+          cents = cents.replace('.', '');
+        }
+        var value = '';
+        var placeholderRegex = /\{\{\s*(\w+)\s*\}\}/;
+        var formatString = format || moneyFormat;
+      
+        function formatWithDelimiters(number, precision, thousands, decimal) {
+          thousands = thousands || ',';
+          decimal = decimal || '.';
+      
+          if (isNaN(number) || number == null) {
+            return 0;
+          }
+      
+          number = (number / 100.0).toFixed(precision);
+      
+          var parts = number.split('.');
+          var dollarsAmount = parts[0].replace(
+            /(\d)(?=(\d\d\d)+(?!\d))/g,
+            '$1' + thousands
+          );
+          var centsAmount = parts[1] ? decimal + parts[1] : '';
+      
+          return dollarsAmount + centsAmount;
+        }
+      
+        switch (formatString.match(placeholderRegex)[1]) {
+          case 'amount':
+            value = formatWithDelimiters(cents, 2);
+            break;
+          case 'amount_no_decimals':
+            value = formatWithDelimiters(cents, 0);
+            break;
+          case 'amount_with_comma_separator':
+            value = formatWithDelimiters(cents, 2, '.', ',');
+            break;
+          case 'amount_no_decimals_with_comma_separator':
+            value = formatWithDelimiters(cents, 0, '.', ',');
+            break;
+        }
+      
+        return formatString.replace(placeholderRegex, value);
+      }
+
+      // thediep094
+      
+      $(document).ready(function(){
+            // $('.product-index--interface--swatch-list a.swatch').click(function(){
+          $(document).on('click', '.product-index--interface--swatch-list a.swatch', function(){
+
+                event.preventDefault();
+                event.stopPropagation();
+                var $this = $(this);
+                $this.parents('.product-index--item').addClass('loading-class');
+                setTimeout(function(){
+                    $('.product-index--images--overlay--image').removeClass('shown')
+                    $('.product-index--images--overlay--image').removeClass('show')
+                    $('.product-index--images--overlay--image').removeClass('selected').removeClass('shown')
+                  $('.product-index--images--overlay--image').removeClass('selected')
+                },350)
+
+
+                 // Choose image 4 or 2
+            let secondImageUrl = null
+            
+                console.log('here');
+            //thediep094 fix choose variant not change price
+            jQuery.getJSON('/products/'+$(this).attr('data-handle')+'.js', function(product) {
+
+                 if(product.media.length > 3) {
+                secondImageUrl = product.media[3].src
+              }
+              
+              
+              var formattedCompareAtPrice = formatMoney(product.compare_at_price, moneyFormat);
+              var formattedPrice = formatMoney(product.price, moneyFormat);
+            
+              if(product.compare_at_price > product.price) {
+                $this.parents('.product-index--item').find('.product-index--interface--price').html(`
+                  <span class="product-index--interface--price">
+                    <span class="product-index--interface--price--compare">${formattedCompareAtPrice}</span>
+                    <span class="product-index--interface--price--current">${formattedPrice}</span>
+                  </span>
+                `);
+              } else {
+                $this.parents('.product-index--item').find('.product-index--interface--price').html(`
+                  <span class="product-index--interface--price">
+                    <span class="product-index--interface--price--current">${formattedPrice}</span>
+                  </span>
+                `);
+              }
+              // thediep094 5/11/2024
+              if(!product.available) {
+              $this.parents('.product-index--item').find('.product-index--images--overlay').addClass('out-of-stock')
+              } else {
+              $this.parents('.product-index--item').find('.product-index--images--overlay').removeClass('out-of-stock')
+              }
+            });
+                //thediep094
+                $.ajax
+                ({
+                  type: "GET",
+                  url: '/products/'+$(this).attr('data-handle')+'?view=custom',
+                  success: function(response)
+                  {
+                      window.response = JSON.parse(response);
+                      $this.parents('.product-index--item').find('.product-index--images .product-index--images--wrapper .product-index--images--image img.main-img').attr('src', window.response[0].image1).on('load', function() {
+                        setTimeout(function() {
+                          console.log('image loaded')
+                          $this.parents('.product-index--item').removeClass('loading-class');
+                          $('.product-index--images--overlay--image').removeClass('shown')
+                          $('.product-index--images--overlay--image').removeClass('show')
+                          $('.product-index--images--overlay--image').removeClass('selected').removeClass('shown')
+                          $('.product-index--images--overlay--image').removeClass('selected')
+                        },150)
+                      })
+                   
+                      $this.parents('.product-index--item').find('.product-index--images .product-index--images--wrapper .product-index--images--image img.main-img').attr('data-src', window.response[0].image1)
+                      $this.parents('.product-index--item').find('.product-index--images .product-index--images--wrapper .product-index--images--image img.main-img').attr('data-srcset', window.response[0].image1)
+                      $this.parents('.product-index--item').find('.product-index--images .product-index--images--wrapper .product-index--images--image img.main-img').attr('srcset', window.response[0].image1)
+                      if(!secondImageUrl) {                        
+                      $this.parents('.product-index--item').find('.product-index--images .product-index--images--wrapper .product-index--images--image img.second-img').attr('data-src', window.response[0].image2)
+                      $this.parents('.product-index--item').find('.product-index--images .product-index--images--wrapper .product-index--images--image img.second-img').attr('src', window.response[0].image2)
+                      $this.parents('.product-index--item').find('.product-index--images .product-index--images--wrapper .product-index--images--image img.second-img').attr('data-srcset', window.response[0].image2)
+                      $this.parents('.product-index--item').find('.product-index--images .product-index--images--wrapper .product-index--images--image img.second-img').attr('srcset', window.response[0].image2)
+                      } else {
+                          $this.parents('.product-index--item').find('.product-index--images .product-index--images--wrapper .product-index--images--image img.second-img').attr('data-src', secondImageUrl)
+                      $this.parents('.product-index--item').find('.product-index--images .product-index--images--wrapper .product-index--images--image img.second-img').attr('src', secondImageUrl)
+                      $this.parents('.product-index--item').find('.product-index--images .product-index--images--wrapper .product-index--images--image img.second-img').attr('data-srcset', secondImageUrl)
+                      $this.parents('.product-index--item').find('.product-index--images .product-index--images--wrapper .product-index--images--image img.second-img').attr('srcset', secondImageUrl)
+                      }
+                      $this.parents('.product-index--item').find('a.product-index--link').attr('href', '/products/'+$this.attr('data-handle'))
+                      $this.parents('.product-index--item').find('.product-index--interface--title').html($this.attr('data-title').replace(' |', ','))
+                      let titleData = $this.attr('data-title');
+                      let parts = titleData.split('|').map(function(part) {
+                          return part.trim();
+                      });
+                      $this.parents('.product-index--item').find('.product-index--interface--title-name--mobile').html(parts[0])
+                      $this.parents('.product-index--item').find('.product-index--interface--title-typename--mobile').html(parts[1])
+                    
+                      $('.product-index--images--overlay--image').removeClass('selected')
+                      console.log(response)
+                      // setTimeout(function() {
+                      //   $this.parents('.product-index--item').removeClass('loading-class');
+                      //   $('.product-index--images--overlay--image').removeClass('shown')
+                      //   $('.product-index--images--overlay--image').removeClass('show')
+                      //   $('.product-index--images--overlay--image').removeClass('selected').removeClass('shown')
+                      // }, 800);
+                    }
+                });
+            });
+
+          //   $('.product-index--interface--swatch-list a.swatch').click(function(){
+          // // $(document).on('click', '.product-index--interface--swatch-list a.swatch', function(){
+          //       event.preventDefault();
+          //       event.stopPropagation();
+          //       var $this = $(this);
+          //       console.log('here')
+          //       $.ajax
+          //       ({
+          //         type: "GET",
+          //         url: '/products/'+$(this).attr('data-handle')+'?view=custom',
+          //         success: function(response)
+          //         {
+          //             window.response = JSON.parse(response);
+          //             $this.parents('.product-index--item').find('.product-index--images .product-index--images--wrapper .product-index--images--image img.main-img').attr('src', window.response[0].image1)
+          //             $this.parents('.product-index--item').find('.product-index--images .product-index--images--wrapper .product-index--images--image img.second-img').attr('src', window.response[0].image2)
+          //             $this.parents('.product-index--item').find('.product-index--images .product-index--images--wrapper .product-index--images--image img.main-img').attr('data-src', window.response[0].image1)
+          //             $this.parents('.product-index--item').find('.product-index--images .product-index--images--wrapper .product-index--images--image img.second-img').attr('data-src', window.response[0].image2)
+          //             $this.parents('.product-index--item').find('.product-index--images .product-index--images--wrapper .product-index--images--image img.main-img').attr('data-srcset', window.response[0].image1)
+          //             $this.parents('.product-index--item').find('.product-index--images .product-index--images--wrapper .product-index--images--image img.second-img').attr('data-srcset', window.response[0].image2)
+          //             $this.parents('.product-index--item').find('.product-index--images .product-index--images--wrapper .product-index--images--image img.main-img').attr('srcset', window.response[0].image1)
+          //             $this.parents('.product-index--item').find('.product-index--images .product-index--images--wrapper .product-index--images--image img.second-img').attr('srcset', window.response[0].image2)
+          //           $('.product-index--images--overlay--image').removeClass('shown')
+          //           $('.product-index--images--overlay--image').removeClass('selected').removeClass('shown')
+          //             console.log(response)
+          //         }
+          //       });
+          //   })
+      });
+    </script>
+
+    <script>
+                $(document).ready(function() {
+                    function updateSwatchVisibility() {
+                        $('.product-index--item').each(function() {
+
+                            var $item = $(this);
+                            var $swatchList = $item.find(".product-index--interface--swatch-list");
+                            var colors_count = $swatchList.children().length;
+                            var $swatchTrigger = $item.find('.product-index--interface--swatch-trigger.color--count');
+                            var count = $swatchTrigger.find('.count').text().trim();
+                            if (colors_count > 0 || (count !== "" && count !== "0")) {
+                                $swatchTrigger.css('display', 'inline-block');
+                                $swatchList.removeClass('hide-colored-text');
+                            } else {
+                                $swatchTrigger.hide();
+                                $swatchList.addClass('hide-colored-text');
+                            }
+
+                            // $swatchList.find('a').hover(
+                            //     function() {
+                            //         if ($('.product-index--images--overlay--image').hasClass('show')) {
+                            //            // $item.addClass('loading-class');
+                            //             $item.find('.main-img').css('opacity', 0);
+                            //         }
+                            //     },
+                            //     function() {
+                            //         $item.find('.main-img').css('opacity', 1);
+                            //     }
+                            // );
+
+                            $swatchList.find('a').click(function() {
+                                $item.find('.main-img').css('opacity', 1);
+                            });
+                        });
+                    }
+
+                    setInterval(updateSwatchVisibility, 500);
+
+
+          //fix variant load new not work slider
+          // Function to check the number of .product-index--item elements
+      // Function to check and initialize slick on .product-index--item elements
+        // function checkProductCount() {
+        //     $('.product-index--item').each(function() {
+        //         var $swatchList = $(this).find('.product-index--interface--swatch-list');
+        //         // Ensure swatchList is only initialized once
+        //         if ($swatchList.children().length >= 8 && !$swatchList.hasClass('slick-initialized') && !$swatchList.hasClass('swatch-run-once')) {
+        //             $swatchList.slick({
+        //                 slidesToShow: 6,
+        //                 slidesToScroll: 1,
+        //                 dots: false,
+        //                 arrows: false,
+        //                 infinite: false,
+        //                 speed: 300,
+        //                 swipeToSlide: true,
+        //                 touchThreshold: 10,
+        //                 variableWidth: true,
+        //             });
+        //             $swatchList.addClass('swatch-run-once');
+        //         }
+        //     });
+        // }
+
+        // // Debounce function to limit the number of calls to checkProductCount
+        // function debounce(func, wait) {
+        //     let timeout;
+        //     return function() {
+        //         clearTimeout(timeout);
+        //         timeout = setTimeout(func, wait);
+        //     };
+        // }
+
+        // // Debounced version of checkProductCount
+        // const debouncedCheckProductCount = debounce(checkProductCount, 300);
+
+        // // Initial call to check the product count
+        // checkProductCount();
+
+        // // Create a MutationObserver to monitor changes to the DOM
+        // var observer = new MutationObserver(function(mutations) {
+        //     // Using a flag to avoid multiple log entries for a single mutation batch
+        //     let shouldCheck = false;
+        //     mutations.forEach(function(mutation) {
+        //         // Check if the mutation is relevant
+        //         if (mutation.type === 'childList' && mutation.target.closest('.product-index--item')) {
+        //             shouldCheck = true;
+        //         }
+        //     });
+        //     if (shouldCheck) {
+        //         debouncedCheckProductCount();
+        //     }
+        // });
+
+        // // Configuration of the observer:
+        // var config = { childList: true, subtree: true };
+
+        // // Target node to observe
+        // var targetNode = document.querySelector('.collection--product .product-index');
+        // // Start observing the target node for configured mutations
+        // if (targetNode) {
+        //     observer.observe(targetNode, config);
+        // }
+        //         });
+                   // thediep094 fix here
+
+                //     setTimeout(function() {
+                //     $('.product-index--item').each(function() {
+                //         var swatchList = $(this).find('.product-index--interface--swatch-list');
+                //         if (swatchList.children().length >= 9) {
+                //             swatchList.slick({
+                //                 slidesToShow: 6,
+                //                 slidesToScroll: 1,
+                //                 dots: false,
+                //                 arrows: false,
+                //                 infinite: false,
+                //                 speed: 300,
+                //                 swipeToSlide: true,
+                //                 touchThreshold: 10,
+                //               variableWidth: true,
+
+                //             });
+                //         }
+                //     });
+                // }, 300);
+                  /* thediep094 6/11/2024 */
+                            // Function to automatically click the button with class 'four-col' after 2 seconds
+                    function autoClickFourColButton() {
+                      // Select the button with the class 'four-col'
+                      if(window.location.pathname.includes('/collections/sale') || window.location.pathname.includes('/collections/shop-all') || window.location.pathname.includes('/collections/the-black-friday-sale')) {
+                      var fourColButton = document.querySelector('.view-controls[data-view="six-col"]');
+                      } else {
+                      var fourColButton = document.querySelector('.view-controls[data-view="four-col"]');
+                      }
+
+                      if (fourColButton) {
+                        // Use setTimeout to delay the click event by 2 seconds (2000 milliseconds)
+                        setTimeout(function() {
+                          fourColButton.click();
+                        }, 100); // 2000 milliseconds = 2 seconds
+                      } else {
+                        console.error("Button with class 'four-col' not found.");
+                      }
+                    }
+                    autoClickFourColButton();
+                })
+                    // Call the function to auto-click the button
+    </script>
+  </body>
+</html>

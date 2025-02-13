@@ -1,0 +1,58 @@
+<div class="two-panel help">
+    {% include 'side-navigation--help' %}
+    <div class="container">
+        <h2>{{ page.title }}</h2>
+
+        <div class="page--content">
+            <p>{{ page.content }}</p>
+        </div>
+
+        {%- for block in section.blocks -%}
+
+            <div class="accordion">
+
+                <a href="#" class="accordion--title">
+                    <span class="accordion--toggle">
+                        {% render 'icon', icon: 'plus' %}
+                        {% render 'icon', icon: 'minus' %}
+                    </span>
+                    <div class="accordion--title--wrapper">
+                        {{ block.settings.title }}
+                    </div>
+                </a>
+                
+                <div class="accordion--description">
+                    <div class="accordion--description--wrapper">
+                        {{ block.settings.description | newline_to_br }}
+                    </div>
+                </div>
+
+            </div>
+
+        {%- endfor -%}
+    </div>
+</div>
+
+
+
+{% schema %}
+{
+    "name": "FAQs",
+    "blocks": [{
+        "type": "text",
+        "name": "FAQs",
+        "settings": [
+            {
+                "id": "title",
+                "type": "text",
+                "label": "Title"
+            },
+            {
+                "id": "description",
+                "type": "textarea",
+                "label": "Description"
+            }
+        ]
+    }]
+}
+{% endschema %}

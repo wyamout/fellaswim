@@ -1,0 +1,17 @@
+{% assign page_class = 'page-' %}
+{%- if handle != blank -%}
+    {%- assign page_class = page_class | append: handle -%}
+{%- else -%}
+    {%- assign page_class = page_class | append: 'index' -%}
+{%- endif -%}
+
+{%- if page.template_suffix != blank -%}
+    {%- assign page_class = page_class | append: ' pagetemplate-' | append: page.template_suffix -%}
+{%- endif -%} 
+
+{%- assign template_slug = template | replace: '/', '-' | replace: '.', '-' -%}
+{%- assign page_class = page_class | append: ' template-' | append: template_slug -%}
+
+{%- if settings.global_note_status == 'yes' and settings.global_note_text != blank -%}
+    {%- assign page_class = page_class | append: ' has-ribbon' -%}
+{%- endif -%} 

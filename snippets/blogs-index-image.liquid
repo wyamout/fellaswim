@@ -1,0 +1,18 @@
+
+        <div class="image-feature {% if layout == "full-width" %}layout--full-width{% else %}layout--flex layout--half {% if layout == "half-left" %}layout--half-left{% else %}layout--half-right{% endif %}{% endif %}">
+            <a href="{{ link }}" class="image-feature--wrapper image-anim--scale">
+
+                {% if image != blank %}
+                    <div class="image-feature--images image-anim--wrapper lazyload-animation">
+                        {% render 'responsive-image', classes: 'image-feature--image', image: image, sizes: '768,1536,2048,3600' %}
+                    </div>
+                {% endif %}
+                  <div class="image-feature--titles {% if text_alignment == "bottom-left" %}title-align--bottom title-align--left{% else %}title-align--center{% endif %} {% if text_color == "white" %}title-color--white{% else %}title-color--black{% endif %}">
+                    <div class="image-feature--titles--wrapper image-feature--titles--wrapper--stacked">
+                      <span class="image-feature--titles--subtitle">{{ subtitle }}</span>
+                      <h2 class="image-feature--titles--title">{{ title }}</h2>
+                    </div>
+                  </div>
+
+            </a>
+        </div>

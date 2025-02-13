@@ -1,0 +1,36 @@
+
+{%- for block in section.blocks -%}
+    {%- if block.settings.collection != blank -%}
+        {%- if product.collections contains collections[block.settings.collection] -%}
+            <div class="product--alert">
+                {{ block.settings.description | newline_to_br }}
+            </div>
+        {%- endif -%}
+    {%- endif -%}
+{%- endfor -%}
+
+
+{% schema %}
+{
+    "name": "Product Alerts",
+    "blocks": [
+        {
+            "type": "product-alert",
+            "name": "Product Alert",
+            "settings": [
+                {
+                    "label": "Alert text",
+                    "id": "description",
+                    "type": "textarea"
+                },
+                {
+                    "label": "Collection",
+                    "id": "collection",
+                    "type": "collection",
+                    "info": "Collection of products to show this alert for"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

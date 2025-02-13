@@ -1,0 +1,9 @@
+{% capture layout_bundle_js %}bundle.{{- layout -}}.js{% endcapture %}
+<script src="{{ layout_bundle_js | asset_url }}" async></script>
+
+{%- assign bundles = bundles | split: ',' -%}
+
+{% if bundles contains template %}
+  {% capture script_bundle %}bundle.{{- template | remove: 'customers/' -}}.js{% endcapture %}
+  <script src="{{ script_bundle | asset_url }}" async></script>
+{% endif %}

@@ -1,0 +1,36 @@
+{%- if section.settings.made_to_order_info != blank -%}
+
+    <div class="product--details--info-box product-made-to-order">
+
+        <a href="#" class="product--details--info-box--title">
+            {{ 'product.made_to_order' | t }}
+                
+            <span class="product--details--info-box--toggle">
+                {% render 'icon', icon: 'plus' %}
+                {% render 'icon', icon: 'minus' %}
+            </span>
+            
+        </a>
+        
+        <div class="product--details--info-box--description">
+            <div class="product--details--info-box--description--wrapper">
+                <div id="shopify-product-made-to-order" class="product-made-to-order--content">{{ section.settings.made_to_order_info | newline_to_br }}</div>
+            </div>
+        </div>
+
+    </div>
+
+{% endif %}
+
+{% schema %}
+{
+    "name": "Made to Order Info",
+    "settings": [
+        {
+            "label": "Made to Order Info",
+            "id": "made_to_order_info",
+            "type": "textarea"
+        }
+    ]
+}
+{% endschema %}

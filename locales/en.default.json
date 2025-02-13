@@ -1,0 +1,327 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "general": {
+    "404": {
+      "title": "Page not found",
+      "subtext_html": "The page you were looking for does not exist"
+    }
+  },
+  "search": {
+    "no_results": "No Results",
+    "category": "Category",
+    "products": "Products",
+    "results": "{{ count }} result{{ plural }}",
+    "results_10_more": "More than 10 results",
+    "view_all_results": "View all results",
+    "search_large": "Search"
+  },
+  "collection": {
+    "sort": "Sort",
+    "filter": "Filter",
+    "four-view": "4 View",
+    "six-view": "6 View",
+    "no-results": "No Fellas found ...",
+    "all": "All Collections",
+    "set_picks": "Set Picks",
+    "suggestions": "Suggestions"
+  },
+  "pagination": {
+    "next-page": "More Fellas",
+    "next-page-loading": "Finding your Fellas ..."
+  },
+  "product": {
+    "index_swatch_colours": " Colours",
+    "colour": "Colour:",
+    "override": "Size not applicable with this customised feature",
+    "customise": {
+      "title": "Customise",
+      "additional_cost": "Additional Cost"
+    },
+    "add_to_cart": {
+      "add": "Add to cart",
+      "pre_order": "Pre-order",
+      "adding": "Adding",
+      "added": "Added!",
+      "sold-out": "Sold Out",
+      "coming-soon": "Coming Soon",
+      "made-to-order": "Made to Order",
+      "error": "Error :("
+    },
+    "variant_list_title": "Select {{ option_name }}",
+    "variant_select": "Select",
+    "size_guide": "Size Guide",
+    "shipping": "Shipping & Returns",
+    "reviews": "Product Reviews",
+    "styled_with": {
+      "title": "Styled With",
+      "discountable": "Buy a pair and save {{ discount }}%"
+    },
+    "related_products": {
+      "combination_discounts": "Pair this item",
+      "recently_viewed": "Recently viewed",
+      "you_might_like": "You might like"
+    },
+    "return_to": "Return to {{ collection }}",
+    "as_seen_on": "As Seen On",
+    "waitlist": "Enter email to get notified when back in stock. ",
+    "coming_soon": "Enter email to get notified when this product arrives.",
+    "gift_card": {
+      "your_gift_card": "Your gift card",
+      "balance_html": "BALANCE:<br/>{{ balance }}",
+      "code_html": "CODE:<br/>{{ code }}"
+    },
+    "made_to_order": "Made to Order"
+  },
+  "filters": {
+    "style": {
+      "title": "Style",
+      "triangle": "Triangle",
+      "strapless": "Strapless",
+      "with_straps": "With Straps",
+      "full": "Full",
+      "underwire": "Underwire",
+      "bandeau": "Bandeau",
+      "rings": "Rings",
+      "thin_straps": "Thin Straps",
+      "thick_straps": "Thick Straps",
+      "cross_back": "Cross Back",
+      "halter_neck": "Halter Neck",
+      "adjustable_straps": "Adjustable Straps",
+      "knot": "Knot",
+      "high_waisted": "High Waisted",
+      "high_cut": "High Cut",
+      "low_cut": "Low Cut",
+      "cheeky_cut": "Cheeky Cut",
+      "conservative_cut": "Conservative Cut",
+      "full_piece": "Full Piece",
+      "low_back": "Low Back",
+      "cut_out": "Cut Out",
+      "scoop_neckline": "Scoop Neckline",
+      "v_neckline": "V Neckline",
+      "square_neckline": "Square Neckline"
+    },
+    "colours": "Colour",
+    "prints": "Print",
+    "size": {
+      "title": "Size",
+      "xs": "Extra Small",
+      "s": "Small",
+      "m": "Medium",
+      "l": "Large",
+      "xl": "Extra Large",
+      "xxl": "Extra Extra Large",
+      "10d": "10D",
+      "10dd": "10DD"
+    },
+    "stock": {
+      "title": "Stock",
+      "in-stock": "Show only instock items",
+      "all": "Show everything"
+    },
+    "fit":{
+      "title": "Fit",
+      "underwire": "Underwire",
+      "triangle": "Triangle",
+      "strapless": "Strapless",
+      "supportive": "Supportive",
+      "highrise": "High-Rise",
+      "lowrise": "Low-Rise",
+      "cheeky": "Cheeky",
+      "swim": "Swim",
+      "halter": "Halter"
+    },
+    "apply": "Apply",
+    "clear": "Clear",
+    "clear-filters": "Clear Filters",
+    "sort_by": {
+      "best-selling": "Most popular",
+      "price-ascending": "Lowest Price",
+      "price-descending": "Highest Price",
+      "title-ascending": "A-Z",
+      "title-descending": "Z-A"
+    }
+  },
+  "footer": {
+    "contact": "Contact",
+    "contact_details": "Contact Us",
+    "call": "Call",
+    "email": "Email",
+    "follow": "Follow",
+    "signup_email_placeholder": "Email address",
+    "signup_submit": "Submit",
+    "signup_loading": "Signing up",
+    "company_name": "Fella Pty Ltd"
+  },
+  "contact": {
+    "careers": {
+      "see_more": "See more",
+      "apply": "Apply",
+      "current_positions": "Current positions",
+      "thank_you": "Thank you for your contact",
+      "contact_us": "Contact us about this position",
+      "message": "Message",
+      "back": "Back",
+      "alternatively_fill": "Alternatively, fill out the short form below to introduce yourself."
+    },
+    "enquiry": {
+      "success": "A member of our team will be in touch soon."
+    }
+  },
+  "customer": {
+    "login": {
+      "title": "Welcome back, please sign in",
+      "email": "Email Address",
+      "password": "Password",
+      "forgot_password": "Forgot password?",
+      "sign_in": "Sign In",
+      "cancel": "Return to Store",
+      "guest_title": "Continue as a guest",
+      "guest_continue": "Continue",
+      "no_account": "Don't have an account yet?",
+      "account": "Account",
+      "sign_up": "Sign Up"
+    },
+    "register": {
+      "title": "Sign Up",
+      "reset_password": "Reset your password",
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "email": "Email Address",
+      "password": "Password",
+      "password_confirm": "Confirm Password",
+      "submit": "Create Account",
+      "submit_reset_password": "Reset your password",
+      "update": "Update",
+      "cancel": "Return to Sign In",
+      "accept_marketing": "Subscribe to our newsletter",
+      "update_success": "Your account was updated succcessfully",
+      "reset_check_email": "Please check your inbox for a link to reset your password"
+    },
+    "details": {
+      "title": "Account Details",
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "email": "Email Address",
+      "password": "Password",
+      "confirm_password": "Confirm Password",
+      "submit": "Edit"
+    },
+    "reset_password": {
+      "title": "Reset Password",
+      "email": "Email Address",
+      "submit": "Reset"
+    },
+    "addresses": {
+      "title": "Address Book",
+      "new": "New Address",
+      "update": "Update Address",
+      "no_addresses": "No Addresses Found",
+      "incentive": "Save a new address for easier checkout",
+      "add": "add",
+      "edit": "edit",
+      "save": "save"
+    },
+    "orders": {
+      "title": "Order History",
+      "empty": "You haven't placed any orders yet.",
+      "view": "View details",
+      "order": "Order",
+      "order_with_number": "Order {{ order_number }}",
+      "date": "Date",
+      "payment": "Payment Status",
+      "fulfillment": "Fulfillment Status",
+      "total": "Total",
+      "not_found": "Order not found",
+      "placed": "Order placed",
+      "colour": "Colour: {{ colour }}",
+      "size": "Size: {{ size }}",
+      "quantity": "Qty: {{ quantity }}",
+      "subtotal": "Subtotal",
+      "tax": "Tax",
+      "shipping": "Shipping",
+      "billing_address": "Billing Address",
+      "shipping_address": "Shipping Address",
+      "payment_status": "Payment Status",
+      "fulfillment_status": "Fulfillment Status",
+      "return": "Back to all orders",
+      "download_invoice": "Download invoice"
+    },
+    "activate": {
+      "title": "Activate account",
+      "password": "Password",
+      "password_confirm": "Confirm password",
+      "submit": "Activate account"
+    }
+  },
+  "blogs": {
+    "archives": "Archives",
+    "see_all": "See All",
+    "shop_the_look": "Shop the look:&nbsp;"
+  },
+  "cart": {
+    "general": {
+      "title": "Your Cart",
+      "remove": "Remove",
+      "colour": "Colour: {{ colour }}",
+      "size": "Size: {{ size }}",
+      "customised": "Customised fit",
+      "quantity": "Qty: ",
+      "free_shipping": "Free shipping on orders over {{ rate }}",
+      "note": "Special instructions for seller",
+      "subtotal": "Subtotal",
+      "total": "Total",
+      "shipping_at_checkout": "Shipping calculated next step",
+      "update": "Update Cart",
+      "view_cart": "View Cart",
+      "checkout": "Check out",
+      "empty": "Your cart is currently empty.",
+      "cookies_required": "Enable cookies to use the shopping cart",
+      "continue_browsing_html": "Continue browsing <a href=\"/collections/all\">here</a>.",
+      "item_quantity": "Item quantity",
+      "savings": "You're saving",
+      "summary": "Order Summary",
+      "match_discount": "Match Pair Saving {{ percent }}%"
+    },
+    "errors": {
+      "quantity": "We were unable to update the quantity",
+      "remove": "We were unable to remove that item"
+    },
+    "callouts": {
+      "sale": "Sale",
+      "final_sale": "Final Sale",
+      "final_sale_msg": "Sale items are final sale. These cannot be returned for an exchange or credit note",
+      "best_seller": "Best Seller",
+      "new_arrivals": "New In",
+      "pre_order": "Pre-order",
+      "coming_soon": "Coming soon"
+    }
+  },
+  "style_guide": {
+    "heading": "Style Guide",
+    "subheading": "Enhance & celebrate your body with our guide to finding the right FELLA for you.",
+    "style_guide_prefix": "Style Guide: ",
+    "hot_tips": "Hot Tips",
+    "set_picks": "Our Set Picks: ",
+    "suggested": {
+      "tops": "Suggested Tops",
+      "bottoms": "Suggested Bottoms",
+      "full_pieces": "Suggested Full Pieces"
+    },
+    "unsure": "Still Unsure? Let us help you."
+  },
+  "currency": {
+    "title": "Currency"
+  },
+  "region_selector": {
+    "copy": "Region:",
+    "default": "Australia / New Zealand / Indonesia"
+  }
+}

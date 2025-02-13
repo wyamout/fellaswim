@@ -1,0 +1,45 @@
+{% if product.tags contains "Table:Tops" %}
+	{% assign page_handle = 'tops-size-conversion' %}
+{% elsif product.tags contains "Table:Underwired tops" %}
+	{% assign page_handle = 'underwire-size-conversion' %}
+{% elsif product.tags contains "Table:Bottoms" %}
+	{% assign page_handle = 'bottoms-size-conversion' %}
+{% elsif product.tags contains "Table:Full pieces" %}
+	{% assign page_handle = 'full-piece-size-conversion' %}
+{% elsif product.tags contains "Table:Ready to wear" %}
+	{% assign page_handle = 'ready-to-wear-size-conversion' %}
+{% endif %}
+
+{% if pages[page_handle] != blank %}
+	<div class="size-guide">
+		<div class="size-guide-modal modal size-guide--page" data-pg-handle="{{ page_handle }}" id="modal-1">
+			<div class="modal-bg modal-exit"></div>
+				
+				<div class="modal-container">
+					<button class="modal-close modal-exit">{% render 'icon', icon: 'cross' %}</button>
+
+					<div class="size-guide-modal-header ">
+		
+						<div class="modal-title-header feature-page--heading">{{pages[page_handle].title }}</div>
+						
+					</div>
+
+					<div class="size-guide-modal-content modal-contant">
+						<div class="size-guide-chart-tab-container">
+							<div class="size-guide-table-wrapper">
+								{{ pages[page_handle].content }}
+							</div>
+						</div>
+					</div>
+				</div>
+
+		</div>
+	</div>
+{% endif %}
+
+{% schema %}
+{
+"name": "Size Guide",
+	"settings": []
+}
+{% endschema %}

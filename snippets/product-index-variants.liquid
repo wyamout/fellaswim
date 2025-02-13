@@ -1,0 +1,24 @@
+{%- assign has_variants = false -%}
+{%- assign variants_size = product.variants | size -%}
+{%- if variants_size > 1 -%}
+  {%- assign has_variants = true -%}
+{%- endif -%}
+<div
+  class="add-variants--product {% if selected %} selected{% endif %}{% if product.first_available_variant == blank %} sold-out{% elsif product.tags contains "made_to_order" %} made-to-order{% endif %}"
+  data-product-id="{{ product.id }}"
+  {% if has_variants == false %}
+    data-variant-id="{{ product.variants[0].id }}"
+  {% endif %}
+>
+  {% if has_variants %}
+    {% for variant in product.variants %}
+      <a
+        href="#"
+        data-variant-id="{{ variant.id }}"
+        class="variant-item{% if variant.available == false %} sold-out{% elsif product.tags contains "made_to_order" %} made-to-order{% endif %}"
+      >
+        {{- variant.title -}}
+      </a>
+    {% endfor %}
+  {% endif %}
+</div>

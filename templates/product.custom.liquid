@@ -1,0 +1,7 @@
+{% layout none %}
+[
+ {
+   "image1": "{{ product.images[0].src | img_url: 'master' }}",
+   {% if product.images.size > 1 %}"image2": "{{ product.images[1].src | img_url: 'master' }}"{% else %}"image2": "{{ product.images[0].src | img_url: 'master' }}"{% endif %}
+ }
+]

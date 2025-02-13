@@ -1,0 +1,15 @@
+<div class="cart-interface--option-selector">
+	<div class="cart-interface--select--wrapper">
+		{% if product.options.size == 1 %}
+			<label class="cart-interface--select--display">
+				{{ product.options[0] }}:
+			</label>
+		{% endif %}
+		<select class="cart-interface--select">
+			{% for variant in product.variants %}
+				<option value="{{ variant.id }}" {% if variant.title == option %} selected{% endif %}{% if variant.available == false %} disabled{% endif %}>{{ variant.title }}</option>
+			{% endfor %}
+		</select>
+		{% render 'icon', icon: 'chevron-heavy' %}
+	</div>
+</div>

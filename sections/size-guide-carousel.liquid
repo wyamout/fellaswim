@@ -1,0 +1,130 @@
+<div id="shopify-section-size-guide-carousel">
+<div class="size-guide">
+
+	<div class="size-guide--top">
+		{% if section.settings.sec_title != blank %}
+		<div class="size-guide--heading">{{
+			section.settings.sec_title }}</div>
+		{% endif %}
+		<div class="size-guide--nav">
+			<div class="size-guide--nav--container">
+				{% for block in section.blocks %}
+				<a href="#" class="size-guide--nav--link"
+					data-size-guide-page="{{block.settings.collection_tab.title | handleize | truncate: 15, '.'}}">
+					{% if block.settings.btn_title != blank %}
+						{{block.settings.btn_title}}
+					{% else %}
+						{{block.settings.collection_tab.title}}
+					{% endif %}
+				</a>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+
+	<div class="size-guide--bottom">
+		{% for block in section.blocks %}
+			{% assign collection_products = collections[block.settings.collection_tab].products %}
+
+			<div class="size-guide--page size-guide--page-slide-block"
+				data-size-guide-page="{{block.settings.collection_tab.title | handleize | truncate: 15, '.'}}">
+
+				<div class="size-guide--carousel-wrap">
+					<div class="carousel">
+
+						<div class="carousel--inside">
+							<div class="carousel--track">
+								{% for product in collection_products limit:10 %}
+									{% if product.featured_image != blank %}
+									    {%- assign product_title_formatted = product.title | replace: ',', '|' | split: '|' -%}
+									    {%- assign product_title_formatted = product_title_formatted[0] | trim -%}
+
+									    {% if product.tags contains "Table:Tops" %}
+									        {% assign page_handle = 'tops-size-conversion' %}
+									    {% elsif product.tags contains "Table:Underwired tops" %}
+									        {% assign page_handle = 'underwire-size-conversion' %}
+									    {% elsif product.tags contains "Table:Bottoms" %}
+									        {% assign page_handle = 'bottoms-size-conversion' %}
+									    {% elsif product.tags contains "Table:Full pieces" %}
+									        {% assign page_handle = 'full-piece-size-conversion' %}
+									    {% elsif product.tags contains "Table:Ready to wear" %}
+									        {% assign page_handle = 'ready-to-wear-size-conversion' %}
+									    {% else %}
+									        {% assign page_handle = '' %}
+									    {% endif %}
+
+									    <div class="size-guide--carousel-product-info" data-handle-modal="{{ page_handle }}">
+									        <a class="size-guide--carousel-product-link lazyload-animation" href="{{ product.url }}">
+									            <div class="size-guide--carousel-product-image">
+									                {% render 'responsive-image', classes: 'img', image: product.featured_image.src, sizes: '768,1536,2048,3600' %}
+									            </div>
+									        </a>
+									        <a class="size-guide--carousel-product-link size-guide--carousel-product-text" href="{{ product.url }}">
+									            <div class="size-guide--carousel-product-title feature-page--heading" >{{ product_title_formatted }}</div>
+									            <div class="size-guide--carousel-product-desc feature-page--subheading" >{{ product.description }}</div>
+									        </a>
+									    </div>
+									{% endif %}
+								{% endfor %}
+							</div>
+						</div>
+
+						<div class="size-guide--carousel-btns-wrap">
+							<a href="#" class="carousel-btn-scroll previous">
+								{% render 'icon', icon: 'chevron' %}
+							</a>
+
+							<a href="#" class="carousel-btn-scroll next">
+								{% render 'icon', icon: 'chevron' %}
+							</a>
+						</div>
+
+						<div class="size-guide--carousel-product-info size-guide--carousel-general-info show">
+							<a class="size-guide--carousel-product-link size-guide--carousel-product-text" href="#">
+								<div class="size-guide--carousel-product-title feature-page--heading" ></div>
+								<div class="size-guide--carousel-product-desc feature-page--subheading"></div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+
+
+	</div>
+
+</div>
+</div>
+
+
+{% schema %}
+{
+	"name": "Size Guide carousel",
+	"settings": [
+		{
+			"type": "text",
+			"id": "sec_title",
+			"label": "Section Title"
+		}
+	],
+		"blocks": [
+		{
+			"name": "Block",
+			"type": "tab",
+			"settings": [
+			{
+				"type": "text",
+				"id": "btn_title",
+				"label": "Button Title"
+			},
+			{
+				"type": "collection",
+				"id": "collection_tab",
+				"label": "Collection"
+			}
+			]
+		}
+	],
+	"presets": []
+}
+{% endschema %}

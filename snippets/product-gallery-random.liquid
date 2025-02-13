@@ -1,0 +1,24 @@
+{%- paginate collection.products by 1000 -%}
+    {%- assign max = collection.products | size -%}
+    {%- assign random_number = 'now' | date: '%N' | modulo: max -%}
+    {%- assign count = 0 -%}
+
+    {%- for i in (1..max) -%}
+        {%- assign index = i | plus: random_number -%}
+        {%- if index > max -%}
+            {%- assign index = index | modulo: max | minus: 1 -%}
+            {%- if index > random_number -%}
+                {%- break -%}
+            {%- endif -%}
+        {%- endif -%}
+
+        {%- assign product = collection.products[index] -%}
+        {%- if title_filter == blank or product.title contains title_filter -%}
+            {%- if product != blank -%}
+                {%- assign count = count | plus: 1 -%}
+                {% render 'product-gallery-item', product: product %}
+                {%- if count >= 4 -%}{%- break -%}{%- endif -%}
+            {%- endif -%}
+        {%- endif -%}
+    {%- endfor -%}
+{%- endpaginate -%}

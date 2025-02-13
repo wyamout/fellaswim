@@ -1,0 +1,68 @@
+<div class="fabric-gallery-section">
+    <div class="fabric-gallery-container">
+    {% for block in section.blocks %}
+        <div class="fabric">
+            {%- if block.settings.image -%}
+                    <div class="fabric-image lazyload-animation">
+                    {% assign classes = 'image-feature--image' %}
+                    {% assign sizes = '480,640' %}
+                    {% render 'responsive-image', classes: classes, image: block.settings.image, sizes: sizes %}
+                </div>
+            {%- endif -%}
+            {%- if block.settings.title -%}
+                <div class="title">{{ block.settings.title }}</div>
+            {%- endif -%}
+            {%- if block.settings.description -%}
+                <div class="description">{{ block.settings.description  }}</div>
+            {%- endif -%}
+            {% if block.settings.collection != blank %}
+                {%- assign section_collection = collections[block.settings.collection] -%}
+                <div class="fabric-block-collection">
+                    <a href="{{ section_collection.url }}" class="fabric-block--title--link">Shop the Collection</a>
+                </div>
+            {%- endif -%}
+        </div>
+    {% endfor %}
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "Fabric Gallery",
+    "settings": [],
+    "blocks": [
+        {
+            "name": "Fabric",
+            "type": "Fabric",
+            "settings": [
+                {
+                    "label": "Image",
+                    "id": "image",
+                    "type": "image_picker",
+                    "info": "3600 x 1700 for full width, 2700 x 1800 for three-quarter, 1800 x 1700 for half"
+                },
+                {
+                    "label": "Title",
+                    "id": "title",
+                    "type": "text"
+                },
+                {
+                    "label": "Description",
+                    "id": "description",
+                    "type": "textarea"
+                },
+                {
+                    "label": "Collection",
+                    "id": "collection",
+                    "type": "collection"
+                }
+            ]
+        }
+    ],
+    "presets": [
+    {
+      "name": "Fabric Gallery",
+      "category": "Custom"
+    }]
+}
+{% endschema %}

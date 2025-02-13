@@ -1,0 +1,15 @@
+<div class="two-panel account account--dashboard">
+
+  {% include 'side-navigation--account' %}
+
+  <div class="container">
+  	
+  	<h2 class="container--title">Hi {{ customer.first_name }}</h2>
+
+  	{% section 'account' %}
+
+<p>Welcome to your FELLA account. From your account dashboard, you can view and edit your <a href="account?view=details">account details</a>, manage your <a href="/account/addresses">address book</a>, and see your <a href="/account?view=orders">order history</a>.</p>
+
+  </div>
+
+</div>

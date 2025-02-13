@@ -1,0 +1,21 @@
+<div class="two-panel help">
+
+  {% include 'side-navigation--help' %}
+
+  <div class="container">
+
+  	<h2>{{ page.title }}</h2>
+
+  	<div class="two-panel--content">
+
+		<div class="two-panel--content--section">
+
+	  		{{ page.content | replace: '---', '</div><div class="two-panel--content--section">' }}
+
+	  	</div>
+
+  	</div>
+
+  </div>
+
+</div>

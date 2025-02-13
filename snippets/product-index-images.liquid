@@ -1,0 +1,32 @@
+{%- assign loop_count = 0 -%}
+{% for image in images %}
+  {%- assign feature_image = false -%}
+  {%- if image.aspect_ratio > 1.5 -%}
+    {%- assign feature_image = true -%}
+  {%- endif -%}
+
+  {%- if feature_image != is_feature -%}
+    {%- continue -%}
+  {%- endif -%}
+
+  {%- assign loop_count = loop_count | plus: 1 -%}
+
+  {%- if loop_count > 5 -%}
+    {%- break -%}
+  {%- endif -%}
+
+  {%- if is_feature == false and image.alt contains 'campaign' -%}
+    {%- break -%}
+  {%- endif -%}
+
+  {%- assign second_image_index = forloop.index0 | plus: 1 -%}
+  {% if images[3] %}
+    {%- assign second_image = images[3] %}
+  {% else %}
+    {%- assign second_image = images[second_image_index] %}
+  {% endif %}
+
+  <div class="product-index--images--image lazyload-animation">
+    {% render 'responsive-image-hover', classes: '', image: image, second_image: second_image, sizes: '320,1600' %}
+  </div>
+{% endfor %}

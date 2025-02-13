@@ -1,0 +1,256 @@
+<h2 class="image-feature--pretitle">{{ page.title }}</h2>
+
+{% if template == "page.work-with-us" %}
+
+    <div id="shopify-section-work-with-us-a" class="shopify-section">
+
+        <div class="image-feature layout--half-left layout--flex layout--half">
+            <div class="image-feature--wrapper image-anim--scale">
+                <div class="image-feature--images image-anim--wrapper lazyload-animation">
+                    {% render 'responsive-image', classes: 'image-feature--image', image: section.settings.cover_top_image, sizes: '768,1536,2048,3600' %}
+                </div> 
+                <div class="image-feature--titles title-align--left title-align--center title-color--black">
+                    <div class="image-feature--titles--wrapper image-feature--titles--wrapper--stacked">
+                        <h2 class="image-feature--titles--title">{{ page.title }}</h2>
+                        <div class="image-feature--titles--wysiwyg image-feature--titles--wysiwyg--large-text">{{ page.content }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="shopify-section-work-with-us-b" class="shopify-section">
+
+        <div class="image-feature layout--half-right layout--flex layout--half">
+            <div class="image-feature--wrapper image-anim--scale">
+                <div class="image-feature--images image-anim--wrapper lazyload-animation">
+                    {% render 'responsive-image', classes: 'image-feature--image', image: section.settings.cover_bottom_image, sizes: '768,1536,2048,3600' %}
+                </div> 
+                <div class="image-feature--titles title-align--left title-align--center title-color--black">
+                    <div class="image-feature--titles--wrapper image-feature--titles--wrapper--stacked">
+{% comment %}
+                        {% form 'contact' %}
+                            <div class="form--row">
+                                <div class="form--row--cell">
+                                    {% if form.posted_successfully? %}
+                                    <p class="form--text form--text--large">{{ 'contact.careers.thank_you' | t }}</p>
+                                    {% elsif form.errors %} 
+                                    <p class="form--text form--text--large">{{ form.errors | default_errors }}</p>
+                                    {% else %}
+                                    <p class="form--text form--text--large">{{ 'contact.careers.alternatively_fill' | t }}</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="form--row">
+                                <div class="form--row--cell">
+                                    <input type="text" id="ContactFormName" name="contact[name]" placeholder="Name">
+                                </div>
+                                <div class="form--row--cell">
+                                    <input type="email" id="ContactFormEmail" name="contact[email]" placeholder="Email Address">
+                                </div>
+                            </div>
+                            <div class="form--row">
+                                <div class="form--row--cell">
+                                    <label for="ContactFormMessage">{{ 'contact.careers.message' | t }}</label>
+                                    <textarea rows="8" id="ContactFormMessage" name="contact[body]"></textarea>
+                                </div>
+                            </div>
+                            <div class="form--row">
+                                <div class="form--row--cell">
+                                    <input type="submit" value="Submit">
+                                </div>
+                            </div>
+                        {% endform %}
+{% endcomment %}
+                        {% if section.blocks.size > 0 %}
+
+                        <div class="careers--wrapper">
+                            {% if section.settings.show_current_positions %}
+                            <div class="careers--list">
+                                <div class="careers--list--intro">{{ 'contact.careers.current_positions' | t }}</div>
+                                {% for block in section.blocks %}
+                                <div class="careers--list--item">
+                                    <div class="careers--list--item--left">
+                                        <div class="careers--list--item--title">{{ block.settings.title }}</div>
+                                        <div class="careers--list--item--location">{{ block.settings.location }}</div>
+                                    </div>
+                                    <div class="careers--list--item--right">
+                                        <a class="button button--black" href="/pages/{{ block.settings.page }}">{{ 'contact.careers.see_more' | t }}</a>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                              {% else %}
+                                    <div class="careers--list">
+                                <div class="careers--list--intro">No positions currently available</div>
+                                    </div>
+                          {% endif %}
+
+                        </div>
+
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+{% elsif template == "page.career-detail" %}
+
+    <div id="shopify-section-career-detail-a" class="shopify-section">
+
+        <div class="image-feature layout--half-left layout--flex layout--half">
+            <div class="image-feature--wrapper image-anim--scale">
+                <div class="image-feature--images image-anim--wrapper lazyload-animation">
+                    {% render 'responsive-image', classes: 'image-feature--image', image: section.settings.detail_top_image, sizes: '768,1536,2048,3600' %}
+                </div> 
+                <div class="image-feature--titles title-align--left title-align--center title-color--black">
+                    <div class="image-feature--titles--wrapper image-feature--titles--wrapper--stacked">
+
+                        {% if section.blocks.size > 0 %}
+                            {% for block in section.blocks %}
+                                {% if block.settings.page == handle %}
+                                    <div class="image-feature--titles--wysiwyg">
+                                        <h4>{{ block.settings.title }}</h4>
+                                        <p>{{ block.settings.location }}</p>
+                                        {{ page.content }}
+                                        <a href="{% if block.settings.external_link != blank %}{{ block.settings.external_link }}{% else %}#contact_form{% endif %}" 
+                                            class="button button--black"
+                                            {% if block.settings.external_link != blank %} target="_blank"{% else %} data-turbolinks="false"{% endif %}>
+                                                {{ 'contact.careers.apply' | t }}
+                                            {% if block.settings.external_link != blank %}{% render 'icon', icon: 'apply' %}{% endif %}
+                                        </a>
+                                    </div>
+                                    {% break %}
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+
+                    </div>
+
+                    <a href="{{ pages.work-with-us.url }}" class="image-feature--titles--return">
+                        {% render 'icon', icon: 'chevron' %} {{ 'contact.careers.back' | t }}
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% comment %}
+    <div id="shopify-section-career-detail-b" class="shopify-section">
+
+        <div class="image-feature layout--half-right layout--flex layout--half">
+            <div class="image-feature--wrapper image-anim--scale">
+                <div class="image-feature--images image-anim--wrapper lazyload-animation">
+                    {% render 'responsive-image', classes: 'image-feature--image', image: section.settings.detail_bottom_image, sizes: '768,1536,2048,3600' %}
+                </div> 
+                <div class="image-feature--titles title-align--left title-align--center title-color--black">
+                    <div class="image-feature--titles--wrapper image-feature--titles--wrapper--stacked">
+
+                        {% form 'contact' %}
+                        <div class="form--row">
+                            <div class="form--row--cell">
+                                {% if form.posted_successfully? %}
+                                <p class="form--text">{{ 'contact.careers.thank_you' | t }}</p>
+                                {% elsif form.errors %} 
+                                <p class="form--text">{{ form.errors | default_errors }}</p>
+                                {% else %}
+                                <p class="form--text">{{ 'contact.careers.contact_us' | t }}</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="form--row">
+                            <div class="form--row--cell">
+                                <input type="text" id="ContactFormName" name="contact[name]" placeholder="Name">
+                            </div>
+                            <div class="form--row--cell">
+                                <input type="email" id="ContactFormEmail" name="contact[email]" placeholder="Email Address">
+                            </div>
+                        </div>
+                        <div class="form--row">
+                            <div class="form--row--cell">
+                                <label for="ContactFormMessage">{{ 'contact.careers.message' | t }}</label>
+                                <textarea rows="8" id="ContactFormMessage" name="contact[body]"></textarea>
+                            </div>
+                        </div>
+                        <div class="form--row">
+                            <div class="form--row--cell">
+                                <input type="submit" value="Submit">
+                            </div>
+                        </div>
+                        {% endform %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endcomment %}
+{% endif %}
+
+{% schema %}
+{
+    "name": "Careers",
+    "settings": [
+      {
+        "type": "image_picker",
+        "label": "Cover top image",
+        "id": "cover_top_image"
+    },
+    {
+        "type": "image_picker",
+        "label": "Cover bottom image",
+        "id": "cover_bottom_image"
+    },
+    {
+        "type": "image_picker",
+        "label": "Detail top image",
+        "id": "detail_top_image"
+    },
+    {
+        "type": "image_picker",
+        "label": "Detail bottom image",
+        "id": "detail_bottom_image"
+    },
+      {
+        "type": "checkbox",
+        "label": "Show Current Positions",
+        "id": "show_current_positions",
+          "default": true
+      }
+],
+    "blocks": [
+        {
+            "type": "Career",
+            "name": "Career",
+            "settings": [
+                {
+                    "label": "Title",
+                    "id": "title",
+                    "type": "text"
+                },
+                {
+                    "label": "Location",
+                    "id": "location",
+                    "type": "text"
+                },
+                {
+                    "label": "Detail Page",
+                    "id": "page",
+                    "type": "page"
+                },
+                {
+                    "label": "External Link",
+                    "id": "external_link",
+                    "type": "url",
+                    "info": "Leave blank to allow users to apply with a contact form"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

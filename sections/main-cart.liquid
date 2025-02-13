@@ -1,0 +1,233 @@
+{%- assign customisation_product = all_products[settings.customisation_product] -%}
+{% if settings.cart_pair_discount_status == true and settings.cart_pair_discount_rate > 0 %}
+    {%- capture discount_amount -%}{%- render 'cart-get-discount', cart: cart -%}{%- endcapture -%}
+    {%- assign discount_amount = discount_amount | plus: 0 -%}
+{% endif %}
+
+<form class="cart cart-interaction" action="/cart" method="post" novalidate{% if discount_amount != blank and discount_amount > 0 %} data-needs-discount="true"{% endif %}>
+
+    <div class="cart--table cart--items">
+        <h2 class="cart--table--heading">{{ 'cart.general.title' | t }}</h2>
+
+        {% if cart.item_count > 0 %}
+            {% for item in cart.items %}
+                {% liquid
+                assign preorder_description = item.product.metafields.custom_fields.pre_order_description
+
+                if item.product.id == customisation_product.id
+                    continue
+                endif
+
+                assign price_increase = 0 
+                %}
+
+                <div class="cart--table--row cart--table--row--product cart-interaction--line" data-line="{{ item.key }}">
+                    <div class="cart--table--row--image">
+                        {% render 'responsive-image', classes: '', image: item.image, sizes: '768,1536,2048,3600' %}
+                    </div>
+
+                    <div class="cart--table--row--middle--outer">
+                        <div class="cart--table--row--middle">
+                            <div class="cart--table--row--info">
+
+                                {%- assign product_name_split = item.product.title | replace: ",", "|" | split: "|" -%}
+                                {%- assign product_name = product_name_split[0] | strip %}
+
+                                {%- capture item_customisation_count -%}{%- render 'cart-item-customisation-count', item: item -%}{%- endcapture -%}
+                                {%- assign price_increase = item_customisation_count | plus: 0 | times: customisation_product.price -%}
+                                {%- assign custom_size = item.properties['Size'] -%}
+                                <div class="cart--table--row--property">
+                                    {{ product_name }}
+                                </div>
+
+                                {%- capture product_colour_title -%}{%- render 'product-colour', product: item.product -%}{%- endcapture -%}
+                                {%- assign product_colour = product_colour_title | downcase | replace: ' ', '-' | capitalize | strip -%}
+                                {% if product_colour != '' %}
+                                    <div class="cart--table--row--property">{{ 'cart.general.colour' | t: colour: product_colour }}</div>
+                                {% endif %}
+
+                                {% if item.product.tags contains "made_to_order" and item.variant.inventory_quantity <= 0 %}
+                                    <div class="cart--table--row--property">{{ 'product.add_to_cart.made-to-order' | t }}</div>
+                                {% endif %}
+
+                                <div class="cart--table--row--property">
+                                    <a href="#" class="cart-interface--remove">{{ 'cart.general.remove' | t }}</a>
+                                </div>
+                            </div>
+
+                            <div class="cart--table--row--option">
+                                {%- assign variant_count = item.product.variants | size -%}
+
+                                {%- if item.product.has_only_default_variant or variant_count == 1 -%}
+
+                                    {% for option in item.variant.options %}
+                                        {%- if option != blank -%}
+                                            <div class="cart--table--row--option--value">
+                                                {{ item.product.options[forloop.index0] }}: {{ option }}
+                                            </div>
+                                        {%- endif -%}
+                                    {% endfor %}
+
+                                {%- elsif item.variant.title == 'Custom' -%}
+
+                                    {% if custom_size != blank %}
+                                        <div class="cart--table--row--option--value">{{ 'cart.general.size' | t: size: custom_size }}</div>
+                                    {% endif %}
+
+                                {%- else -%}
+                                    {% render 'cart-interface-option', product: item.product, option: item.variant.title %}
+                                {%- endif -%}
+
+                                {%- if item_customisation_count != '0' -%}
+                                    <span class="cart--table--row--option--value cart--table--row--option--value--customised">{{ 'cart.general.customised' | t }} </span>
+                                {%- endif -%}
+                                
+                            </div>
+                            <div class="cart--table--row--quantity">
+                                {{ 'cart.general.quantity' | t }}
+                                {% render 'cart-interface-qty', item: item %}
+                            </div>
+                        </div>
+                        <div class="cart--table--row--price">
+                            {%- if item.variant.compare_at_price > item.variant.price -%}
+                                {%- assign compare_at_price = item.variant.compare_at_price | plus: price_increase -%}
+                                <span class="cart--table--row--price--compare">{{ compare_at_price | money_without_trailing_zeros }}</span>
+                            {%- endif -%}
+                            {%- assign price = item.variant.price | plus: price_increase -%}
+                            <span class="cart--table--row--price--current">{{ price | money_without_trailing_zeros }}</span>
+                        </div>
+
+                        {%- if item.variant.compare_at_price > item.variant.price -%}
+                            <div class="cart--table--row--property cart--table--row--property--highlight">{{ 'cart.callouts.final_sale_msg' | t }}</div>
+                        {%- endif -%}
+                                    
+                        {% if preorder_description != blank %}
+                            <div class="cart--table--row--property cart--table--row--property--highlight">{{ preorder_description }}</div>
+                        {% endif %}
+
+                    </div>
+
+                </div>
+            {% endfor %}
+
+        {% else %}
+            {{ 'cart.general.empty' | t }}
+        {% endif %}
+
+    </div>
+
+    <div class="cart--table cart--summary">
+        <h2 class="cart--table--heading">{{ 'cart.general.summary' | t }}</h2>
+
+        <div class="cart--table--row">
+            <div class="cart--table--row--left">
+                {{ 'cart.general.subtotal' | t }}
+            </div>
+            <div class="cart--table--row--right">
+                {{ cart.items_subtotal_price | money_without_trailing_zeros }}
+            </div>
+        </div>
+
+        {%- if settings.cart_pair_discount_status == true and discount_amount != blank and discount_amount > 0 -%}
+            <div class="cart--table--row cart--table--row--highlight">
+                <div class="cart--table--row--left">
+                    {{ 'cart.general.match_discount' | t: percent: settings.cart_pair_discount_rate }}
+                </div>
+                <div class="cart--table--row--right">
+                    -{{ discount_amount | money_without_trailing_zeros }}
+                </div>
+            </div>
+        {% endif %}
+
+        {% for discount_application in cart.discount_applications %}
+            <div class="cart--table--row cart--table--row--highlight">
+                <div class="cart--table--row--left">
+                    {{ discount_application.title }}
+                </div>
+                <div class="cart--table--row--right">
+                    {{ discount_application.total_allocated_amount | money_without_trailing_zeros }}
+                </div>
+            </div>
+        {% endfor %}
+
+        
+        {% if settings.enable_split_shipment %}
+            {% if cart.item_count > 0 %}
+                {% assign cart_contains_is_made_to_order = false %}
+                {% assign cart_contains_not_made_to_order = false %}
+
+                {% for item in cart.items %}
+                    {% if item.product.tags contains "made_to_order" %}
+                        {% assign cart_contains_is_made_to_order = true %}
+                    {% else %}
+                        {% assign cart_contains_not_made_to_order = true %}
+                    {% endif %}
+                {% endfor %}
+
+
+                {% if cart_contains_is_made_to_order and cart_contains_not_made_to_order %}
+                    <div class="cart--table--row cart--table--row--ship-together">
+                        <fieldset>
+                            <div class="form--group">
+                                <div class="select-wrapper">
+                                    <select class="select-wrapper--select" name="attributes[ship_together]">
+                                        <option default selected value="together">Ship my items together</option>
+                                        <option value="separately">Ship my items separately as they become available</option>
+                                    </select>
+                                    {% render 'icon', icon: 'chevron' %}
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                {% endif %}
+            {% endif %}
+        {% endif %}
+        
+        {% if settings.tax_and_duties_note_status == 'yes' and request.host contains 'international' %}
+            <div class="cart--table--row">
+                <p>{{ settings.tax_and_duties_note_text }}</p>
+            </div>
+        {% endif %}
+
+        <div class="cart--table--row">
+            {{ 'cart.general.shipping_at_checkout' | t }}
+        </div>
+
+        <div class="cart--table--row cart--table--row--total">
+            <div class="cart--table--row--left">
+                {{ 'cart.general.total' | t }}
+            </div>
+            <div class="cart--table--row--right">
+                {%- assign total_price = cart.total_price | minus: discount_amount -%}
+                {%- if cart.total_price > total_price -%}
+                    <span class="cart-total--pre-discount">{{ cart.total_price | money_without_trailing_zeros }}</span>
+                {%- endif -%}
+                {{ total_price | money_without_trailing_zeros }}
+            </div>
+        </div>
+
+        {% if settings.cart_free_shipping_rate != blank %}
+            {% assign rate = settings.cart_free_shipping_rate | money_without_trailing_zeros %}
+            <div class="cart--table--row cart--table--row--shipping-callout">
+                {{ 'cart.general.free_shipping' | t: rate: rate }}
+            </div>
+        {% endif %}
+
+        <div class="cart--table--row cart--table--row--button">
+            <div class="checkbox-wrapper">
+                <input type="checkbox" name="agree-terms" id="agree-terms-minicart" class="agree-terms" />
+                <label class="agree-terms-description" for="agree-terms"></label>
+            </div>
+        </div>
+
+        <div class="cart--table--row cart--table--row--button">
+            <button class="button button--black checkout-button" type="submit" name="checkout">
+                {{ 'cart.general.checkout' | t }}
+                <span class="loader spinner-grey-dark background-eucalyptus"></span>
+            </button>
+        </div>
+
+    </div>
+
+</form>
+

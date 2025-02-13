@@ -1,0 +1,8 @@
+<div class="klaviyo-back-in-stock">
+  <div class="input--wrapper">
+      <input type="text" class="klaviyo-back-in-stock--email" placeholder="{{ placeholder_text }}" {% if customer %} value="{{ customer.email }}{% endif %}" />
+  </div>
+  <a class="klaviyo-back-in-stock--submit" href="#" name="notify" disabled="disabled" data-backinstock-a="{{ settings.klaviyo_back_in_stock }}" data-backinstock-email="mark@madeby.holiday" data-backinstock-product="{{ product.id }}" data-backinstock-variant="{{ prepop_variant_id }}">
+    {% render 'icon', icon: 'chevron' %}
+  </a>
+</div>

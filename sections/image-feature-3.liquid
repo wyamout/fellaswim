@@ -1,0 +1,193 @@
+<div class="image-feature-3 ">
+  {% for block in section.blocks %}
+    <a
+      href="{{ block.settings.link }}"
+      class="image-feature-3--item image-feature--wrapper image-anim--scale image-anim--wrapper lazyload-animation"
+    >
+      {%- assign has_video = false -%}
+      {%- if block.settings.vimeo_desktop != blank or block.settings.vimeo_mobile != blank -%}
+        {%- assign has_video = true -%}
+      {%- endif -%}
+
+      {%- assign has_title = false -%}
+      {%- if block.settings.title != blank or block.settings.subtitle != blank -%}
+        {%- assign has_title = true -%}
+      {%- endif -%}
+
+      {%- if block.settings.image_mobile -%}
+        {% render 'responsive-image',
+          classes: 'image-feature--image image--mobile',
+          image: block.settings.image_mobile,
+          sizes: '320,768,1536'
+        %}
+      {%- endif -%}
+
+      {%- if block.settings.image -%}
+        {% assign classes = 'image-feature--image' %}
+        {% assign sizes = '768,1536,2048,3600' %}
+        {% if block.settings.image_mobile %}
+          {% assign classes = classes | append: ' image--tablet' %}
+        {% else %}
+          {% assign sizes = '320,' | append: sizes %}
+        {% endif %}
+
+        {% render 'responsive-image', classes: classes, image: block.settings.image, sizes: sizes %}
+      {%- endif -%}
+      {%- if has_video -%}
+        {% assign random = 'now' | date: '%N' | modulo: 90000 | plus: 10003 %}
+        <div
+          class="video-loop"
+          data-vimeo-desktop="{{ block.settings.vimeo_desktop.id }}"
+          data-vimeo-mobile="{{ block.settings.vimeo_mobile.id }}"
+          id="feature_video_{{ random }}"
+        ></div>
+      {%- endif -%}
+
+      {% if has_title %}
+        {%- assign a = block.settings['text-alignment'] -%}
+        {%- capture title_class -%}
+                    {%- if a contains 'left' -%},title-align--left{%- endif -%}
+                    {%- if a contains 'right' -%},title-align--right{%- endif -%}
+                    {%- if a contains 'center' -%},title-align--center{%- endif -%}
+                    {%- if a contains 'top' -%},title-align--top{%- endif -%}
+                    {%- if a contains 'bottom' -%},title-align--bottom{%- endif -%}
+                    ,title-color--{{ block.settings.text-color }}
+                {%- endcapture -%}
+        {%- assign title_class = title_class | remove_first: ',' | split: ',' | join: ' ' -%}
+
+        <div class="image-feature--titles {{ title_class }}">
+          <div class="image-feature--titles--wrapper">
+            {% if block.settings.title != blank %}
+              <h2 class="image-feature--titles--title">{{ block.settings.title }}</h2>
+            {% endif %}
+            {% if block.settings.subtitle != blank %}
+              <p class="image-feature--titles--subtitle">{{ block.settings.subtitle }}</p>
+            {% endif %}
+            {% if block.settings.copy != blank %}
+              <p class="image-feature--titles--paragraph">{{ block.settings.copy }}</p>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+    </a>
+  {% endfor %}
+</div>
+
+{% schema %}
+{
+    "name": "Image Feature 3",
+    "blocks": [
+      {
+        "type": "item",
+        "name": "Item",
+        "limit": 2,
+        "settings": [
+                  {
+            "label": "Image",
+            "id": "image",
+            "type": "image_picker",
+            "info": "3600 x 1700 for full width, 2700 x 1800 for three-quarter, 1800 x 1700 for half"
+        },
+        {
+            "label": "Mobile Image (optional)",
+            "id": "image_mobile",
+            "type": "image_picker",
+            "info": "750 x variable height"
+        },
+        {
+            "label": "Vimeo (Desktop)",
+            "id": "vimeo_desktop",
+            "accept": ["vimeo"],
+            "type": "video_url",
+            "info": "Video to play in a loop (full width layout only)"
+        },
+        {
+            "label": "Vimeo (Mobile)",
+            "id": "vimeo_mobile",
+            "type": "video_url",
+            "accept": ["vimeo"],
+            "info": "Video to play in a loop for mobile (full width layout only)"
+        },
+        {
+            "label": "Title",
+            "id": "title",
+            "type": "text"
+        },
+        {
+            "label": "Subtitle",
+            "id": "subtitle",
+            "type": "text"
+        },
+        {
+            "label": "Paragraph",
+            "id": "copy",
+            "type": "textarea"
+        },
+        {
+            "label": "Text Alignment",
+            "id": "text-alignment",
+            "type": "select",
+            "default": "center",
+            "options": [
+                {
+                    "value": "center",
+                    "label": "Center"
+                },
+                {
+                    "value": "bottom-left",
+                    "label": "Bottom Left"
+                },
+                {
+                    "value": "bottom-right",
+                    "label": "Bottom Right"
+                },
+                {
+                    "value": "top-left",
+                    "label": "Top Left"
+                },
+                {
+                    "value": "top-right",
+                    "label": "Top Right"
+                },
+                {
+                    "value": "center-left",
+                    "label": "Center Left"
+                },
+                {
+                    "value": "center-right",
+                    "label": "Center Right"
+                }
+            ]
+        },
+
+        {
+            "label": "Link",
+            "id": "link",
+            "type": "url"
+        },
+            {
+            "label": "Color",
+            "id": "text-color",
+            "type": "select",
+            "default": "black",
+            "options": [
+                {
+                    "value": "black",
+                    "label": "Black"
+                },
+                {
+                    "value": "white",
+                    "label": "White"
+                },
+
+            ]
+        },
+        ]
+      }
+    ],
+    "presets": [{
+        "name": "Image Feature 3",
+        "category": "Custom Content"
+    }]
+}
+{% endschema %}

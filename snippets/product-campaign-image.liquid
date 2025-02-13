@@ -1,0 +1,7 @@
+<div class="product--image{% if image.aspect_ratio > 1 %} product--image--landscape{% endif %}">
+    <div class="product--image--container">
+        <div class="product--image--wrapper lazyload-animation">
+            {% render 'responsive-image', classes: 'product--image--image', image: image, sizes: '768,1800' %}
+        </div>
+    </div>
+</div>

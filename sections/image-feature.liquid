@@ -1,0 +1,218 @@
+{% if section.settings.image or has_title %}
+
+    {%- capture feature_class -%}
+        ,layout--{{ section.settings.layout }}
+        {%- if section.settings.layout != 'full-width' -%},layout--flex{%- endif -%}
+        {%- if section.settings.layout contains 'three-quarter' -%},layout--three-quarter{%- endif -%}
+        {%- if section.settings.layout contains 'half' -%},layout--half{%- endif -%}
+    {%- endcapture -%}
+    {%- assign feature_class = feature_class | remove_first: ',' | split: ',' | join: ' ' -%}
+
+    <div class="image-feature {{ feature_class }}">
+
+        {%- assign has_title = false -%}
+        {%- if section.settings.title != blank or section.settings.subtitle != blank -%}
+            {%- assign has_title = true -%}
+        {%- endif -%}
+
+        {%- assign has_video = false -%}
+        {%- if section.settings.layout == 'full-width' -%}
+            {%- if section.settings.vimeo_desktop != blank or section.settings.vimeo_mobile != blank -%}
+                {%- assign has_video = true -%}
+            {%- endif -%}
+        {%- endif -%}
+
+        <a href="{{ section.settings.link }}" class="image-feature--wrapper{% if has_video %} image-feature--wrapper--video{% endif %} image-anim--scale">
+
+            <div class="image-feature--images image-anim--wrapper lazyload-animation">
+
+                {%- if section.settings.image_mobile -%}
+                    {% render 'responsive-image', classes: 'image-feature--image image--mobile', image: section.settings.image_mobile, sizes: '320,768,1536' %}
+                {%- endif -%}
+                
+                {%- if section.settings.image -%}
+
+                    {% assign classes = 'image-feature--image' %}
+                    {% assign sizes = '768,1536,2048,3600' %}
+                    {% if section.settings.image_mobile %}
+                        {% assign classes = classes | append: ' image--tablet' %}
+                    {% else %}
+                        {% assign sizes = '320,' | append: sizes %}
+                    {% endif %}
+
+                    {% render 'responsive-image', classes: classes, image: section.settings.image, sizes: sizes %}
+
+                {%- endif -%}
+
+                {%- if has_video -%}
+                    {% assign random = 'now' | date: '%N' | modulo: 90000 | plus: 10000 %}
+                    <div class="video-loop" data-vimeo-desktop="{{ section.settings.vimeo_desktop.id }}" data-vimeo-mobile="{{ section.settings.vimeo_mobile.id }}" id="feature_video_{{ random }}"></div>
+                {%- endif -%}
+
+            </div>
+
+            {% if has_title %}
+
+                {%- assign a = section.settings.text-alignment -%}
+                {%- capture title_class -%}
+                    {%- if a contains 'left' -%},title-align--left{%- endif -%}
+                    {%- if a contains 'right' -%},title-align--right{%- endif -%}
+                    {%- if a contains 'center' -%},title-align--center{%- endif -%}
+                    {%- if a contains 'top' -%},title-align--top{%- endif -%}
+                    {%- if a contains 'bottom' -%},title-align--bottom{%- endif -%}
+                    ,title-color--{{ section.settings.text-color }}
+                {%- endcapture -%}
+                {%- assign title_class = title_class | remove_first: ',' | split: ',' | join: ' '  -%}
+
+                <div class="image-feature--titles {{ title_class }}">
+                    <div class="image-feature--titles--wrapper">
+                        {% if section.settings.title != blank %}<h2 class="image-feature--titles--title">{{ section.settings.title }}</h2>{% endif %}
+                        {% if section.settings.subtitle != blank %}<p class="image-feature--titles--subtitle">{{ section.settings.subtitle }}</p>{% endif %}
+                        {% if section.settings.copy != blank %}<p class="image-feature--titles--paragraph">{{ section.settings.copy }}</p>{% endif %}
+                    </div>
+                </div>
+
+            {% endif %}
+
+        </a>
+    </div>
+
+{% endif %}
+
+{% schema %}
+{
+    "name": "Image Feature",
+    "settings": [
+        {
+            "label": "Image",
+            "id": "image",
+            "type": "image_picker",
+            "info": "3600 x 1700 for full width, 2700 x 1800 for three-quarter, 1800 x 1700 for half"
+        },
+        {
+            "label": "Mobile Image (optional)",
+            "id": "image_mobile",
+            "type": "image_picker",
+            "info": "750 x variable height"
+        },
+        {
+            "label": "Vimeo (Desktop)",
+            "id": "vimeo_desktop",
+            "accept": ["vimeo"],
+            "type": "video_url",
+            "info": "Video to play in a loop (full width layout only)"
+        },
+        {
+            "label": "Vimeo (Mobile)",
+            "id": "vimeo_mobile",
+            "type": "video_url",
+            "accept": ["vimeo"],
+            "info": "Video to play in a loop for mobile (full width layout only)"
+        },
+        {
+            "label": "Title",
+            "id": "title",
+            "type": "text"
+        },
+        {
+            "label": "Subtitle",
+            "id": "subtitle",
+            "type": "text"
+        },
+        {
+            "label": "Paragraph",
+            "id": "copy",
+            "type": "textarea"
+        },
+        {
+            "label": "Layout",
+            "id": "layout",
+            "type": "select",
+            "default": "full-width",
+            "options": [
+                {
+                    "value": "full-width",
+                    "label": "Full Width"
+                },
+                {
+                    "value": "three-quarter-left",
+                    "label": "Three Quarter Left"
+                },
+                {
+                    "value": "three-quarter-right",
+                    "label": "Three Quarter Right"
+                },
+                {
+                    "value": "half-left",
+                    "label": "Half Left"
+                },
+                {
+                    "value": "half-right",
+                    "label": "Half Right"
+                }
+            ]
+        },
+        {
+            "label": "Text Alignment",
+            "id": "text-alignment",
+            "type": "select",
+            "default": "center",
+            "options": [
+                {
+                    "value": "center",
+                    "label": "Center"
+                },
+                {
+                    "value": "bottom-left",
+                    "label": "Bottom Left"
+                },
+                {
+                    "value": "bottom-right",
+                    "label": "Bottom Right"
+                },
+                {
+                    "value": "top-left",
+                    "label": "Top Left"
+                },
+                {
+                    "value": "top-right",
+                    "label": "Top Right"
+                },
+                {
+                    "value": "center-left",
+                    "label": "Center Left"
+                },
+                {
+                    "value": "center-right",
+                    "label": "Center Right"
+                }
+            ]
+        },
+        {
+            "label": "Text Colour",
+            "id": "text-color",
+            "type": "select",
+            "default": "white",
+            "options": [
+                {
+                    "value": "white",
+                    "label": "White"
+                },
+                {
+                    "value": "black",
+                    "label": "Black"
+                }
+            ]
+        },
+        {
+            "label": "Link",
+            "id": "link",
+            "type": "url"
+        }
+    ],
+    "presets": [{
+        "name": "Image Feature",
+        "category": "Custom Content"
+    }]
+}
+{% endschema %}

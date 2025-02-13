@@ -1,0 +1,148 @@
+{% comment %} Hack to get pageUrl with query string {% endcomment %}
+{%- capture contentForQuerystring -%}{{ content_for_header }}{%- endcapture -%}
+{%- assign pageUrl = contentForQuerystring | split:'"pageurl":"' | last | split:'"' | first | split:'.com' | last |
+replace:'\/','/' |
+replace:'%20',' ' |
+replace:'\u0026','&'
+-%}
+{% assign addressIdSplit = pageUrl | split: "addressId=" %}
+{% assign addressId = addressIdSplit[1] %}
+{% assign address = false %}
+
+{% for addressThis in customer.addresses %}
+  {% assign addressIdThis = addressThis.id | append: "" %}
+  {% if addressId == addressIdThis %}
+    {% assign address = addressThis %}
+  {% endif %}
+{% endfor %}
+
+{%- assign form_type = blank -%}
+
+<div class="two-panel account account--dashboard">
+
+  {% include 'side-navigation--account' %}
+
+  <div class="container">
+  
+    <div class="account--details">
+
+      {% if address %}
+      	<h2 class="container--title">{{ 'customer.addresses.update' | t }}</h2>
+
+		{% form 'customer_address', address, class: 'form form--address page--form no-ajax', id: 'customer_address' %}
+
+			<input type="hidden" name="return_to" value="/account/addresses" />
+			
+        	<fieldset>
+	          <div class="form--group">
+	          	<input type="text" name="address[first_name]" value="{{ form.first_name }}" placeholder="First Name">
+	          </div>
+				
+	          <div class="form--group">
+	          	<input type="text" name="address[last_name]" value="{{ form.last_name }}" placeholder="Last Name">
+	          </div>
+				
+	          <div class="form--group">
+	          	<input type="text" name="address[company]" value="{{ form.company }}" placeholder="Company">
+	          </div>
+				
+	          <div class="form--group">
+	          	<input type="text" name="address[address1]" value="{{ form.address1 }}" placeholder="Address Line 1">
+	          </div>
+				
+	          <div class="form--group">
+	          	<input type="text" name="address[address2]" value="{{ form.address2 }}" placeholder="Address Line 2">
+	          </div>
+				
+	          <div class="form--group">
+	          	<input type="text" name="address[city]" value="{{ form.city }}" placeholder="City">
+	          </div>
+				
+	          <div class="form--group">
+	          	<div class="select-wrapper">
+	          		<select name="address[country]" data-default="{{ form.country }}">{{ all_country_option_tags }}</select>
+	          	</div>
+	          </div>
+				
+	          <div class="form--group">
+	          	<div class="select-wrapper">
+	          		<select name="address[province]" data-default="{{ form.province }}"></select>
+	          	</div>
+	          </div>
+				
+	          <div class="form--group">
+	          	<input type="text" name="address[zip]" value="{{ form.zip }}" placeholder="ZIP/Postal Code">
+	          </div>
+				
+	          <div class="form--group">
+	          	<input type="text" name="address[phone]" value="{{ form.phone }}" placeholder="Phone Number">
+	          </div>
+	      </fieldset>
+
+			<button class="button button--black" type="submit">
+				<span>Update</span>
+			</button>
+		{% endform %}
+        </div>
+		{% else %}
+      	<h2>{{ 'customer.addresses.new' | t }}</h2>
+
+		{% form 'customer_address', customer.new_address, class: 'form form--address page--form no-ajax', id: 'customer_address' %}
+			
+        	<fieldset>
+	          <div class="form--group">
+	          	<input type="text" name="address[first_name]" value="{{ form.first_name }}" placeholder="First Name">
+	          </div>
+				
+	          <div class="form--group">
+	          	<input type="text" name="address[last_name]" value="{{ form.last_name }}" placeholder="Last Name">
+	          </div>
+				
+	          <div class="form--group">
+	          	<input type="text" name="address[company]" value="{{ form.company }}" placeholder="Company">
+	          </div>
+				
+	          <div class="form--group">
+	          	<input type="text" name="address[address1]" value="{{ form.address1 }}" placeholder="Address Line 1">
+	          </div>
+				
+	          <div class="form--group">
+	          	<input type="text" name="address[address2]" value="{{ form.address2 }}" placeholder="Address Line 2">
+	          </div>
+				
+	          <div class="form--group">
+	          	<input type="text" name="address[city]" value="{{ form.city }}" placeholder="City">
+	          </div>
+				
+	          <div class="form--group">
+	          	<div class="select-wrapper">
+	          		<select name="address[country]" data-default="{{ form.country }}">{{ all_country_option_tags }}</select>
+	          	</div>
+	          </div>
+				
+	          <div class="form--group">
+	          	<div class="select-wrapper">
+	          		<select name="address[province]" data-default="{{ form.province }}"></select>
+	          	</div>
+	          </div>
+				
+	          <div class="form--group">
+	          	<input type="text" name="address[zip]" value="{{ form.zip }}" placeholder="ZIP/Postal Code">
+	          </div>
+				
+	          <div class="form--group">
+	          	<input type="text" name="address[phone]" value="{{ form.phone }}" placeholder="Phone Number">
+	          </div>
+	      </fieldset>
+
+	      <button class="button button--black" type="submit">
+	        <span>{{ 'customer.addresses.save' | t }}</span>
+	      </button>
+		{% endform %}
+      {% endif %}
+
+    </div>
+  
+  </div>
+
+</div>

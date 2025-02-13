@@ -1,0 +1,153 @@
+{%- if article.metafields.custom_fields["article_content"] != blank -%}
+	{%- for row in article.metafields.custom_fields["article_content"] -%}
+		{%- assign row_index = forloop.index0 -%}
+
+		{%- assign image_1_exists = row.image_1 -%}
+		{%- assign text_1_exists = false -%}
+		{%- if row.text_1.size > 0 -%}
+			{%- assign text_1_exists = true -%}
+		{%- endif -%}
+		{%- assign popup_1_exists = row.popup_1 -%}
+
+		{%- assign image_2_exists = row.image_2 -%}
+		{%- assign text_2_exists = false -%}
+		{%- if row.text_2.size > 0 -%}
+			{%- assign text_2_exists = true -%}
+		{%- endif -%}
+		{%- assign popup_2_exists = row.popup_2 -%}
+
+		{%- assign column_2_exists = false -%}
+		{%- if image_2_exists or text_2_exists -%}
+			{%- assign column_2_exists = true -%}
+		{%- endif -%}
+
+		<div class="article--row">
+			<div class="image-feature image-anim--wrapper{% if image_1_exists %} lazyload-animation{% elsif text_1_exists %} layout--text-only{% endif %} {% if image_2_exists or text_2_exists %}layout--2-col{% elsif row_index == 0 %}layout--full-width{% else %}layout--1-col{% endif %}{% if column_2_exists %} layout--left{% endif %}{% if row.no_margin == 1 %} layout--no-margin{% endif %}">
+				{%- if image_1_exists -%}
+					<div class="image-feature--wrapper image-anim--scale">
+						<img class="image-feature--image lazyload" data-src="{{ row.image_1 }}" />
+					</div>
+					{%- if popup_1_exists and row.popup_1 contains "|" -%}
+						{%- assign popup_1_products = row.popup_1 | split: "," -%}
+						<div class="image-feature--popup">
+							{{ 'blogs.shop_the_look' | t }} 
+							{%- for product in popup_1_products -%}
+								{%- if product contains "|" -%}
+									{%- assign product_split = product | split: "|" -%}
+									{% unless forloop.first %}, {% endunless %}
+									<a class="image-feature--popup--link" target="_blank" href="/products/{{ product_split.last }}">{{ product_split.first }}</a>
+								{%- endif -%}
+							{%- endfor -%}
+						</div>
+					{%- endif -%}
+					{%- if text_1_exists -%}
+						<div class="image-feature--titles title-align--center title-color--white">
+							<div class="image-feature--titles--wrapper image-feature--titles--wrapper--stacked">
+								{%- assign text_1_content = row.text_1 | strip_html | newline_to_br | strip_newlines | replace: '<br /><br />', '<br />' | split: '<br />' -%}
+								{%- assign text_1_lines = text_1_content | size -%}
+								{%- if row_index == 0 -%}
+									{%- for content in text_1_content -%}
+										{%- if forloop.first -%}
+											<span class="image-feature--titles--subtitle">{{ content }}</span>
+										{%- elsif content != "" -%}
+											<h2 class="image-feature--titles--title">{{ content }}</h2>
+										{%- endif -%}
+									{%- endfor -%}
+								{%- else -%}
+									{%- for content in text_1_content -%}
+										<p class="image-feature--titles--paragraph">{{ content }}</p>
+									{%- endfor -%}
+								{%- endif -%}
+							</div>
+						</div>
+					{%- endif -%}
+				{%- elsif text_1_exists -%}
+					{%- assign text_1_content = row.text_1 | strip_html | newline_to_br | strip_newlines | replace: '<br /><br />', '<br />' | split: '<br />' -%}
+					{%- assign text_1_lines = text_1_content | size -%}
+					<div class="article--text" data-article-text-lines="{{ text_1_lines }}">
+						{%- for content in text_1_content -%}
+							{%- if forloop.first and column_2_exists != true -%}
+								<h2>{{ content }}</h2>
+							{%- else -%}
+								<p>{{ content }}</p>
+							{%- endif -%}
+						{%- endfor -%}
+					</div>
+				{%- endif -%}
+			</div>
+			{%- if column_2_exists -%}
+				<div class="image-feature image-anim--wrapper{% if image_2_exists %} lazyload-animation{% elsif text_2_exists %} layout--text-only{% endif %} layout--2-col layout--right{% if row.no_margin == 1 %} layout--no-margin{% endif %}">
+					{%- if image_2_exists -%}
+						<div class="image-feature--wrapper image-anim--scale">
+							<img class="image-feature--image lazyload" data-src="{{ row.image_2 }}" />
+						</div>
+						{%- if popup_2_exists and row.popup_2 contains "|" -%}
+							{%- assign popup_2_products = row.popup_2 | split: "," -%}
+							<div class="image-feature--popup">
+								{{ 'blogs.shop_the_look' | t }} 
+								{%- for product in popup_2_products -%}
+									{%- if product contains "|" -%}
+										{%- assign product_split = product | split: "|" -%}
+										{% unless forloop.first %}, {% endunless %}
+										<a class="image-feature--popup--link" target="_blank" href="/products/{{ product_split.last }}">{{ product_split.first }}</a>
+									{%- endif -%}
+								{%- endfor -%}
+							</div>
+						{%- endif -%}
+						{%- if text_2_exists -%}
+							<div class="image-feature--titles title-align--center title-color--white">
+								<div class="image-feature--titles--wrapper image-feature--titles--wrapper--stacked">
+									{%- assign text_2_content = row.text_2 | strip_html | newline_to_br | strip_newlines | replace: '<br /><br />', '<br />' | split: '<br />' -%}
+									{%- for content in text_2_content -%}
+										<p class="image-feature--titles--paragraph">{{ content }}</p>
+									{%- endfor -%}
+								</div>
+							</div>
+						{%- endif -%}
+					{%- elsif text_2_exists -%}
+						{%- assign text_2_content = row.text_2 | strip_html | newline_to_br | strip_newlines | replace: '<br /><br />', '<br />' | split: '<br />' -%}
+						{%- assign text_2_lines = text_2_content | size -%}
+						<div class="article--text" data-article-text-lines="{{ text_2_lines }}">
+							{%- for content in text_2_content -%}
+								<p>{{ content }}</p>
+							{%- endfor -%}
+						</div>
+					{%- endif -%}
+				</div>
+			{%- endif -%}
+		</div>
+	{%- endfor -%}
+{%- else -%}
+	<template class="article--item--template">
+		<div class="image-feature image-anim--wrapper lazyload-animation">
+			<div class="image-feature--wrapper image-anim--scale">
+				<img class="image-feature--image lazyload" />
+			</div>
+			<div class="image-feature--titles title-align--center title-color--white">
+				<div class="image-feature--titles--wrapper image-feature--titles--wrapper--stacked">
+					<span class="image-feature--titles--subtitle"></span>
+					<h2 class="image-feature--titles--title"></h2>
+				</div>
+			</div>
+			<div class="image-feature--popup">
+				{{ 'blogs.shop_the_look' | t }}
+			</div>
+		</div>
+	</template>
+
+	<template class="article--popup-link--template">
+		<a class="image-feature--popup--link"></a>
+	</template>
+
+	<div class="article--raw" style="display: none">{{ article.content }}</div>
+{%- endif -%}
+
+
+{% schema %}
+{
+    "name": "Article",
+    "tag": "article",
+    "settings": [
+    ]
+}
+{% endschema %}

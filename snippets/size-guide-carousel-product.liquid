@@ -1,0 +1,31 @@
+{% if product.featured_image != blank %}
+
+    {%- assign product_title_formatted = product.title | replace: ',', '|' | split: '|' -%}
+    {%- assign product_title_formatted = product_title_formatted[0] | trim -%}
+
+    {% if product.tags contains "Table:Tops" %}
+        {% assign page_handle = 'tops-size-conversion' %}
+    {% elsif product.tags contains "Table:Underwired tops" %}
+        {% assign page_handle = 'underwire-size-conversion' %}
+    {% elsif product.tags contains "Table:Bottoms" %}
+        {% assign page_handle = 'bottoms-size-conversion' %}
+    {% elsif product.tags contains "Table:Full pieces" %}
+        {% assign page_handle = 'full-piece-size-conversion' %}
+    {% elsif product.tags contains "Table:Ready to wear" %}
+        {% assign page_handle = 'ready-to-wear-size-conversion' %}
+    {% else %}
+        {% assign page_handle = '' %}
+    {% endif %}
+
+    <div class="size-guide--carousel-product-info {{ show }}" data-handle-modal="{{ page_handle }}">
+        <a class="size-guide--carousel-product-link lazyload-animation" href="#">
+            <div class="size-guide--carousel-product-image">
+                {% render 'responsive-image', classes: 'img', image: product.featured_image.src, sizes: '768,1536,2048,3600' %}
+            </div>
+        </a>
+        <a class="size-guide--carousel-product-link size-guide--carousel-product-text" href="{{ product.url }}">
+            <div class="size-guide--carousel-product-title feature-page--heading" >{{ product_title_formatted }}</div>
+            <div class="size-guide--carousel-product-desc feature-page--subheading" >{{ product.description }}</div>
+        </a>
+    </div>
+{% endif %}

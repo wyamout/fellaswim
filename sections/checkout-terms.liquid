@@ -1,0 +1,63 @@
+
+<div class="checkout-terms">
+
+    <div class="checkout-terms--content">
+
+        <div class="checkout-terms--close">
+            {% render 'icon', icon: 'cross' %}
+        </div>
+
+        <div class="checkout-terms--scrolling">
+
+            <div class="checkout-terms--terms">
+                {{ section.settings.agree_popup_text }}
+            </div>
+
+            <div class="checkout-terms--shipping">
+                {{ section.settings.agree_popup_text_shipping }}
+            </div>
+
+            <div class="checkout-terms--alert">
+                {{ section.settings.agree_alert_text }}
+            </div>
+        
+        </div>
+
+    </div>
+
+</div>
+
+<meta id="checkout-terms-agree-text" name="checkout-terms-agree-text" content='{{ section.settings.agree_form_text }}'>
+<meta id="checkout-terms-link" name="checkout-terms-link" content="{{ section.settings.terms_link }}">
+<meta id="checkout-shipping-link" name="checkout-shipping-link" content="{{ section.settings.shipping_link }}">
+
+{% schema %}
+{
+    "name": "Checkout terms",
+    "settings": [
+        {
+            "label": "Agree to terms form text",
+            "id": "agree_form_text",
+            "type": "text",
+            "info": "Appears above the checkout buttons. Links should be replaced with [terms] and [shipping]"
+        },
+        {
+            "label": "Shipping link",
+            "id": "shipping_link",
+            "type": "url"
+        },
+        {
+            "label": "Terms link",
+            "id": "terms_link",
+            "type": "url"
+        },
+        {
+            "label": "Alert text",
+            "id": "agree_alert_text",
+            "type": "text",
+            "info": "Alert text when users have not agreed and attempt to check out"
+        }
+    ],
+    "blocks": []
+}
+{% endschema %}

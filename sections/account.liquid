@@ -1,0 +1,18 @@
+{% if section.settings.account_dashboard_image %}
+	<div class="image-feature--images image-anim--wrapper lazyload-animation">
+		{% render 'responsive-image', classes: 'image-feature--image', image: section.settings.account_dashboard_image, sizes: '768,1536,2048,3600' %}
+	</div>
+{% endif %}
+
+{% schema %}
+{
+    "name": "Account",
+    "settings": [
+      {
+        "type": "image_picker",
+        "label": "Account dashboard image",
+        "id": "account_dashboard_image"
+      }
+  	]
+}
+{% endschema %}

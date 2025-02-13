@@ -1,0 +1,33 @@
+{%- assign seen_on = product.metafields.custom_fields.as_seen_on | split: ',' -%}
+{%- assign seen_on_size = seen_on | size -%}
+
+{%- if product.metafields.custom_fields.as_seen_on != blank -%}
+
+    <div class="product--seen-on">
+
+        {%- assign separator = '|###|' -%}
+        {%- assign post_url_array = product.metafields.custom_fields.post_url | split: separator -%}
+        {%- assign account_handle_array = product.metafields.custom_fields.account_handle | split: separator -%}
+        {%- assign post_image = product.metafields.custom_fields.instagram_post_image | split: separator -%}
+        {%- assign fc_keys = product.metafields.custom_fields.as_seen_on | split: ',' -%}
+
+        <div class="product--seen-on--posts">
+            {%- for i in fc_keys -%}
+                {%- assign index = i | plus: 0 -%}
+                <div class="product--seen-on--post image-anim--scale">
+                    {%- if index == 0 -%}
+                        <h3 class="product--seen-on--title">
+                            {{ 'product.as_seen_on' | t }}
+                        </h3>
+                    {%- endif -%}
+                    <a href="{{ post_url_array[index] | strip }}" target="_blank" class="product--seen-on--image image-anim--wrapper lazyload-animation">
+                        <img data-src="{{ post_image[index] }}" class="lazyload" />
+                    </a>
+                    <a href="https://www.instagram.com/{{ account_handle_array[index] }}" target="_blank" class="product--seen-on--handle">@{{ account_handle_array[index] }}</a>
+                </div>
+            {%- endfor -%}
+
+        </div>
+    </div>
+
+{%- endif -%}

@@ -1,0 +1,21 @@
+{% comment %} Hack to get pageUrl with query string {% endcomment %}
+{%- capture contentForQuerystring -%}{{ content_for_header }}{%- endcapture -%}
+{%- assign pageUrl = contentForQuerystring | split:'"pageurl":"' | last | split:'"' | first | split:'.com' | last |
+   replace:'\/','/' | 
+   replace:'%20',' ' | 
+   replace:'\u0026','&'
+-%}
+
+<div class="side-navigation">
+
+	<div class="side-navigation--container">
+
+	  {% for side_navigation_item in linklists.account-navigation.links %}
+	    <div class="side-navigation--item">
+	      <a class="side-navigation--link{% if side_navigation_item.url == pageUrl %} side-navigation--link--active{% endif %}" href="{{ side_navigation_item.url }}">{{ side_navigation_item.title }}</a>
+	    </div>
+	  {% endfor %}
+
+	</div>
+
+</div>

@@ -1,0 +1,243 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Fella Swim",
+    "theme_version": "1.0.0",
+    "theme_author": "Holiday",
+    "theme_documentation_url": "https:\/\/github.com\/madebyholiday\/fellaswim.com",
+    "theme_support_email": "hello@madeby.holiday"
+  },
+  {
+    "name": "Favicon",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon image",
+        "info": "Will be scaled down to 32 x 32px"
+      }
+    ]
+  },
+  {
+    "name": "Global Note",
+    "settings": [
+      {
+        "type": "select",
+        "id": "global_note_status",
+        "label": "Enabled",
+        "default": "no",
+        "options": [
+          {
+            "value": "no",
+            "label": "No"
+          },
+          {
+            "value": "yes",
+            "label": "Yes"
+          }
+        ]
+      },
+      {
+        "type": "textarea",
+        "id": "global_note_text",
+        "label": "Global Note Content",
+        "info": "Each notes on a new line. Add a link by adding it within square brackets after the note text eg [http::\/\/fellaswim.com]"
+      },
+      {
+        "type": "select",
+        "id": "global_note_color",
+        "label": "Global note colour",
+        "options": [
+          {
+            "value": "burnt-orange",
+            "label": "Burnt Orange"
+          },
+          {
+            "value": "pink",
+            "label": "Pink"
+          },
+          {
+            "value": "vanilla",
+            "label": "Vanilla"
+          },
+          {
+            "value": "eucalyptus",
+            "label": "Eucalyptus"
+          },
+          {
+            "value": "dark-green",
+            "label": "Dark Green"
+          },
+          {
+            "value": "black",
+            "label": "Black"
+          },
+          {
+            "value": "grey-very-light",
+            "label": "Light Grey"
+          },
+        {
+          "value": "off-white",
+          "label": "Off White"
+        }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Private Storefront App",
+    "settings": [
+      {
+        "type": "text",
+        "id": "storefront_api_key",
+        "label": "Storefront key"
+      }
+    ]
+  },
+  {
+    "name": "Tax and Duties Note",
+    "settings": [
+      {
+        "type": "select",
+        "id": "tax_and_duties_note_status",
+        "label": "Enabled",
+        "default": "no",
+        "options": [
+          {
+            "value": "no",
+            "label": "No"
+          },
+          {
+            "value": "yes",
+            "label": "Yes"
+          }
+        ]
+      },
+      {
+        "type": "textarea",
+        "id": "tax_and_duties_note_text",
+        "label": "Tax and Duties Note Content",
+        "info": "This note is for the Internationl site only."
+      }
+    ]
+  },
+  {
+    "name": "Split Shipment",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_split_shipment",
+        "label": "Enable Split Shipment",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Cart",
+    "settings": [
+      {
+        "type": "text",
+        "id": "cart_free_shipping_rate",
+        "label": "Free shipping rate",
+        "default": "25000"
+      },
+      {
+        "type": "number",
+        "id": "cart_pair_discount_rate",
+        "label": "Pair discount rate",
+        "default": 15,
+        "info": "This cannot be changed without also changing the setting int the custom app!"
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_pair_discount_status",
+        "label": "Allow pair discount?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "cart_pair_discount_check_endpoint",
+        "label": "Pair discount custom app endpoint"
+      },
+      {
+        "label": "Customisation Product",
+        "id": "customisation_product",
+        "type": "product",
+        "info": "Which customisation product to add to the cart when a customisation is selected?"
+      }
+    ]
+  },
+  {
+    "name": "Collection Filtering",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_style_filters",
+        "label": "Show style filters?",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Klaviyo",
+    "settings": [
+      {
+        "type": "text",
+        "id": "klaviyo_back_in_stock",
+        "label": "Klaviyo Back in Stock (Public API Key)"
+      },
+      {
+        "type": "text",
+        "id": "klaviyo_newsletter_id",
+        "label": "Klaviyo Newsletter Form ID"
+      }
+    ]
+  },
+  {
+    "name": "Google",
+    "settings": [
+      {
+        "type": "text",
+        "id": "tag_manager_id",
+        "label": "Google Tag Manager ID"
+      },
+      {
+        "type": "text",
+        "id": "google_site_verification",
+        "label": "Site Verification ID"
+      }
+    ]
+  },
+  {
+    "name": "Facebook",
+    "settings": [
+      {
+        "type": "text",
+        "id": "facebook_domain_verification",
+        "label": "Domain Verification ID"
+      }
+    ]
+  },
+  {
+    "name": "Gorgias",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "gorgias_active",
+        "label": "Active?",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "Livechat",
+    "settings": [
+      {
+        "type": "text",
+        "id": "livechat_id",
+        "label": "ID",
+        "default": "9059955"
+      }
+    ]
+  }
+]

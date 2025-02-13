@@ -1,0 +1,76 @@
+{% if section.blocks.size > 0 %}
+    {% assign width = 0 %}
+    {% assign height = 0 %}
+    {% for block in section.blocks %}
+        {% if block.settings.image %}
+            {% assign width = width | plus: block.settings.image.width %}
+            {% if block.settings.image.height > height %}
+                {% assign height = block.settings.image.height %}
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+
+    <div class="nav-features">
+        {% for block in section.blocks %}
+            {% if block.settings.image %}
+                <a href="{{ block.settings.link }}" class="nav-features--feature image-anim--scale" data-nav-item="{{ block.settings.nav_item }}" data-width="{{ block.settings.image.width }}" style="flex-basis: {{ block.settings.image.width }}px">
+                    <div class="feature-image--wrapper image-anim--wrapper lazyload-animation">
+                        <img class="lazyload feature-image" data-src="{{ block.settings.image.src | img_url: '1400x' }}" />
+                        {% if block.settings.title != blank %}<span class="feature--title feature--title--{{ block.settings.text-color }}">{{ block.settings.title }}</span>{% endif %}
+                    </div>
+                </a>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endif %}
+
+{% schema %}
+{
+    "name": "Navigation Features",
+    "blocks": [
+        {
+            "type": "feature",
+            "name": "Feature",
+            "settings": [
+                {
+                    "label": "Navigation Item",
+                    "id": "nav_item",
+                    "type": "text"
+                },
+                {
+                    "label": "Link",
+                    "id": "link",
+                    "type": "url"
+                },
+                {
+                    "label": "Image",
+                    "id": "image",
+                    "type": "image_picker",
+                    "info": "770px x 1100px for double spreads, 1540px x 1100px for single spreads"
+                },
+                {
+                    "label": "Title",
+                    "id": "title",
+                    "type": "text"
+                },
+                {
+                    "label": "Text Colour",
+                    "id": "text-color",
+                    "type": "select",
+                    "default": "white",
+                    "options": [
+                        {
+                            "value": "white",
+                            "label": "White"
+                        },
+                        {
+                            "value": "black",
+                            "label": "Black"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

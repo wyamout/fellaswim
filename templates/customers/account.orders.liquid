@@ -1,0 +1,47 @@
+<div class="two-panel account account--dashboard account--orders">
+
+  {% include 'side-navigation--account' %}
+
+  <div class="container">
+  
+    <div class="account--orders--history">
+
+      <h2 class="container--title">{{ 'customer.orders.title' | t }}</h2>
+
+	  	{% assign orders_count = customer.orders | size %}
+      	{% if orders_count == 0 %}
+      		<p>{{ 'customer.orders.empty' | t }}</p>
+  		{% else %}
+
+			<div class="account--orders--table">
+
+				<div class="account--orders--table--row account--orders--table--row--header">
+					<div class="account--orders--table--row--order">{{ 'customer.orders.order' | t }}</div>
+					<div class="account--orders--table--row--date">{{ 'customer.orders.date' | t }}</div>
+					<div class="account--orders--table--row--payment">{{ 'customer.orders.payment' | t }}</div>
+					<div class="account--orders--table--row--fulfillment">{{ 'customer.orders.fulfillment' | t }}</div>
+					<div class="account--orders--table--row--total">{{ 'customer.orders.total' | t }}</div>
+					<div class="account--orders--table--row--view"></div>
+				</div>
+
+				{% for order in customer.orders %}				
+					<div class="account--orders--table--row account--orders--table--row--single">
+						<div class="account--orders--table--row--order">{{ order.order_number }}</div>
+						<div class="account--orders--table--row--date">{{ order.created_at | date: "%b %d, %Y" }}</div>
+						<div class="account--orders--table--row--payment">{{ order.financial_status_label }}</div>
+						<div class="account--orders--table--row--fulfillment">{{ order.fulfillment_status_label }}</div>
+						<div class="account--orders--table--row--total">{{ order.total_price | money_without_trailing_zeros }}</div>
+						<div class="account--orders--table--row--view"><a href="/account?view=order_details&orderId={{ order.order_number }}" class="account--orders--table--row--view--link">{{ 'customer.orders.view' | t }}</a></div>
+					</div>
+
+				{% endfor %}
+
+			</div>
+
+		{% endif %}
+
+  	</div>
+
+	</div>
+
+</div>

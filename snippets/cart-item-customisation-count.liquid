@@ -1,0 +1,7 @@
+{%- assign item_customisation_count = 0 -%}
+{%- for property in item.properties -%}
+    {%- if property.first contains 'Customisation' -%}
+        {%- assign item_customisation_count = item_customisation_count | plus: 1 -%}
+    {%- endif -%}
+{%- endfor -%}
+{{ item_customisation_count }}

@@ -1,0 +1,18 @@
+{%- assign sizes = sizes | split: ',' -%}
+{% capture srcset %}
+{%- for size in sizes -%}
+{%- assign sizex = size | append: 'x' -%}
+{%- assign sizew = size | append: 'w' -%}
+{%- if forloop.index == 1 -%}{%- assign sizex_min = sizex -%}{%- endif -%} 
+,{{ image | img_url: sizex }} {{ sizew }}
+{%- endfor -%}
+{% endcapture %}
+<img
+  class="{{ classes }} lazyload {% if template.name == 'product' %}image-in-product-page{% endif %}"
+  data-srcset="{{ srcset | strip_newlines | remove_first: ',' }}"
+  data-src="{{ image | img_url: sizex_min }}"
+  alt="{{ image.alt | escape }}"
+  width="{{ image.width }}"
+  height="{{ image.height }}"
+  id="{{ image.id }}"
+>

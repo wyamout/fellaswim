@@ -1,0 +1,118 @@
+
+<div class="page-content at-home-comp-wrapper">
+    <article>
+        <div class="at-home-comp-header">
+            <h1>{{ section.settings.ahg_title }}</h1>
+        </div>
+{% comment %}
+        <div class="lazyload-animation">
+            {% render 'responsive-image', classes: 'main-image', image: section.settings.ahg_top_image, sizes: '3600' %}
+        </div>
+{% endcomment %}
+        <div class="text-wrapper">
+            <p>{{ section.settings.ahg_description }}</p>
+{% comment %}
+            <h2>PRIZE INCLUDES</h2>
+            <div class="prizes-wrapper">
+                {% for block in section.blocks %}
+                    {% if block.type == 'prize' %}
+                        <span>
+                            <strong>{{ block.settings.brand }}</strong>
+                            <span>{{ block.settings.item }}</span>
+                        </span>
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+            <h2>TO ENTER</h2>
+            <div class="how-to-wrapper">
+                <p>{{ section.settings.ahg_instructions | newline_to_br | replace: "<br />", "</p><p>" }}</p>
+            </div>
+{% endcomment %}
+
+        </div>
+
+
+        <div class="klaviyo-form-{{ section.settings.ahg_klaviyo_id }}"></div>
+{% comment %}
+
+        <div class="terms">
+            <strong>
+                Terms + Conditions
+            </strong>
+            <p>
+                {{ section.settings.ahg_tandcs }}{{ section.settings.ahg_tandcs_extra }}
+            </p>
+        </div>{% endcomment %}
+    </article>
+</div>
+
+{% schema %}
+{
+    "name": "At Home Giveaway",
+    "settings": [
+    {
+        "type": "text",
+        "id": "ahg_title",
+        "label": "Title",
+        "default": "At Home <i>Giveaway</i>",
+        "placeholder": "At Home <i>Giveaway</i>"
+    },
+    {
+        "type": "image_picker",
+        "label": "Top image",
+        "id": "ahg_top_image"
+    },
+    {
+        "type": "textarea",
+        "id": "ahg_description",
+        "label": "Description",
+        "default": "Enter to win a collection of pieces with well-being and home in mind from our favourite independent and small businesses. Total value of the winning prize, $3100.",
+        "placeholder": "Enter to win a collection of pieces with well-being and home in mind from our favourite independent and small businesses. Total value of the winning prize, $3100."
+    },
+    {
+        "type": "textarea",
+        "id": "ahg_instructions",
+        "label": "Entry instructions",
+        "default": "1. Follow all participating brands on Instagram: @fellaswim — @deijistudios @fourthstreethome — @lesseofficial — @huskistudios — @elle__musa — @taraburkestudio — @intheroundhouse — @mondayhaircare.\n2. Tag 3 friends in the comment section of the Instagram post, <a target=\"_blank\" href=\"https://www.instagram.com/p/CBuq-B8hI9V/\">here</a>.\n3. Submit your email address and Instagram handle to below:",
+        "placeholder": "1. Follow all participating brands on Instagram: @fellaswim — @deijistudios @fourthstreethome — @lesseofficial — @huskistudios — @elle__musa — @taraburkestudio — @intheroundhouse — @mondayhaircare.\n2. Tag 3 friends in the comment section of the Instagram post, <a target=\"_blank\" href=\"https://www.instagram.com/p/CBuq-B8hI9V/\">here</a>.\n3. Submit your email address and Instagram handle to below:"
+    },
+    {
+        "type": "text",
+        "id": "ahg_klaviyo_id",
+        "label": "Klaviyo form ID",
+        "default": "SWWySD",
+        "placeholder": "SWWySD"
+    },
+    {
+        "type": "textarea",
+        "id": "ahg_tandcs",
+        "label": "Terms and conditions",
+        "default": "Entries close July 6 at 5:00 PM AEST. The winner will be announced July 6 at 6:00 PM AEST and will be chosen at random + notified via email and Instagram. All entrants must follow all three entry steps outlined above to be eligible and in the running for this giveaway. Open to all International entrants. Currency shown in AUD, will be converted to equivalent currency of winner. By entering this giveaway, you are agreeing to subscribe your email to the mail list of all participating brands;",
+        "placeholder": "Entries close July 6 at 5:00 PM AEST. The winner will be announced July 6 at 6:00 PM AEST and will be chosen at random + notified via email and Instagram. All entrants must follow all three entry steps outlined above to be eligible and in the running for this giveaway. Open to all International entrants. Currency shown in AUD, will be converted to equivalent currency of winner. By entering this giveaway, you are agreeing to subscribe your email to the mail list of all participating brands;"
+    },
+    {
+        "type": "textarea",
+        "id": "ahg_tandcs_extra",
+        "label": "Terms and conditions (extra text)",
+        "default": "Fella Swim, Deiji Studio, Fourth Street Home, Lesse, Huski Studio, Elle Musa, Tara Burke Studio, In The Round House, Monday Haircare. You may withdraw your consent at any time by clicking the unsubscribe link at the bottom of the emails you receive. All brands will cover shipping costs individually of their prizes except for Huski which will need to be paid for by the winner if they are outside of Australia.",
+        "placeholder": "Fella Swim, Deiji Studio, Fourth Street Home, Lesse, Huski Studio, Elle Musa, Tara Burke Studio, In The Round House, Monday Haircare. You may withdraw your consent at any time by clicking the unsubscribe link at the bottom of the emails you receive. All brands will cover shipping costs individually of their prizes except for Huski which will need to be paid for by the winner if they are outside of Australia."
+    }],
+    "blocks": [{
+        "type": "prize",
+        "name": "Prize",
+        "settings": [
+            {
+                "label": "Brand",
+                "id": "brand",
+                "type": "text"
+            },
+            {
+                "label": "Item",
+                "id": "item",
+                "type": "textarea"
+            }
+        ]
+    }]
+}
+{% endschema %}

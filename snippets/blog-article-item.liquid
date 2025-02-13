@@ -1,0 +1,22 @@
+ <div
+        class="
+          blogs--archive--single-custom
+          blogs--archive--single {% if index > 5 %}
+            blog--archive--hidden
+          {% endif %}
+        "
+      >
+        <a href="{{ article.url }}" class="image-feature--wrapper image-anim--scale">
+          <div class="image-feature image-anim--wrapper lazyload-animation">
+            {% render 'responsive-image',
+              classes: 'image-feature--image',
+              image: article.image,
+              sizes: '768,1536,2048,3600'
+            %}
+          </div>
+        </a>
+        <a href="{{ article.url }}" class="blogs--archive--single--link blogs--archive--single--link-custom">
+          {{- article.title -}} 
+        </a>
+        <!-- <p class="blogs--excerpt--single--link">{{ article.excerpt }}</p> -->
+      </div>

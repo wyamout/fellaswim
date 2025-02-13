@@ -1,0 +1,188 @@
+{%- liquid
+  assign max_images = 5
+
+  assign is_feature = false
+  if product.tags contains 'collection_feature'
+    assign is_feature = true
+  endif
+
+  assign tag_callout = false
+  assign on_sale = false
+  assign preorder = false
+
+  if product.compare_at_price > product.price
+    if product.tags contains 'final_sale'
+      assign tag_callout = 'final_sale'
+      assign on_final_sale = true
+    else
+      assign tag_callout = 'sale'
+      assign on_sale = true
+    endif
+  elsif product.metafields.custom_fields.pre_order_description != blank
+    assign tag_callout = 'pre_order'
+    assign preorder = true
+  elsif product.tags contains 'best_seller'
+    assign tag_callout = 'best_seller'
+  elsif product.tags contains 'new_arrivals'
+    assign tag_callout = 'new_arrivals'
+  elsif product.tags contains 'coming_soon'
+    assign tag_callout = 'coming_soon'
+    assign coming_soon = true
+  endif
+
+  if tag_callout != false
+    assign tag_callout = 'cart.callouts.' | append: tag_callout
+  endif
+-%}
+
+{%- capture images -%}
+{% render 'product-index-images', images: product.images, max: max_images, is_feature: is_feature %}
+{%- endcapture -%}
+
+{%- liquid
+  assign image_count = images | split: 'product-index--images--image' | size | minus: 1
+  assign product_title_formatted = product.title | replace: ' | ', ', '
+  assign product_title = product.title | split: '|'
+  assign product_title = product_title[0] | strip
+  assign product_title_mobile = product.title | split: '|'
+-%}
+{%- capture product_colour_title -%}{%- render 'product-colour', product: product, title: true -%}{%- endcapture -%}
+
+<div
+  class="product-index--item{% if is_feature %} product-index--item--feature{% endif %} "
+  data-title="{{ product_title }}"
+  data-id="{{ product.id }}"
+>
+  {% if tag_callout %}
+    <div class="product-index--tag-callout{% if on_sale %} sale{% endif %}{% if on_final_sale %} final-sale{% endif %}{% if preorder %} preorder{% endif %}{% if coming_soon %} coming-soon{% endif %}">
+      {{ tag_callout | t }}
+    </div>
+  {% endif %}
+
+  <div class="product-index--images" data-index="{{ image_count }}">
+    <div class="product-index--images--wrapper">
+      {{ images }}
+      {% if image_count > 1 %}{{ images }}{% endif %}
+    </div>
+    {% if image_count > 1 %}
+      <a href="#" class="product-index--images--button previous">{% render 'icon', icon: 'chevron' %}</a>
+      <a href="#" class="product-index--images--button next">{% render 'icon', icon: 'chevron' %}</a>
+    {% endif %}
+    <a href="{{ product.url }}" class="aa product-index--link"
+      ><span>{{ product_title_formatted }}</span></a
+    >
+  </div>
+
+  <div class="product-index--images--overlay hide {% unless product.available %}out-of-stock{% endunless %}">
+    <template class="product-index--images-template tst">
+      <div class="product-index--images--overlay--image lazyload-animation" data-product-id="">
+        <img data-src="" class="lazyload primary-image">
+        <img data-src="" class="lazyload secondary-image">
+      </div>
+    </template>
+    <div
+      class="product-index--images--overlay--image lazyload-animation shown lazyload-animation-loaded"
+      data-product-id="{{ product.id }}"
+    >
+      <img
+        data-src="{{ product.images[0].src | img_url: 'master' }}"
+        class="lazyload primary-image entered lazyload-loaded"
+        src="{{ product.images[0].src | img_url: 'master' }}"
+      >
+      <img data-src="undefined" class="lazyload secondary-image">
+    </div>
+  </div>
+
+  <div class="product-index--interface">
+    <a href="{{ product.url }}" class="product-index--interface--link">
+      <div class="product-index--interface--title">{{ product_title_formatted }}</div>
+      <div class="product-index--interface--title--mobile">
+        <span class="product-index--interface--title-name--mobile">{{ product_title_mobile[0] | strip }}</span>
+        <span class="product-index--interface--title-nametype--mobile">{{ product_title_mobile[1] | strip }}</span>
+      </div>
+
+      <span class="product-index--interface--price">
+        {% if product.compare_at_price > product.price %}
+          <span class="product-index--interface--price--compare">{{ product.compare_at_price | money }}</span>
+        {% endif %}
+        <span class="product-index--interface--price--current">{{ product.price | money }}</span>
+      </span>
+    </a>
+
+    <span class="product-index--interface--color--count">
+      <a href="#" class="product-index--interface--swatch-trigger color--count">
+        <span class="count"></span>
+        {{ 'product.index_swatch_colours' | t }}
+      </a>
+    </span>
+    {% unless product.tags contains 'made_to_order' or no_add_to_cart == true %}
+      <div class="product-index--interface--add-to-cart">
+        <a
+          href="#"
+          class="add-cart-button{% if product.first_available_variant == blank %} sold-out{% endif %}"
+          style="display: none;"
+        >
+          <span class="add-cart-button--message add-cart-button--add">{{ 'product.add_to_cart.add' | t }}</span>
+          <span class="add-cart-button--message add-cart-button--adding">{{ 'product.add_to_cart.adding' | t }}</span>
+          <span class="add-cart-button--message add-cart-button--added">{{ 'product.add_to_cart.added' | t }}</span>
+          <span class="add-cart-button--message add-cart-button--sold-out">
+            {{- 'product.add_to_cart.sold-out' | t -}}
+          </span>
+          <span class="add-cart-button--message add-cart-button--made-to-order">
+            {{- 'product.add_to_cart.made-to-order' | t -}}
+          </span>
+          <span class="add-cart-button--message add-cart-button--error">{{ 'product.add_to_cart.error' | t }}</span>
+          <span class="loader spinner-grey-dark background-white"></span>
+        </a>
+
+        <div class="product-index--interface--add-variants"></div>
+      </div>
+    {% endunless %}
+    <div
+      class="product-index--interface--swatches swiper-container hide"
+      id="product-index--interface--swatches--{{ product.id }}"
+    >
+      <div
+        class="product-index--interface--swatch-list swiper-wrapper"
+      ></div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  ((document, window) => {
+      const handleDocumentLoaded = function (e) {
+          if (window.okeWidgetApi) {
+              window.okeWidgetApi.initAllWidgets();
+          }
+      }
+
+      if (document.readyState !== 'interactive' && document.readyState !== 'complete') {
+          document.addEventListener('readystatechange', () => {
+              handleDocumentLoaded();
+          }, { once: true });
+      }
+      else {
+          handleDocumentLoaded();
+      }
+  })(document, window);
+</script>
+<script>
+  // $(document).ready(function() {
+  //     $('.product-index--item').each(function() {
+  //         var $swatchList = $(this).find(".product-index--interface--swatch-list");
+  //         console.log("Swatch list:", $swatchList);
+  //         var colors_count = $swatchList.children().length;
+  //         console.log("Colors count:", colors_count);
+  //         var $swatchTrigger = $(this).find('.product-index--interface--swatch-trigger.color--count');
+  //         var count = parseInt($swatchTrigger.find('.count').text().trim());
+  //         console.log("Count from span:", count);
+  //         if (colors_count > 0 || count > 0) {
+  //             $swatchTrigger.css('display', 'inline-block');
+  //             console.log("Showing element");
+  //         } else {
+  //             $swatchTrigger.hide();
+  //             console.log("Hiding element");
+  //         }
+  //     });
+  // });
+</script>

@@ -1,0 +1,39 @@
+
+{% assign gift_card_balance = gift_card.balance | money %}
+
+<div class="product product--{{ template | replace: 'product', '' | replace: '.', '' }}">
+
+    <div class="product--row product--row--feature">
+
+        <div class="product--image">
+            <div class="product--image--container">
+                {% assign featured_image = all_products.digital-gift-cards.featured_image %}
+                {% render 'responsive-image', classes: 'product--image--gift-card--image', image: featured_image, sizes: '768,1536,2048,3600' %}
+            </div>
+        </div>
+        <div class="product--details">
+            <div class="product--details--container">
+                
+                <h1 class="product--details--title">{{ 'product.gift_card.your_gift_card' | t }}</h1>
+                
+                <div class="product--details--description">
+                    <p>
+                        {{ 'product.gift_card.balance_html' | t: balance: gift_card_balance }}
+                    </p>
+                    <p>
+                        {{ 'product.gift_card.code_html' | t: code: gift_card.code }}
+                    </p>
+                </div>
+
+                {% if gift_card.pass_url %}
+                    <div class="product--details--description">
+                      <a href="{{ gift_card.pass_url }}">
+                        <img id="apple-wallet-badge" src="{{ 'gift-card/add-to-apple-wallet.svg' | shopify_asset_url }}" width="120" height="40" alt="Add To Apple Wallet">
+                      </a>
+                    </div>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,5 @@
+{%- assign title_split = product.title | replace: ',', '|' | split: '|' -%}
+{%- if title_split[1] != blank -%}
+    {%- assign colour = title_split[1] | strip -%}
+    {%- if title != true -%}{{ colour | downcase | replace: ' ', '-' }}{%- else -%}{{ colour }}{%- endif -%}
+{%- endif -%}

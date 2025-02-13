@@ -1,0 +1,31 @@
+{%- assign options = options | split: ',' -%}
+
+<div class="filter--section{% if border == false %} no-border{% endif %}" data-filter-section="{{ option_name }}">
+    {% if title_and_toggle %}
+        <div class="filter--section--title">
+            <span>{{ 'filters.' | append: option_name | append: '.title' | t }}</span>
+            <a href="#" class="filter--section--title--expand">
+                {% render 'icon', icon: 'plus' %}
+                {% render 'icon', icon: 'minus' %}
+            </a>
+        </div>
+    {% endif %}
+    <div class="filter--section--options{% if title_and_toggle %} filter--section--options--collapsible{% endif %}{% if is_radio %} filter--section--options--radio{% endif %}{% if is_filterable %} filter--section--options--filterable{% endif %}{% if autorun %} filter--section--options--autorun{% endif %}{% if columns == true %} filter--section--options--columns{% endif %}">
+        {%- for option in options -%}
+            {%- capture tag_name -%}
+                {%- if title_and_toggle -%}
+                    {{ option_name }}_{{ option | replace: '-', '_' }}
+                {%- else -%}
+                    {{ option }}
+                {%- endif -%}
+            {%- endcapture -%}
+            <a href="#" data-tag="{{ tag_name | strip }}" class="filter--option{% if default and option == default %} selected{% endif %}">
+                <span>{{ 'filters.' | append: option_name | append: '.' | append: option | t }}
+                    {%- if title_and_toggle -%}
+                        {% render 'icon', icon: 'tick' %}
+                    {%- endif -%}
+                </span>
+            </a>
+        {%- endfor -%}
+    </div>
+</div>

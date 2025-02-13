@@ -1,0 +1,69 @@
+{% comment %}
+  Add these settings to your Shopify section
+  - Section Title
+  - Section Description
+  - Blocks (Repeater field with fields Title, Subtitle, Description)
+{% endcomment %}
+
+<div class="multi-column-section ">
+  <div class="multi-column-section--title">{{ section.settings.section_title }}</div>
+  <p class="multi-column-section-description">{{ section.settings.section_description }}</p>
+
+  <div class="multi-column-wrapper">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'multicolumn-item' %}
+          <div class="multi-column-item">
+            <div class="multi-column-section--item-title">{{ block.settings.title }}</div>
+            <div class="multi-column-section--item-subtitle">{{ block.settings.subtitle }}</div>
+            <div class="multi-column-section--item-description">{{ block.settings.description }}</div>
+          </div>
+      {% endcase %}
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Multicolumn",
+  "settings": [
+    {
+          "type": "text",
+          "id": "section_title",
+          "label": "Section Title"
+      },
+      {
+          "type": "richtext",
+          "id": "section_description",
+          "label": "Section Description"
+      }
+  ],
+  "blocks": [
+     {
+          "type": "multicolumn-item",
+           "name": "Multicolumn Item",
+          "settings": [
+              {
+                  "type": "text",
+                  "id": "title",
+                  "label": "Title"
+              },
+              {
+                  "type": "text",
+                  "id": "subtitle",
+                  "label": "Subtitle"
+              },
+              {
+                  "type": "richtext",
+                  "id": "description",
+                  "label": "Description"
+              }
+          ]
+      }
+  ],
+  "presets": [{
+      "name": "Multicolumn",
+      "category": "Custom Content"
+  }]
+}
+{% endschema %}

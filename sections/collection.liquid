@@ -1,0 +1,103 @@
+
+{% if section.settings.collection != blank %}
+  {%- assign section_collection = collections[section.settings.collection] -%}
+
+  {% if section_collection != blank %}
+    {%- assign products_count = section_collection.products | size -%}
+
+    {% if products_count > 2 %}
+      <div class="collection-section color-{{ section.settings.background_color }}" style="overflow: hidden;">
+        <div class="swiper-container collection-section-swiper-container">
+          <div class="swiper-wrapper">
+            {% for section_product in section_collection.products %}
+             
+              <div class="swiper-slide">
+                <a
+                  href="{{ section_product.url }}"
+                  class="collection-section__product image-anim--scale image-anim--scale--fast image-anim--wrapper lazyload-animation"
+                >
+                  {% if section_product.featured_image != blank %}
+                    {% render 'responsive-image-swiper',
+                      classes: 'collection-section__image',
+                      image: section_product.featured_image,
+                      title: section_product.title,
+                      sizes: '768,1536,2048,3600'
+                    %}
+                  {% endif %}
+                </a>
+              </div>
+             
+            {% endfor %}
+          </div>
+          <!-- Add Arrows -->
+          <div class="swiper-button-next collection-section__button">
+            
+          </div>
+          <div class="swiper-button-prev collection-section__button">
+          
+          </div>
+          <!-- Add Pagination -->
+          <div class="swiper-pagination collection-section__pagination"></div>
+        </div>
+       
+      </div>
+    {% endif %}
+  {% endif %}
+{% endif %}
+{% schema %}
+{
+    "name": "Collection",
+    "settings": [
+        {
+            "label": "Collection",
+            "id": "collection",
+            "type": "collection"
+        },
+        {
+            "label": "Title",
+            "id": "title",
+            "type": "text"
+        },
+        {
+            "label": "Link",
+            "id": "link",
+            "type": "url"
+        },
+        {
+            "type": "select",
+            "id": "background_color",
+            "label": "Background colour",
+            "options": [
+                {
+                    "value": "burnt-orange",
+                    "label": "Burnt Orange"
+                },
+                {
+                    "value": "pink",
+                    "label": "Pink"
+                },
+                {
+                    "value": "vanilla",
+                    "label": "Vanilla"
+                },
+                {
+                    "value": "eucalyptus",
+                    "label": "Eucalyptus"
+                },
+                {
+                    "value": "dark-green",
+                    "label": "Dark Green"
+                },
+                {
+                    "value": "black",
+                    "label": "Black"
+                }
+            ]
+        }
+    ],
+    "presets": [{
+        "name": "Collection",
+        "category": "Custom Content"
+    }]
+}
+{% endschema %}

@@ -1,0 +1,36 @@
+ {%- if section.settings.shipping_info != blank -%}
+    
+    <div class="product--details--info-box">
+
+        <a href="#" class="product--details--info-box--title">
+            {{ 'product.shipping' | t }}
+                
+            <span class="product--details--info-box--toggle">
+                {% render 'icon', icon: 'plus' %}
+                {% render 'icon', icon: 'minus' %}
+            </span>
+            
+        </a>
+        
+        <div class="product--details--info-box--description">
+            <div class="product--details--info-box--description--wrapper">
+                {{ section.settings.shipping_info | newline_to_br }}
+            </div>
+        </div>
+
+    </div>
+
+{% endif %}
+
+{% schema %}
+{
+    "name": "Shipping Info",
+    "settings": [
+        {
+            "label": "Shipping Info",
+            "id": "shipping_info",
+            "type": "textarea"
+        }
+    ]
+}
+{% endschema %}

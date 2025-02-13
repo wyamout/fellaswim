@@ -1,0 +1,85 @@
+
+  <div class="container">
+  
+    <div class="account--login">
+
+      {%- if check_reset == true -%}
+        {%- form 'recover_customer_password' -%}
+          {%- if form.posted_successfully? -%}
+            <p class="login--password-reset">
+              {{ 'customer.register.reset_check_email' | t }}
+              <br/><br/>
+            </p>
+          {%- endif -%}
+        {%- endform -%}
+      {%- endif -%}
+
+      <h2 class="container--title">{{ 'customer.login.sign_in' | t }}</h2>
+
+      {% form 'customer_login', class: 'form form--login-register page--form no-ajax', id: 'customer_login_account' %}
+
+        <div class="form--errors hidden">
+          {{ form.errors | default_errors }}
+        </div>
+
+        <fieldset>
+
+          <div class="form--group">
+            <div class="input-with-label">
+              <label for="CustomerEmail">{{ 'customer.login.email' | t }}<span class="required">*</span></label>
+
+              <input type="email"
+                 name="customer[email]"
+                 id="CustomerEmail"
+                 class="{% if form.errors contains 'email' %}input-error{% endif %}"
+                 spellcheck="false"
+                 autocomplete="off"
+                 autocapitalize="off"
+                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                 required
+                 {% if form.email %}value="{{ form.email }}"{% endif %} >
+
+            </div>
+          </div>
+
+          {% if form.password_needed %}
+            <div class="form--group">
+              <div class="input-with-label">
+                <label for="CustomerPassword">{{ 'customer.login.password' | t }}<span class="required">*</span></label>
+                <div class="input-password-wrapper">
+                  <input type="password"
+                     name="customer[password]"
+                     id="CustomerPassword"
+                     class="{% if form.errors contains 'password' %}input-error{% endif %}" 
+                     required />
+                     {% render 'icon', icon: 'eye' %}
+                 </div>
+              </div>
+            </div>
+
+          {% endif %}
+
+          <button class="button button--black" type="submit" disabled>
+            <span>{{ 'customer.login.sign_in' | t }}</span>
+          </button>
+
+          {% if form.password_needed %}
+            <div class="form--group form--group--short">
+              <a class="form-link" href="/pages/reset-password" id="RecoverPassword">{{ 'customer.login.forgot_password' | t }}</a>
+            </div>
+          {% endif %}
+
+          <hr>
+
+          <div class="form--group form--group--short">
+            <span class="form-link">{{ 'customer.login.no_account' | t }}</span>&nbsp;<a class="form-link" href="/account/register" id="Register">{{ 'customer.login.sign_up' | t }}</a>
+          </div>
+
+        </fieldset>
+
+      {% endform %}
+
+
+    </div>
+  
+  </div>
