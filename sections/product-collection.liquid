@@ -35,7 +35,7 @@
     <div class="collection--product">
       <div class="product-index {% if request.path == '/collections/shop-all' or request.path == '/collections/sale' %}six-col{% else %}four-col{% endif %}">
         {% for product in collection.products %}
-          {% unless product.tags contains 'hidden_collection' and request.path != '/collections/private-collection' %}
+          {% unless product.tags contains 'hidden_collection' and request.path != '/collections/private-collection'  and request.path != '/collections/ss25-preview' %}
             {% render 'product-index', product: product %}
           {% endunless %}
         {% endfor %}
