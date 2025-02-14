@@ -12395,7 +12395,7 @@
 
                     window.all_products = products;
                     products.forEach(function (t) {
-                      if(window.location.pathname.includes("private-collection")) {
+                      if(window.location.pathname.includes("private-collection") || window.location.pathname.includes("ss25-preview")) {
                         var n = t.node.title.trim().split(" | "),
                         r = n[0],
                         i = n[1],
