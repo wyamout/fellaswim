@@ -625,7 +625,7 @@ endif
 
     {%- assign section_types = 'recently_viewed' -%}
     {%- assign translation = 'product.related_products.' -%}
-    {%- assign pair_lists = product.metafields.custom.pair_products -%}
+    {%- assign pair_lists = product.metafields.custom.pair_products | json -%}
   <script>console.log({{ pair_lists }})</script>
     <div class="testtttt">
       {%- for pair_gid in pair_lists -%}
