@@ -629,8 +629,7 @@ endif
   <script>console.log({{ pair_lists }})</script>
     <div class="testtttt">
       {%- for pair_gid in pair_lists -%}
-        {%- assign pair_id = pair_gid | split: '/' | last -%}
-       {{ pair_id }}
+       {{ pair_gid }}
       {%- endfor -%}
     </div>
     {%- if product.type == 'Tops' or product.type == 'Bottoms' -%}
