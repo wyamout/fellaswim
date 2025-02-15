@@ -19690,12 +19690,17 @@ header
   padding-top: 50px;
   width: 100%;
   text-align: center;
+  display: none;
 }
 
 @media screen and (min-width: 1024px) {
   .section-navigation-form {
     width: 72%;
   }
+
+  .section-navigation--title {
+  display: block:
+}
 }
 
 .section-navigation-form {
