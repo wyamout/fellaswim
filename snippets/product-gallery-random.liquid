@@ -1,4 +1,3 @@
-{{ pair_list }}
 {%- paginate collection.products by 1000 -%}
   {%- assign max = collection.products | size -%}
   {%- assign random_number = 'now' | date: '%N' | modulo: max -%}

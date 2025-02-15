@@ -626,6 +626,7 @@ endif
     {%- assign section_types = 'recently_viewed' -%}
     {%- assign translation = 'product.related_products.' -%}
     {%- assign pair_lists = product.metafields.custom_fields.pair_products -%}
+  {{ pair_lists }}
     {%- if product.type == 'Tops' or product.type == 'Bottoms' -%}
 
         {%- if product.type == 'Tops' -%}
