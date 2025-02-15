@@ -19482,18 +19482,7 @@
                   );
                   u && u.setAttribute("data-backinstock-variant", t);
 
-                var selectedVariant = document.querySelector(
-                  '.product--details--variant-list--value.selected'
-                );
-                
-                if (selectedVariant) {
-                  var quantity = parseInt(selectedVariant.getAttribute("data-variant-quantity"), 10);
-                  var cartButtonMessage = document.querySelector(".add-cart-button--message");
-                
-                  if (cartButtonMessage) {
-                    cartButtonMessage.textContent = quantity > 0 ? "Add to cart" : "Pre Order";
-                  }
-                }
+            
                 },
               },
               {
