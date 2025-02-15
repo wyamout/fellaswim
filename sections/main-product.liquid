@@ -625,18 +625,7 @@ endif
 
     {%- assign section_types = 'recently_viewed' -%}
     {%- assign translation = 'product.related_products.' -%}
-{%- assign pair_lists = product.metafields.custom.pair_products -%}
-
-<div class="testttttt">
-  {%- for id in pair_lists -%}
-    {%- assign pair_product = all_products[id] -%}
-    {%- if pair_product != blank -%}
-      <div>
-        <a href="{{ pair_product.url }}">{{ pair_product.title }}</a>
-      </div>
-    {%- endif -%}
-  {%- endfor -%}
-</div>
+    {%- assign pair_lists = product.metafields.custom.pair_products -%}
     {%- if product.type == 'Tops' or product.type == 'Bottoms' -%}
 
         {%- if product.type == 'Tops' -%}
