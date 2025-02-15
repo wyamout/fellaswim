@@ -629,7 +629,7 @@ endif
 <script>console.log({{ pair_lists | json }})</script>
 <div class="testtttt">
   {%- for pair_gid in pair_lists -%}
-    {{ pair_gid }}
+    {{ pair_gid.title }}
   {%- endfor -%}
 </div>
     {%- if product.type == 'Tops' or product.type == 'Bottoms' -%}
