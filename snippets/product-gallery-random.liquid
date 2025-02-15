@@ -2,9 +2,9 @@
   {%- assign max = collection.products | size -%}
   {%- assign random_number = 'now' | date: '%N' | modulo: max -%}
   {%- assign count = 0 -%}
-  {{ pair_list }}
-  {%- if pair_list != blank -%}
-    {%- for product in pair_list -%}
+  {{ pair_lists }}
+  {%- if pair_lists != blank -%}
+    {%- for product in pair_lists -%}
       {% render 'product-gallery-item', product: product %}
       {%- assign count = count | plus: 1 -%}
       {%- if count >= 4 -%}{%- break -%}{%- endif -%}
