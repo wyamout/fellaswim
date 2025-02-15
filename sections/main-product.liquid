@@ -625,13 +625,13 @@ endif
 
     {%- assign section_types = 'recently_viewed' -%}
     {%- assign translation = 'product.related_products.' -%}
-    {%- assign pair_lists = product.metafields.custom.pair_products  -%}
-  <script>console.log({{ pair_lists }})</script>
-    <div class="testtttt">
-      {%- for pair_gid in pair_lists -%}
-       {{ pair_gid }}
-      {%- endfor -%}
-    </div>
+{%- assign pair_lists = product.metafields.custom.pair_products | parse_json -%}
+<script>console.log({{ pair_lists | json }})</script>
+<div class="testtttt">
+  {%- for pair_gid in pair_lists -%}
+    {{ pair_gid }}
+  {%- endfor -%}
+</div>
     {%- if product.type == 'Tops' or product.type == 'Bottoms' -%}
 
         {%- if product.type == 'Tops' -%}
