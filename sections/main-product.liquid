@@ -628,7 +628,7 @@ endif
     {%- assign pair_lists = product.metafields.custom.pair_products  -%}
   <script>console.log({{ pair_lists }})</script>
     <div class="testtttt">
-      {%- for pair_gid in product.metafields.custom.pair_products -%}
+      {%- for pair_gid in pair_lists -%}
        {{ pair_gid }}
       {%- endfor -%}
     </div>
