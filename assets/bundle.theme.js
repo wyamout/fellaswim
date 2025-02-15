@@ -19555,26 +19555,11 @@
                       r.classList.contains("override") && (l = c);
                   }
                   if (!1 === h) {
-                        var selectedVariant = document.querySelector(
-                          '.product--details--variant-list--value.selected'
-                        );
-                        
-                        var isPreOrder = selectedVariant && selectedVariant.getAttribute("data-variant-quantity") === "0";
-                    var v = [
-                        {
-                          quantity: 1,
-                          id: l,
-                          properties: {
-                            ...d,
-                            ...(isPreOrder ? { preorder: "true" } : {}),
-                          },
-                        },
-                      ];
-                      
-                      if (u) {
-                        var y = s.getAttribute("data-customisation-id");
-                        v.push({ quantity: u, id: y });
-                      }
+                             var v = [{ quantity: 1, id: l, properties: d }];
+                    if (u) {
+                      var y = s.getAttribute("data-customisation-id");
+                      v.push({ quantity: u, id: y });
+                    }
                     n.forEach(function (t) {
                       t.classList.add("adding");
                     }),
