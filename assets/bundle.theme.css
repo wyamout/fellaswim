@@ -19711,7 +19711,8 @@ header
 
 .sus-wrap {
   display: flex;
-  flex-direction: row;
+  
+      flex-direction: column;
 }
 
 .sus-image__item {
@@ -19721,17 +19722,18 @@ header
 }
 
 .sus-images {
-    width: 50%;
+   
+    width: 100%;
     position: sticky;
     top: 73px;
   }
 
-@media screen and (max-width: 900px) {
+@media screen and (min-width: 900px) {
   .sus-wrap {
-    flex-direction: column;
+flex-direction: row;
   }
 
   .sus-images {
-    width: 100%;
+   width: 50%;
   }
 }
