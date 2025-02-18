@@ -5,7 +5,10 @@
         {% for block in section.blocks %}
           {% case block.type %}
             {% when 'menu' %}
-              <div class="sus-image" data-id="sus-image--{{ section.id }}-{{ block.settings.image.id }}">
+              <div
+                class="sus-image sus-image--active"
+                data-id="sus-image--{{ section.id }}-{{ block.settings.image.id }}"
+              >
                 {% render 'responsive-image',
                   classes: 'sus-image__item',
                   image: block.settings.image,
