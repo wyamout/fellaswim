@@ -1,7 +1,34 @@
 {% schema %}
 {
   "name": "Main Sustainability",
-  "settings": [],
+  "settings": [
+
+  ],
+  "blocks": [
+    {
+      "type": "menu",
+      "name": "Menu",
+      "settings": [
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Number",
+          "default": "I"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "title"
+        },
+         {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
   "presets": [
     {
       "name": "Main Sustainability"
