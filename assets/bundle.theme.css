@@ -19714,6 +19714,10 @@ header
   flex-direction: row;
 }
 
+.sus-image__item {
+  width: 100%;
+  object-fit: contain;
+}
 
 @media screen and (max-width: 900px) {
   .sus-wrap {
