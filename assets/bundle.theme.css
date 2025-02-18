@@ -19722,6 +19722,8 @@ header
 
 .sus-images {
     width: 50%;
+    position: sticky;
+    top: 73px;
   }
 
 @media screen and (max-width: 900px) {
