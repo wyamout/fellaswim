@@ -63,7 +63,9 @@
         "menu_zqcqT4",
         "menu_9CpYth"
       ],
-      "settings": {}
+      "settings": {
+        "image": "shopify://shop_images/christobal-fullpiece-fudge-campaign-5.jpg"
+      }
     }
   },
   "order": [
