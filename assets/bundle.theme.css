@@ -19731,5 +19731,7 @@ header
     flex-direction: column;
   }
 
-  
+  .sus-images {
+    width: 100%;
+  }
 }
