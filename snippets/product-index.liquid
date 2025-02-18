@@ -73,7 +73,7 @@
     >
   </div>
 
-  <div class="product-index--images--overlay hide {% unless product.available %}out-of-stock{% endunless %}" data="{{ collection.handle }}">
+  <div class="product-index--images--overlay hide {% unless product.available %}{% if collection.handle != 's25-preview' %}out-of-stock{% endif %}{% endunless %}" data="{{ collection.handle }}">
     <template class="product-index--images-template tst">
       <div class="product-index--images--overlay--image lazyload-animation" data-product-id="">
         <img data-src="" class="lazyload primary-image">
