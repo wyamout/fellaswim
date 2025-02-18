@@ -19708,3 +19708,14 @@ header
   padding: 20px 20px;
   margin-top: 20px;
 }
+
+.sus-wrap {
+  display: flex;
+  flex-direction: row;
+}
+
+@media screen and (max-width: 900px) {
+  .sus-wrap {
+    flex-direction: column;
+  }
+}
