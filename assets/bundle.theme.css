@@ -19714,8 +19714,13 @@ header
   flex-direction: row;
 }
 
+
 @media screen and (max-width: 900px) {
   .sus-wrap {
     flex-direction: column;
+  }
+
+  .sus-images {
+    width: 50%;
   }
 }
