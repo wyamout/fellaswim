@@ -1,4 +1,21 @@
-<div class="main-sustainability"></div>
+<div class="main-sustainability">
+  <div class="container">
+    <div class="sus-wrap">
+      <div class="sus-image">
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'menu' %}
+              {% render 'responsive-image',
+                classes: 'sus-image__item',
+                image: block.settings.image,
+                sizes: '768,1536,2048,3600'
+              %}
+          {% endcase %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
 
 {% schema %}
 {
