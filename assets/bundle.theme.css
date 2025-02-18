@@ -19721,6 +19721,14 @@ header
   height: fit-content;
 }
 
+.sus-image{
+  display: none;
+}
+
+.sus-image--active {
+  display: block;
+}
+
 .sus-images {
    
     width: 100%;
