@@ -625,7 +625,7 @@ endif
 
     {%- assign section_types = 'recently_viewed' -%}
     {%- assign translation = 'product.related_products.' -%}
-            
+    {%- assign pair_lists = product.metafields.custom.pair_products.value -%}
     {%- if product.type == 'Tops' or product.type == 'Bottoms' -%}
 
         {%- if product.type == 'Tops' -%}
@@ -633,10 +633,9 @@ endif
         {%- else -%}
             {%- assign discount_collection = collections['tops'] -%}
         {%- endif -%}
-
         {%- if discount_collection != blank -%}
             {%- assign section_types = 'combination_discounts,' | append: section_types -%}
-            {%- capture discount_collection_products -%}{%- render 'product-gallery-random', collection: discount_collection, title_filter: product_colour_title -%}{%- endcapture -%}
+            {%- capture discount_collection_products -%}{%- render 'product-gallery-random', collection: discount_collection, title_filter: product_colour_title, pair_lists: pair_lists -%}{%- endcapture -%}
         {%- endif -%}
 
     {%- endif -%}
