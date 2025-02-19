@@ -300,12 +300,20 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-      console.log("abc")
       const menuItems = document.querySelectorAll(".sus-menus--item");
       const images = document.querySelectorAll(".sus-image");
       const mainImage = document.querySelector(".main-sus-image");
       const navigationItems = document.querySelectorAll(".sub-navigation-item");
       const contentItems = document.querySelectorAll(".sus-content--item");
+
+       menuItems.forEach((item) => {
+        item.addEventListener("click", function (event) {
+          event.preventDefault();
+      
+          const targetUrl = this.href; // Store the link destination
+            window.location.href = targetUrl;
+        });
+      });
 
       menuItems.forEach((menuItem) => {
         menuItem.addEventListener("mouseenter", function () {
