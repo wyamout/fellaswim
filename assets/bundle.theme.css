@@ -19747,6 +19747,10 @@ header
 
 .sus-menus--item {
   width: 50%;
+  min-height: 267px;
+  display: flex;
+    align-items: center;
+    justify-content: center;
   border-top: 1px solid #E6E5E5;
 }
 @media screen and (min-width: 900px) {
