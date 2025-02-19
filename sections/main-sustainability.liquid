@@ -63,9 +63,25 @@
                   </div>
                 </div>
               {% when 'content_block' %}
-              <div class="sus-content-block--item">
-                <h6 class="sus-content-block--item-title">{{ block.settings.content_title }}</h6>
-                <p class="sus-content-block--item-desc"{{ block.settings.content_desc }}></p>
+              <div class="sus-content-block-wrap">
+                {% if block.settings.content_title_1 != '' or block.settings.content_desc_1 != '' %}
+                 <div class="sus-content-block--item">
+                    <h6 class="sus-content-block--item-title">{{ block.settings.content_title_1 }}</h6>
+                    <p class="sus-content-block--item-desc"{{ block.settings.content_desc_1 }}></p>
+                  </div>
+                  {% endif %}
+                {% if block.settings.content_title_2 != '' or block.settings.content_desc_2 != '' %}
+                 <div class="sus-content-block--item">
+                    <h6 class="sus-content-block--item-title">{{ block.settings.content_title_2 }}</h6>
+                    <p class="sus-content-block--item-desc"{{ block.settings.content_desc_2}}></p>
+                  </div>
+                  {% endif %}
+                {% if block.settings.content_title_3 != '' or block.settings.content_desc_3 != '' %}
+                 <div class="sus-content-block--item">
+                    <h6 class="sus-content-block--item-title">{{ block.settings.content_title_3 }}</h6>
+                    <p class="sus-content-block--item-desc"{{ block.settings.content_desc_3 }}></p>
+                  </div>
+                  {% endif %}
               </div>
             {% endcase %}
           {% endfor %}
@@ -193,15 +209,39 @@
       "settings": [
         {
           "type": "text",
-          "id": "content_title",
-          "label": "Content Title",
-          "default": "Content Title"
+          "id": "content_title_1",
+          "label": "Content Title 1",
+          "default": "Content Title 1"
         },
         {
           "type": "text",
-          "id": "content_desc",
-          "label": "Content Desc",
-          "default": "Content Desc"
+          "id": "content_desc_1",
+          "label": "Content Desc 1",
+          "default": "Content Desc 1"
+        },
+        {
+          "type": "text",
+          "id": "content_title_2",
+          "label": "Content Title 2",
+          "default": "Content Title 2"
+        },
+        {
+          "type": "text",
+          "id": "content_desc_2",
+          "label": "Content Desc 2",
+          "default": "Content Desc 2"
+        },
+        {
+          "type": "text",
+          "id": "content_title_3",
+          "label": "Content Title 3",
+          "default": "Content Title 3"
+        },
+        {
+          "type": "text",
+          "id": "content_desc_3",
+          "label": "Content Desc 3",
+          "default": "Content Desc 3"
         },
       ]
     }
