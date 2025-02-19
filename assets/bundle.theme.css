@@ -19889,6 +19889,13 @@ color: #000;
  display: block;
 }
 
+.sub-heading--desc {
+  font-size: 14px;
+    line-height: 1.4rem;
+    text-align: center;
+    padding: 10px 40px;
+}
+
 @media screen and (min-width: 900px) {
 
   .sus-content-block-wrap {
