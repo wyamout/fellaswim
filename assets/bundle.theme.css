@@ -19790,6 +19790,7 @@ width: 100%;
 
 .sus_column .cms_img_content {
     max-width: 162px;
+margin-left: auto;
 }
 
 @media screen and (min-width: 900px) {
