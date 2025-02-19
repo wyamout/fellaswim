@@ -19771,6 +19771,23 @@ width: 100%;
     bottom: 0;
     margin: auto;
 }
+
+.sus-content--item {
+  display: flex;
+      flex-direction: column;
+}
+
+.sus_row_wrap{
+      margin: 0 -8px;
+    padding: 16px 0 0;
+  display: flex;
+    flex-wrap: wrap;
+}
+.sus_row_wrap .sus_column {
+  flex: 1;
+    padding: 0 8px;
+}
+
 @media screen and (min-width: 900px) {
   .sus-wrap {
 flex-direction: row;
