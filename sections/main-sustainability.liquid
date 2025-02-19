@@ -36,7 +36,7 @@
           {% for block in section.blocks %}
             {% case block.type %}
               {% when 'content_section' %}
-                <a class="sub-navigation-item" href="#{{ block.id }}">
+                <a class="sub-navigation-item {% if forloop.first %}sub-navigation-item--active{% endif %}" href="#{{ block.id }}">
                   <span class="sub-navigation-item--roman">{{ block.settings.roman_number }}.</span>
                   {{ block.settings.content_title }}
                 </a>
@@ -124,6 +124,7 @@
     const menuItems = document.querySelectorAll(".sus-menus--item");
     const images = document.querySelectorAll(".sus-image");
     const mainImage = document.querySelector(".main-sus-image");
+    const navigationItems = document.querySelectorAll(".sub-navigation");
 
     menuItems.forEach((menuItem) => {
       menuItem.addEventListener("mouseenter", function () {
@@ -142,6 +143,15 @@
         images.forEach((image) => image.classList.remove("sus-image--active"));
         mainImage.classList.add("sus-image--active");
       });
+
+      navigationItems.forEach((navigation) => {
+        navigation.addEventListener("click", function() {
+          navigationItems.forEach((nv) => {
+            nv.classList.remove("sub-navigation-item--active")
+          })
+          navigation.classList.add("sub-navigation-item--active")
+        })
+      })
     });
   });
 </script>
