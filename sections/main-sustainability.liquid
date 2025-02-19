@@ -69,10 +69,10 @@
           {% for block in section.blocks %}
             {% case block.type %}
               {% when 'menu' %}
-                <div class="sus-menus--item" data-id="sus-menus--item--{{ section.id }}-{{ block.settings.image.id }}">
+                <a class="sus-menus--item" data-id="sus-menus--item--{{ section.id }}-{{ block.settings.image.id }}">
                   <span style="margin-bottom: 10px;">{{ block.settings.number }}</span>
                   {{ block.settings.title }}
-                </div>
+                </a>
             {% endcase %}
           {% endfor %}
         </div>
@@ -123,6 +123,11 @@
       "type": "menu",
       "name": "Menu",
       "settings": [
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
         {
           "type": "text",
           "id": "number",

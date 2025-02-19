@@ -19748,6 +19748,8 @@ width: 100%;
 }
 
 .sus-menus--item {
+  cursor: pointer;
+  text-decoration: none;
   width: 50%;
   min-height: 267px;
   display: flex;
