@@ -19834,6 +19834,14 @@ margin-left: auto;
   margin: 0;
 }
 
+.sub-heading--subtitle {
+  font-size: 10px;
+}
+
+.sub-heading--title {
+  font-size: 20px;
+}
+
 @media screen and (min-width: 900px) {
 
   .sus-content-block-wrap {
