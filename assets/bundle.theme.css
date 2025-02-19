@@ -19775,6 +19775,8 @@ width: 100%;
 .sus-content--item {
   display: flex;
       flex-direction: column;
+      font-size: 1.3rem;
+    line-height: 1.5rem;
 }
 
 .sus-content--item:not(:first-child) {
@@ -19801,6 +19803,7 @@ margin-left: auto;
 
 .cms_img_info{
       margin: 4px 0 0;
+  color: #757270;
 }
 
 .cms_img_info p span {
