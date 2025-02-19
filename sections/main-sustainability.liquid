@@ -31,8 +31,8 @@
           {% case block.type %}
             {% when 'menu' %}
                <div class="sus-menus--item">
-                 {{ block.settings.number }}
-                 <br/>
+                 <span style="margin-bottom: 4px;">{{ block.settings.number }}</span>
+                 
                  {{ block.settings.title }}
                </div>
           {% endcase %}
