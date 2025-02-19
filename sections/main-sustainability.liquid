@@ -35,10 +35,18 @@
           <h2 class="sub-heading--title">{{ section.settings.title }}</h2>
         </div>
 
-        <div class="sub-navigation">
-          {% for block in section.blocks %}
-            {% case block.type %}
-              {% when 'content_section' %}
+        {% assign has_content = false %}
+
+        {% for block in section.blocks %}
+          {% if block.type == 'content_section' and block.settings.content_title != '' %}
+            {% assign has_content = true %}
+          {% endif %}
+        {% endfor %}
+
+        {% if has_content %}
+          <div class="sub-navigation">
+            {% for block in section.blocks %}
+              {% if block.type == 'content_section' and block.settings.content_title != '' %}
                 <div
                   class="sub-navigation-item {% if forloop.first %}sub-navigation-item--active{% endif %}"
                   id="{{ block.id }}"
@@ -46,9 +54,10 @@
                   <span class="sub-navigation-item--roman">{{ block.settings.roman_number }}.</span>
                   {{ block.settings.content_title }}
                 </div>
-            {% endcase %}
-          {% endfor %}
-        </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endif %}
         <div class="sub-heading--desc">
           {{ section.settings.content }}
         </div>
