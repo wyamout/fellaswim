@@ -19777,6 +19777,12 @@ width: 100%;
       flex-direction: column;
 }
 
+.sus-content--item:not(:first-child) {
+    border-top: 1px solid #E6E5E5;
+    margin: 40px 0 0;
+    padding: 24px 0 0;
+}
+
 .sus_row_wrap{
       margin: 0 -8px;
     padding: 16px 0 0;
