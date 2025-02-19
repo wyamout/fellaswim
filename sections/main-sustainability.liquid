@@ -38,13 +38,13 @@
           {% for block in section.blocks %}
             {% case block.type %}
               {% when 'content_section' %}
-                <a
+                <div
                   class="sub-navigation-item {% if forloop.first %}sub-navigation-item--active{% endif %}"
-                  href="#{{ block.id }}"
+                  id="{{ block.id }}"
                 >
                   <span class="sub-navigation-item--roman">{{ block.settings.roman_number }}.</span>
                   {{ block.settings.content_title }}
-                </a>
+                </div>
             {% endcase %}
           {% endfor %}
         </div>
@@ -156,7 +156,7 @@
     navigationItems.forEach((navigation) => {
       navigation.addEventListener("click", function (e) {
         e.preventDefault();
-        const targetId = this.getAttribute("href").substring(1);
+        const targetId = this.getAttribute("id");
         const targetElement = document.getElementById(targetId);
 
         if (targetElement) {
