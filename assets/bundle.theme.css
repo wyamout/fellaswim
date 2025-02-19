@@ -19774,6 +19774,7 @@ width: 100%;
 
 .sus_tab_title {
   font-size: 14px;
+  margin: 0;
 }
 
 .sus-content--item {
@@ -19817,6 +19818,15 @@ margin-left: auto;
 .sus-content-block-wrap {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.sus-content-block--item {
+  display: flex;
+  flex-direction: columnl
+}
+
+.sus-content-block--item-title{
+  font-size: 12px;
 }
 
 @media screen and (min-width: 900px) {
