@@ -32,12 +32,12 @@
           </h6>
           <h2  class="sub-heading--title">{{ section.settings.title }}</h2>
         </div>
-         <div class="sub-navigation">
+        <div class="sub-navigation">
           {% for block in section.blocks %}
             {% case block.type %}
               {% when 'content_section' %}
-              <a class="sub-navigation-item" href="{{ block.id }}">{{ block.settings.title }}</a>
-           {% endcase %}
+                <a class="sub-navigation-item" href="#{{ block.id }}">{{ block.settings.title }}</a>
+             {% endcase %}
            {% endfor %}
         </div>
         <div class="sus-content-wrap">
