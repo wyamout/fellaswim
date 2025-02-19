@@ -3,7 +3,7 @@
     <div class="sus-wrap">
       <div class="sus-images">
         <div
-          class="sus-image sus-image--active"
+          class="sus-image main-sus-image sus-image--active"
           data-id="sus-image--{{ section.id }}-{{ section.settings.image.id }}"
         >
           {% render 'responsive-image', classes: 'sus-image__item', image: section.settings.image, sizes: '1920,4500' %}
@@ -44,9 +44,10 @@
 </div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
   const menuItems = document.querySelectorAll(".sus-menus--item");
   const images = document.querySelectorAll(".sus-image");
+  const mainImage = document.querySelector(".main-sus-image");
 
   menuItems.forEach((menuItem) => {
     menuItem.addEventListener("mouseenter", function () {
@@ -59,6 +60,11 @@
           image.classList.remove("sus-image--active");
         }
       });
+    });
+
+    menuItem.addEventListener("mouseleave", function () {
+      images.forEach((image) => image.classList.remove("sus-image--active"));
+      mainImage.classList.add("sus-image--active");
     });
   });
 });
