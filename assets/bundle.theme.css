@@ -19788,6 +19788,10 @@ width: 100%;
     padding: 0 8px;
 }
 
+.sus_column .cms_img_content {
+    max-width: 162px;
+}
+
 @media screen and (min-width: 900px) {
   .sus-wrap {
 flex-direction: row;
