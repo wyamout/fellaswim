@@ -19,6 +19,7 @@
         "content_section_nq8Pa7": {
           "type": "content_section",
           "settings": {
+            "roman_number": "I",
             "image": "shopify://shop_images/17_a549b4c5-8200-4d5b-8da2-b676e15c350e.jpg",
             "image_title": "Fig. I",
             "image_desc": "A flower floating.",
@@ -37,9 +38,10 @@
             "content_desc_3": "Our textured swimwear fabrics are developed in-house exclusively using regenerated fibres such as REPREVE®. These fabrics are unique to peony, as we design from the yarn, determining the weave, weight, stitch, colour and design. Made from 100% recycled plastic bottles, our use of REPREVE® gives new life to plastic waste that would otherwise end up in landfills or the ocean, emits reduced greenhouse gases and conserves energy and water in the process."
           }
         },
-         "content_section_nq8Pa123": {
+        "content_section_nq8Pa123": {
           "type": "content_section",
           "settings": {
+            "roman_number": "II",
             "image": "shopify://shop_images/17_a549b4c5-8200-4d5b-8da2-b676e15c350e.jpg",
             "image_title": "Fig. I",
             "image_desc": "A flower floating.",
