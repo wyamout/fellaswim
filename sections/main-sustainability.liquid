@@ -153,21 +153,20 @@
     });
 
      // Click to scroll and update active state
-  navigationItems.forEach((navigation) => {
-    navigation.addEventListener("click", function (e) {
-      e.preventDefault();
-      const targetId = this.getAttribute("href").substring(1);
-      const targetSection = document.getElementById(targetId);
+    navigationItems.forEach((navigation) => {
+      navigation.addEventListener("click", function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute("href").substring(1);
+        const targetElement = document.getElementById(targetId);
 
-      if (targetSection) {
-        targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
-
-        // Update active class
-        navigationItems.forEach((item) => item.classList.remove("sub-navigation-item--active"));
-        this.classList.add("sub-navigation-item--active");
-      }
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 100, // Adjust offset if needed
+            behavior: "smooth",
+          });
+        }
+      });
     });
-  });
   });
 </script>
 
