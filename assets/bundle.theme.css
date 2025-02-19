@@ -19834,6 +19834,10 @@ margin-left: auto;
   margin: 0;
 }
 
+.sub-heading {
+  text-align: center;
+}
+
 .sub-heading--subtitle {
   font-size: 10px;
 }
