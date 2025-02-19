@@ -32,12 +32,12 @@
             {% when 'content_section' %}
                <div class="sus-content--item">
                  <div class="sus_tab_title">
-      <h6 class="upprcase">The Peony Standard</h6>
+             {{ block.settings.content_title }}
     </div>
                  <div class="sus_row_wrap two_sus_column flex">
     
       <div class="sus_column">
-        <h6>Since 2019, each and every one of our swimwear fabrics have been made from recycled content. This includes our printed fabrics, our custom textures and even our inner linings. This is the peony standard. Every piece, inside and out. No exceptions.</h6>
+        {{ block.settings.content_desc }}
       </div>
     
     <div class="sus_column">
@@ -51,10 +51,10 @@
           <div class="cms_img_info">
             <p class="cta">
               
-                <span>Fig. I</span>
+                <span>{{ block.settings.image_title }}</span>
               
               
-                Up close with our Botanica swim.
+                {{ block.settings.image_desc }}
               
             </p>
           </div>
