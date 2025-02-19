@@ -19716,9 +19716,9 @@ header
 }
 
 .sus-image__item {
-  width: 100%;
-  object-fit: contain;
-  height: fit-content;
+width: 100%;
+    object-fit: cover;
+    height: 85vh;
 }
 
 .sus-image{
