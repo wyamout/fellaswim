@@ -103,7 +103,9 @@
         "menu_Gx7tdt"
       ],
       "settings": {
-        "image": "shopify://shop_images/6_734a7bba-4ad9-4171-8f74-9d54b23c5f8d.jpg"
+        "image": "shopify://shop_images/6_734a7bba-4ad9-4171-8f74-9d54b23c5f8d.jpg",
+        "subtitle": "Sustainability",
+        "title": "Sustainability"
       }
     }
   },
