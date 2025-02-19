@@ -1,0 +1,95 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {}
+    },
+    "main_sustainability_xRfXYN": {
+      "type": "main-sustainability",
+      "blocks": {
+        "menu_8AGN78": {
+          "type": "menu",
+          "settings": {
+            "link": "",
+            "number": "I",
+            "title": "Our Mission",
+            "image": "shopify://shop_images/gareth-top-cactus-campaign-3.jpg"
+          }
+        },
+        "menu_e4wHX4": {
+          "type": "menu",
+          "settings": {
+            "link": "",
+            "number": "II",
+            "title": "Materials",
+            "image": "shopify://shop_images/marcus-bottom-campari-campaign-3.jpg"
+          }
+        },
+        "menu_Lt9cHp": {
+          "type": "menu",
+          "settings": {
+            "link": "",
+            "number": "III",
+            "title": "Design",
+            "image": "shopify://shop_images/lucifer-fullpiece-cactus-campaign-3.jpg"
+          }
+        },
+        "menu_zqcqT4": {
+          "type": "menu",
+          "settings": {
+            "link": "",
+            "number": "IV",
+            "title": "Business",
+            "image": "shopify://shop_images/christobal-fullpiece-noir-campaign-3_1d3f8fdb-d5d5-4f6b-a1d6-31613bab07f4.jpg"
+          }
+        },
+        "menu_9CpYth": {
+          "type": "menu",
+          "settings": {
+            "link": "",
+            "number": "V",
+            "title": "Technology",
+            "image": "shopify://shop_images/christobal-fullpiece-campari-campaign-3.jpg"
+          }
+        },
+        "menu_Gx7tdt": {
+          "type": "menu",
+          "settings": {
+            "link": "",
+            "number": "VI",
+            "title": "Community",
+            "image": "shopify://shop_images/12_6e8494a1-3840-46c7-babe-5844216af23e.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "menu_8AGN78",
+        "menu_e4wHX4",
+        "menu_Lt9cHp",
+        "menu_zqcqT4",
+        "menu_9CpYth",
+        "menu_Gx7tdt"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/6_734a7bba-4ad9-4171-8f74-9d54b23c5f8d.jpg",
+        "subtitle": "Sustainability",
+        "title": "Sustainability",
+        "content": "<p>This world of ours is complex, vast and inimitably beautiful - to experience it is the ultimate luxury. With privilege comes responsibility and FELLA is committed to conscious initiatives that reduce our environmental impact and ensure future Fellas can also know this natural beauty. Since FELLA was founded in 2012, we’ve stayed true to the belief that less is more. We have built our brand on product integrity, and it is this same principle that informs the way we work, with all aspects of the business shaped by fair and ethical conduct. Whilst we know we are not perfect, we are committed to the journey of sustainability and vow efforts to make positive change in all areas that we can.</p>",
+        "show_form": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "main_sustainability_xRfXYN"
+  ]
+}
