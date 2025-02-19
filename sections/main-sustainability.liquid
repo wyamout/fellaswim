@@ -30,9 +30,8 @@
            {% for block in section.blocks %}
           {% case block.type %}
             {% when 'menu' %}
-               <div class="sus-menus--item">
+               <div class="sus-menus--item" data-id="sus-menus--item--{{ section.id }}-{{ block.settings.image.id }}">
                  <span style="margin-bottom: 10px;">{{ block.settings.number }}</span>
-                 
                  {{ block.settings.title }}
                </div>
           {% endcase %}
@@ -43,6 +42,28 @@
     </div>
   </div>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+  const menuItems = document.querySelectorAll(".sus-menus--item");
+  const images = document.querySelectorAll(".sus-image");
+
+  menuItems.forEach((menuItem) => {
+    menuItem.addEventListener("mouseenter", function () {
+      const dataId = this.getAttribute("data-id").replace("sus-menus--item--", "sus-image--");
+      
+      images.forEach((image) => {
+        if (image.getAttribute("data-id") === dataId) {
+          image.classList.add("sus-image--active");
+        } else {
+          image.classList.remove("sus-image--active");
+        }
+      });
+    });
+  });
+});
+
+</script>
 
 {% schema %}
 {
