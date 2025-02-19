@@ -29,6 +29,7 @@
         "menu_8AGN78": {
           "type": "menu",
           "settings": {
+            "link": "",
             "number": "I",
             "title": "Our Mission",
             "image": "shopify://shop_images/gareth-top-cactus-campaign-3.jpg"
@@ -37,6 +38,7 @@
         "menu_e4wHX4": {
           "type": "menu",
           "settings": {
+            "link": "",
             "number": "II",
             "title": "Materials",
             "image": "shopify://shop_images/marcus-bottom-campari-campaign-3.jpg"
@@ -45,6 +47,7 @@
         "menu_Lt9cHp": {
           "type": "menu",
           "settings": {
+            "link": "",
             "number": "III",
             "title": "Design",
             "image": "shopify://shop_images/lucifer-fullpiece-cactus-campaign-3.jpg"
@@ -53,6 +56,7 @@
         "menu_zqcqT4": {
           "type": "menu",
           "settings": {
+            "link": "",
             "number": "IV",
             "title": "Business",
             "image": "shopify://shop_images/christobal-fullpiece-noir-campaign-3_1d3f8fdb-d5d5-4f6b-a1d6-31613bab07f4.jpg"
@@ -61,6 +65,7 @@
         "menu_9CpYth": {
           "type": "menu",
           "settings": {
+            "link": "",
             "number": "V",
             "title": "Technology",
             "image": "shopify://shop_images/christobal-fullpiece-campari-campaign-3.jpg"
@@ -69,6 +74,7 @@
         "menu_Gx7tdt": {
           "type": "menu",
           "settings": {
+            "link": "",
             "number": "VI",
             "title": "Community",
             "image": "shopify://shop_images/12_6e8494a1-3840-46c7-babe-5844216af23e.jpg"
@@ -85,7 +91,7 @@
         "menu_Gx7tdt"
       ],
       "settings": {
-        "image": "shopify://shop_images/christobal-fullpiece-fudge-campaign-5.jpg"
+        "image": "shopify://shop_images/6_734a7bba-4ad9-4171-8f74-9d54b23c5f8d.jpg"
       }
     }
   },
