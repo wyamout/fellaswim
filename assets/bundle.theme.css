@@ -19752,6 +19752,8 @@ header
     align-items: center;
     justify-content: center;
   border-top: 1px solid #E6E5E5;
+  text-align: center;
+  font-size: 12px;
 }
 @media screen and (min-width: 900px) {
   .sus-wrap {
