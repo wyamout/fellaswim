@@ -36,7 +36,10 @@
           {% for block in section.blocks %}
             {% case block.type %}
               {% when 'content_section' %}
-                <a class="sub-navigation-item" href="#{{ block.id }}">{{ block.settings.content_desc }}</a>
+                <a class="sub-navigation-item" href="#{{ block.id }}">
+                  <span class="sub-navigation-item--roman">{{ block.settings.roman_number }}.</span>
+                  {{ block.settings.content_title }}
+                </a>
              {% endcase %}
            {% endfor %}
         </div>
@@ -198,6 +201,12 @@
       "type": "content_section",
       "name": "Content Section",
       "settings": [
+         {
+          "type": "text",
+          "id": "roman_number",
+          "label": "Roman Number",
+          "default": "I"
+        },
         {
           "type": "image_picker",
           "id": "image",
