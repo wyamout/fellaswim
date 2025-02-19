@@ -154,6 +154,7 @@ endif
                             <div class="product--details--swatches">
                                 <div class="product--details--swatch-list" data-title="{{product_title_formatted}}">
                                     {%- for related_product in collection.products -%}
+                                      {% unless related_product.tags contains 'hidden_collection' %}
                                         {%- capture related_product_colour_title -%}{%- render 'product-colour', product: related_product, title: true -%}{%- endcapture -%}
                                         {%- assign related_product_colour = related_product_colour_title | downcase | replace: ' ', '-' | replace: '-(textured)', '' -%}
                                         {%- assign related_is_on_sale = false -%}
@@ -166,6 +167,7 @@ endif
                                         {%- if is_on_sale == false and related_is_on_sale == false -%}
                                             <a href="{{ related_product.url }}" data-product-id="{{ related_product.id }}" title="{{ related_product_colour_title }}" class="swatch swatch--{{ related_product_colour }}{% if related_product.id == product.id %} selected{% endif %} "></a>
                                         {%- endif -%}
+                                        {% endunless %}
                                     {%- endfor -%}
                                 </div>
                             </div>
