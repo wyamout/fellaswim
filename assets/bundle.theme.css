@@ -19764,7 +19764,7 @@ header
     position: absolute;
     right: 0;
     width: 1px;
-    background: var(--Charcoal100);
+    background: #E6E5E5;
     height: calc(100% - 48px);
     top: 0;
     bottom: 0;
