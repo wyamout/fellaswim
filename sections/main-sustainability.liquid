@@ -38,7 +38,7 @@
           {% for block in section.blocks %}
             {% case block.type %}
               {% when 'content_section' %}
-                <a class="sub-navigation-item {{ full_url }}" href="#{{ block.id }}">
+                <a class="sub-navigation-item {% if forloop.first %}sub-navigation-item--active{% endif %}" href="#{{ block.id }}">
                   <span class="sub-navigation-item--roman">{{ block.settings.roman_number }}.</span>
                   {{ block.settings.content_title }}
                 </a>
@@ -126,7 +126,9 @@
     const menuItems = document.querySelectorAll(".sus-menus--item");
     const images = document.querySelectorAll(".sus-image");
     const mainImage = document.querySelector(".main-sus-image");
+    const navigationItems = document.querySelector(".sub-navigation-item");
 
+    
     menuItems.forEach((menuItem) => {
       menuItem.addEventListener("mouseenter", function () {
         const dataId = this.getAttribute("data-id").replace("sus-menus--item--", "sus-image--");
@@ -144,6 +146,23 @@
         images.forEach((image) => image.classList.remove("sus-image--active"));
         mainImage.classList.add("sus-image--active");
       });
+
+    });
+
+    navigationItems.forEach((navigation) => {
+      navigation.addEventListener("click", function (e) {
+        e.preventDefault();
+        const dataId = this.getAttribute("data-id").replace("sus-menus--item--", "sus-image--");
+
+        images.forEach((image) => {
+          if (image.getAttribute("data-id") === dataId) {
+            image.classList.add("sus-image--active");
+          } else {
+            image.classList.remove("sus-image--active");
+          }
+        });
+      });
+
 
     });
   });
