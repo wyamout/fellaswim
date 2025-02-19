@@ -19863,6 +19863,7 @@ margin-left: auto;
   text-decoration: none;
   font-size: 14px;
   color: #757270;
+  cursor: pointer;
 }
 
 .sub-navigation-item--active {
