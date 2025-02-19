@@ -130,7 +130,7 @@
       const images = document.querySelectorAll(".sus-image");
       const mainImage = document.querySelector(".main-sus-image");
       const navigationItems = document.querySelectorAll(".sub-navigation-item");
-
+      const contentItems = document.querySelectorAll(".sus-content--item");
 
       menuItems.forEach((menuItem) => {
         menuItem.addEventListener("mouseenter", function () {
@@ -153,30 +153,30 @@
       });
 
        // Click to scroll and update active state
-  navigationItems.forEach((navigation) => {
-    navigation.addEventListener("click", function (e) {
-      e.preventDefault();
-
-      // Remove active class from all navigation items
-      navigationItems.forEach((item) =>
-        item.classList.remove("sub-navigation-item--active")
-      );
-
-      // Add active class to the clicked item
-      this.classList.add("sub-navigation-item--active");
-
-      const targetId = this.getAttribute("id");
-      const targetElement = document.getElementById(targetId);
-
-      if (targetElement) {
-        window.scrollTo({
-          top: targetElement.offsetTop - 100, // Adjust offset if needed
-          behavior: "smooth",
+     navigationItems.forEach((navigation) => {
+        navigation.addEventListener("click", function (e) {
+          e.preventDefault();
+    
+          // Remove active class from all navigation items
+          navigationItems.forEach((item) =>
+            item.classList.remove("sub-navigation-item--active")
+          );
+    
+          // Add active class to the clicked item
+          this.classList.add("sub-navigation-item--active");
+    
+          // Get the target content ID
+          const targetId = this.getAttribute("id");
+          const targetElement = document.querySelector(`.sus-content--item[id="${targetId}"]`);
+    
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 100, // Adjust offset if needed
+              behavior: "smooth",
+            });
+          }
         });
-      }
-    });
-  });
-
+      });
     });
 </script>
 
