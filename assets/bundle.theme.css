@@ -19735,7 +19735,9 @@ header
     position: sticky;
     top: 73px;
   }
-
+.sus-content {
+  width: 100%;
+}
 @media screen and (min-width: 900px) {
   .sus-wrap {
 flex-direction: row;
@@ -19743,5 +19745,9 @@ flex-direction: row;
 
   .sus-images {
    width: 50%;
+  }
+
+  .sus-content {
+    width: 50%;
   }
 }
