@@ -19862,6 +19862,16 @@ margin-left: auto;
   flex-direction: row;
   text-decoration: none;
   font-size: 14px;
+  color: #757270;
+}
+
+.sub-navigation-item--active {
+color: #000;
+}
+
+
+.sub-navigation-item:hover {
+  color: #000;
 }
 
 .sub-navigation-item--roman {
