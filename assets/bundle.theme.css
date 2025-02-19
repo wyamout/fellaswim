@@ -19737,6 +19737,7 @@ header
   }
 .sus-content {
   width: 100%;
+  padding: 0 61px 0 75px;
 }
 
 .sus-menus {
@@ -19755,6 +19756,19 @@ header
   border-top: 1px solid #E6E5E5;
   text-align: center;
   font-size: 18px;
+  position: relative;
+}
+
+.sus-menus--item:nth-child(odd):before {
+    content: "";
+    position: absolute;
+    right: 0;
+    width: 1px;
+    background: var(--Charcoal100);
+    height: calc(100% - 48px);
+    top: 0;
+    bottom: 0;
+    margin: auto;
 }
 @media screen and (min-width: 900px) {
   .sus-wrap {
