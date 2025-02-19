@@ -26,6 +26,17 @@
             "content_desc": "At peony, we care deeply for our environment and our community. Peony as a brand has its roots in nature, founded along the Australian coastline and named after the bloom that signals the beginning of summer. Inch by inch and seam by seam, we are working tirelessly and creatively to bring you beautiful pieces that are as sustainable as they are beautiful. Our approach is to create consciously, engage in ongoing reflection and continually drive progress towards sustainability, circularity, inclusivity and transparency."
           }
         },
+        "content_block_3YJ8X9": {
+          "type": "content_block",
+          "settings": {
+            "content_title_1": "REPREVE®",
+            "content_desc_1": "Our textured swimwear fabrics are developed in-house exclusively using regenerated fibres such as REPREVE®. These fabrics are unique to peony, as we design from the yarn, determining the weave, weight, stitch, colour and design. Made from 100% recycled plastic bottles, our use of REPREVE® gives new life to plastic waste that would otherwise end up in landfills or the ocean, emits reduced greenhouse gases and conserves energy and water in the process.",
+            "content_title_2": "REPREVE®",
+            "content_desc_2": "Our textured swimwear fabrics are developed in-house exclusively using regenerated fibres such as REPREVE®. These fabrics are unique to peony, as we design from the yarn, determining the weave, weight, stitch, colour and design. Made from 100% recycled plastic bottles, our use of REPREVE® gives new life to plastic waste that would otherwise end up in landfills or the ocean, emits reduced greenhouse gases and conserves energy and water in the process.",
+            "content_title_3": "REPREVE®",
+            "content_desc_3": "Our textured swimwear fabrics are developed in-house exclusively using regenerated fibres such as REPREVE®. These fabrics are unique to peony, as we design from the yarn, determining the weave, weight, stitch, colour and design. Made from 100% recycled plastic bottles, our use of REPREVE® gives new life to plastic waste that would otherwise end up in landfills or the ocean, emits reduced greenhouse gases and conserves energy and water in the process."
+          }
+        },
         "menu_8AGN78": {
           "type": "menu",
           "settings": {
@@ -83,6 +94,7 @@
       },
       "block_order": [
         "content_section_nq8Pa7",
+        "content_block_3YJ8X9",
         "menu_8AGN78",
         "menu_e4wHX4",
         "menu_Lt9cHp",
