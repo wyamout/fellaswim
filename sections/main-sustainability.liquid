@@ -352,6 +352,60 @@
         });
       });
     });
+
+  document.addEventListener("shopify:section:load", function () {
+   const menuItems = document.querySelectorAll(".sus-menus--item");
+      const images = document.querySelectorAll(".sus-image");
+      const mainImage = document.querySelector(".main-sus-image");
+      const navigationItems = document.querySelectorAll(".sub-navigation-item");
+      const contentItems = document.querySelectorAll(".sus-content--item");
+
+      menuItems.forEach((menuItem) => {
+        menuItem.addEventListener("mouseenter", function () {
+          const dataId = this.getAttribute("data-id").replace("sus-menus--item--", "sus-image--");
+
+          images.forEach((image) => {
+            if (image.getAttribute("data-id") === dataId) {
+              image.classList.add("sus-image--active");
+            } else {
+              image.classList.remove("sus-image--active");
+            }
+          });
+        });
+
+        menuItem.addEventListener("mouseleave", function () {
+          images.forEach((image) => image.classList.remove("sus-image--active"));
+          mainImage.classList.add("sus-image--active");
+        });
+
+      });
+
+       // Click to scroll and update active state
+     navigationItems.forEach((navigation) => {
+        navigation.addEventListener("click", function (e) {
+          e.preventDefault();
+    
+          // Remove active class from all navigation items
+          navigationItems.forEach((item) =>
+            item.classList.remove("sub-navigation-item--active")
+          );
+    
+          // Add active class to the clicked item
+          this.classList.add("sub-navigation-item--active");
+    
+          // Get the target content ID
+          const targetId = this.getAttribute("id");
+          const targetElement = document.querySelector(`.sus-content--item[id="${targetId}"]`);
+    
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 100, // Adjust offset if needed
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+});
 </script>
 
 {% schema %}
