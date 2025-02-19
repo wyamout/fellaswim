@@ -19880,6 +19880,9 @@ color: #000;
   margin-right: 5px;
 }
 
+.sub-navigation-item--active .sub-navigation-item--roman {
+ display: block;
+}
 .sub-navigation-item:hover .sub-navigation-item--roman {
  display: block;
 }
