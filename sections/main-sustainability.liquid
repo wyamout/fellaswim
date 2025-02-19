@@ -125,49 +125,49 @@
 </div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const menuItems = document.querySelectorAll(".sus-menus--item");
-    const images = document.querySelectorAll(".sus-image");
-    const mainImage = document.querySelector(".main-sus-image");
-    const navigationItems = document.querySelector(".sub-navigation-item");
+    document.addEventListener("DOMContentLoaded", function () {
+      const menuItems = document.querySelectorAll(".sus-menus--item");
+      const images = document.querySelectorAll(".sus-image");
+      const mainImage = document.querySelector(".main-sus-image");
+  const navigationItems = document.querySelectorAll(".sub-navigation-item");
 
 
-    menuItems.forEach((menuItem) => {
-      menuItem.addEventListener("mouseenter", function () {
-        const dataId = this.getAttribute("data-id").replace("sus-menus--item--", "sus-image--");
+      menuItems.forEach((menuItem) => {
+        menuItem.addEventListener("mouseenter", function () {
+          const dataId = this.getAttribute("data-id").replace("sus-menus--item--", "sus-image--");
 
-        images.forEach((image) => {
-          if (image.getAttribute("data-id") === dataId) {
-            image.classList.add("sus-image--active");
-          } else {
-            image.classList.remove("sus-image--active");
+          images.forEach((image) => {
+            if (image.getAttribute("data-id") === dataId) {
+              image.classList.add("sus-image--active");
+            } else {
+              image.classList.remove("sus-image--active");
+            }
+          });
+        });
+
+        menuItem.addEventListener("mouseleave", function () {
+          images.forEach((image) => image.classList.remove("sus-image--active"));
+          mainImage.classList.add("sus-image--active");
+        });
+
+      });
+
+       // Click to scroll and update active state
+      navigationItems.forEach((navigation) => {
+        navigation.addEventListener("click", function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute("id");
+          const targetElement = document.getElementById(targetId);
+
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 100, // Adjust offset if needed
+              behavior: "smooth",
+            });
           }
         });
       });
-
-      menuItem.addEventListener("mouseleave", function () {
-        images.forEach((image) => image.classList.remove("sus-image--active"));
-        mainImage.classList.add("sus-image--active");
-      });
-
     });
-
-     // Click to scroll and update active state
-    navigationItems.forEach((navigation) => {
-      navigation.addEventListener("click", function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute("id");
-        const targetElement = document.getElementById(targetId);
-
-        if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop - 100, // Adjust offset if needed
-            behavior: "smooth",
-          });
-        }
-      });
-    });
-  });
 </script>
 
 {% schema %}
