@@ -112,7 +112,11 @@
           {% for block in section.blocks %}
             {% case block.type %}
               {% when 'menu' %}
-                <a class="sus-menus--item" data-id="sus-menus--item--{{ section.id }}-{{ block.settings.image.id }}">
+                <a
+                  href="{{ block.settings.url }}"
+                  class="sus-menus--item"
+                  data-id="sus-menus--item--{{ section.id }}-{{ block.settings.image.id }}"
+                >
                   <span style="margin-bottom: 10px;">{{ block.settings.number }}</span>
                   {{ block.settings.title }}
                 </a>
