@@ -26,11 +26,25 @@
       </div>
 
       <div class="sus-content">
+        <div class="sub-heading">
+          <h6>
+            <i>{{ section.settings.subtitle }}</i>
+          </h6>
+          <h2>{{ section.settings.title }}</h2>
+        </div>
+         <div class="sub-navigation">
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'content_section' %}
+              <a href="{{ block.id }}">{{ block.settings.title }}</a>
+           {% endcase %}
+           {% endfor %}
+        </div>
         <div class="sus-content-wrap">
           {% for block in section.blocks %}
             {% case block.type %}
               {% when 'content_section' %}
-                <div class="sus-content--item">
+                <div class="sus-content--item" id="{{ block.id }}">
                   <h6 class="sus_tab_title">
                     {{ block.settings.content_title }}
                   </h6>
