@@ -32,18 +32,21 @@
           <h6 class="sub-heading--subtitle">
             <i>{{ section.settings.subtitle }}</i>
           </h6>
-          <h2  class="sub-heading--title">{{ section.settings.title }}</h2>
+          <h2 class="sub-heading--title">{{ section.settings.title }}</h2>
         </div>
         <div class="sub-navigation">
           {% for block in section.blocks %}
             {% case block.type %}
               {% when 'content_section' %}
-                <a class="sub-navigation-item {% if forloop.first %}sub-navigation-item--active{% endif %}" href="#{{ block.id }}">
+                <a
+                  class="sub-navigation-item {% if forloop.first %}sub-navigation-item--active{% endif %}"
+                  href="#{{ block.id }}"
+                >
                   <span class="sub-navigation-item--roman">{{ block.settings.roman_number }}.</span>
                   {{ block.settings.content_title }}
                 </a>
-             {% endcase %}
-           {% endfor %}
+            {% endcase %}
+          {% endfor %}
         </div>
         <div class="sus-content-wrap">
           {% for block in section.blocks %}
@@ -82,26 +85,26 @@
                   </div>
                 </div>
               {% when 'content_block' %}
-              <div class="sus-content-block-wrap">
-                {% if block.settings.content_title_1 != '' or block.settings.content_desc_1 != '' %}
-                 <div class="sus-content-block--item">
-                    <h6 class="sus-content-block--item-title">{{ block.settings.content_title_1 }}</h6>
-                    <p class="sus-content-block--item-desc">{{ block.settings.content_desc_1 }}</p>
-                  </div>
+                <div class="sus-content-block-wrap">
+                  {% if block.settings.content_title_1 != '' or block.settings.content_desc_1 != '' %}
+                    <div class="sus-content-block--item">
+                      <h6 class="sus-content-block--item-title">{{ block.settings.content_title_1 }}</h6>
+                      <p class="sus-content-block--item-desc">{{ block.settings.content_desc_1 }}</p>
+                    </div>
                   {% endif %}
-                {% if block.settings.content_title_2 != '' or block.settings.content_desc_2 != '' %}
-                 <div class="sus-content-block--item">
-                    <h6 class="sus-content-block--item-title">{{ block.settings.content_title_2 }}</h6>
-                    <p class="sus-content-block--item-desc">{{ block.settings.content_desc_2}}</p>
-                  </div>
+                  {% if block.settings.content_title_2 != '' or block.settings.content_desc_2 != '' %}
+                    <div class="sus-content-block--item">
+                      <h6 class="sus-content-block--item-title">{{ block.settings.content_title_2 }}</h6>
+                      <p class="sus-content-block--item-desc">{{ block.settings.content_desc_2 }}</p>
+                    </div>
                   {% endif %}
-                {% if block.settings.content_title_3 != '' or block.settings.content_desc_3 != '' %}
-                 <div class="sus-content-block--item">
-                    <h6 class="sus-content-block--item-title">{{ block.settings.content_title_3 }}</h6>
-                    <p class="sus-content-block--item-desc">{{ block.settings.content_desc_3 }}</p>
-                  </div>
+                  {% if block.settings.content_title_3 != '' or block.settings.content_desc_3 != '' %}
+                    <div class="sus-content-block--item">
+                      <h6 class="sus-content-block--item-title">{{ block.settings.content_title_3 }}</h6>
+                      <p class="sus-content-block--item-desc">{{ block.settings.content_desc_3 }}</p>
+                    </div>
                   {% endif %}
-              </div>
+                </div>
             {% endcase %}
           {% endfor %}
         </div>
@@ -128,7 +131,7 @@
     const mainImage = document.querySelector(".main-sus-image");
     const navigationItems = document.querySelector(".sub-navigation-item");
 
-    
+
     menuItems.forEach((menuItem) => {
       menuItem.addEventListener("mouseenter", function () {
         const dataId = this.getAttribute("data-id").replace("sus-menus--item--", "sus-image--");
@@ -149,22 +152,22 @@
 
     });
 
-    navigationItems.forEach((navigation) => {
-      navigation.addEventListener("click", function (e) {
-        e.preventDefault();
-        const dataId = this.getAttribute("data-id").replace("sus-menus--item--", "sus-image--");
+     // Click to scroll and update active state
+  navigationItems.forEach((navigation) => {
+    navigation.addEventListener("click", function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute("href").substring(1);
+      const targetSection = document.getElementById(targetId);
 
-        images.forEach((image) => {
-          if (image.getAttribute("data-id") === dataId) {
-            image.classList.add("sus-image--active");
-          } else {
-            image.classList.remove("sus-image--active");
-          }
-        });
-      });
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
 
-
+        // Update active class
+        navigationItems.forEach((item) => item.classList.remove("sub-navigation-item--active"));
+        this.classList.add("sub-navigation-item--active");
+      }
     });
+  });
   });
 </script>
 
