@@ -19822,7 +19822,7 @@ margin-left: auto;
 
 .sus-content-block--item {
   display: flex;
-  flex-direction: columnl
+  flex-direction: column;
 }
 
 .sus-content-block--item-title{
