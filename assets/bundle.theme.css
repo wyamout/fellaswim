@@ -19774,6 +19774,10 @@ width: 100%;
     margin: auto;
 }
 
+.sus_tab_title {
+  font-size: 14px;
+}
+
 .sus-content--item {
   display: flex;
       flex-direction: column;
