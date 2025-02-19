@@ -19893,7 +19893,11 @@ color: #000;
   font-size: 14px;
     line-height: 1.4rem;
     text-align: center;
-    padding: 10px 40px;
+    padding: 10px 20px;
+}
+
+.sub-content-form {
+  padding: 0 20px;
 }
 
 @media screen and (min-width: 900px) {
@@ -19917,4 +19921,12 @@ flex-direction: row;
   padding: 0 61px 0 75px;
 
   }
+  
+.sub-heading--desc {
+    padding: 10px 40px;
+}
+
+.sub-content-form {
+  padding: 0 40px;
+}
 }
