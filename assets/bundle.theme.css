@@ -19836,14 +19836,17 @@ margin-left: auto;
 
 .sub-heading {
   text-align: center;
+  margin-top: 450px;
 }
 
 .sub-heading--subtitle {
   font-size: 10px;
+      margin: 10px 0;
 }
 
 .sub-heading--title {
   font-size: 20px;
+      margin: 10px 0;
 }
 
 @media screen and (min-width: 900px) {
