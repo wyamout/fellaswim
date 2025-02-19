@@ -27,56 +27,54 @@
 
       <div class="sus-content">
         <div class="sus-content-wrap">
-           {% for block in section.blocks %}
-          {% case block.type %}
-            {% when 'content_section' %}
-               <div class="sus-content--item">
-                 <div class="sus_tab_title">
-             {{ block.settings.content_title }}
-    </div>
-                 <div class="sus_row_wrap two_sus_column flex">
-    
-      <div class="sus_column">
-        {{ block.settings.content_desc }}
-      </div>
-    
-    <div class="sus_column">
-      <div class="cms_img_content">
-        
-          <div class="cms_img_cnt">
-            <img src="{{ block.settings.image | image_url: width: 162 }}" width="162" height="auto" alt="" loading="lazy">
-          </div>
-        
-        
-          <div class="cms_img_info">
-            <p class="cta">
-              
-                <span>{{ block.settings.image_title }}</span>
-              
-              
-                {{ block.settings.image_desc }}
-              
-            </p>
-          </div>
-        
-      </div>
-    </div>
-  </div>
-               </div>
-          {% endcase %}
-        {% endfor %}
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'content_section' %}
+                <div class="sus-content--item">
+                  <div class="sus_tab_title">
+                    {{ block.settings.content_title }}
+                  </div>
+                  <div class="sus_row_wrap two_sus_column flex">
+                    <div class="sus_column">
+                      {{ block.settings.content_desc }}
+                    </div>
+
+                    <div class="sus_column">
+                      <div class="cms_img_content">
+                        <div class="cms_img_cnt">
+                          <img
+                            src="{{ block.settings.image | image_url: width: 162 }}"
+                            width="162"
+                            height="auto"
+                            alt=""
+                            loading="lazy"
+                          >
+                        </div>
+
+                        <div class="cms_img_info">
+                          <p class="cta">
+                            <span>{{ block.settings.image_title }}</span>
+
+                            {{ block.settings.image_desc }}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            {% endcase %}
+          {% endfor %}
         </div>
         <div class="sus-menus">
-           {% for block in section.blocks %}
-          {% case block.type %}
-            {% when 'menu' %}
-               <div class="sus-menus--item" data-id="sus-menus--item--{{ section.id }}-{{ block.settings.image.id }}">
-                 <span style="margin-bottom: 10px;">{{ block.settings.number }}</span>
-                 {{ block.settings.title }}
-               </div>
-          {% endcase %}
-        {% endfor %}
-         
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'menu' %}
+                <div class="sus-menus--item" data-id="sus-menus--item--{{ section.id }}-{{ block.settings.image.id }}">
+                  <span style="margin-bottom: 10px;">{{ block.settings.number }}</span>
+                  {{ block.settings.title }}
+                </div>
+            {% endcase %}
+          {% endfor %}
         </div>
       </div>
     </div>
@@ -84,31 +82,30 @@
 </div>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const menuItems = document.querySelectorAll(".sus-menus--item");
-  const images = document.querySelectorAll(".sus-image");
-  const mainImage = document.querySelector(".main-sus-image");
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuItems = document.querySelectorAll(".sus-menus--item");
+    const images = document.querySelectorAll(".sus-image");
+    const mainImage = document.querySelector(".main-sus-image");
 
-  menuItems.forEach((menuItem) => {
-    menuItem.addEventListener("mouseenter", function () {
-      const dataId = this.getAttribute("data-id").replace("sus-menus--item--", "sus-image--");
-      
-      images.forEach((image) => {
-        if (image.getAttribute("data-id") === dataId) {
-          image.classList.add("sus-image--active");
-        } else {
-          image.classList.remove("sus-image--active");
-        }
+    menuItems.forEach((menuItem) => {
+      menuItem.addEventListener("mouseenter", function () {
+        const dataId = this.getAttribute("data-id").replace("sus-menus--item--", "sus-image--");
+
+        images.forEach((image) => {
+          if (image.getAttribute("data-id") === dataId) {
+            image.classList.add("sus-image--active");
+          } else {
+            image.classList.remove("sus-image--active");
+          }
+        });
+      });
+
+      menuItem.addEventListener("mouseleave", function () {
+        images.forEach((image) => image.classList.remove("sus-image--active"));
+        mainImage.classList.add("sus-image--active");
       });
     });
-
-    menuItem.addEventListener("mouseleave", function () {
-      images.forEach((image) => image.classList.remove("sus-image--active"));
-      mainImage.classList.add("sus-image--active");
-    });
   });
-});
-
 </script>
 
 {% schema %}
