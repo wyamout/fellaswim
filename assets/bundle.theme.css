@@ -19793,6 +19793,14 @@ width: 100%;
 margin-left: auto;
 }
 
+.cms_img_info{
+      margin: 4px 0 0;
+}
+
+.cms_img_info p span {
+    display: block;
+}
+
 @media screen and (min-width: 900px) {
   .sus-wrap {
 flex-direction: row;
