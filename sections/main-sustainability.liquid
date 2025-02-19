@@ -27,7 +27,17 @@
 
       <div class="sus-content">
         <div class="sus-menus">
-          <div class=""></div>
+           {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'menu' %}
+               <div class="sus-menus--item">
+                 {{ block.settings.number }}
+                 <br/>
+                 {{ block.settings.title }}
+               </div>
+          {% endcase %}
+        {% endfor %}
+         
         </div>
       </div>
     </div>
