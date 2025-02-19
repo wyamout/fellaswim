@@ -16,6 +16,16 @@
     "main_sustainability_xRfXYN": {
       "type": "main-sustainability",
       "blocks": {
+        "content_section_nq8Pa7": {
+          "type": "content_section",
+          "settings": {
+            "image": "shopify://shop_images/17_a549b4c5-8200-4d5b-8da2-b676e15c350e.jpg",
+            "image_title": "Fig. I",
+            "image_desc": "A flower floating.",
+            "content_title": "Our approach",
+            "content_desc": "At peony, we care deeply for our environment and our community. Peony as a brand has its roots in nature, founded along the Australian coastline and named after the bloom that signals the beginning of summer. Inch by inch and seam by seam, we are working tirelessly and creatively to bring you beautiful pieces that are as sustainable as they are beautiful. Our approach is to create consciously, engage in ongoing reflection and continually drive progress towards sustainability, circularity, inclusivity and transparency."
+          }
+        },
         "menu_8AGN78": {
           "type": "menu",
           "settings": {
@@ -66,6 +76,7 @@
         }
       },
       "block_order": [
+        "content_section_nq8Pa7",
         "menu_8AGN78",
         "menu_e4wHX4",
         "menu_Lt9cHp",
