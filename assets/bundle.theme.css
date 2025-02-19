@@ -19735,7 +19735,7 @@ width: 100%;
   }
 .sus-content {
   width: 100%;
-  padding: 0 61px 0 75px;
+      padding: 25px 15px 0 15px;
 }
 
 .sus-menus {
@@ -19827,5 +19827,7 @@ flex-direction: row;
   }
   .sus-content {
     width: 50%;
+  padding: 0 61px 0 75px;
+
   }
 }
