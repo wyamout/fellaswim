@@ -34,7 +34,6 @@
   {% paginate collection.products by 24 %}
     <div class="collection--product">
       <div class="product-index {% if request.path == '/collections/shop-all' or request.path == '/collections/sale' %}six-col{% else %}four-col{% endif %}">
-        {{ collections.products.size }}
         {% for product in collection.products %}
           {% unless product.tags contains 'hidden_collection'
             and request.path != '/collections/private-collection'
