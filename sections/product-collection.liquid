@@ -31,7 +31,7 @@
     styles: styles
   -%}
 
-  {% paginate collection.products by 24 %}
+  {% paginate collection.products by 50 %}
     <div class="collection--product">
       <div class="product-index {% if request.path == '/collections/shop-all' or request.path == '/collections/sale' %}six-col{% else %}four-col{% endif %}">
         {% for product in collection.products %}
