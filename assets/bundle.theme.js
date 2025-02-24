@@ -12396,7 +12396,6 @@
                     window.all_products = products;
                     products.forEach(function (t) {
                       if(window.location.pathname.includes("private-collection") || window.location.pathname.includes("ss25-preview")) {
-                        console.log("1")
                         var n = t.node.title.trim().split(" | "),
                         r = n[0],
                         i = n[1],
@@ -12420,10 +12419,7 @@
                         }),
                       });
                       } else {
-                        console.log("2")
                         if(!t.node.tags.includes("hidden_collection")) {
-                        console.log("3")
-                          
                           var n = t.node.title.trim().split(" | "),
                           r = n[0],
                           i = n[1],
