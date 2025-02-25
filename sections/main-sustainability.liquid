@@ -305,6 +305,8 @@
        new Swiper(".swiper-{{ section.id }}", {
       slidesPerView: "auto",
       spaceBetween: 0,
+      centeredSlides: true, // Centers the active slide
+      initialSlide: Math.floor({{ section.blocks | size }} / 2),
     });
       
       const menuItems = document.querySelectorAll(".sus-menus--item");
