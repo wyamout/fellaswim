@@ -16,6 +16,15 @@
     "main_sustainability_xRfXYN": {
       "type": "main-sustainability",
       "blocks": {
+          "menu_9CpYth": {
+          "type": "menu",
+          "settings": {
+            "link": "shopify://pages/sustainability-ourcommitment",
+            "number": "V",
+            "title": "Our Commitment",
+            "image": "shopify://shop_images/christobal-fullpiece-campari-campaign-3.jpg"
+          }
+        },
         "menu_8AGN78": {
           "type": "menu",
           "settings": {
@@ -52,15 +61,7 @@
             "image": "shopify://shop_images/christobal-fullpiece-noir-campaign-3_1d3f8fdb-d5d5-4f6b-a1d6-31613bab07f4.jpg"
           }
         },
-        "menu_9CpYth": {
-          "type": "menu",
-          "settings": {
-            "link": "shopify://pages/sustainability-ourcommitment",
-            "number": "V",
-            "title": "Our Commitment",
-            "image": "shopify://shop_images/christobal-fullpiece-campari-campaign-3.jpg"
-          }
-        },
+      
         "menu_Gx7tdt": {
           "type": "menu",
           "settings": {
