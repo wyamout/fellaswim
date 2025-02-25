@@ -19831,13 +19831,14 @@ margin-left: auto;
 }
 
 .sub-heading--subtitle {
-  font-size: 10px;
+font-size: 16px;
+    font-weight: 400;
       margin: 10px 0;
       font-family: FreightBigProBook-Regular, Times New Roman, serif;
 }
 
 .sub-heading--title {
-font-size: 28px;
+font-size: 34px;
     margin: 10px 0;
     font-weight: 500;
     margin-top: 21px;
