@@ -1235,7 +1235,11 @@ img.lazyload.lazyload-loaded,
 @media (min-width: 768px) {
   .image-feature {
     padding-top: 46.38889%;
-    /* overflow: hidden; */
+    overflow: hidden;
+  }
+
+  .image-feature:not(.image-feature--image-fit) {
+    overflow: unset;
   }
 
   .image-feature .image-feature--wrapper {
