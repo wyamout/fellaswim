@@ -19722,11 +19722,13 @@ width: 100%;
 }
 
 .sus-image{
-  display: none;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .sus-image--active {
-  display: block;
+  opacity: 1;
+  visibility: normal;
 }
 
 .sus-images {
