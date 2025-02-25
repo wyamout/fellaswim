@@ -116,7 +116,8 @@
       "settings": {
         "detail_top_image": "shopify://shop_images/karinaenever_1_232d8ab2-45d1-4685-a32b-de5406ffe41d.jpg",
         "detail_bottom_image": "shopify://shop_images/sararamen_2_32d23760-4c93-4b73-b391-fdc620f6b383.jpg",
-        "show_current_positions": false
+        "show_current_positions": false,
+        "fit_image": true
       }
     }
   },
