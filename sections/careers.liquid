@@ -105,7 +105,7 @@
   <div id="shopify-section-career-detail-a" class="shopify-section">
     <div class="image-feature layout--half-left layout--flex layout--half">
       <div class="image-feature--wrapper image-anim--scale">
-        <div class="image-feature--images image-anim--wrapper lazyload-animation">
+        <div class="image-feature--images {% if section.settings.fit_image %}image-feature--image-fit{% endif %} image-anim--wrapper lazyload-animation">
           {% render 'responsive-image',
             classes: 'image-feature--image',
             image: section.settings.detail_top_image,
