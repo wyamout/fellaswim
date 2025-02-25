@@ -17713,12 +17713,13 @@
                         );
                       n[e]("mouseover", function (t) {
                         o.forEach(function (t) {
-                          t.classList.add("hover");
+                          // hover col table thediep094
+                          // t.classList.add("hover");
                         });
                       }),
                         n[e]("mouseout", function (t) {
                           o.forEach(function (t) {
-                            t.classList.remove("hover");
+                            // t.classList.remove("hover");
                           });
                         });
                     });
