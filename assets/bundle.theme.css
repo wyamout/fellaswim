@@ -19833,6 +19833,7 @@ margin-left: auto;
 .sub-heading--subtitle {
   font-size: 10px;
       margin: 10px 0;
+      font-family: FreightBigProBook-Regular, Times New Roman, serif;
 }
 
 .sub-heading--title {
@@ -19840,6 +19841,7 @@ font-size: 28px;
     margin: 10px 0;
     font-weight: 500;
     margin-top: 21px;
+      font-family: FreightBigProBook-Regular, Times New Roman, serif;
 }
 
 .active-link {
