@@ -286,9 +286,16 @@
         {% for block in section.blocks %}
           {% case block.type %}
             {% when 'menu' %}
+              {% assign current_url = request.path %}
+              {% assign is_active = false %}
+
+              {% if block.settings.link == current_url %}
+                {% assign is_active = true %}
+              {% endif %}
+
               <a
                 href="{{ block.settings.link }}"
-                class="sus-menus--item swiper-slide"
+                class="sus-menus--item swiper-slide {% if is_active %}active-link{% endif %}"
                 data-id="sus-menus--item--{{ section.id }}-{{ block.settings.image.id }}"
               >
                 {{ block.settings.title }}
