@@ -19662,7 +19662,7 @@ header nav .sub-nav:not(:has(.sub-sub-nav--wrapper)) .sub-nav--features .nav-fea
 
 .image-feature--image-fit {
   height: fit-content;
-  padding-top: 0;
+  padding-top: 0 !important;
 }
 
 .image-feature--image-fit .image-feature--image{
