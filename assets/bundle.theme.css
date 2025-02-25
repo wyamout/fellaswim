@@ -19842,6 +19842,10 @@ font-size: 28px;
     margin-top: 21px;
 }
 
+.active-link {
+  text-decoration: underline;
+}
+
 .sub-navigation {
   display: flex;
   flex-direction: column;
