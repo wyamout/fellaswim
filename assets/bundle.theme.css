@@ -15394,7 +15394,7 @@ main .four-oh-four {
   table
   tr:hover
   td {
-  background-color: #f7f5ec;
+  /* background-color: #f7f5ec; */
 }
 
 #shopify-section-size-guide .size-guide-table-wrapper table td,
