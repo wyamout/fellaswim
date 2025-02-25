@@ -19748,28 +19748,8 @@ width: 100%;
 .sus-menus--item {
   cursor: pointer;
   text-decoration: none;
-  width: 50%;
-  min-height: 267px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border-top: 1px solid #E6E5E5;
-  text-align: center;
   font-size: 18px;
   position: relative;
-}
-
-.sus-menus--item:nth-child(odd):before {
-    content: "";
-    position: absolute;
-    right: 0;
-    width: 1px;
-    background: #E6E5E5;
-    height: calc(100% - 48px);
-    top: 0;
-    bottom: 0;
-    margin: auto;
 }
 
 .sus_tab_title {
