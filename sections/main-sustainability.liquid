@@ -280,26 +280,39 @@
         </div>
       </div>
     </div>
-    <div class="sus-menus">
-      {% for block in section.blocks %}
-        {% case block.type %}
-          {% when 'menu' %}
-            <a
-              href="{{ block.settings.link }}"
-              class="sus-menus--item"
-              data-id="sus-menus--item--{{ section.id }}-{{ block.settings.image.id }}"
-            >
-              <span style="margin-bottom: 10px;">{{ block.settings.number }}</span>
-              {{ block.settings.title }}
-            </a>
-        {% endcase %}
-      {% endfor %}
+    <div class="sus-menus swiper-container swiper-{{ section.id }}">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'menu' %}
+              <a
+                href="{{ block.settings.link }}"
+                class="sus-menus--item swiper-slide"
+                data-id="sus-menus--item--{{ section.id }}-{{ block.settings.image.id }}"
+              >
+                <span style="margin-bottom: 10px;">{{ block.settings.number }}</span>
+                {{ block.settings.title }}
+              </a>
+          {% endcase %}
+        {% endfor %}
+      </div>
     </div>
   </div>
 </div>
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
+
+       new Swiper(".swiper-{{ section.id }}", {
+      slidesPerView: "auto",
+      spaceBetween: 10,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      loop: true,
+    });
+      
       const menuItems = document.querySelectorAll(".sus-menus--item");
       const images = document.querySelectorAll(".sus-image");
       const mainImage = document.querySelector(".main-sus-image");
