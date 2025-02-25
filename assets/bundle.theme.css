@@ -19660,3 +19660,6 @@ header nav .sub-nav:not(:has(.sub-sub-nav--wrapper)) .sub-nav--features .nav-fea
   }
 }
 
+.image-feature--image-fit .image-feature--image{
+  height: fit-content;
+}
