@@ -15428,7 +15428,7 @@ main .four-oh-four {
   td.hover,
 #shopify-section-size-guide-carousel .size-guide-table-wrapper table td:hover,
 #shopify-section-size-guide-carousel .size-guide-table-wrapper table td.hover {
-  background-color: #f7f5ec;
+  /* background-color: #f7f5ec; */
 }
 
 #shopify-section-size-guide .size-guide-table-wrapper table td span,
