@@ -19665,7 +19665,8 @@ header nav .sub-nav:not(:has(.sub-sub-nav--wrapper)) .sub-nav--features .nav-fea
 }
 
 .image-feature--image-fit {
-  position: sticky;
+  position: sticky !important;
+  top: 0;
   height: fit-content;
   padding-top: 0 !important;
 }
