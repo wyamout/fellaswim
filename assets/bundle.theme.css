@@ -19751,6 +19751,7 @@ width: 100%;
     font-size: 14px;
     position: relative;
     line-height: normal;
+  width: fit-content;
 }
 
 .sus_tab_title {
