@@ -63,7 +63,6 @@
         },
         "menu_e4wHX4": {
           "type": "menu",
-          "disabled": true,
           "settings": {
             "link": "shopify://pages/sustainability-carbonemissions",
             "number": "II",
@@ -82,7 +81,6 @@
         },
         "menu_3d7fa6": {
           "type": "menu",
-          "disabled": true,
           "settings": {
             "link": "shopify://pages/sustainability-takebackprogram",
             "number": "VIII",
