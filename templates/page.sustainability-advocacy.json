@@ -61,8 +61,18 @@
             "image": "shopify://shop_images/12_6e8494a1-3840-46c7-babe-5844216af23e.jpg"
           }
         },
+        "menu_3d7fa6": {
+          "type": "menu",
+          "settings": {
+            "link": "shopify://pages/sustainability-takebackprogram",
+            "number": "VIII",
+            "title": "Tack Back Program",
+            "image": "shopify://shop_images/lucifer-fullpiece-cactus-1.png"
+          }
+        },
         "menu_e4wHX4": {
           "type": "menu",
+          "disabled": true,
           "settings": {
             "link": "shopify://pages/sustainability-carbonemissions",
             "number": "II",
@@ -72,20 +82,12 @@
         },
         "menu_NgL7hz": {
           "type": "menu",
+          "disabled": true,
           "settings": {
             "link": "shopify://pages/sustainability-responsiblehomecare",
             "number": "VII",
             "title": "Responsible Home",
             "image": "shopify://shop_images/474946674_28198019409842273_323854685879777938_n.jpg"
-          }
-        },
-        "menu_3d7fa6": {
-          "type": "menu",
-          "settings": {
-            "link": "shopify://pages/sustainability-takebackprogram",
-            "number": "VIII",
-            "title": "Tack Back Program",
-            "image": "shopify://shop_images/lucifer-fullpiece-cactus-1.png"
           }
         }
       },
@@ -95,9 +97,9 @@
         "menu_Lt9cHp",
         "menu_zqcqT4",
         "menu_Gx7tdt",
+        "menu_3d7fa6",
         "menu_e4wHX4",
-        "menu_NgL7hz",
-        "menu_3d7fa6"
+        "menu_NgL7hz"
       ],
       "settings": {
         "image": "shopify://shop_images/6_734a7bba-4ad9-4171-8f74-9d54b23c5f8d.jpg",

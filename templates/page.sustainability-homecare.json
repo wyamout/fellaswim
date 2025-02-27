@@ -16,6 +16,15 @@
     "main_sustainability_xRfXYN": {
       "type": "main-sustainability",
       "blocks": {
+        "menu_9CpYth": {
+          "type": "menu",
+          "settings": {
+            "link": "shopify://pages/sustainability-ourcommitment",
+            "number": "V",
+            "title": "Our Commitment",
+            "image": "shopify://shop_images/christobal-fullpiece-campari-campaign-3.jpg"
+          }
+        },
         "menu_8AGN78": {
           "type": "menu",
           "settings": {
@@ -23,15 +32,6 @@
             "number": "I",
             "title": "Advocacy",
             "image": "shopify://shop_images/gareth-top-cactus-campaign-3.jpg"
-          }
-        },
-        "menu_e4wHX4": {
-          "type": "menu",
-          "settings": {
-            "link": "shopify://pages/sustainability-carbonemissions",
-            "number": "II",
-            "title": "Carbon Missions",
-            "image": "shopify://shop_images/marcus-bottom-campari-campaign-3.jpg"
           }
         },
         "menu_Lt9cHp": {
@@ -52,15 +52,6 @@
             "image": "shopify://shop_images/christobal-fullpiece-noir-campaign-3_1d3f8fdb-d5d5-4f6b-a1d6-31613bab07f4.jpg"
           }
         },
-        "menu_9CpYth": {
-          "type": "menu",
-          "settings": {
-            "link": "shopify://pages/sustainability-ourcommitment",
-            "number": "V",
-            "title": "Our Commitment",
-            "image": "shopify://shop_images/christobal-fullpiece-campari-campaign-3.jpg"
-          }
-        },
         "menu_Gx7tdt": {
           "type": "menu",
           "settings": {
@@ -68,15 +59,6 @@
             "number": "VI",
             "title": "Packaging",
             "image": "shopify://shop_images/12_6e8494a1-3840-46c7-babe-5844216af23e.jpg"
-          }
-        },
-        "menu_NgL7hz": {
-          "type": "menu",
-          "settings": {
-            "link": "shopify://pages/sustainability-responsiblehomecare",
-            "number": "VII",
-            "title": "Responsible Home",
-            "image": "shopify://shop_images/474946674_28198019409842273_323854685879777938_n.jpg"
           }
         },
         "menu_3d7fa6": {
@@ -87,17 +69,37 @@
             "title": "Tack Back Program",
             "image": "shopify://shop_images/lucifer-fullpiece-cactus-1.png"
           }
+        },
+        "menu_NgL7hz": {
+          "type": "menu",
+          "disabled": true,
+          "settings": {
+            "link": "shopify://pages/sustainability-responsiblehomecare",
+            "number": "VII",
+            "title": "Responsible Home",
+            "image": "shopify://shop_images/474946674_28198019409842273_323854685879777938_n.jpg"
+          }
+        },
+        "menu_e4wHX4": {
+          "type": "menu",
+          "disabled": true,
+          "settings": {
+            "link": "shopify://pages/sustainability-carbonemissions",
+            "number": "II",
+            "title": "Carbon Missions",
+            "image": "shopify://shop_images/marcus-bottom-campari-campaign-3.jpg"
+          }
         }
       },
       "block_order": [
-      "menu_9CpYth",
+        "menu_9CpYth",
         "menu_8AGN78",
         "menu_Lt9cHp",
         "menu_zqcqT4",
         "menu_Gx7tdt",
-        "menu_e4wHX4",
+        "menu_3d7fa6",
         "menu_NgL7hz",
-        "menu_3d7fa6"
+        "menu_e4wHX4"
       ],
       "settings": {
         "image": "shopify://shop_images/6_734a7bba-4ad9-4171-8f74-9d54b23c5f8d.jpg",
