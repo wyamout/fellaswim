@@ -325,16 +325,15 @@
       initialSlideIndex = index; // Set matching slide as initial
     }
   });
-      
-    if (window.innerWidth <= 1024) {
-    new Swiper(swiperElement, {
+      // Initialize Swiper only if screen width is 1024px or less
+  if (window.innerWidth <= 1024) {
+       new Swiper(".swiper-{{ section.id }}", {
       slidesPerView: "auto",
       spaceBetween: 0,
-      centeredSlides: true,
-      initialSlide: initialSlideIndex,
+      centeredSlides: true, // Centers the active slide
+      initialSlide: initialSlideIndex, 
     });
   }
-      
     
 
        menuItems.forEach((item) => {
