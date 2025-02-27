@@ -311,6 +311,11 @@
 <script>
     document.addEventListener("DOMContentLoaded", function () {
       const currentPath = window.location.pathname;
+        const menuItems = document.querySelectorAll(".sus-menus--item");
+      const images = document.querySelectorAll(".sus-image");
+      const mainImage = document.querySelector(".main-sus-image");
+      const navigationItems = document.querySelectorAll(".sub-navigation-item");
+      const contentItems = document.querySelectorAll(".sus-content--item");
        let initialSlideIndex = Math.floor({{ section.blocks | size }} / 2); // Default center index
 
   // Find matching menu item in Swiper
@@ -328,11 +333,7 @@
       initialSlide: initialSlideIndex, 
     });
       
-      const menuItems = document.querySelectorAll(".sus-menus--item");
-      const images = document.querySelectorAll(".sus-image");
-      const mainImage = document.querySelector(".main-sus-image");
-      const navigationItems = document.querySelectorAll(".sub-navigation-item");
-      const contentItems = document.querySelectorAll(".sus-content--item");
+    
 
        menuItems.forEach((item) => {
         item.addEventListener("click", function (event) {
