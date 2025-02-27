@@ -326,12 +326,14 @@
     }
   });
       
-       new Swiper(".swiper-{{ section.id }}", {
+    if (window.innerWidth <= 1024) {
+    new Swiper(swiperElement, {
       slidesPerView: "auto",
       spaceBetween: 0,
-      centeredSlides: true, // Centers the active slide
-      initialSlide: initialSlideIndex, 
+      centeredSlides: true,
+      initialSlide: initialSlideIndex,
     });
+  }
       
     
 
