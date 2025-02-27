@@ -19929,3 +19929,7 @@ flex-direction: row;
   padding: 0 40px;
 }
 }
+
+.swiper-center {
+  justify-content: center;
+}
