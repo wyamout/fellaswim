@@ -16,6 +16,15 @@
     "main_sustainability_xRfXYN": {
       "type": "main-sustainability",
       "blocks": {
+        "menu_9CpYth": {
+          "type": "menu",
+          "settings": {
+            "link": "shopify://pages/sustainability-ourcommitment",
+            "number": "V",
+            "title": "Our Commitment",
+            "image": "shopify://shop_images/christobal-fullpiece-campari-campaign-3.jpg"
+          }
+        },
         "menu_8AGN78": {
           "type": "menu",
           "settings": {
@@ -23,15 +32,6 @@
             "number": "I",
             "title": "Advocacy",
             "image": "shopify://shop_images/gareth-top-cactus-campaign-3.jpg"
-          }
-        },
-        "menu_e4wHX4": {
-          "type": "menu",
-          "settings": {
-            "link": "shopify://pages/sustainability-carbonemissions",
-            "number": "II",
-            "title": "Carbon Missions",
-            "image": "shopify://shop_images/marcus-bottom-campari-campaign-3.jpg"
           }
         },
         "menu_Lt9cHp": {
@@ -52,15 +52,6 @@
             "image": "shopify://shop_images/christobal-fullpiece-noir-campaign-3_1d3f8fdb-d5d5-4f6b-a1d6-31613bab07f4.jpg"
           }
         },
-        "menu_9CpYth": {
-          "type": "menu",
-          "settings": {
-            "link": "shopify://pages/sustainability-ourcommitment",
-            "number": "V",
-            "title": "Our Commitment",
-            "image": "shopify://shop_images/christobal-fullpiece-campari-campaign-3.jpg"
-          }
-        },
         "menu_Gx7tdt": {
           "type": "menu",
           "settings": {
@@ -68,6 +59,15 @@
             "number": "VI",
             "title": "Packaging",
             "image": "shopify://shop_images/12_6e8494a1-3840-46c7-babe-5844216af23e.jpg"
+          }
+        },
+        "menu_e4wHX4": {
+          "type": "menu",
+          "settings": {
+            "link": "shopify://pages/sustainability-carbonemissions",
+            "number": "II",
+            "title": "Carbon Missions",
+            "image": "shopify://shop_images/marcus-bottom-campari-campaign-3.jpg"
           }
         },
         "menu_NgL7hz": {
@@ -102,8 +102,8 @@
       "settings": {
         "image": "shopify://shop_images/6_734a7bba-4ad9-4171-8f74-9d54b23c5f8d.jpg",
         "subtitle": "Sustainability",
-        "title": "ADVOCACY",
-        "content": "<p>This world of ours is complex, vast and inimitably beautiful - to experience it is the ultimate luxury. With privilege comes responsibility and FELLA is committed to conscious initiatives that reduce our environmental impact and ensure future Fellas can also know this natural beauty. Since FELLA was founded in 2012, we’ve stayed true to the belief that less is more. We have built our brand on product integrity, and it is this same principle that informs the way we work, with all aspects of the business shaped by fair and ethical conduct. Whilst we know we are not perfect, we are committed to the journey of sustainability and vow efforts to make positive change in all areas that we can.</p>",
+        "title": "Take Back Program",
+        "content": "<p>Introducing a new initiative for FELLA in 2025.</p><p>We recognise that over time, your FELLAs will need to be replaced. In line with our commitment to sustainability, we are now responsibly recycling your old FELLA items, as well as any off-cuts in Australia. Customers can conveniently return their used FELLA items by posting them or dropping them off at our Paddington store, and in return, receive 30% off their next purchase. Together, we’re making a positive step towards keeping synthetic materials out of landfills.</p><p>To ensure we’re not encouraging unnecessary consumerism, please note that our Take Back Program is designed for your swimwear that is truly at the end of its life. If your swimwear is still in wearable condition, we encourage you to donate or sell it.</p><p><strong>Conditions:</strong></p><ul><li>We will only accept swimwear that shows signs of fabric degradation, such as a loss of elasticity or damage from extended use. </li><li>To process your return, proof of purchase is required, which must include an itemized receipt from any authorized Fella retailer. </li><li>If you purchased your items directly from our online store or flagship location, we should be able to locate your order. However, if we cannot find your details, a bank statement showing a purchase from Fella Pty Ltd with the date will also be acceptable. </li><li>Please note that the items must have been purchased at least 3 years prior to the date of return.</li><li>Hardware erosion is not accepted. For wearable swimwear that is suffering from eroded hardware, please get in touch with customercare@fellaswim.com regarding a “hardware replacement”.</li></ul><p>To recycle your swimwear, please submit the form below, including a high-resolution photo of each item you wish to return.</p>",
         "show_form": true
       }
     }
