@@ -19827,7 +19827,14 @@ margin-left: auto;
 
 .sub-heading {
   text-align: center;
+  margin-top: 100px;
+}
+
+@media screen and (min-width: 768px) {
+  .sub-heading {
+  text-align: center;
   margin-top: 200px;
+}
 }
 
 .sub-heading--subtitle {
