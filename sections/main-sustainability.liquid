@@ -310,14 +310,22 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
+      const currentPath = window.location.pathname;
+       let initialSlideIndex = Math.floor({{ section.blocks | size }} / 2); // Default center index
 
-
+  // Find matching menu item in Swiper
+  menuItems.forEach((menuItem, index) => {
+    const targetUrl = new URL(menuItem.href, window.location.origin).pathname;
+    if (targetUrl === currentPath) {
+      initialSlideIndex = index; // Set matching slide as initial
+    }
+  });
       
        new Swiper(".swiper-{{ section.id }}", {
       slidesPerView: "auto",
       spaceBetween: 0,
       centeredSlides: true, // Centers the active slide
-      initialSlide: Math.floor({{ section.blocks | size }} / 2),
+      initialSlide: initialSlideIndex, 
     });
       
       const menuItems = document.querySelectorAll(".sus-menus--item");
