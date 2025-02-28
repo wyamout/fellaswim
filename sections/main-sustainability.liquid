@@ -68,27 +68,6 @@
               <div class="form--row"></div>
               <div class="form--row">
                 <div class="form--row--cell">
-                  <input type="text" id="company" name="contact[Company]" placeholder="Company*" required>
-                </div>
-              </div>
-              <div class="form--row">
-                <div class="form--row--cell">
-                  <input type="text" id="website" name="contact[Website]" placeholder="Website*" required>
-                </div>
-              </div>
-              <div class="form--row">
-                <div class="form--row--cell">
-                  <input
-                    type="text"
-                    id="instagram_handle"
-                    name="contact[Instagram Handle]"
-                    placeholder="Instagram Handle*"
-                    required
-                  >
-                </div>
-              </div>
-              <div class="form--row">
-                <div class="form--row--cell">
                   <input type="text" id="firstname" name="contact[Firstname]" placeholder="First Name*" required>
                 </div>
                 <div class="form--row--cell">
@@ -111,94 +90,23 @@
               </div>
               <div class="form--row">
                 <div class="form--row--cell">
-                  <input
-                    type="text"
-                    id="street_address"
-                    name="contact[Street Address]"
-                    placeholder="Street Address*"
-                    required
-                  >
-                </div>
-              </div>
-              <div class="form--row">
-                <div class="form--row--cell">
-                  <input type="text" id="city" name="contact[city]" placeholder="City*" required>
-                </div>
-              </div>
-              <div class="form--row">
-                <div class="form--row--cell">
-                  <input
-                    type="text"
-                    id="address1"
-                    name="contact[State / Province / Region]"
-                    placeholder="State / Province / Region*"
-                    required
-                  >
-                </div>
-              </div>
-              <div class="form--row">
-                <div class="form--row--cell">
                   <div class="form--select--wrapper">
-                    <select id="country" name="contact[Country]" required>
+                    <select id="country" name="contact[number]" required>
                       {% render 'option-countries' %}
                     </select>
                     {% render 'icon', icon: 'chevron-heavy' %}
                   </div>
                 </div>
                 <div class="form--row--cell">
-                  <input
-                    type="text"
-                    id="postal_code"
-                    name="contact[postal_code]"
-                    placeholder="Postal Code*"
-                    required
-                  >
+                  <div class="form--select--wrapper">
+                    <select id="country" name="contact[reason]" required>
+                      {% render 'option-reasons' %}
+                    </select>
+                    {% render 'icon', icon: 'chevron-heavy' %}
+                  </div>
                 </div>
               </div>
-              <div class="form--row">
-                <div class="form--row--cell">
-                  <input
-                    type="text"
-                    id="description1"
-                    name="contact[How long have you been trading?]"
-                    placeholder="How long have you been trading?*"
-                    required
-                  >
-                </div>
-              </div>
-              <div class="form--row">
-                <div class="form--row--cell">
-                  <input
-                    type="text"
-                    id="description2"
-                    name="contact[Which brands do you currently stock?]"
-                    placeholder="Which brands do you currently stock?*"
-                    required
-                  >
-                </div>
-              </div>
-              <div class="form--row">
-                <div class="form--row--cell">
-                  <input
-                    type="text"
-                    id="description3"
-                    name="contact[Which brands are you looking to stock?]"
-                    placeholder="Which brands are you looking to stock?*"
-                    required
-                  >
-                </div>
-              </div>
-              <div class="form--row">
-                <div class="form--row--cell">
-                  <input
-                    type="text"
-                    id="description4"
-                    name="contact[What is your key demographic?]"
-                    placeholder="What is your key demographic?*"
-                    required
-                  >
-                </div>
-              </div>
+
               <div class="form--row">
                 <div class="form--row--cell">
                   <label for="ContactFormMessage">Is there anything else we need to know about your enquiry?</label>
