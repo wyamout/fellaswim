@@ -22,7 +22,7 @@
             "link": "shopify://pages/sustainability-ourcommitment",
             "number": "V",
             "title": "Our Commitment",
-            "image": "shopify://shop_images/christobal-fullpiece-campari-campaign-3.jpg"
+            "image": "shopify://shop_images/OurCommitment_a675b5b7-a737-4877-b3b2-499af623d4d4.jpg"
           }
         },
         "menu_8AGN78": {
@@ -31,7 +31,7 @@
             "link": "shopify://pages/sustainability-advocacy",
             "number": "I",
             "title": "Advocacy",
-            "image": "shopify://shop_images/gareth-top-cactus-campaign-3.jpg"
+            "image": "shopify://shop_images/Advocacy_880e383a-56f8-4e82-8670-2a9f5659c382.jpg"
           }
         },
         "menu_Lt9cHp": {
@@ -40,7 +40,7 @@
             "link": "shopify://pages/sustainability-durabledesign",
             "number": "III",
             "title": "Durable Design",
-            "image": "shopify://shop_images/lucifer-fullpiece-cactus-campaign-3.jpg"
+            "image": "shopify://shop_images/DurableDesign_b4712d9f-dcba-4975-a78f-2180e9cdbd41.jpg"
           }
         },
         "menu_zqcqT4": {
@@ -49,7 +49,7 @@
             "link": "shopify://pages/sustainability-manufacturing",
             "number": "IV",
             "title": "Manufacturing",
-            "image": "shopify://shop_images/christobal-fullpiece-noir-campaign-3_1d3f8fdb-d5d5-4f6b-a1d6-31613bab07f4.jpg"
+            "image": "shopify://shop_images/Manufacturing_04f8fc78-a6f1-40bf-bb6c-862d333706c8.jpg"
           }
         },
         "menu_Gx7tdt": {
@@ -58,11 +58,20 @@
             "link": "shopify://pages/sustainability-packaging",
             "number": "VI",
             "title": "Packaging",
-            "image": "shopify://shop_images/12_6e8494a1-3840-46c7-babe-5844216af23e.jpg"
+            "image": "shopify://shop_images/Packaging2_fc03225a-8e84-4d81-ad1c-92d8987e2e58.jpg"
+          }
+        },
+        "menu_3d7fa6": {
+          "type": "menu",
+          "settings": {
+            "link": "shopify://pages/sustainability-takebackprogram",
+            "number": "VIII",
+            "title": "Tack Back Program"
           }
         },
         "menu_e4wHX4": {
           "type": "menu",
+          "disabled": true,
           "settings": {
             "link": "shopify://pages/sustainability-carbonemissions",
             "number": "II",
@@ -72,20 +81,12 @@
         },
         "menu_NgL7hz": {
           "type": "menu",
+          "disabled": true,
           "settings": {
             "link": "shopify://pages/sustainability-responsiblehomecare",
             "number": "VII",
             "title": "Responsible Home",
             "image": "shopify://shop_images/474946674_28198019409842273_323854685879777938_n.jpg"
-          }
-        },
-        "menu_3d7fa6": {
-          "type": "menu",
-          "settings": {
-            "link": "shopify://pages/sustainability-takebackprogram",
-            "number": "VIII",
-            "title": "Tack Back Program",
-            "image": "shopify://shop_images/lucifer-fullpiece-cactus-1.png"
           }
         }
       },
@@ -95,12 +96,12 @@
         "menu_Lt9cHp",
         "menu_zqcqT4",
         "menu_Gx7tdt",
+        "menu_3d7fa6",
         "menu_e4wHX4",
-        "menu_NgL7hz",
-        "menu_3d7fa6"
+        "menu_NgL7hz"
       ],
       "settings": {
-        "image": "shopify://shop_images/6_734a7bba-4ad9-4171-8f74-9d54b23c5f8d.jpg",
+        "image": "shopify://shop_images/Packaging2_8fa6f0c1-5ff7-41f3-bc82-b62241690008.jpg",
         "subtitle": "Sustainability",
         "title": "Packaging",
         "content": "<p>We have eliminated harmful toxins that damage the ecosystem, ensuring our practices contribute to a healthier planet. Our packaging and shipping materials are fully biodegradable, leaving no trace behind. Additionally, sanitary stickers, wrapping paper, care cards, and swing tags are all printed on recycled paper, further supporting our commitment to sustainability.</p>",
