@@ -19941,6 +19941,14 @@ flex-direction: row;
   justify-content: center;
 }
 
+  .sus-menus-wrapper {
+        display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+
+  }
+
 @media screen and (max-width: 900px) {
   .sus-menus-wrapper {
         display: flex
