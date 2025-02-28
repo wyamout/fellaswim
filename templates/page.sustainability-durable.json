@@ -22,7 +22,7 @@
             "link": "shopify://pages/sustainability-ourcommitment",
             "number": "V",
             "title": "Our Commitment",
-            "image": "shopify://shop_images/christobal-fullpiece-campari-campaign-3.jpg"
+            "image": "shopify://shop_images/OurCommitment_99f3f121-68f5-4aad-a516-87fb29a07fba.jpg"
           }
         },
         "menu_8AGN78": {
@@ -31,7 +31,7 @@
             "link": "shopify://pages/sustainability-advocacy",
             "number": "I",
             "title": "Advocacy",
-            "image": "shopify://shop_images/gareth-top-cactus-campaign-3.jpg"
+            "image": "shopify://shop_images/Advocacy_a7da3b6a-56f3-43d2-98a6-9c64b4a8ce4c.jpg"
           }
         },
         "menu_Lt9cHp": {
@@ -40,7 +40,7 @@
             "link": "shopify://pages/sustainability-durabledesign",
             "number": "III",
             "title": "Durable Design",
-            "image": "shopify://shop_images/lucifer-fullpiece-cactus-campaign-3.jpg"
+            "image": "shopify://shop_images/DurableDesign_0a8ecf8d-a36d-4b0a-a056-11db2f94243e.jpg"
           }
         },
         "menu_zqcqT4": {
@@ -49,7 +49,7 @@
             "link": "shopify://pages/sustainability-manufacturing",
             "number": "IV",
             "title": "Manufacturing",
-            "image": "shopify://shop_images/christobal-fullpiece-noir-campaign-3_1d3f8fdb-d5d5-4f6b-a1d6-31613bab07f4.jpg"
+            "image": "shopify://shop_images/Manufacturing_f70fad51-ac6d-48d3-940a-9a1635cd9230.jpg"
           }
         },
         "menu_Gx7tdt": {
@@ -58,11 +58,21 @@
             "link": "shopify://pages/sustainability-packaging",
             "number": "VI",
             "title": "Packaging",
-            "image": "shopify://shop_images/12_6e8494a1-3840-46c7-babe-5844216af23e.jpg"
+            "image": "shopify://shop_images/Packaging2_f406743b-1f01-4898-a078-2de2a56e2596.jpg"
+          }
+        },
+        "menu_3d7fa6": {
+          "type": "menu",
+          "settings": {
+            "link": "shopify://pages/sustainability-takebackprogram",
+            "number": "VIII",
+            "title": "Tack Back Program",
+            "image": "shopify://shop_images/TakeBack_83a3d5ae-8e1a-4341-8f5b-1f0b0540df06.jpg"
           }
         },
         "menu_e4wHX4": {
           "type": "menu",
+          "disabled": true,
           "settings": {
             "link": "shopify://pages/sustainability-carbonemissions",
             "number": "II",
@@ -72,20 +82,12 @@
         },
         "menu_NgL7hz": {
           "type": "menu",
+          "disabled": true,
           "settings": {
             "link": "shopify://pages/sustainability-responsiblehomecare",
             "number": "VII",
             "title": "Responsible Home",
             "image": "shopify://shop_images/474946674_28198019409842273_323854685879777938_n.jpg"
-          }
-        },
-        "menu_3d7fa6": {
-          "type": "menu",
-          "settings": {
-            "link": "shopify://pages/sustainability-takebackprogram",
-            "number": "VIII",
-            "title": "Tack Back Program",
-            "image": "shopify://shop_images/lucifer-fullpiece-cactus-1.png"
           }
         }
       },
@@ -95,12 +97,12 @@
         "menu_Lt9cHp",
         "menu_zqcqT4",
         "menu_Gx7tdt",
+        "menu_3d7fa6",
         "menu_e4wHX4",
-        "menu_NgL7hz",
-        "menu_3d7fa6"
+        "menu_NgL7hz"
       ],
       "settings": {
-        "image": "shopify://shop_images/6_734a7bba-4ad9-4171-8f74-9d54b23c5f8d.jpg",
+        "image": "shopify://shop_images/DurableDesign_60bca718-fc44-4c2e-a734-8f5ac06fe36b.jpg",
         "subtitle": "Sustainability",
         "title": "Durable Design",
         "content": "<p>Classic design and quality construction mean swimwear that endures. Our reverence for quality sees us invest in durable, premium fabrics that are woven to see the FELLA woman through season after season. </p><p>Our printed Italian lycra is composed of 78% polyester, and we are committed to furthering our sustainability efforts by exploring more eco-friendly fabric options for our upcoming core collections. </p><p>In line with this, our core block-coloured fabrics are dyed using Oeko-Tex Standard 100 certified dyes, ensuring minimal environmental impact and prioritising the health and safety of both our planet and our customers.</p>",
