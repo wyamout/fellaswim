@@ -282,28 +282,28 @@
     </div>
     <div class="sus-menus swiper-container swiper-{{ section.id }}">
       <h2 class="sub-heading--title" style="width: 100%; text-align: center; margin-bottom: 30px;">Explore Further</h2>
-      <!-- <div class="swiper-wrapper"> -->
-      {% for block in section.blocks %}
-        {% case block.type %}
-          {% when 'menu' %}
-            {% assign current_url = request.path %}
-            {% assign is_active = false %}
+      <div class="swiper-wrapper sus-menus-wrapper">
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'menu' %}
+              {% assign current_url = request.path %}
+              {% assign is_active = false %}
 
-            {% if block.settings.link == current_url %}
-              {% assign is_active = true %}
-            {% endif %}
+              {% if block.settings.link == current_url %}
+                {% assign is_active = true %}
+              {% endif %}
 
-            <a
-              href="{{ block.settings.link }}"
-              class="sus-menus--item swiper-slide {% if is_active %}active-link{% endif %}"
-              data-id="sus-menus--item--{{ section.id }}-{{ block.settings.image.id }}"
-              link="{{current_url  }}"
-            >
-              {{ block.settings.title }}
-            </a>
-        {% endcase %}
-      {% endfor %}
-      <!-- </div> -->
+              <a
+                href="{{ block.settings.link }}"
+                class="sus-menus--item swiper-slide {% if is_active %}active-link{% endif %}"
+                data-id="sus-menus--item--{{ section.id }}-{{ block.settings.image.id }}"
+                link="{{current_url  }}"
+              >
+                {{ block.settings.title }}
+              </a>
+          {% endcase %}
+        {% endfor %}
+      </div>
     </div>
   </div>
 </div>
