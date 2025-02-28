@@ -325,18 +325,18 @@
       initialSlideIndex = index; // Set matching slide as initial
     }
   });
-      // Initialize Swiper only if screen width is 1024px or less
-  if (window.innerWidth <= 1024) {
-       new Swiper(".swiper-{{ section.id }}", {
-      slidesPerView: "auto",
-      spaceBetween: 0,
-      centeredSlides: true, // Centers the active slide
-      initialSlide: initialSlideIndex, 
-    });
-  } else {
-    document.querySelector('.swiper-{{ section.id }} .swiper-wrapper').classList.add("swiper-center")
+  //     // Initialize Swiper only if screen width is 1024px or less
+  // if (window.innerWidth <= 1024) {
+  //      new Swiper(".swiper-{{ section.id }}", {
+  //     slidesPerView: "auto",
+  //     spaceBetween: 0,
+  //     centeredSlides: true, // Centers the active slide
+  //     initialSlide: initialSlideIndex, 
+  //   });
+  // } else {
+  //   document.querySelector('.swiper-{{ section.id }} .swiper-wrapper').classList.add("swiper-center")
     
-  }
+  // }
     
 
        menuItems.forEach((item) => {
