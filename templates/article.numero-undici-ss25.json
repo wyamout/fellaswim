@@ -20,8 +20,8 @@
           "type": "image",
           "settings": {
             "grid_x": 12,
-            "image": "shopify://shop_images/240913_FELLA_VOLLYBALL_03_0215_007c3d0d-ca9f-43d5-872f-1044a5deb818.jpg",
-            "image_title": "Resort 25",
+            "image": "shopify://shop_images/FELLA_3_e1e6e926-15c5-4084-9502-3b5dd3b3ad32.jpg",
+            "image_title": "Spring Summer 25",
             "image_subtitle": "NUMERO UNDICI",
             "popup_products": []
           }
@@ -64,65 +64,52 @@
     "content_blocks_bJcwxC": {
       "type": "content-blocks",
       "blocks": {
+        "image_4FQaG6": {
+          "type": "image",
+          "settings": {
+            "grid_x": 12,
+            "image": "shopify://shop_images/FELLA-SUMMER-25_SHOT-8_634.jpg",
+            "image_title": "",
+            "image_subtitle": "",
+            "popup_products": []
+          }
+        },
+        "image_8D4kCW": {
+          "type": "image",
+          "settings": {
+            "grid_x": 12,
+            "image": "shopify://shop_images/FELLA-SUMMER-25_SHOT-3_178.jpg",
+            "image_title": "",
+            "image_subtitle": "",
+            "popup_products": []
+          }
+        },
+        "image_hGXrBV": {
+          "type": "image",
+          "settings": {
+            "grid_x": 12,
+            "image": "shopify://shop_images/SKIN_ONLY_2.jpg",
+            "image_title": "",
+            "image_subtitle": "",
+            "popup_products": []
+          }
+        },
         "image_yyFy9R": {
           "type": "image",
           "settings": {
             "grid_x": 12,
-            "image": "shopify://shop_images/240913_FELLA_VOLLYBALL_01_0012.jpg",
+            "image": "shopify://shop_images/FELLA-SUMMER-25_SHOT-4_315.jpg",
             "image_title": "",
             "image_subtitle": "",
-            "popup_products": [
-              "gareth-top-tomato"
-            ]
-          }
-        },
-        "image_m7CQHF": {
-          "type": "image",
-          "settings": {
-            "grid_x": 12,
-            "image": "shopify://shop_images/240913_FELLA_VOLLYBALL_05_0553.jpg",
-            "image_title": "",
-            "image_subtitle": "",
-            "popup_products": [
-              "arnie-top-hydrangea",
-              "giuseppe-bottom-hydrangea",
-              "donald-top-hydrangea",
-              "corey-bottom-hydrangea"
-            ]
-          }
-        },
-        "image_BWwiwR": {
-          "type": "image",
-          "settings": {
-            "grid_x": 12,
-            "image": "shopify://shop_images/240913_FELLA_VOLLYBALL_08_0767.jpg",
-            "image_title": "",
-            "image_subtitle": "",
-            "popup_products": [
-              "mikey-top-butter",
-              "herbie-bottom-butter"
-            ]
-          }
-        },
-        "image_KmWLPp": {
-          "type": "image",
-          "settings": {
-            "grid_x": 12,
-            "image": "shopify://shop_images/240913_FELLA_VOLLYBALL_03_0314.jpg",
-            "image_title": "",
-            "image_subtitle": "",
-            "popup_products": [
-              "casanova-top-tomato",
-              "elvis-bottom-tomato"
-            ]
+            "popup_products": []
           }
         }
       },
       "block_order": [
-        "image_yyFy9R",
-        "image_m7CQHF",
-        "image_BWwiwR",
-        "image_KmWLPp"
+        "image_4FQaG6",
+        "image_8D4kCW",
+        "image_hGXrBV",
+        "image_yyFy9R"
       ],
       "settings": {
         "grid_gap_value": "6",
@@ -139,60 +126,48 @@
           "type": "image",
           "settings": {
             "grid_x": 12,
-            "image": "shopify://shop_images/240913_FELLA_VOLLYBALL_07_0634_4e273edc-5021-47b8-8058-f4c7da0c0b69.jpg",
+            "image": "shopify://shop_images/FELLA-SUMMER-25_SHOT-4_304.jpg",
             "image_title": "",
             "image_subtitle": "",
-            "popup_products": [
-              "donald-top-hydrangea",
-              "corey-bottom-hydrangea"
-            ]
+            "popup_products": []
           }
         },
-        "image_jJcjry": {
+        "image_EfXEQd": {
           "type": "image",
           "settings": {
             "grid_x": 12,
-            "image": "shopify://shop_images/240913_FELLA_VOLLYBALL_08_0734_128d93ac-1a20-4739-ae3a-8369cdd239e5.jpg",
+            "image": "shopify://shop_images/FELLA_6.jpg",
             "image_title": "",
             "image_subtitle": "",
-            "popup_products": [
-              "mikey-top-butter",
-              "herbie-bottom-butter"
-            ]
+            "popup_products": []
           }
         },
-        "image_AQYDcq": {
+        "image_pTQxYB": {
           "type": "image",
           "settings": {
             "grid_x": 12,
-            "image": "shopify://shop_images/240913_FELLA_VOLLYBALL_02_0157.jpg",
-            "video": "shopify://files/videos/VIDEO1_79b10621-66eb-423d-a381-c87eb953c0c7.mp4",
+            "image": "shopify://shop_images/FELLA_SUMMER_25_SHOT_15_996.jpg",
             "image_title": "",
             "image_subtitle": "",
-            "popup_products": [
-              "arnie-top-hydrangea",
-              "giuseppe-bottom-hydrangea"
-            ]
+            "popup_products": []
           }
         },
-        "image_w96yCd": {
+        "image_QPA4QB": {
           "type": "image",
           "settings": {
             "grid_x": 12,
-            "image": "shopify://shop_images/240913_FELLA_VOLLYBALL_14_1588.jpg",
+            "image": "shopify://shop_images/SKIN_ONLY_3.jpg",
             "image_title": "",
             "image_subtitle": "",
-            "popup_products": [
-              "gabriel-top-noir"
-            ]
+            "popup_products": []
           }
         }
       },
       "block_order": [
         "image_CKmxRz",
-        "image_jJcjry",
-        "image_AQYDcq",
-        "image_w96yCd"
+        "image_EfXEQd",
+        "image_pTQxYB",
+        "image_QPA4QB"
       ],
       "settings": {
         "grid_gap_value": "6",
@@ -205,61 +180,52 @@
     "content_blocks_GQHBya": {
       "type": "content-blocks",
       "blocks": {
-        "image_ChKgza": {
+        "image_wCyjTX": {
           "type": "image",
           "settings": {
             "grid_x": 12,
-            "image": "shopify://shop_images/240913_FELLA_VOLLYBALL_13_1544_9092b396-7ad1-4ca9-8327-2950240beec2.jpg",
-            "image_title": "",
-            "image_subtitle": "",
-            "popup_products": [
-              "scrunchie-butter"
-            ]
-          }
-        },
-        "image_zUtrCt": {
-          "type": "image",
-          "settings": {
-            "grid_x": 12,
-            "image": "shopify://shop_images/240913_FELLA_VOLLYBALL_09_0924.jpg",
+            "image": "shopify://shop_images/SKIN_ONLY_4.jpg",
             "image_title": "",
             "image_subtitle": "",
             "popup_products": []
           }
         },
-        "image_9GdhCT": {
+        "image_ChKgza": {
           "type": "image",
           "settings": {
             "grid_x": 12,
-            "image": "shopify://shop_images/240913_FELLA_VOLLYBALL_10_1282.jpg",
+            "image": "shopify://shop_images/FELLA-SUMMER-25_SHOT-5_367.jpg",
             "image_title": "",
             "image_subtitle": "",
-            "popup_products": [
-              "harvey-fullpiece-butter",
-              "harvey-fullpiece-hydrangea",
-              "harvey-fullpiece-tomato"
-            ]
+            "popup_products": []
           }
         },
-        "image_iUPPpy": {
+        "image_iyG9h9": {
           "type": "image",
           "settings": {
             "grid_x": 12,
-            "image": "shopify://shop_images/240913_FELLA_VOLLYBALL_04_0387.jpg",
+            "image": "shopify://shop_images/FELLA_8_77cc3752-33eb-4510-bdfd-2338d928ac88.jpg",
             "image_title": "",
             "image_subtitle": "",
-            "popup_products": [
-              "gareth-top-hydrangea",
-              "chad-bottom-hydrangea"
-            ]
+            "popup_products": []
+          }
+        },
+        "image_YNg9gp": {
+          "type": "image",
+          "settings": {
+            "grid_x": 12,
+            "image": "shopify://shop_images/FELLA-SUMMER-25_SHOT-7_558.jpg",
+            "image_title": "",
+            "image_subtitle": "",
+            "popup_products": []
           }
         }
       },
       "block_order": [
+        "image_wCyjTX",
         "image_ChKgza",
-        "image_zUtrCt",
-        "image_9GdhCT",
-        "image_iUPPpy"
+        "image_iyG9h9",
+        "image_YNg9gp"
       ],
       "settings": {
         "grid_gap_value": "6",
