@@ -1068,9 +1068,9 @@
             "type": "feature",
             "settings": {
               "nav_item": "Shop",
-              "link": "shopify://collections/fella-x-maggie-marilyn-25",
-              "image": "shopify://shop_images/FELLA_NAV_770x1100_MM_94a088e3-9ae3-40a8-9945-9000df7f14d3.jpg",
-              "title": "FELLA x Maggie Marilyn",
+              "link": "shopify://collections/spring-summer-25",
+              "image": "shopify://shop_images/FELLA_VERTNAV_770x1100_SS25_1.jpg",
+              "title": "Spring Summer '25",
               "text-color": "white"
             }
           },
@@ -1080,7 +1080,17 @@
               "nav_item": "Shop",
               "link": "shopify://collections/resort-25",
               "image": "shopify://shop_images/FELLA_NAV_770x1100_R25_51fdfa59-aec8-4b32-8b63-5f22c3f66bce.jpg",
-              "title": "Resort 25",
+              "title": "Resort '25",
+              "text-color": "white"
+            }
+          },
+          "feature_f7ChLV": {
+            "type": "feature",
+            "settings": {
+              "nav_item": "Collections",
+              "link": "shopify://blogs/campaigns/numero-undici-spring-summer-25",
+              "image": "shopify://shop_images/FELLA_NAV_1540x1100_SS25.jpg",
+              "title": "Spring Summer '25",
               "text-color": "white"
             }
           },
@@ -1101,16 +1111,6 @@
               "link": "shopify://blogs/campaigns/fella-x-maggie-marilyn-24",
               "image": "shopify://shop_images/FELLA_NAV_1540x1100_MM1.jpg",
               "title": "FELLA x Maggie Marilyn",
-              "text-color": "white"
-            }
-          },
-          "feature_f7ChLV": {
-            "type": "feature",
-            "settings": {
-              "nav_item": "Collections",
-              "link": "shopify://blogs/campaigns/numero-dieci-high-summer-24",
-              "image": "shopify://shop_images/FELLA_NAV_1540x1100_HS24.jpg",
-              "title": "High Summer '24",
               "text-color": "white"
             }
           },
@@ -1148,9 +1148,9 @@
         "block_order": [
           "1596435971261",
           "1596435782120",
+          "feature_f7ChLV",
           "feature_gYLLxd",
           "0e54ad8c-fc3e-415b-a199-564237e989de",
-          "feature_f7ChLV",
           "feature_LzKJ9n",
           "feature_6w4PAR",
           "feature_yn96nc"
