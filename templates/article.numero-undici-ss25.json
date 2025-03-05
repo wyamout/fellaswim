@@ -64,21 +64,21 @@
     "content_blocks_bJcwxC": {
       "type": "content-blocks",
       "blocks": {
-        "image_8D4kCW": {
-          "type": "image",
-          "settings": {
-            "grid_x": 12,
-            "image": "shopify://shop_images/FELLA-SUMMER-25_SHOT-3_175.jpg",
-            "image_title": "",
-            "image_subtitle": "",
-            "popup_products": []
-          }
-        },
         "image_4FQaG6": {
           "type": "image",
           "settings": {
             "grid_x": 12,
             "image": "shopify://shop_images/FELLA-SUMMER-25_SHOT-8_634.jpg",
+            "image_title": "",
+            "image_subtitle": "",
+            "popup_products": []
+          }
+        },
+        "image_krrVMV": {
+          "type": "image",
+          "settings": {
+            "grid_x": 12,
+            "video": "shopify://files/videos/VIDEO_001_1c9b1c0a-dc80-4cc6-bf26-11cc3cecb1bd.mp4",
             "image_title": "",
             "image_subtitle": "",
             "popup_products": []
@@ -106,8 +106,8 @@
         }
       },
       "block_order": [
-        "image_8D4kCW",
         "image_4FQaG6",
+        "image_krrVMV",
         "image_hGXrBV",
         "image_yyFy9R"
       ],
