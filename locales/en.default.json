@@ -301,7 +301,8 @@
       "best_seller": "Best Seller",
       "new_arrivals": "New In",
       "pre_order": "Pre-order",
-      "coming_soon": "Coming soon"
+      "coming_soon": "Coming soon",
+      "online_only": "Online Only"
     }
   },
   "style_guide": {
