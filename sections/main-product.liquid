@@ -55,9 +55,10 @@ if product.compare_at_price > product.price
         assign on_final_sale = true
     endif
 
-    if product.tags contains 'online_only'
-        assign on_online_only = true
-    endif
+endif
+   
+if product.tags contains 'online_only'
+    assign on_online_only = true
 endif
 
 if is_top or is_bottom
