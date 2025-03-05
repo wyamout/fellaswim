@@ -23,6 +23,8 @@
     assign preorder = true
   elsif product.tags contains 'best_seller'
     assign tag_callout = 'best_seller'
+  elsif product.tags contains 'online_only'
+    assign tag_callout = 'online_only'
   elsif product.tags contains 'new_arrivals'
     assign tag_callout = 'new_arrivals'
   elsif product.tags contains 'coming_soon'
