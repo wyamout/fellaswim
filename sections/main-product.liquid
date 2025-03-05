@@ -46,12 +46,17 @@ assign on_final_sale = false
 assign is_customisable = false
 assign has_variant_choices = true
 assign coming_soon = false
+assign on_online_only = false
 
 if product.compare_at_price > product.price
     assign is_on_sale = true
 
     if product.tags contains 'final_sale'
         assign on_final_sale = true
+    endif
+
+    if product.tags contains 'online_only'
+        assign on_online_only = true
     endif
 endif
 
@@ -131,6 +136,10 @@ endif
                         {%- endif -%}
                         {%- if on_final_sale -%}
                             <span class="product--details--price--final-sale">{{ 'cart.callouts.final_sale' | t }}</span>
+                        {%- endif -%}
+
+                      {%- if on_online_only -%}
+                            <span class="product--details--price--final-sale">{{ 'cart.callouts.online_only' | t }}</span>
                         {%- endif -%}
                     </p>
 
