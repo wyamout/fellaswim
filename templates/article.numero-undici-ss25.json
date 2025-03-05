@@ -64,16 +64,6 @@
     "content_blocks_bJcwxC": {
       "type": "content-blocks",
       "blocks": {
-        "image_4FQaG6": {
-          "type": "image",
-          "settings": {
-            "grid_x": 12,
-            "image": "shopify://shop_images/FELLA-SUMMER-25_SHOT-8_634.jpg",
-            "image_title": "",
-            "image_subtitle": "",
-            "popup_products": []
-          }
-        },
         "image_8D4kCW": {
           "type": "image",
           "settings": {
@@ -84,11 +74,21 @@
             "popup_products": []
           }
         },
+        "image_4FQaG6": {
+          "type": "image",
+          "settings": {
+            "grid_x": 12,
+            "image": "shopify://shop_images/FELLA-SUMMER-25_SHOT-8_634.jpg",
+            "image_title": "",
+            "image_subtitle": "",
+            "popup_products": []
+          }
+        },
         "image_hGXrBV": {
           "type": "image",
           "settings": {
             "grid_x": 12,
-            "image": "shopify://shop_images/SKIN_ONLY_2.jpg",
+            "image": "shopify://shop_images/FELLA-SUMMER-25_SHOT-12_933.jpg",
             "image_title": "",
             "image_subtitle": "",
             "popup_products": []
@@ -106,8 +106,8 @@
         }
       },
       "block_order": [
-        "image_4FQaG6",
         "image_8D4kCW",
+        "image_4FQaG6",
         "image_hGXrBV",
         "image_yyFy9R"
       ],
@@ -132,21 +132,21 @@
             "popup_products": []
           }
         },
-        "image_EfXEQd": {
+        "image_pTQxYB": {
           "type": "image",
           "settings": {
             "grid_x": 12,
-            "image": "shopify://shop_images/FELLA_6.jpg",
+            "image": "shopify://shop_images/FELLA_11_d8695132-7717-436c-9cea-c6ee967c6870.jpg",
             "image_title": "",
             "image_subtitle": "",
             "popup_products": []
           }
         },
-        "image_pTQxYB": {
+        "image_EfXEQd": {
           "type": "image",
           "settings": {
             "grid_x": 12,
-            "image": "shopify://shop_images/FELLA_SUMMER_25_SHOT_15_996.jpg",
+            "image": "shopify://shop_images/FELLA_6.jpg",
             "image_title": "",
             "image_subtitle": "",
             "popup_products": []
@@ -165,8 +165,8 @@
       },
       "block_order": [
         "image_CKmxRz",
-        "image_EfXEQd",
         "image_pTQxYB",
+        "image_EfXEQd",
         "image_QPA4QB"
       ],
       "settings": {
@@ -184,7 +184,7 @@
           "type": "image",
           "settings": {
             "grid_x": 12,
-            "image": "shopify://shop_images/SKIN_ONLY_4.jpg",
+            "image": "shopify://shop_images/FELLA-SUMMER-25_SHOT-11_864.jpg",
             "image_title": "",
             "image_subtitle": "",
             "popup_products": []
