@@ -21,6 +21,15 @@
             "external_link": ""
           }
         },
+        "career_xzhWBV": {
+          "type": "Career",
+          "settings": {
+            "title": "Graphic Design & Social Media Creative",
+            "location": "Paddington, NSW",
+            "page": "graphic-design-social-media-creative",
+            "external_link": ""
+          }
+        },
         "4f0d7094-f5c8-4c04-8e4c-16e0140f7a8b": {
           "type": "Career",
           "disabled": true,
@@ -104,6 +113,7 @@
       },
       "block_order": [
         "d04bdf4b-488a-46bf-b22e-5403e110dfc4",
+        "career_xzhWBV",
         "4f0d7094-f5c8-4c04-8e4c-16e0140f7a8b",
         "5ffd462d-b849-40d9-a943-e831928bc7bb",
         "a94a000d-e0c6-4cf1-841b-90d366440a8b",
