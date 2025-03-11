@@ -12,21 +12,30 @@
     "main": {
       "type": "careers",
       "blocks": {
-        "7676129d-c954-4499-868d-36d8ce30de14": {
-          "type": "Career",
-          "settings": {
-            "title": "Retail + Customer Care Support",
-            "location": "Paddington, NSW",
-            "page": "retail-customer-care-support",
-            "external_link": ""
-          }
-        },
         "career_PMUbFA": {
           "type": "Career",
           "settings": {
             "title": "Graphic Design + Social Media Creative",
             "location": "Paddington, NSW",
             "page": "graphic-design-social-media-creative",
+            "external_link": ""
+          }
+        },
+        "career_RkwpEB": {
+          "type": "Career",
+          "settings": {
+            "title": "eCommerce Manager",
+            "location": "Paddington, NSW",
+            "page": "",
+            "external_link": ""
+          }
+        },
+        "7676129d-c954-4499-868d-36d8ce30de14": {
+          "type": "Career",
+          "settings": {
+            "title": "Retail + Customer Care Support",
+            "location": "Paddington, NSW",
+            "page": "retail-customer-care-support",
             "external_link": ""
           }
         },
@@ -122,8 +131,9 @@
         }
       },
       "block_order": [
-        "7676129d-c954-4499-868d-36d8ce30de14",
         "career_PMUbFA",
+        "career_RkwpEB",
+        "7676129d-c954-4499-868d-36d8ce30de14",
         "5ffd462d-b849-40d9-a943-e831928bc7bb",
         "a94a000d-e0c6-4cf1-841b-90d366440a8b",
         "b9163a7a-2df8-4387-9eb1-e9e226cf76e3",
