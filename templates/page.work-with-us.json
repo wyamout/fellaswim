@@ -21,6 +21,15 @@
             "external_link": ""
           }
         },
+        "career_PMUbFA": {
+          "type": "Career",
+          "settings": {
+            "title": "Graphic Design + Social Media Creative",
+            "location": "Paddington, NSW",
+            "page": "graphic-design-social-media-creative",
+            "external_link": ""
+          }
+        },
         "5ffd462d-b849-40d9-a943-e831928bc7bb": {
           "type": "Career",
           "disabled": true,
@@ -114,6 +123,7 @@
       },
       "block_order": [
         "7676129d-c954-4499-868d-36d8ce30de14",
+        "career_PMUbFA",
         "5ffd462d-b849-40d9-a943-e831928bc7bb",
         "a94a000d-e0c6-4cf1-841b-90d366440a8b",
         "b9163a7a-2df8-4387-9eb1-e9e226cf76e3",
@@ -127,7 +137,8 @@
       "settings": {
         "cover_top_image": "shopify://shop_images/karinaenever_1.jpg",
         "cover_bottom_image": "shopify://shop_images/sararamen_2.jpg",
-        "show_current_positions": true
+        "show_current_positions": true,
+        "fit_image": false
       }
     }
   },
