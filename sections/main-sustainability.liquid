@@ -7,6 +7,7 @@
         <div
           class="sus-image main-sus-image sus-image--active"
           data-id="sus-image--{{ section.id }}-{{ section.settings.image.id }}"
+          id="sus-image--{{ section.id }}-{{ section.settings.image.id }}"
         >
           <div class="swiper-wrapper">
             {% render 'responsive-image',
@@ -257,6 +258,12 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
+
+      const swiper = new Swiper('#sus-image--{{ section.id }}-{{ section.settings.image.id }}', {
+        slidesPerView: 1,
+        spaceBetween: 0,
+      });
+      
       const currentPath = window.location.pathname;
         const menuItems = document.querySelectorAll(".sus-menus--item");
       const images = document.querySelectorAll(".sus-image");
