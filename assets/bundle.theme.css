@@ -19732,6 +19732,7 @@ width: 100%;
     opacity: 1;
     visibility: visible;
     position: relative;
+  pointer-events: all;
 }
 
 .sus-images {
