@@ -23,7 +23,7 @@
                   <div class="swiper-slide">
                     {% render 'responsive-image',
                       classes: 'sus-image__item',
-                      image: section.settings.image,
+                      image: block.settings.image,
                       sizes: '1920,4500'
                     %}
                   </div>
@@ -262,7 +262,7 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-      const swiper = new Swiper('.main-sus-image ', {
+      const swiper = new Swiper('.', {
         slidesPerView: 1,
         spaceBetween: 0,
       });
