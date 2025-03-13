@@ -22,7 +22,7 @@
             "link": "shopify://pages/sustainability-ourcommitment",
             "number": "V",
             "title": "Our Commitment",
-            "image": "shopify://shop_images/OurCommitment_82a0fa71-01cc-443e-95b4-86c6090f84fa.jpg"
+            "image": "shopify://shop_images/1_OurCommitment.jpg"
           }
         },
         "menu_8AGN78": {
@@ -31,7 +31,7 @@
             "link": "shopify://pages/sustainability-advocacy",
             "number": "I",
             "title": "Advocacy",
-            "image": "shopify://shop_images/Advocacy_68b5a010-0dc3-4412-8eea-3875182b079b.jpg"
+            "image": "shopify://shop_images/2_Advocacy.jpg"
           }
         },
         "menu_Lt9cHp": {
@@ -40,7 +40,7 @@
             "link": "shopify://pages/sustainability-durabledesign",
             "number": "III",
             "title": "Durable Design",
-            "image": "shopify://shop_images/DurableDesign_1cfc2f8e-467e-46e6-913f-7cafa1747627.jpg"
+            "image": "shopify://shop_images/3_DurableDesign.jpg"
           }
         },
         "menu_zqcqT4": {
@@ -58,7 +58,7 @@
             "link": "shopify://pages/sustainability-packaging",
             "number": "VI",
             "title": "Packaging",
-            "image": "shopify://shop_images/Packaging2_9f761873-5185-4c56-8df1-510b2007cef4.jpg"
+            "image": "shopify://shop_images/5_Packaging_b6e2842c-56be-42d2-84e7-7f41cc8239ed.jpg"
           }
         },
         "menu_3d7fa6": {
@@ -67,7 +67,7 @@
             "link": "shopify://pages/sustainability-takebackprogram",
             "number": "VIII",
             "title": "Take Back Program",
-            "image": "shopify://shop_images/TakeBack_d5ee62ca-e578-46fb-b4f7-6e979421a1e7.jpg"
+            "image": "shopify://shop_images/6_TakeBack.jpg"
           }
         },
         "menu_e4wHX4": {
@@ -102,11 +102,11 @@
         "menu_NgL7hz"
       ],
       "settings": {
-        "image": "shopify://shop_images/TakeBack_d271e41a-54fb-409b-83a8-dc3bb4f767e6.jpg",
-        "subtitle": "Sustainability",
+        "image": "shopify://shop_images/6_TakeBack.jpg",
+        "subtitle": "SUSTAINABILITY",
         "title": "Take Back Program",
         "content": "<p>Introducing a new initiative for FELLA in 2025.</p><p>We recognise that over time, your FELLAs will need to be replaced. In line with our commitment to sustainability, we are now responsibly recycling your old FELLA items, as well as any off-cuts in Australia. Customers can conveniently return their used FELLA items by posting them or dropping them off at our Paddington store, and in return, receive 30% off their next purchase. Together, we’re making a positive step towards keeping synthetic materials out of landfills.</p><p>To ensure we’re not encouraging unnecessary consumerism, please note that our Take Back Program is designed for your swimwear that is truly at the end of its life. If your swimwear is still in wearable condition, we encourage you to donate or sell it.</p><p>To recycle your swimwear, please submit the form below, including a high-resolution photo of each item you wish to return.</p>",
-        "content2": "<p><strong>Conditions:</strong></p><ul><li>We will only accept swimwear that shows signs of fabric degradation, such as a loss of elasticity or damage from extended use. </li><li>To process your return, proof of purchase is required, which must include an itemized receipt from any authorized Fella retailer. </li><li>If you purchased your items directly from our online store or flagship location, we should be able to locate your order. However, if we cannot find your details, a bank statement showing a purchase from Fella Pty Ltd with the date will also be acceptable. </li><li>Please note that the items must have been purchased at least 3 years prior to the date of return.</li><li>Hardware erosion is not accepted. For wearable swimwear that is suffering from eroded hardware, please get in touch with customercare@fellaswim.com regarding a “hardware replacement”.</li></ul>",
+        "content2": "<p><strong>Conditions:</strong></p><ul><li>Please note that the items must have been purchased at least 3 years prior to the date of return.</li><li>We will only accept swimwear that shows signs of fabric degradation, such as a loss of elasticity or damage from extended use. </li><li>To process your return, proof of purchase is required, which must include an itemized receipt from any authorized Fella retailer. </li><li>If you purchased your items directly from our online store or flagship location, we should be able to locate your order. However, if we cannot find your details, a bank statement showing a purchase from Fella Pty Ltd with the date will also be acceptable. </li><li>Hardware erosion is not accepted. For wearable swimwear that is suffering from eroded hardware, please get in touch with customercare@fellaswim.com regarding a “hardware replacement”.</li></ul>",
         "show_form": true
       }
     }
