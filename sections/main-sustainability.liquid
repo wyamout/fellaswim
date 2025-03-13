@@ -8,7 +8,23 @@
           class="sus-image main-sus-image sus-image--active"
           data-id="sus-image--{{ section.id }}-{{ section.settings.image.id }}"
         >
-          {% render 'responsive-image', classes: 'sus-image__item', image: section.settings.image, sizes: '1920,4500' %}
+          <div class="swiper-wrapper">
+            {% render 'responsive-image',
+              classes: 'sus-image__item',
+              image: section.settings.image,
+              sizes: '1920,4500'
+            %}
+            {% for block in section.blocks %}
+              {% case block.type %}
+                {% when 'image' %}
+                  {% render 'responsive-image',
+                    classes: 'sus-image__item swiper-slide',
+                    image: section.settings.image,
+                    sizes: '1920,4500'
+                  %}
+              {% endcase %}
+            {% endfor %}
+          </div>
         </div>
         {% for block in section.blocks %}
           {% case block.type %}
