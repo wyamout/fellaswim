@@ -19741,6 +19741,10 @@ width: 100%;
 .sus-content {
   width: 100%;
       padding: 25px 15px 0 15px;
+      display: flex
+;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .sus-menus {
