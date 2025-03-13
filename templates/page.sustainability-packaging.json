@@ -22,7 +22,7 @@
             "link": "shopify://pages/sustainability-ourcommitment",
             "number": "V",
             "title": "Our Commitment",
-            "image": "shopify://shop_images/OurCommitment_a675b5b7-a737-4877-b3b2-499af623d4d4.jpg"
+            "image": "shopify://shop_images/1_OurCommitment.jpg"
           }
         },
         "menu_8AGN78": {
@@ -31,7 +31,7 @@
             "link": "shopify://pages/sustainability-advocacy",
             "number": "I",
             "title": "Advocacy",
-            "image": "shopify://shop_images/Advocacy_880e383a-56f8-4e82-8670-2a9f5659c382.jpg"
+            "image": "shopify://shop_images/2_Advocacy.jpg"
           }
         },
         "menu_Lt9cHp": {
@@ -40,7 +40,7 @@
             "link": "shopify://pages/sustainability-durabledesign",
             "number": "III",
             "title": "Durable Design",
-            "image": "shopify://shop_images/DurableDesign_b4712d9f-dcba-4975-a78f-2180e9cdbd41.jpg"
+            "image": "shopify://shop_images/3_DurableDesign.jpg"
           }
         },
         "menu_zqcqT4": {
@@ -58,7 +58,7 @@
             "link": "shopify://pages/sustainability-packaging",
             "number": "VI",
             "title": "Packaging",
-            "image": "shopify://shop_images/Packaging2_fc03225a-8e84-4d81-ad1c-92d8987e2e58.jpg"
+            "image": "shopify://shop_images/5_Packaging_b6e2842c-56be-42d2-84e7-7f41cc8239ed.jpg"
           }
         },
         "menu_3d7fa6": {
@@ -67,7 +67,7 @@
             "link": "shopify://pages/sustainability-takebackprogram",
             "number": "VIII",
             "title": "Take Back Program",
-            "image": "shopify://shop_images/TakeBack_cf22942b-ed01-49a7-b09b-e80bc10ed23a.jpg"
+            "image": "shopify://shop_images/6_TakeBack.jpg"
           }
         },
         "menu_e4wHX4": {
@@ -102,10 +102,11 @@
         "menu_NgL7hz"
       ],
       "settings": {
-        "image": "shopify://shop_images/Packaging2_8fa6f0c1-5ff7-41f3-bc82-b62241690008.jpg",
-        "subtitle": "Sustainability",
+        "image": "shopify://shop_images/5_Packaging_b6e2842c-56be-42d2-84e7-7f41cc8239ed.jpg",
+        "subtitle": "SUSTAINABILITY",
         "title": "Packaging",
         "content": "<p>We have eliminated harmful toxins that damage the ecosystem, ensuring our practices contribute to a healthier planet. Our packaging and shipping materials are fully biodegradable, leaving no trace behind. Additionally, sanitary stickers, wrapping paper, care cards, and swing tags are all printed on recycled paper, further supporting our commitment to sustainability.</p>",
+        "content2": "",
         "show_form": false
       }
     }
