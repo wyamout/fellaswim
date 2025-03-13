@@ -10,19 +10,23 @@
           id="sus-image--{{ section.id }}-{{ section.settings.image.id }}"
         >
           <div class="swiper-wrapper">
-            {% render 'responsive-image',
-              classes: 'sus-image__item ',
-              image: section.settings.image,
-              sizes: '1920,4500'
-            %}
+            <div class="swiper-slide">
+              {% render 'responsive-image',
+                classes: 'sus-image__item ',
+                image: section.settings.image,
+                sizes: '1920,4500'
+              %}
+            </div>
             {% for block in section.blocks %}
               {% case block.type %}
                 {% when 'image' %}
-                  {% render 'responsive-image',
-                    classes: 'sus-image__item',
-                    image: section.settings.image,
-                    sizes: '1920,4500'
-                  %}
+                  <div class="swiper-slide">
+                    {% render 'responsive-image',
+                      classes: 'sus-image__item',
+                      image: section.settings.image,
+                      sizes: '1920,4500'
+                    %}
+                  </div>
               {% endcase %}
             {% endfor %}
           </div>
