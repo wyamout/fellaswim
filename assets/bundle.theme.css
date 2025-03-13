@@ -19831,7 +19831,6 @@ margin-left: auto;
 
 .sub-heading {
   text-align: center;
-  margin-top: 50px;
           padding: 10px 40px;
 }
 
@@ -19842,7 +19841,7 @@ margin-left: auto;
 @media screen and (min-width: 768px) {
   .sub-heading {
   text-align: left;
-  margin-top: 100px;
+
 }
 }
 
