@@ -1,4 +1,3 @@
-{% assign menu_titles = '' %}
 <div class="main-sustainability">
   {% assign full_url = request.host | append: request.path %}
 
@@ -147,7 +146,7 @@
             {% endform %}
           </div>
         {% endif %}
-        <div class="sub-heading--desc" style="margin-top: 20px;">
+        <div class="sub-heading--desc" style="margin-top: 40px;">
           {{ section.settings.content2 }}
         </div>
         <div class="sus-content-wrap">
@@ -218,26 +217,21 @@
         {% for block in section.blocks %}
           {% case block.type %}
             {% when 'menu' %}
-              {% unless menu_titles contains block.settings.title %}
-                {% assign menu_titles = menu_titles | append: block.settings.title | append: ',' %}
-                <!-- Store title -->
+              {% assign current_url = request.path %}
+              {% assign is_active = false %}
 
-                {% assign current_url = request.path %}
-                {% assign is_active = false %}
+              {% if block.settings.link == current_url %}
+                {% assign is_active = true %}
+              {% endif %}
 
-                {% if block.settings.link == current_url %}
-                  {% assign is_active = true %}
-                {% endif %}
-
-                <a
-                  href="{{ block.settings.link }}"
-                  class="sus-menus--item swiper-slide {% if is_active %}active-link{% endif %}"
-                  data-id="sus-menus--item--{{ section.id }}-{{ block.settings.image.id }}"
-                  link="{{current_url}}"
-                >
-                  {{ block.settings.title }}
-                </a>
-              {% endunless %}
+              <a
+                href="{{ block.settings.link }}"
+                class="sus-menus--item swiper-slide {% if is_active %}active-link{% endif %}"
+                data-id="sus-menus--item--{{ section.id }}-{{ block.settings.image.id }}"
+                link="{{current_url  }}"
+              >
+                {{ block.settings.title }}
+              </a>
           {% endcase %}
         {% endfor %}
       </div>
