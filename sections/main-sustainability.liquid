@@ -146,7 +146,9 @@
             {% endform %}
           </div>
         {% endif %}
-
+        <div class="sub-heading--desc">
+          {{ section.settings.content2 }}
+        </div>
         <div class="sus-content-wrap">
           {% for block in section.blocks %}
             {% case block.type %}
