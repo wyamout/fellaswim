@@ -19836,7 +19836,7 @@ margin-left: auto;
 
 @media screen and (min-width: 768px) {
   .sub-heading {
-  text-align: center;
+  text-align: left;
   margin-top: 100px;
 }
 }
@@ -19934,6 +19934,7 @@ flex-direction: row;
   
 .sub-heading--desc {
     padding: 10px 40px;
+  text-align: left;
 }
 
 .sub-content-form {
