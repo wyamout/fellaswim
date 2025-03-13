@@ -22,7 +22,7 @@
             "link": "shopify://pages/sustainability-ourcommitment",
             "number": "V",
             "title": "Our Commitment",
-            "image": "shopify://shop_images/PHAW2018_RB_f8af060f-a21e-4b0e-a894-028075593835.jpg"
+            "image": "shopify://shop_images/1_OurCommitment.jpg"
           }
         },
         "menu_8AGN78": {
@@ -31,7 +31,7 @@
             "link": "shopify://pages/sustainability-advocacy",
             "number": "I",
             "title": "Advocacy",
-            "image": "shopify://shop_images/PHAW1632_RB.jpg"
+            "image": "shopify://shop_images/2_Advocacy.jpg"
           }
         },
         "menu_Lt9cHp": {
@@ -40,7 +40,7 @@
             "link": "shopify://pages/sustainability-durabledesign",
             "number": "III",
             "title": "Durable Design",
-            "image": "shopify://shop_images/FELLA---Factory--_32-of-63.jpg"
+            "image": "shopify://shop_images/3_DurableDesign.jpg"
           }
         },
         "menu_zqcqT4": {
@@ -58,7 +58,7 @@
             "link": "shopify://pages/sustainability-packaging",
             "number": "VI",
             "title": "Packaging",
-            "image": "shopify://shop_images/Packaging2_756091bb-b5c1-406c-a01c-b5f4bb244489.jpg"
+            "image": "shopify://shop_images/5_Packaging_b6e2842c-56be-42d2-84e7-7f41cc8239ed.jpg"
           }
         },
         "menu_3d7fa6": {
@@ -67,7 +67,7 @@
             "link": "shopify://pages/sustainability-takebackprogram",
             "number": "VIII",
             "title": "Take Back Program",
-            "image": "shopify://shop_images/PHAW0820_RB.jpg"
+            "image": "shopify://shop_images/6_TakeBack.jpg"
           }
         },
         "menu_e4wHX4": {
@@ -102,10 +102,11 @@
         "menu_NgL7hz"
       ],
       "settings": {
-        "image": "shopify://shop_images/PHAW2018_RB.jpg",
+        "image": "shopify://shop_images/1_OurCommitment.jpg",
         "subtitle": "Sustainability",
         "title": "Our Commitment",
         "content": "<p>This world of ours is complex, vast and inimitably beautiful - to experience it is the ultimate luxury. With privilege comes responsibility and FELLA is committed to conscious initiatives that reduce our environmental impact. Since FELLA was founded in 2012, we’ve stayed true to the belief that less is more. We have built our brand on product integrity, and it is this same principle that informs the way we work, with all aspects of the business shaped by fair and ethical conduct. Whilst we know we are not perfect; we are committed to the journey of sustainability and vow efforts to make positive change in all areas that we can.</p>",
+        "content2": "",
         "show_form": false
       }
     }
