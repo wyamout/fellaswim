@@ -22,7 +22,7 @@
             "link": "shopify://pages/sustainability-ourcommitment",
             "number": "V",
             "title": "Our Commitment",
-            "image": "shopify://shop_images/OurCommitment_cdaaa79a-b715-4477-b391-c118ca282f7a.jpg"
+            "image": "shopify://shop_images/1_OurCommitment.jpg"
           }
         },
         "menu_8AGN78": {
@@ -31,7 +31,7 @@
             "link": "shopify://pages/sustainability-advocacy",
             "number": "I",
             "title": "Advocacy",
-            "image": "shopify://shop_images/Advocacy_f0fc6bc0-d37c-4701-870f-6b60ebbbf159.jpg"
+            "image": "shopify://shop_images/2_Advocacy.jpg"
           }
         },
         "menu_Lt9cHp": {
@@ -40,7 +40,7 @@
             "link": "shopify://pages/sustainability-durabledesign",
             "number": "III",
             "title": "Durable Design",
-            "image": "shopify://shop_images/DurableDesign_56f37173-05e5-49df-ab68-425c87d2d3b6.jpg"
+            "image": "shopify://shop_images/3_DurableDesign.jpg"
           }
         },
         "menu_zqcqT4": {
@@ -58,7 +58,7 @@
             "link": "shopify://pages/sustainability-packaging",
             "number": "VI",
             "title": "Packaging",
-            "image": "shopify://shop_images/Packaging2_c6416623-451f-46d1-b9e4-f7e463718f81.jpg"
+            "image": "shopify://shop_images/5_Packaging_b6e2842c-56be-42d2-84e7-7f41cc8239ed.jpg"
           }
         },
         "menu_3d7fa6": {
@@ -67,7 +67,7 @@
             "link": "shopify://pages/sustainability-takebackprogram",
             "number": "VIII",
             "title": "Take Back Program",
-            "image": "shopify://shop_images/TakeBack_b6d7d0ec-1a0b-4d26-9786-79af0f06ca42.jpg"
+            "image": "shopify://shop_images/6_TakeBack.jpg"
           }
         },
         "menu_e4wHX4": {
@@ -103,9 +103,10 @@
       ],
       "settings": {
         "image": "shopify://shop_images/Manufacturing_2eadf8f6-a193-43bf-a350-9d586f735370.jpg",
-        "subtitle": "Sustainability",
+        "subtitle": "SUSTAINABILITY",
         "title": "Manufacturing",
         "content": "<p>We stand against excess — in both production and principle. Prioritising small runs and made-to-order pieces whenever possible, our dedicated team crafts each item with care. Minimal off-cuts are carefully set aside for future use or responsibly recycled. Owning our own factory allows us to ensure that every member of our production team is treated with the utmost respect, paid fairly, and provided with a supportive work environment. </p>",
+        "content2": "",
         "show_form": false
       }
     }
