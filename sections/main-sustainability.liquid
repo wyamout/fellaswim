@@ -1,3 +1,4 @@
+{% assign menu_titles = '' %}
 <div class="main-sustainability">
   {% assign full_url = request.host | append: request.path %}
 
@@ -217,21 +218,26 @@
         {% for block in section.blocks %}
           {% case block.type %}
             {% when 'menu' %}
-              {% assign current_url = request.path %}
-              {% assign is_active = false %}
+              {% unless menu_titles contains block.settings.title %}
+                {% assign menu_titles = menu_titles | append: block.settings.title | append: ',' %}
+                <!-- Store title -->
 
-              {% if block.settings.link == current_url %}
-                {% assign is_active = true %}
-              {% endif %}
+                {% assign current_url = request.path %}
+                {% assign is_active = false %}
 
-              <a
-                href="{{ block.settings.link }}"
-                class="sus-menus--item swiper-slide {% if is_active %}active-link{% endif %}"
-                data-id="sus-menus--item--{{ section.id }}-{{ block.settings.image.id }}"
-                link="{{current_url  }}"
-              >
-                {{ block.settings.title }}
-              </a>
+                {% if block.settings.link == current_url %}
+                  {% assign is_active = true %}
+                {% endif %}
+
+                <a
+                  href="{{ block.settings.link }}"
+                  class="sus-menus--item swiper-slide {% if is_active %}active-link{% endif %}"
+                  data-id="sus-menus--item--{{ section.id }}-{{ block.settings.image.id }}"
+                  link="{{current_url}}"
+                >
+                  {{ block.settings.title }}
+                </a>
+              {% endunless %}
           {% endcase %}
         {% endfor %}
       </div>
