@@ -5,7 +5,7 @@
     <div class="sus-wrap">
       <div class="sus-images">
         <div
-          class="sus-image main-sus-image sus-image--active"
+          class="sus-image main-sus-image sus-image--active swiper"
           data-id="sus-image--{{ section.id }}-{{ section.settings.image.id }}"
           id="sus-image--{{ section.id }}-{{ section.settings.image.id }}"
         >
@@ -20,28 +20,13 @@
                 {% when 'image' %}
                   {% render 'responsive-image',
                     classes: 'sus-image__item swiper-slide',
-                    image: section.settings.image,
+                    image: block.settings.image,
                     sizes: '1920,4500'
                   %}
               {% endcase %}
             {% endfor %}
           </div>
         </div>
-        {% for block in section.blocks %}
-          {% case block.type %}
-            {% when 'menu' %}
-              <div
-                class="sus-image"
-                data-id="sus-image--{{ section.id }}-{{ block.settings.image.id }}"
-              >
-                {% render 'responsive-image',
-                  classes: 'sus-image__item',
-                  image: block.settings.image,
-                  sizes: '1920,4500'
-                %}
-              </div>
-          {% endcase %}
-        {% endfor %}
       </div>
 
       <div class="sus-content">
