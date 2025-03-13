@@ -19724,7 +19724,6 @@ width: 100%;
 .sus-image{
  opacity: 0;
     visibility: hidden;
-    pointer-events: none;
     position: absolute;
 }
 
@@ -19732,7 +19731,6 @@ width: 100%;
     opacity: 1;
     visibility: visible;
     position: relative;
-  pointer-events: all;
 }
 
 .sus-images {
