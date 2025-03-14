@@ -19967,3 +19967,7 @@ flex-direction: row;
 
   }
 }
+
+.sus-images .swiper-pagination-bullets {
+  padding-bottom: 20px;
+}
