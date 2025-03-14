@@ -30,6 +30,8 @@
               {% endcase %}
             {% endfor %}
           </div>
+          <!-- If we need pagination -->
+  <div class="swiper-pagination"></div>
         </div>
         {% for block in section.blocks %}
           {% case block.type %}
@@ -266,9 +268,8 @@
         slidesPerView: 1,
         spaceBetween: 0,
         // Navigation arrows
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
+  pagination: {
+    el: '.swiper-pagination',
   },
       });
       
