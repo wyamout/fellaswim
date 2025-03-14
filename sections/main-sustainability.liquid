@@ -265,9 +265,13 @@
       const swiper = new Swiper('#sus-image--{{ section.id }}-{{ section.settings.image.id }}', {
         slidesPerView: 1,
         spaceBetween: 0,
+        // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
       });
       
-  console.log(swiper)
       const currentPath = window.location.pathname;
         const menuItems = document.querySelectorAll(".sus-menus--item");
       const images = document.querySelectorAll(".sus-image");
