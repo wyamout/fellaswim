@@ -19968,6 +19968,6 @@ flex-direction: row;
   }
 }
 
-.sus-images .swiper-pagination-bullets {
-  padding-bottom: 20px;
+.sus-images .swiper-button-next,.sus-images .swiper-button-prev {
+  color: #fff;
 }
