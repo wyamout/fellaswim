@@ -93,7 +93,19 @@
         "image_aKLPAe": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/eli-top-fudge-campaign-5.jpg"
+            "image": "shopify://shop_images/FELLA_-_Factory_37_of_63.jpg"
+          }
+        },
+        "image_QcpRfw": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/FELLA_-_Factory_46_of_63.jpg"
+          }
+        },
+        "image_hGyBgp": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/FELLA_-_Factory_46_of_63.jpg"
           }
         }
       },
@@ -106,7 +118,9 @@
         "menu_3d7fa6",
         "menu_e4wHX4",
         "menu_NgL7hz",
-        "image_aKLPAe"
+        "image_aKLPAe",
+        "image_QcpRfw",
+        "image_hGyBgp"
       ],
       "settings": {
         "image": "shopify://shop_images/Manufacturing_2eadf8f6-a193-43bf-a350-9d586f735370.jpg",
