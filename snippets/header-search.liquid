@@ -1,4 +1,4 @@
-{%- assign products = predictive_search.resources.products -%}
+{%- assign products = predictive_search.resources.products | sort: 'published_at' | reverse -%}
 {%- assign collections = predictive_search.resources.collections -%}
 {%- assign terms = predictive_search.terms -%}
 
