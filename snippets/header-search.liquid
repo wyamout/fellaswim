@@ -1,4 +1,4 @@
-{%- assign products = predictive_search.resources.products -%}
+{%- assign products = predictive_search.resources.products | sort: 'published_at' | reverse -%}
 {%- assign collections = predictive_search.resources.collections -%}
 {%- assign terms = predictive_search.terms -%}
 
@@ -21,55 +21,53 @@
 {%- endcapture -%}
 
 <div class="search--results" data-collections="{{ collection_size }}" data-products="{{ product_size }}">
-    <div class="results--collections">
-        <div class="results--title">
-            {{ 'search.category' | t }}
-        </div>
-
-        <div class="results--wrapper">
-            {%- if collection_size > 0 -%}
-                {{ collection_links }}
-            {%- else -%}
-                {{ no_results }}
-            {%- endif -%}
-
-            <div class="loader spinner-black background-white"></div>
-        </div>
-
+  <div class="results--collections">
+    <div class="results--title">
+      {{ 'search.category' | t }}
     </div>
-    <div class="results--products">
-        <div class="results--title">
-            <span>
-                {{ 'search.products' | t }}
-            </span>
-            <span class="results--count">
-                {%- if product_size == 10 -%}
-                    {{ 'search.results_10_more' | t }}
-                {%- else -%}
-                    {%- assign plural = '' -%}
-                    {%- if product_size > 1 -%}
-                        {%- assign plural = 's' -%}
-                    {%- endif -%}
-                    {{ 'search.results' | t: count: product_size, plural: plural }}
-                {%- endif -%}
-            </span>
-            <a class="results--view-all-link" data-href="{{ routes.search_url }}?q=">
-                {{ 'search.view_all_results' | t }}
-            </a>
-        </div>
 
-        <div class="results--wrapper">
-            <div class="product-index six-col">
-                {%- if product_size > 0 -%}
-                    {%- for product in products limit:6 -%}
-                        {%- render 'product-index' product: product, no_add_to_cart: true -%}
-                    {%- endfor -%}
-                {%- else -%}
-                    {{ no_results }}
-                {%- endif -%}
-            </div>
-            <div class="loader spinner-black background-white"></div>
-        </div>
+    <div class="results--wrapper">
+      {%- if collection_size > 0 -%}
+        {{ collection_links }}
+      {%- else -%}
+        {{ no_results }}
+      {%- endif -%}
 
+      <div class="loader spinner-black background-white"></div>
     </div>
+  </div>
+  <div class="results--products">
+    <div class="results--title">
+      <span>
+        {{ 'search.products' | t }}
+      </span>
+      <span class="results--count">
+        {%- if product_size == 10 -%}
+          {{ 'search.results_10_more' | t }}
+        {%- else -%}
+          {%- assign plural = '' -%}
+          {%- if product_size > 1 -%}
+            {%- assign plural = 's' -%}
+          {%- endif -%}
+          {{ 'search.results' | t: count: product_size, plural: plural }}
+        {%- endif -%}
+      </span>
+      <a class="results--view-all-link" data-href="{{ routes.search_url }}?q=">
+        {{ 'search.view_all_results' | t }}
+      </a>
+    </div>
+
+    <div class="results--wrapper">
+      <div class="product-index six-col">
+        {%- if product_size > 0 -%}
+          {%- for product in products limit: 6 -%}
+            {%- render 'product-index', product: product, no_add_to_cart: true -%}
+          {%- endfor -%}
+        {%- else -%}
+          {{ no_results }}
+        {%- endif -%}
+      </div>
+      <div class="loader spinner-black background-white"></div>
+    </div>
+  </div>
 </div>
