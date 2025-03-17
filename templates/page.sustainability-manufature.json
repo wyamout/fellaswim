@@ -89,18 +89,6 @@
             "title": "Responsible Home",
             "image": "shopify://shop_images/474946674_28198019409842273_323854685879777938_n.jpg"
           }
-        },
-        "image_EQJgXq": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/digby-bottom-fudge-campaign-5.jpg"
-          }
-        },
-        "image_TbtPVY": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/christobal-fullpiece-campari-campaign-5.jpg"
-          }
         }
       },
       "block_order": [
@@ -111,9 +99,7 @@
         "menu_Gx7tdt",
         "menu_3d7fa6",
         "menu_e4wHX4",
-        "menu_NgL7hz",
-        "image_EQJgXq",
-        "image_TbtPVY"
+        "menu_NgL7hz"
       ],
       "settings": {
         "image": "shopify://shop_images/Manufacturing_2eadf8f6-a193-43bf-a350-9d586f735370.jpg",
