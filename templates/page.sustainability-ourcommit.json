@@ -89,12 +89,6 @@
             "title": "Responsible Home",
             "image": "shopify://shop_images/474946674_28198019409842273_323854685879777938_n.jpg"
           }
-        },
-        "image_J3eXbC": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/luca-bottom-cactus-campaign-3.jpg"
-          }
         }
       },
       "block_order": [
@@ -105,8 +99,7 @@
         "menu_Gx7tdt",
         "menu_3d7fa6",
         "menu_e4wHX4",
-        "menu_NgL7hz",
-        "image_J3eXbC"
+        "menu_NgL7hz"
       ],
       "settings": {
         "image": "shopify://shop_images/1_OurCommitment.jpg",

@@ -89,6 +89,12 @@
             "title": "Carbon Missions",
             "image": "shopify://shop_images/marcus-bottom-campari-campaign-3.jpg"
           }
+        },
+        "image_DBFzGR": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/luca-bottom-cactus-1.png"
+          }
         }
       },
       "block_order": [
@@ -99,13 +105,15 @@
         "menu_Gx7tdt",
         "menu_3d7fa6",
         "menu_NgL7hz",
-        "menu_e4wHX4"
+        "menu_e4wHX4",
+        "image_DBFzGR"
       ],
       "settings": {
         "image": "shopify://shop_images/6_734a7bba-4ad9-4171-8f74-9d54b23c5f8d.jpg",
         "subtitle": "Sustainability",
         "title": "ADVOCACY",
         "content": "<p>This world of ours is complex, vast and inimitably beautiful - to experience it is the ultimate luxury. With privilege comes responsibility and FELLA is committed to conscious initiatives that reduce our environmental impact and ensure future Fellas can also know this natural beauty. Since FELLA was founded in 2012, we’ve stayed true to the belief that less is more. We have built our brand on product integrity, and it is this same principle that informs the way we work, with all aspects of the business shaped by fair and ethical conduct. Whilst we know we are not perfect, we are committed to the journey of sustainability and vow efforts to make positive change in all areas that we can.</p>",
+        "content2": "",
         "show_form": false
       }
     }
