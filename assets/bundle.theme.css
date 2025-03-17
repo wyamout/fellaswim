@@ -19971,3 +19971,7 @@ flex-direction: row;
 .sus-images .swiper-button-next,.sus-images .swiper-button-prev {
   color: #fff;
 }
+
+.sus-images .swiper-button-next:after,.sus-images .swiper-button-prev:after {
+  font-size:30px;
+}
