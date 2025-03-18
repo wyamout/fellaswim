@@ -266,7 +266,10 @@
 
 <script>
 window.onload = function () {
-    console.log("XYZ");
+  console.log("ABC")
+}
+document.addEventListener("DOMContentLoaded", function () {
+  console.log("XYZ")
     const selector = `#sus-image--{{ section.id }}-{{ section.settings.image.id }}`;
     const swiperContainer = document.querySelector(selector);
 
@@ -285,7 +288,8 @@ window.onload = function () {
             });
         }
     }
-};
+});
+
       const currentPath = window.location.pathname;
         const menuItems = document.querySelectorAll(".sus-menus--item");
       const images = document.querySelectorAll(".sus-image");
