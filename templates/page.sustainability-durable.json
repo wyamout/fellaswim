@@ -13,85 +13,106 @@
       "type": "main-page",
       "settings": {}
     },
-    "e49e8725-4d73-40e9-b1c0-638754357376": {
-      "type": "image-feature",
-      "settings": {
-        "image": "shopify://shop_images/b6c2808507e2--3-198b35.jpg",
-        "image_mobile": "shopify://shop_images/b6c2808507e2--3-198b35.jpg",
-        "vimeo_desktop": "",
-        "vimeo_mobile": "",
-        "title": "Page Template",
-        "subtitle": "",
-        "copy": "",
-        "layout": "full-width",
-        "text-alignment": "center",
-        "text-color": "white",
-        "link": ""
-      }
-    },
-    "4faa384f-6082-4402-ad4a-ffd3b499d3bd": {
-      "type": "content-blocks",
+    "main_sustainability_xRfXYN": {
+      "type": "main-sustainability",
       "blocks": {
-        "cc14044e-4321-4848-8fab-15d573842a86": {
-          "type": "text",
+        "menu_9CpYth": {
+          "type": "menu",
           "settings": {
-            "grid_x": 8,
-            "text_title": "",
-            "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pretium imperdiet massa. Nulla varius id metus sit amet hendrerit. Phasellus mi est, fermentum rhoncus dolor ut, faucibus egestas leo. Praesent ut mauris arcu doren liquam molestie libero sed interdum posuere. <br/>Phasellus mi est, fermentum rhoncus dolor ut, faucibus egestas leo. Praesent ut mauris arcu doren. Fusce ac augue in justo tincidunt accumsan lorem ipsum caller fretem glorenium. <br/>Aliquam molestie libero sed interdum posuere:<br/>Lorem ipsum dolor sit amet<br/>Consectetur adipiscing elit<br/>Nulla pretium imperdiet massa</p>"
-          }
-        }
-      },
-      "block_order": [
-        "cc14044e-4321-4848-8fab-15d573842a86"
-      ],
-      "settings": {
-        "grid_gap_value": "",
-        "horizontal_padding": "small",
-        "vertical_padding": "medium",
-        "vertical_alignment": "center"
-      }
-    },
-    "1383d4a5-7b14-4f11-a438-d93b7448bcc4": {
-      "type": "content-blocks",
-      "blocks": {
-        "900efc4f-78d2-44c7-b26b-8e64daa42942": {
-          "type": "image",
-          "settings": {
-            "grid_x": 6,
-            "image": "shopify://shop_images/b6c2808507e2--3-198b35.jpg",
-            "image_title": "My title",
-            "image_subtitle": "Subtitle",
-            "popup_products": [
-              "abraham-top-coral",
-              "abraham-top-day-in-the-garden"
-            ]
+            "link": "shopify://pages/sustainability-ourcommitment",
+            "number": "V",
+            "title": "Our Commitment",
+            "image": "shopify://shop_images/1_OurCommitment.jpg"
           }
         },
-        "c34b943c-d5b3-4be7-9021-be6b9c340fdc": {
-          "type": "text",
+        "menu_8AGN78": {
+          "type": "menu",
           "settings": {
-            "grid_x": 6,
-            "text_title": "asdsadasdsadsada",
-            "description": "<p>asdasdadas dasdasdasd asdasdadad adasdasdasdasdasdasdadasdasdas d ad ada asd asd adas</p>"
+            "link": "shopify://pages/sustainability-advocacy",
+            "number": "I",
+            "title": "Advocacy",
+            "image": "shopify://shop_images/2_Advocacy.jpg"
+          }
+        },
+        "menu_Lt9cHp": {
+          "type": "menu",
+          "settings": {
+            "link": "shopify://pages/sustainability-durabledesign",
+            "number": "III",
+            "title": "Durable Design",
+            "image": "shopify://shop_images/3_DurableDesign.jpg"
+          }
+        },
+        "menu_zqcqT4": {
+          "type": "menu",
+          "settings": {
+            "link": "shopify://pages/sustainability-manufacturing",
+            "number": "IV",
+            "title": "Manufacturing",
+            "image": "shopify://shop_images/Manufacturing_f70fad51-ac6d-48d3-940a-9a1635cd9230.jpg"
+          }
+        },
+        "menu_Gx7tdt": {
+          "type": "menu",
+          "settings": {
+            "link": "shopify://pages/sustainability-packaging",
+            "number": "VI",
+            "title": "Packaging",
+            "image": "shopify://shop_images/5_Packaging_b6e2842c-56be-42d2-84e7-7f41cc8239ed.jpg"
+          }
+        },
+        "menu_3d7fa6": {
+          "type": "menu",
+          "settings": {
+            "link": "shopify://pages/sustainability-takebackprogram",
+            "number": "VIII",
+            "title": "Take Back Program",
+            "image": "shopify://shop_images/6_TakeBack.jpg"
+          }
+        },
+        "menu_e4wHX4": {
+          "type": "menu",
+          "disabled": true,
+          "settings": {
+            "link": "shopify://pages/sustainability-carbonemissions",
+            "number": "II",
+            "title": "Carbon Missions",
+            "image": "shopify://shop_images/marcus-bottom-campari-campaign-3.jpg"
+          }
+        },
+        "menu_NgL7hz": {
+          "type": "menu",
+          "disabled": true,
+          "settings": {
+            "link": "shopify://pages/sustainability-responsiblehomecare",
+            "number": "VII",
+            "title": "Responsible Home",
+            "image": "shopify://shop_images/474946674_28198019409842273_323854685879777938_n.jpg"
           }
         }
       },
       "block_order": [
-        "900efc4f-78d2-44c7-b26b-8e64daa42942",
-        "c34b943c-d5b3-4be7-9021-be6b9c340fdc"
+        "menu_9CpYth",
+        "menu_8AGN78",
+        "menu_Lt9cHp",
+        "menu_zqcqT4",
+        "menu_Gx7tdt",
+        "menu_3d7fa6",
+        "menu_e4wHX4",
+        "menu_NgL7hz"
       ],
       "settings": {
-        "grid_gap_value": "",
-        "horizontal_padding": "small",
-        "vertical_padding": "medium",
-        "vertical_alignment": "center"
+        "image": "shopify://shop_images/3_DurableDesign.jpg",
+        "subtitle": "SUSTAINABILITY",
+        "title": "Durable Design",
+        "content": "<p>Classic design and quality construction mean swimwear that endures. Our reverence for quality sees us invest in durable, premium fabrics that are woven to see the FELLA woman through season after season. </p><p>Our printed Italian lycra is composed of 78% polyester, and we are committed to furthering our sustainability efforts by exploring more eco-friendly fabric options for our upcoming core collections. </p><p>In line with this, our core block-coloured fabrics are dyed using Oeko-Tex Standard 100 certified dyes, ensuring minimal environmental impact and prioritising the health and safety of both our planet and our customers.</p>",
+        "content2": "",
+        "show_form": false
       }
     }
   },
   "order": [
     "main",
-    "e49e8725-4d73-40e9-b1c0-638754357376",
-    "4faa384f-6082-4402-ad4a-ffd3b499d3bd",
-    "1383d4a5-7b14-4f11-a438-d93b7448bcc4"
+    "main_sustainability_xRfXYN"
   ]
 }
