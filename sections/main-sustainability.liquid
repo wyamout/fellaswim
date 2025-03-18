@@ -167,14 +167,14 @@
               </div>
 
               {%- if form.posted_successfully? -%}
-                <h2
+                <div
                   class="form-status form-status-list form__message"
                   tabindex="-1"
                   autofocus
                 >
                   {{- 'icon-success.svg' | inline_asset_content -}}
                   Thank you for submitting! We will get back to you within 5 business days.
-                </h2>
+                </div>
               {%- endif -%}
             {% endform %}
           </div>
