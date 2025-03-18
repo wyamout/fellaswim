@@ -43,9 +43,9 @@
           "type": "Career",
           "disabled": true,
           "settings": {
-            "title": "Casual Retail Assistant",
+            "title": "Test Career",
             "location": "",
-            "page": "casual-retail-assistant",
+            "page": "test-career",
             "external_link": "mailto:paddington@fellaswim.com"
           }
         },
