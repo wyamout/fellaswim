@@ -265,7 +265,15 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" async></script>
 
 <script>
-    document.addEventListener("pageshow", function () {
+  document.addEventListener("DOMContentLoaded", function () {
+  if (!sessionStorage.getItem("pageReloaded")) {
+    sessionStorage.setItem("pageReloaded", "true");
+    location.reload();
+  } else {
+    sessionStorage.removeItem("pageReloaded");
+  }
+});
+    document.addEventListener("DOMContentLoaded", function () {
       const swiper = new Swiper('#sus-image--{{ section.id }}-{{ section.settings.image.id }}', {
         slidesPerView: 1,
         spaceBetween: 0,
