@@ -7,91 +7,95 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "sections": {
     "main": {
       "type": "main-page",
       "settings": {}
     },
-    "e49e8725-4d73-40e9-b1c0-638754357376": {
-      "type": "image-feature",
-      "settings": {
-        "image": "shopify://shop_images/b6c2808507e2--3-198b35.jpg",
-        "image_mobile": "shopify://shop_images/b6c2808507e2--3-198b35.jpg",
-        "vimeo_desktop": "",
-        "vimeo_mobile": "",
-        "title": "Page Template",
-        "subtitle": "",
-        "copy": "",
-        "layout": "full-width",
-        "text-alignment": "center",
-        "text-color": "white",
-        "link": ""
-      }
-    },
-    "4faa384f-6082-4402-ad4a-ffd3b499d3bd": {
-      "type": "content-blocks",
+    "section_navigation_tpTtLP": {
+      "type": "section-navigation",
       "blocks": {
-        "cc14044e-4321-4848-8fab-15d573842a86": {
-          "type": "text",
+        "menu_Ci8Jwz": {
+          "type": "menu",
           "settings": {
-            "grid_x": 8,
-            "text_title": "",
-            "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pretium imperdiet massa. Nulla varius id metus sit amet hendrerit. Phasellus mi est, fermentum rhoncus dolor ut, faucibus egestas leo. Praesent ut mauris arcu doren liquam molestie libero sed interdum posuere. <br/>Phasellus mi est, fermentum rhoncus dolor ut, faucibus egestas leo. Praesent ut mauris arcu doren. Fusce ac augue in justo tincidunt accumsan lorem ipsum caller fretem glorenium. <br/>Aliquam molestie libero sed interdum posuere:<br/>Lorem ipsum dolor sit amet<br/>Consectetur adipiscing elit<br/>Nulla pretium imperdiet massa</p>"
-          }
-        }
-      },
-      "block_order": [
-        "cc14044e-4321-4848-8fab-15d573842a86"
-      ],
-      "settings": {
-        "grid_gap_value": "",
-        "horizontal_padding": "small",
-        "vertical_padding": "medium",
-        "vertical_alignment": "center"
-      }
-    },
-    "1383d4a5-7b14-4f11-a438-d93b7448bcc4": {
-      "type": "content-blocks",
-      "blocks": {
-        "900efc4f-78d2-44c7-b26b-8e64daa42942": {
-          "type": "image",
-          "settings": {
-            "grid_x": 6,
-            "image": "shopify://shop_images/b6c2808507e2--3-198b35.jpg",
-            "image_title": "My title",
-            "image_subtitle": "Subtitle",
-            "popup_products": [
-              "abraham-top-coral",
-              "abraham-top-day-in-the-garden"
-            ]
+            "menu_name": "Our Commitment",
+            "menu_content": "<p>This world of ours is complex, vast and inimitably beautiful - to experience it is the ultimate luxury. With privilege comes responsibility and FELLA is committed to conscious initiatives that reduce our environmental impact and ensure future Fellas can also know this natural beauty. Since FELLA was founded in 2012, we’ve stayed true to the belief that less is more. We have built our brand on product integrity, and it is this same principle that informs the way we work, with all aspects of the business shaped by fair and ethical conduct. Whilst we know we are not perfect, we are committed to the journey of sustainability and vow efforts to make positive change in all areas that we can.</p>",
+            "show_form": false
           }
         },
-        "c34b943c-d5b3-4be7-9021-be6b9c340fdc": {
-          "type": "text",
+        "menu_NMD3yY": {
+          "type": "menu",
           "settings": {
-            "grid_x": 6,
-            "text_title": "asdsadasdsadsada",
-            "description": "<p>asdasdadas dasdasdasd asdasdadad adasdasdasdasdasdasdadasdasdas d ad ada asd asd adas</p>"
+            "menu_name": "Advocacy",
+            "menu_content": "<p></p><p>As a company that has benefitted from support, access and opportunity we strive to lift up others so that they too can know the beauty of freedom, kindness and possibility. We are a brand for women by women and are deeply committed to the education, safety and empowerment of all females, a cause we support through various initiatives and partnerships with the likes of i=Change. </p><p></p><p>$1 from every sale is donated by FELLA on behalf of our customers to one of the following charities apart of i=Change. Educate a Girl, Prevent Women Dying and Restore the Reef. Through this initiative, we have provided education to girls at high risk of trafficking, empowering them to pursue their dreams and build lives of dignity and hope—breaking the cycle of poverty and exploitation. Additionally, our collective efforts support breast cancer research and help prevent harmful sediment from entering the waterways of the Great Barrier Reef.</p><p></p><p>Where there is surplus stock, we keep it circular, donating to a range of Australian charities including RUAH and Thread Together. </p><p></p><p>Ruah is a not-for-profit community organisation dedicated to empowering individuals to effect meaningful change in their lives. They provide high-quality support services while working to transform ineffective systems. Via 20 diverse programs across Western Australia, their mission is to combat poverty and social disadvantage. </p><p></p><p>Founded in 2012, Thread Together aims to redirect new, unsold clothing from landfills to those in need. This vital organisation champions circularity within the fashion industry, offering an ethical solution to the problem of excess in fashion. Through their efforts, they promote sustainability while supporting individuals and communities in need.</p><p></p>",
+            "show_form": false
+          }
+        },
+        "menu_tVkUa4": {
+          "type": "menu",
+          "settings": {
+            "menu_name": "Durable Design",
+            "menu_content": "<p>Classic design and quality construction means swimwear that endures. Our reverence for quality sees us invest in durable, premium fabrics that are woven to see the FELLA woman through season after season of golden hours and midnight swims. We are currently researching sustainable fabric options for our upcoming collections in continuation of our journey towards a more sustainable offering. </p><p>Our block coloured fabric is dyed using OEXO-TEX 100 certified dyes to further prevent harm to our environment and our wearers bodies. </p><p>As lovers of colour, culture and newness we shine a light on emerging artists, creating awareness and additional revenue streams by way of our seasonal print capsules and digital platforms. We are in awe of the sublime, narrative quality of indigenous art, and as of 2020, we have made an enduring commitment to collaborate with a different indigenous artist each year.</p>",
+            "show_form": false
+          }
+        },
+        "menu_HFYrLR": {
+          "type": "menu",
+          "settings": {
+            "menu_name": "Manufacturing",
+            "menu_content": "<p>We are anti-excess in both production and principle. We preference small-runs and made-to-order where possible, made by our small team in Bali. All minimal off-cuts are kept aside for later use or recycled responsibly. The beauty of owning our factory is ensuring that our production staff are properly taken care of, by being paid fairly and treated with utmost respect.</p>",
+            "show_form": false
+          }
+        },
+        "menu_e6Jief": {
+          "type": "menu",
+          "settings": {
+            "menu_name": "Packaging",
+            "menu_content": "<p>We might make mischief after sunset but we’ve broken up with toxic traces that wreak havoc on the ecosystem. Our packaging and shipping materials are fully biodegradable ensuring we leave no trace behind. Our sanitary stickers are printed on recycled paper as well as our wrapping paper, care cards and swing tags.</p>",
+            "show_form": false
+          }
+        },
+        "menu_7qw3gc": {
+          "type": "menu",
+          "settings": {
+            "menu_name": "Carbon Emissions",
+            "menu_content": "<p>We’ve partnered with Future Neutral to empower our customers to make more sustainable choices. Now, when you shop with us, we’ll offset the carbon emissions from your purchase immediately after checkout.</p>",
+            "show_form": false
+          }
+        },
+        "menu_73pVfw": {
+          "type": "menu",
+          "settings": {
+            "menu_name": "Responsible Home Care",
+            "menu_content": "<p>After swimming, always handwash your pieces thoroughly in cold water. We recommend occasionally machine-washing your swimsuit in a Guppyfriend bag on a cold cycle. By doing so, you’re not only extending the life of your Fella’s but also preventing microplastics from entering our waterways whilst washing.</p>",
+            "show_form": false
+          }
+        },
+        "menu_rQCixa": {
+          "type": "menu",
+          "settings": {
+            "menu_name": "Take-Back Program",
+            "menu_content": "<p>Introducing a new initiative for FELLA in 2025! We recognise that over time, your FELLA’s will need to be replaced. In line with our commitment to sustainability, we are now responsibly recycling your old Fella items, as well as any off-cuts in Australia. Customers can conveniently return their used Fella’s by posting them or dropping them off at our Paddington store, and in return, receive 25% off their next purchase. Together, we’re making a positive step towards keeping synthetic materials out of landfill.</p><p>To ensure we’re not encouraging unnecessary consumerism, please note that our take-back program is designed for your swimwear that is truly at the end of its life. If your swimwear is still in wearable condition, we encourage you to swap with a friend or sell on. </p><p>Please note we will only accept swimwear with fabric degradation including loss of elasticity, tears due to extended use and sun damage. </p><p>For wearable swimwear that is suffering from eroded hardware, please get in touch with us regarding hardware replacement.</p><p>To recycle your swimwear, please submit the form below including a photo of each item you wish to return.</p>",
+            "show_form": true
           }
         }
       },
       "block_order": [
-        "900efc4f-78d2-44c7-b26b-8e64daa42942",
-        "c34b943c-d5b3-4be7-9021-be6b9c340fdc"
+        "menu_Ci8Jwz",
+        "menu_NMD3yY",
+        "menu_tVkUa4",
+        "menu_HFYrLR",
+        "menu_e6Jief",
+        "menu_7qw3gc",
+        "menu_73pVfw",
+        "menu_rQCixa"
       ],
-      "settings": {
-        "grid_gap_value": "",
-        "horizontal_padding": "small",
-        "vertical_padding": "medium",
-        "vertical_alignment": "center"
-      }
+      "settings": {}
     }
   },
   "order": [
     "main",
-    "e49e8725-4d73-40e9-b1c0-638754357376",
-    "4faa384f-6082-4402-ad4a-ffd3b499d3bd",
-    "1383d4a5-7b14-4f11-a438-d93b7448bcc4"
+    "section_navigation_tpTtLP"
   ]
 }

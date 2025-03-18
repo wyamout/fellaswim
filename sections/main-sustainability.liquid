@@ -1,0 +1,534 @@
+<div class="main-sustainability">
+  {% assign full_url = request.host | append: request.path %}
+
+  <div class="container">
+    <div class="sus-wrap">
+      <div class="sus-images">
+        <div
+          class="sus-image main-sus-image sus-image--active swiper-container"
+          data-id="sus-image--{{ section.id }}-{{ section.settings.image.id }}"
+          id="sus-image--{{ section.id }}-{{ section.settings.image.id }}"
+        >
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              {% render 'responsive-image',
+                classes: 'sus-image__item ',
+                image: section.settings.image,
+                sizes: '1920,4500'
+              %}
+            </div>
+            {% for block in section.blocks %}
+              {% case block.type %}
+                {% when 'image' %}
+                  <div class="swiper-slide">
+                    {% render 'responsive-image',
+                      classes: 'sus-image__item',
+                      image: block.settings.image,
+                      sizes: '1920,4500'
+                    %}
+                  </div>
+              {% endcase %}
+            {% endfor %}
+          </div>
+          <!-- If we need navigation buttons -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'menu' %}
+              <div
+                class="sus-image"
+                data-id="sus-image--{{ section.id }}-{{ block.settings.image.id }}"
+              >
+                {% render 'responsive-image',
+                  classes: 'sus-image__item',
+                  image: block.settings.image,
+                  sizes: '1920,4500'
+                %}
+              </div>
+          {% endcase %}
+        {% endfor %}
+      </div>
+
+      <div class="sus-content">
+        <div class="sub-heading">
+          <h6 class="sub-heading--subtitle">
+            {{ section.settings.subtitle }}
+          </h6>
+          <h2 class="sub-heading--title">{{ section.settings.title }}</h2>
+        </div>
+
+        {% assign has_content = false %}
+
+        {% for block in section.blocks %}
+          {% if block.type == 'content_section' and block.settings.content_title != '' %}
+            {% assign has_content = true %}
+          {% endif %}
+        {% endfor %}
+
+        {% if has_content %}
+          <div class="sub-navigation">
+            {% for block in section.blocks %}
+              {% if block.type == 'content_section' and block.settings.content_title != '' %}
+                <div
+                  class="sub-navigation-item {% if forloop.first %}sub-navigation-item--active{% endif %}"
+                  id="{{ block.id }}"
+                >
+                  <span class="sub-navigation-item--roman">{{ block.settings.roman_number }}.</span>
+                  {{ block.settings.content_title }}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endif %}
+        <div class="sub-heading--desc">
+          {{ section.settings.content }}
+        </div>
+
+        {% if section.settings.show_form %}
+          <div class="sub-content-form">
+            {% form 'contact' %}
+              <div class="form--row"></div>
+              <div class="form--row">
+                <div class="form--row--cell">
+                  <input type="text" id="firstname" name="contact[Firstname]" placeholder="First Name*" required>
+                </div>
+                <div class="form--row--cell">
+                  <input type="text" id="lastname" name="contact[Lastname]" placeholder="Last Name*" required>
+                </div>
+              </div>
+              <div class="form--row">
+                <div class="form--row--cell">
+                  <input type="email" id="email" name="contact[email]" placeholder="Email*" required>
+                </div>
+                <div class="form--row--cell">
+                  <input
+                    type="text"
+                    id="phone_number"
+                    name="contact[Phone Number]"
+                    placeholder="Phone Number*"
+                    required
+                  >
+                </div>
+              </div>
+              <div class="form--row">
+                <div class="form--row--cell">
+                  <div class="form--select--wrapper">
+                    <select id="country" name="contact[number]" required>
+                      {% render 'option-number' %}
+                    </select>
+                    {% render 'icon', icon: 'chevron-heavy' %}
+                  </div>
+                </div>
+              </div>
+              <div class="form--row" style="flex-direction: column">
+                <div class="form--row--cell">
+                  <input
+                    type="file"
+                    id="file1"
+                    name="contact[image1]"
+                    required
+                    style="border: none"
+                  >
+                </div>
+                <div class="form--row--cell" style="margin: 10px 0 0;">
+                  <input
+                    type="file"
+                    id="file2"
+                    name="contact[image2]"
+                    required
+                    style="border: none"
+                  >
+                </div>
+                <div class="form--row--cell" style="margin: 10px 0 0;">
+                  <input
+                    type="file"
+                    id="file3"
+                    name="contact[image3]"
+                    required
+                    style="border: none"
+                  >
+                </div>
+              </div>
+
+              <div class="form--row">
+                <div class="form--row--cell">
+                  <label for="ContactFormMessage">Is there anything else we need to know about your enquiry?</label>
+                  <textarea
+                    rows="8"
+                    id="message"
+                    name="contact[Is there anything else we need to know about your enquiry?]"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="form--row">
+                <div class="form--row--cell">
+                  <input type="submit" value="Submit">
+                </div>
+              </div>
+            {% endform %}
+          </div>
+        {% endif %}
+        <div class="sub-heading--desc" style="margin-top: 40px;">
+          {{ section.settings.content2 }}
+        </div>
+        <div class="sus-content-wrap">
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'content_section' %}
+                <div class="sus-content--item" id="{{ block.id }}">
+                  <h6 class="sus_tab_title">
+                    {{ block.settings.content_title }}
+                  </h6>
+                  <div class="sus_row_wrap two_sus_column flex">
+                    <div class="sus_column">
+                      {{ block.settings.content_desc }}
+                    </div>
+
+                    <div class="sus_column">
+                      <div class="cms_img_content">
+                        <div class="cms_img_cnt">
+                          <img
+                            src="{{ block.settings.image | image_url: width: 162 }}"
+                            width="162"
+                            height="auto"
+                            alt=""
+                            loading="lazy"
+                          >
+                        </div>
+
+                        <div class="cms_img_info">
+                          <div class="cta">
+                            <span>{{ block.settings.image_title }}</span>
+
+                            {{ block.settings.image_desc }}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {% when 'content_block' %}
+                <div class="sus-content-block-wrap">
+                  {% if block.settings.content_title_1 != '' or block.settings.content_desc_1 != '' %}
+                    <div class="sus-content-block--item">
+                      <h6 class="sus-content-block--item-title">{{ block.settings.content_title_1 }}</h6>
+                      <p class="sus-content-block--item-desc">{{ block.settings.content_desc_1 }}</p>
+                    </div>
+                  {% endif %}
+                  {% if block.settings.content_title_2 != '' or block.settings.content_desc_2 != '' %}
+                    <div class="sus-content-block--item">
+                      <h6 class="sus-content-block--item-title">{{ block.settings.content_title_2 }}</h6>
+                      <p class="sus-content-block--item-desc">{{ block.settings.content_desc_2 }}</p>
+                    </div>
+                  {% endif %}
+                  {% if block.settings.content_title_3 != '' or block.settings.content_desc_3 != '' %}
+                    <div class="sus-content-block--item">
+                      <h6 class="sus-content-block--item-title">{{ block.settings.content_title_3 }}</h6>
+                      <p class="sus-content-block--item-desc">{{ block.settings.content_desc_3 }}</p>
+                    </div>
+                  {% endif %}
+                </div>
+            {% endcase %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="sus-menus swiper-container swiper-{{ section.id }}">
+      <h2 class="sub-heading--title" style="width: 100%; text-align: center; margin-bottom: 30px;">Explore Further</h2>
+      <div class="swiper-wrapper sus-menus-wrapper">
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'menu' %}
+              {% assign current_url = request.path %}
+              {% assign is_active = false %}
+
+              {% if block.settings.link == current_url %}
+                {% assign is_active = true %}
+              {% endif %}
+
+              <a
+                href="{{ block.settings.link }}"
+                class="sus-menus--item swiper-slide {% if is_active %}active-link{% endif %}"
+                data-id="sus-menus--item--{{ section.id }}-{{ block.settings.image.id }}"
+                link="{{current_url  }}"
+              >
+                {{ block.settings.title }}
+              </a>
+          {% endcase %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const swiper = new Swiper('#sus-image--{{ section.id }}-{{ section.settings.image.id }}', {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        // Navigation arrows
+// Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+        loop: true,
+      });
+      
+      const currentPath = window.location.pathname;
+        const menuItems = document.querySelectorAll(".sus-menus--item");
+      const images = document.querySelectorAll(".sus-image");
+      const mainImage = document.querySelector(".main-sus-image");
+      const navigationItems = document.querySelectorAll(".sub-navigation-item");
+      const contentItems = document.querySelectorAll(".sus-content--item");
+       let initialSlideIndex = Math.floor({{ section.blocks | size }} / 2); // Default center index
+
+  // Find matching menu item in Swiper
+  menuItems.forEach((menuItem, index) => {
+    const targetUrl = new URL(menuItem.href, window.location.origin).pathname;
+    if (targetUrl === currentPath) {
+      initialSlideIndex = index; // Set matching slide as initial
+    }
+  });
+  //     // Initialize Swiper only if screen width is 1024px or less
+  // if (window.innerWidth <= 1024) {
+  //      new Swiper(".swiper-{{ section.id }}", {
+  //     slidesPerView: "auto",
+  //     spaceBetween: 0,
+  //     centeredSlides: true, // Centers the active slide
+  //     initialSlide: initialSlideIndex, 
+  //   });
+  // } else {
+  //   document.querySelector('.swiper-{{ section.id }} .swiper-wrapper').classList.add("swiper-center")
+    
+  // }
+    
+
+       menuItems.forEach((item) => {
+        item.addEventListener("click", function (event) {
+          event.preventDefault();
+      
+          const targetUrl = this.href; // Store the link destination
+            window.location.href = targetUrl;
+        });
+      });
+
+      menuItems.forEach((menuItem) => {
+        menuItem.addEventListener("mouseenter", function () {
+          const dataId = this.getAttribute("data-id").replace("sus-menus--item--", "sus-image--");
+
+          images.forEach((image) => {
+            if (image.getAttribute("data-id") === dataId) {
+              image.classList.add("sus-image--active");
+            } else {
+              image.classList.remove("sus-image--active");
+            }
+          });
+        });
+
+        menuItem.addEventListener("mouseleave", function () {
+          images.forEach((image) => image.classList.remove("sus-image--active"));
+          mainImage.classList.add("sus-image--active");
+        });
+
+      });
+
+       // Click to scroll and update active state
+     navigationItems.forEach((navigation) => {
+        navigation.addEventListener("click", function (e) {
+          e.preventDefault();
+    
+          // Remove active class from all navigation items
+          navigationItems.forEach((item) =>
+            item.classList.remove("sub-navigation-item--active")
+          );
+    
+          // Add active class to the clicked item
+          this.classList.add("sub-navigation-item--active");
+    
+          // Get the target content ID
+          const targetId = this.getAttribute("id");
+          const targetElement = document.querySelector(`.sus-content--item[id="${targetId}"]`);
+    
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 100, // Adjust offset if needed
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+    });
+</script>
+
+{% schema %}
+{
+  "name": "Main Sustainability",
+  "settings": [
+      {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+    {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle",
+          "default": "Subtitle"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "title"
+        },
+     {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content",
+          "default": "<p>Content</p>"
+        }, {
+          "type": "richtext",
+          "id": "content2",
+          "label": "Content2",
+          "default": "<p></p>"
+        }, {
+          "type": "checkbox",
+          "id": "show_form",
+          "label": "Show form",
+          "default": false
+        },
+  ],
+  "blocks": [
+    {
+      "type": "menu",
+      "name": "Menu",
+      "settings": [
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Number",
+          "default": "I"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "title"
+        },
+         {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    },
+    {
+      "type": "content_section",
+      "name": "Content Section",
+      "settings": [
+         {
+          "type": "text",
+          "id": "roman_number",
+          "label": "Roman Number",
+          "default": "I"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "image_title",
+          "label": "Image Title",
+          "default": "Image Title"
+        },
+        {
+          "type": "text",
+          "id": "image_desc",
+          "label": "Image Desc",
+          "default": "Image Desc"
+        },
+        {
+          "type": "text",
+          "id": "content_title",
+          "label": "Content Title",
+          "default": "Content Title"
+        },
+        {
+          "type": "text",
+          "id": "content_desc",
+          "label": "Content Desc",
+          "default": "Content Desc"
+        },
+      ]
+    },
+    {
+      "type": "content_block",
+      "name": "Content Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_title_1",
+          "label": "Content Title 1",
+          "default": "Content Title 1"
+        },
+        {
+          "type": "text",
+          "id": "content_desc_1",
+          "label": "Content Desc 1",
+          "default": "Content Desc 1"
+        },
+        {
+          "type": "text",
+          "id": "content_title_2",
+          "label": "Content Title 2",
+          "default": "Content Title 2"
+        },
+        {
+          "type": "text",
+          "id": "content_desc_2",
+          "label": "Content Desc 2",
+          "default": "Content Desc 2"
+        },
+        {
+          "type": "text",
+          "id": "content_title_3",
+          "label": "Content Title 3",
+          "default": "Content Title 3"
+        },
+        {
+          "type": "text",
+          "id": "content_desc_3",
+          "label": "Content Desc 3",
+          "default": "Content Desc 3"
+        },
+      ]
+    },
+  {
+    "type": "image",
+    "name": "Image",
+    "settings": [
+      {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+    ]
+  }
+  ],
+  "presets": [
+    {
+      "name": "Main Sustainability"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,260 @@
+<div class="section-navigation--title">
+  <span>{{ page.title }}</span>
+</div>
+<div class="section-navigation">
+  <div class="two-panel help">
+    <div class="side-navigation">
+      <div class="side-navigation--container">
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'menu' %}
+              <div class="side-navigation--item">
+                <div
+                  class="side-navigation--link {% if forloop.first %}side-navigation--link--active{% endif %}"
+                  data="menu-{{ block.id }}"
+                >
+                  {{ block.settings.menu_name }}
+                </div>
+              </div>
+          {% endcase %}
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="container">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'menu' %}
+            <div
+              class="two-panel--content two-panel--content--hidden {% if forloop.first %}two-panel--content--active{% endif %}"
+              data="menu-{{ block.id }}"
+            >
+              {{ block.settings.menu_content }}
+
+              {% if block.settings.show_form %}
+                <div class="section-navigation-form">
+                  {% form 'contact' %}
+                    <div class="form--row"></div>
+                    <div class="form--row">
+                      <div class="form--row--cell">
+                        <input type="text" id="company" name="contact[Company]" placeholder="Company*" required>
+                      </div>
+                    </div>
+                    <div class="form--row">
+                      <div class="form--row--cell">
+                        <input type="text" id="website" name="contact[Website]" placeholder="Website*" required>
+                      </div>
+                    </div>
+                    <div class="form--row">
+                      <div class="form--row--cell">
+                        <input
+                          type="text"
+                          id="instagram_handle"
+                          name="contact[Instagram Handle]"
+                          placeholder="Instagram Handle*"
+                          required
+                        >
+                      </div>
+                    </div>
+                    <div class="form--row">
+                      <div class="form--row--cell">
+                        <input type="text" id="firstname" name="contact[Firstname]" placeholder="First Name*" required>
+                      </div>
+                      <div class="form--row--cell">
+                        <input type="text" id="lastname" name="contact[Lastname]" placeholder="Last Name*" required>
+                      </div>
+                    </div>
+                    <div class="form--row">
+                      <div class="form--row--cell">
+                        <input type="email" id="email" name="contact[email]" placeholder="Email*" required>
+                      </div>
+                      <div class="form--row--cell">
+                        <input
+                          type="text"
+                          id="phone_number"
+                          name="contact[Phone Number]"
+                          placeholder="Phone Number*"
+                          required
+                        >
+                      </div>
+                    </div>
+                    <div class="form--row">
+                      <div class="form--row--cell">
+                        <input
+                          type="text"
+                          id="street_address"
+                          name="contact[Street Address]"
+                          placeholder="Street Address*"
+                          required
+                        >
+                      </div>
+                    </div>
+                    <div class="form--row">
+                      <div class="form--row--cell">
+                        <input type="text" id="city" name="contact[city]" placeholder="City*" required>
+                      </div>
+                    </div>
+                    <div class="form--row">
+                      <div class="form--row--cell">
+                        <input
+                          type="text"
+                          id="address1"
+                          name="contact[State / Province / Region]"
+                          placeholder="State / Province / Region*"
+                          required
+                        >
+                      </div>
+                    </div>
+                    <div class="form--row">
+                      <div class="form--row--cell">
+                        <div class="form--select--wrapper">
+                          <select id="country" name="contact[Country]" required>
+                            {% render 'option-countries' %}
+                          </select>
+                          {% render 'icon', icon: 'chevron-heavy' %}
+                        </div>
+                      </div>
+                      <div class="form--row--cell">
+                        <input
+                          type="text"
+                          id="postal_code"
+                          name="contact[postal_code]"
+                          placeholder="Postal Code*"
+                          required
+                        >
+                      </div>
+                    </div>
+                    <div class="form--row">
+                      <div class="form--row--cell">
+                        <input
+                          type="text"
+                          id="description1"
+                          name="contact[How long have you been trading?]"
+                          placeholder="How long have you been trading?*"
+                          required
+                        >
+                      </div>
+                    </div>
+                    <div class="form--row">
+                      <div class="form--row--cell">
+                        <input
+                          type="text"
+                          id="description2"
+                          name="contact[Which brands do you currently stock?]"
+                          placeholder="Which brands do you currently stock?*"
+                          required
+                        >
+                      </div>
+                    </div>
+                    <div class="form--row">
+                      <div class="form--row--cell">
+                        <input
+                          type="text"
+                          id="description3"
+                          name="contact[Which brands are you looking to stock?]"
+                          placeholder="Which brands are you looking to stock?*"
+                          required
+                        >
+                      </div>
+                    </div>
+                    <div class="form--row">
+                      <div class="form--row--cell">
+                        <input
+                          type="text"
+                          id="description4"
+                          name="contact[What is your key demographic?]"
+                          placeholder="What is your key demographic?*"
+                          required
+                        >
+                      </div>
+                    </div>
+                    <div class="form--row">
+                      <div class="form--row--cell">
+                        <label for="ContactFormMessage"
+                          >Is there anything else we need to know about your enquiry?</label
+                        >
+                        <textarea
+                          rows="8"
+                          id="message"
+                          name="contact[Is there anything else we need to know about your enquiry?]"
+                        ></textarea>
+                      </div>
+                    </div>
+                    <div class="form--row">
+                      <div class="form--row--cell">
+                        <input type="submit" value="Submit">
+                      </div>
+                    </div>
+                  {% endform %}
+                </div>
+              {% endif %}
+            </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const menuItems = document.querySelectorAll(".side-navigation--link");
+  const contentPanels = document.querySelectorAll(".two-panel--content");
+
+  menuItems.forEach((item) => {
+    item.addEventListener("click", function () {
+      const target = this.getAttribute("data");
+
+      // Remove active class from all menu items and content panels
+      menuItems.forEach((el) => el.classList.remove("side-navigation--link--active"));
+      contentPanels.forEach((panel) => {
+        panel.classList.add("two-panel--content--hidden");
+        panel.classList.remove("two-panel--content--active");
+      });
+
+      // Add active class to clicked menu item
+      this.classList.add("side-navigation--link--active");
+
+      // Show the corresponding content panel and add active class
+      const activePanel = document.querySelector(`.two-panel--content[data="${target}"]`);
+      if (activePanel) {
+        activePanel.classList.remove("two-panel--content--hidden");
+        activePanel.classList.add("two-panel--content--active");
+      }
+    });
+  });
+});
+</script>
+{% schema %}
+{
+  "name": "Section navigation",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "menu",
+      "name": "Menu",
+      "settings": [
+        {
+          "type": "text",
+          "id": "menu_name",
+          "label": "Menu",
+        },
+        {
+          "type": "richtext",
+          "id": "menu_content",
+          "label": "Menu content",
+        },
+        {
+          "type": "checkbox",
+          "id": "show_form",
+          "label": "Menu content",
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Section navigation"
+    }
+  ]
+}
+{% endschema %}
