@@ -39,16 +39,6 @@
             "external_link": ""
           }
         },
-        "4f0d7094-f5c8-4c04-8e4c-16e0140f7a8b": {
-          "type": "Career",
-          "disabled": true,
-          "settings": {
-            "title": "Test Career",
-            "location": "",
-            "page": "test-career",
-            "external_link": "mailto:paddington@fellaswim.com"
-          }
-        },
         "5ffd462d-b849-40d9-a943-e831928bc7bb": {
           "type": "Career",
           "disabled": true,
@@ -124,7 +114,6 @@
         "d04bdf4b-488a-46bf-b22e-5403e110dfc4",
         "career_xzhWBV",
         "career_HzJTRx",
-        "4f0d7094-f5c8-4c04-8e4c-16e0140f7a8b",
         "5ffd462d-b849-40d9-a943-e831928bc7bb",
         "a94a000d-e0c6-4cf1-841b-90d366440a8b",
         "b9163a7a-2df8-4387-9eb1-e9e226cf76e3",
