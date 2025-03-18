@@ -319,7 +319,7 @@
       menuItems.forEach((menuItem) => {
         menuItem.addEventListener("mouseenter", function () {
           const dataId = this.getAttribute("data-id").replace("sus-menus--item--", "sus-image--");
-
+          mainImage.classList.remove("sus-image--active")
           images.forEach((image) => {
             if (image.getAttribute("data-id") === dataId) {
               image.classList.add("sus-image--active");
