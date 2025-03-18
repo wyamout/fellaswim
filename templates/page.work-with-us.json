@@ -12,6 +12,15 @@
     "main": {
       "type": "careers",
       "blocks": {
+        "career_QVVxKA": {
+          "type": "Career",
+          "settings": {
+            "title": "Test Career",
+            "location": "Paddington, NSW",
+            "page": "test-career",
+            "external_link": ""
+          }
+        },
         "career_PMUbFA": {
           "type": "Career",
           "settings": {
@@ -131,6 +140,7 @@
         }
       },
       "block_order": [
+        "career_QVVxKA",
         "career_PMUbFA",
         "career_RkwpEB",
         "7676129d-c954-4499-868d-36d8ce30de14",
