@@ -1,1 +1,125 @@
-{"sections":{"main":{"type":"sustainability","blocks":{"1598428046931":{"type":"Content","settings":{"layout":"standard","image":"shopify:\/\/shop_images\/sarahstephens7_1.jpg","title":"Sustainability","text":"<p>This world of ours is complex, vast and inimitably beautiful - to experience it is the ultimate luxury. With privilege comes responsibility and FELLA is committed to conscious initiatives that reduce our environmental impact and ensure future Fellas can also know this natural beauty.<\/p><p>Since the founding of FELLA in 2012, we’ve stayed true to the belief that less is more and that a good thing never really ends. We have built our brand on product integrity, and it is this same principle that informs the way we work, with all aspects of the business shaped by fair and ethical conduct.<\/p>"}},"1598428082798":{"type":"Content","settings":{"layout":"standard","image":"shopify:\/\/shop_images\/sarahstephens7_3.jpg","title":"","text":"<p>Classic design and quality construction means swimwear that endures. Our reverence for quality sees us invest in durable, premium fabrics that are woven to see the FELLA woman through season after season of golden hours and midnight swims. <\/p><p>We are anti-excess in both production and principle. We preference small-runs and made-to-order where possible to avoid production waste. Where there is surplus stock, we keep it circular, donating to Thread Together’s <em>We Wear Australian<\/em> initiative which redistributes unsold apparel to those in need. The beauty of our partnership with <em>Future Neutral<\/em> means our customers can be conscious about their consumption by offsetting the associated carbon emissions of their purchase at checkout.<\/p>"}},"460d3137-7627-47ac-a2d7-272b9cab77f9":{"type":"Content","settings":{"layout":"standard","image":"shopify:\/\/shop_images\/sarahstephens7_2.jpg","title":"","text":"<p>We might make mischief after sunset but we’ve broken up with toxic traces that wreak havoc on the ecosystem. Our clean and green packaging draws on plant-based, compostable and recycled materials. We have recently invested in eco-mailers that are fully biodegradable leaving no micro-plastics or harmful residue behind. <\/p><p>This year sees us work towards a B Corp certification - the highest standard a business can achieve in terms of verified social and environmental accountability and transparency. <\/p><p>The end of 2022 also marks the release of our first recycled collection made from regenerated Nylon fibre, an evolution that sees FELLA seamlessly balance our signature quality with sustainable innovation. <\/p><p>We are imperfect, but we hope that our ongoing efforts speak loudest in our pursuit of new ways to change for the better.<\/p>"}}},"block_order":["1598428046931","1598428082798","460d3137-7627-47ac-a2d7-272b9cab77f9"],"settings":{}}},"order":["main"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {}
+    },
+    "main_sustainability_xRfXYN": {
+      "type": "main-sustainability",
+      "blocks": {
+        "menu_9CpYth": {
+          "type": "menu",
+          "settings": {
+            "link": "shopify://pages/sustainability-ourcommitment",
+            "number": "V",
+            "title": "Our Commitment",
+            "image": "shopify://shop_images/1_OurCommitment.jpg"
+          }
+        },
+        "menu_8AGN78": {
+          "type": "menu",
+          "settings": {
+            "link": "shopify://pages/sustainability-advocacy",
+            "number": "I",
+            "title": "Advocacy",
+            "image": "shopify://shop_images/2_Advocacy.jpg"
+          }
+        },
+        "menu_Lt9cHp": {
+          "type": "menu",
+          "settings": {
+            "link": "shopify://pages/sustainability-durabledesign",
+            "number": "III",
+            "title": "Durable Design",
+            "image": "shopify://shop_images/3_DurableDesign.jpg"
+          }
+        },
+        "menu_zqcqT4": {
+          "type": "menu",
+          "settings": {
+            "link": "shopify://pages/sustainability-manufacturing",
+            "number": "IV",
+            "title": "Manufacturing",
+            "image": "shopify://shop_images/FELLA---Factory--_19-of-63.jpg"
+          }
+        },
+        "menu_Gx7tdt": {
+          "type": "menu",
+          "settings": {
+            "link": "shopify://pages/sustainability-packaging",
+            "number": "VI",
+            "title": "Packaging",
+            "image": "shopify://shop_images/5_Packaging_b6e2842c-56be-42d2-84e7-7f41cc8239ed.jpg"
+          }
+        },
+        "menu_3d7fa6": {
+          "type": "menu",
+          "settings": {
+            "link": "shopify://pages/sustainability-takebackprogram",
+            "number": "VIII",
+            "title": "Take Back Program",
+            "image": "shopify://shop_images/6_TakeBack.jpg"
+          }
+        },
+        "menu_e4wHX4": {
+          "type": "menu",
+          "disabled": true,
+          "settings": {
+            "link": "shopify://pages/sustainability-carbonemissions",
+            "number": "II",
+            "title": "Carbon Missions",
+            "image": "shopify://shop_images/marcus-bottom-campari-campaign-3.jpg"
+          }
+        },
+        "menu_NgL7hz": {
+          "type": "menu",
+          "disabled": true,
+          "settings": {
+            "link": "shopify://pages/sustainability-responsiblehomecare",
+            "number": "VII",
+            "title": "Responsible Home",
+            "image": "shopify://shop_images/474946674_28198019409842273_323854685879777938_n.jpg"
+          }
+        },
+        "image_J3eXbC": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/luca-bottom-cactus-campaign-3.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "menu_9CpYth",
+        "menu_8AGN78",
+        "menu_Lt9cHp",
+        "menu_zqcqT4",
+        "menu_Gx7tdt",
+        "menu_3d7fa6",
+        "menu_e4wHX4",
+        "menu_NgL7hz",
+        "image_J3eXbC"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/1_OurCommitment.jpg",
+        "subtitle": "SUSTAINABILITY",
+        "title": "Our Commitment",
+        "content": "<p>This world of ours is complex, vast and inimitably beautiful - to experience it is the ultimate luxury. With privilege comes responsibility and FELLA is committed to conscious initiatives that reduce our environmental impact. Since FELLA was founded in 2012, we’ve stayed true to the belief that less is more. We have built our brand on product integrity, and it is this same principle that informs the way we work, with all aspects of the business shaped by fair and ethical conduct. Whilst we know we are not perfect; we are committed to the journey of sustainability and vow efforts to make positive change in all areas that we can.</p>",
+        "content2": "",
+        "show_form": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "main_sustainability_xRfXYN"
+  ]
+}
