@@ -1238,6 +1238,10 @@ img.lazyload.lazyload-loaded,
     overflow: hidden;
   }
 
+  .image-feature:not(.image-feature--image-fit) {
+    overflow: unset;
+  }
+
   .image-feature .image-feature--wrapper {
     position: absolute;
     top: 0;
@@ -15396,7 +15400,7 @@ main .four-oh-four {
   table
   tr:hover
   td {
-  background-color: #f7f5ec;
+  /* background-color: #f7f5ec; */
 }
 
 #shopify-section-size-guide .size-guide-table-wrapper table td,
@@ -15430,7 +15434,7 @@ main .four-oh-four {
   td.hover,
 #shopify-section-size-guide-carousel .size-guide-table-wrapper table td:hover,
 #shopify-section-size-guide-carousel .size-guide-table-wrapper table td.hover {
-  background-color: #f7f5ec;
+  /* background-color: #f7f5ec; */
 }
 
 #shopify-section-size-guide .size-guide-table-wrapper table td span,
@@ -19702,4 +19706,15 @@ header
   border: 1px solid black;
   padding: 20px 20px;
   margin-top: 20px;
+}
+.image-feature--image-fit {
+  position: sticky !important;
+  top: 0;
+  height: fit-content;
+  padding-top: 0 !important;
+}
+
+.image-feature--image-fit .image-feature--image {
+  height: fit-content !important;
+  position: relative !important;
 }

@@ -12395,7 +12395,9 @@
 
                     window.all_products = products;
                     products.forEach(function (t) {
-                      if(window.location.pathname.includes("private-collection")) {
+                      if(window.location.pathname.includes("private-collection") || window.location.pathname.includes("ss25-preview")) {
+                      
+                           
                         var n = t.node.title.trim().split(" | "),
                         r = n[0],
                         i = n[1],
@@ -12418,6 +12420,7 @@
                           }
                         }),
                       });
+                         
                       } else {
                         if(!t.node.tags.includes("hidden_collection")) {
                           var n = t.node.title.trim().split(" | "),
@@ -17710,12 +17713,13 @@
                         );
                       n[e]("mouseover", function (t) {
                         o.forEach(function (t) {
-                          t.classList.add("hover");
+                          // hover col table thediep094
+                          // t.classList.add("hover");
                         });
                       }),
                         n[e]("mouseout", function (t) {
                           o.forEach(function (t) {
-                            t.classList.remove("hover");
+                            // t.classList.remove("hover");
                           });
                         });
                     });
@@ -19482,18 +19486,7 @@
                   );
                   u && u.setAttribute("data-backinstock-variant", t);
 
-                var selectedVariant = document.querySelector(
-                  '.product--details--variant-list--value.selected'
-                );
-                
-                if (selectedVariant) {
-                  var quantity = parseInt(selectedVariant.getAttribute("data-variant-quantity"), 10);
-                  var cartButtonMessage = document.querySelector(".add-cart-button--message");
-                
-                  if (cartButtonMessage) {
-                    cartButtonMessage.textContent = quantity > 0 ? "Add to cart" : "Pre Order";
-                  }
-                }
+            
                 },
               },
               {
@@ -19555,26 +19548,11 @@
                       r.classList.contains("override") && (l = c);
                   }
                   if (!1 === h) {
-                        var selectedVariant = document.querySelector(
-                          '.product--details--variant-list--value.selected'
-                        );
-                        
-                        var isPreOrder = selectedVariant && selectedVariant.getAttribute("data-variant-quantity") === "0";
-                    var v = [
-                        {
-                          quantity: 1,
-                          id: l,
-                          properties: {
-                            ...d,
-                            ...(isPreOrder ? { preorder: "true" } : {}),
-                          },
-                        },
-                      ];
-                      
-                      if (u) {
-                        var y = s.getAttribute("data-customisation-id");
-                        v.push({ quantity: u, id: y });
-                      }
+                             var v = [{ quantity: 1, id: l, properties: d }];
+                    if (u) {
+                      var y = s.getAttribute("data-customisation-id");
+                      v.push({ quantity: u, id: y });
+                    }
                     n.forEach(function (t) {
                       t.classList.add("adding");
                     }),

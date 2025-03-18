@@ -23,6 +23,8 @@
     assign preorder = true
   elsif product.tags contains 'best_seller'
     assign tag_callout = 'best_seller'
+  elsif product.tags contains 'online_only'
+    assign tag_callout = 'online_only'
   elsif product.tags contains 'new_arrivals'
     assign tag_callout = 'new_arrivals'
   elsif product.tags contains 'coming_soon'
@@ -73,7 +75,7 @@
     >
   </div>
 
-  <div class="product-index--images--overlay hide {% unless product.available %}out-of-stock{% endunless %}">
+  <div class="product-index--images--overlay hide {% unless product.available %}{% if collection.handle != 'ss25-preview' %}out-of-stock{% endif %}{% endunless %}" data="{{ collection.handle }}">
     <template class="product-index--images-template tst">
       <div class="product-index--images--overlay--image lazyload-animation" data-product-id="">
         <img data-src="" class="lazyload primary-image">

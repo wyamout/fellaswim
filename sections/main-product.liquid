@@ -46,6 +46,7 @@ assign on_final_sale = false
 assign is_customisable = false
 assign has_variant_choices = true
 assign coming_soon = false
+assign on_online_only = false
 
 if product.compare_at_price > product.price
     assign is_on_sale = true
@@ -53,6 +54,11 @@ if product.compare_at_price > product.price
     if product.tags contains 'final_sale'
         assign on_final_sale = true
     endif
+
+endif
+   
+if product.tags contains 'online_only'
+    assign on_online_only = true
 endif
 
 if is_top or is_bottom
@@ -132,6 +138,10 @@ endif
                         {%- if on_final_sale -%}
                             <span class="product--details--price--final-sale">{{ 'cart.callouts.final_sale' | t }}</span>
                         {%- endif -%}
+
+                      {%- if on_online_only -%}
+                            <span class="product--details--price--final-sale">{{ 'cart.callouts.online_only' | t }}</span>
+                        {%- endif -%}
                     </p>
 
                     {% unless request.host contains 'international' %}
@@ -154,6 +164,7 @@ endif
                             <div class="product--details--swatches">
                                 <div class="product--details--swatch-list" data-title="{{product_title_formatted}}">
                                     {%- for related_product in collection.products -%}
+                                      {% unless related_product.tags contains 'hidden_collection' %}
                                         {%- capture related_product_colour_title -%}{%- render 'product-colour', product: related_product, title: true -%}{%- endcapture -%}
                                         {%- assign related_product_colour = related_product_colour_title | downcase | replace: ' ', '-' | replace: '-(textured)', '' -%}
                                         {%- assign related_is_on_sale = false -%}
@@ -166,6 +177,7 @@ endif
                                         {%- if is_on_sale == false and related_is_on_sale == false -%}
                                             <a href="{{ related_product.url }}" data-product-id="{{ related_product.id }}" title="{{ related_product_colour_title }}" class="swatch swatch--{{ related_product_colour }}{% if related_product.id == product.id %} selected{% endif %} "></a>
                                         {%- endif -%}
+                                        {% endunless %}
                                     {%- endfor -%}
                                 </div>
                             </div>
@@ -625,7 +637,7 @@ endif
 
     {%- assign section_types = 'recently_viewed' -%}
     {%- assign translation = 'product.related_products.' -%}
-            
+    {%- assign pair_lists = product.metafields.custom.pair_products.value -%}
     {%- if product.type == 'Tops' or product.type == 'Bottoms' -%}
 
         {%- if product.type == 'Tops' -%}
@@ -633,10 +645,9 @@ endif
         {%- else -%}
             {%- assign discount_collection = collections['tops'] -%}
         {%- endif -%}
-
         {%- if discount_collection != blank -%}
             {%- assign section_types = 'combination_discounts,' | append: section_types -%}
-            {%- capture discount_collection_products -%}{%- render 'product-gallery-random', collection: discount_collection, title_filter: product_colour_title -%}{%- endcapture -%}
+            {%- capture discount_collection_products -%}{%- render 'product-gallery-random', collection: discount_collection, title_filter: product_colour_title, pair_lists: pair_lists -%}{%- endcapture -%}
         {%- endif -%}
 
     {%- endif -%}
