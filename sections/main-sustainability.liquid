@@ -265,11 +265,8 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
 
 <script>
-    console.log("Abc")
-
-
-document.addEventListener("DOMContentLoaded", function () {
-  console.log("XYZ")
+window.onload = function () {
+    console.log("XYZ");
     const selector = `#sus-image--{{ section.id }}-{{ section.settings.image.id }}`;
     const swiperContainer = document.querySelector(selector);
 
@@ -288,8 +285,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
     }
-});
-
+};
       const currentPath = window.location.pathname;
         const menuItems = document.querySelectorAll(".sus-menus--item");
       const images = document.querySelectorAll(".sus-image");
