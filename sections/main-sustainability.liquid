@@ -39,7 +39,7 @@
             {% when 'menu' %}
               <div
                 class="sus-image"
-                data-id="sus-image--{{ section.id }}-{{ block.settings.image.id }}"
+                data-id="sus-image--{{ section.id }}-{{ block.id }}"
               >
                 {% render 'responsive-image',
                   classes: 'sus-image__item',
@@ -251,7 +251,7 @@
               <a
                 href="{{ block.settings.link }}"
                 class="sus-menus--item swiper-slide {% if is_active %}active-link{% endif %}"
-                data-id="sus-menus--item--{{ section.id }}-{{ block.settings.image.id }}"
+                data-id="sus-menus--item--{{ section.id }}-{{ block.id }}"
                 link="{{current_url  }}"
               >
                 {{ block.settings.title }}
