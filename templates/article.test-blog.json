@@ -20,9 +20,9 @@
           "type": "image",
           "settings": {
             "grid_x": 12,
-            "image": "shopify://shop_images/TITLE-IMAGE_bbcdd433-c0e2-44c1-8a51-7d6541e28dd7.jpg",
-            "image_title": "Ibiza in Colour",
-            "image_subtitle": "DIARY 25",
+            "image": "shopify://shop_images/FELLA_3_ead08694-0411-4ec4-8f0b-95c4391ca940.jpg",
+            "image_title": "Test Blog",
+            "image_subtitle": "DIARY 26",
             "popup_products": []
           }
         }
@@ -32,6 +32,7 @@
       ],
       "settings": {
         "grid_gap_value": "",
+        "grid_gap_value_vertical": "",
         "horizontal_padding": "no",
         "vertical_padding": "small",
         "vertical_alignment": "center"
@@ -44,8 +45,8 @@
           "type": "text",
           "settings": {
             "grid_x": 12,
-            "text_title": "Discover our Resort '25 collection alongside our interview with Sydney-based Creative Director and car enthusiast Jody Koay. She shares snapshots from her travels in Ibiza and a nostalgic 90s playlist for you to enjoy.",
-            "description": "<p>Imagery via Jody Koay <a href=\"https://www.instagram.com/jodykoay/\" target=\"_blank\" title=\"https://www.instagram.com/jodykoay/\">@jodykoay</a></p>"
+            "text_title": "This is a test blog.",
+            "description": "<p>March 2025</p>"
           }
         }
       },
@@ -54,6 +55,7 @@
       ],
       "settings": {
         "grid_gap_value": "",
+        "grid_gap_value_vertical": "",
         "horizontal_padding": "small",
         "vertical_padding": "small",
         "vertical_alignment": "center"
@@ -92,6 +94,7 @@
       ],
       "settings": {
         "grid_gap_value": "0",
+        "grid_gap_value_vertical": "",
         "horizontal_padding": "small",
         "vertical_padding": "medium",
         "vertical_alignment": "center"
@@ -125,6 +128,7 @@
       ],
       "settings": {
         "grid_gap_value": "0",
+        "grid_gap_value_vertical": "",
         "horizontal_padding": "small",
         "vertical_padding": "no",
         "vertical_alignment": "center"
@@ -158,6 +162,7 @@
       ],
       "settings": {
         "grid_gap_value": "",
+        "grid_gap_value_vertical": "",
         "horizontal_padding": "small",
         "vertical_padding": "medium",
         "vertical_alignment": "center"
@@ -206,6 +211,7 @@
       ],
       "settings": {
         "grid_gap_value": "",
+        "grid_gap_value_vertical": "",
         "horizontal_padding": "no",
         "vertical_padding": "small",
         "vertical_alignment": "center"
@@ -239,6 +245,7 @@
       ],
       "settings": {
         "grid_gap_value": "",
+        "grid_gap_value_vertical": "",
         "horizontal_padding": "small",
         "vertical_padding": "medium",
         "vertical_alignment": "center"
@@ -275,6 +282,7 @@
       ],
       "settings": {
         "grid_gap_value": "",
+        "grid_gap_value_vertical": "",
         "horizontal_padding": "small",
         "vertical_padding": "no",
         "vertical_alignment": "center"
@@ -311,6 +319,7 @@
       ],
       "settings": {
         "grid_gap_value": "",
+        "grid_gap_value_vertical": "",
         "horizontal_padding": "small",
         "vertical_padding": "medium",
         "vertical_alignment": "center"
@@ -368,6 +377,7 @@
       ],
       "settings": {
         "grid_gap_value": "",
+        "grid_gap_value_vertical": "",
         "horizontal_padding": "no",
         "vertical_padding": "no",
         "vertical_alignment": "center"
@@ -416,6 +426,7 @@
       ],
       "settings": {
         "grid_gap_value": "",
+        "grid_gap_value_vertical": "",
         "horizontal_padding": "no",
         "vertical_padding": "no",
         "vertical_alignment": "center"
