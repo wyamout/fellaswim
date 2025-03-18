@@ -13,85 +13,103 @@
       "type": "main-page",
       "settings": {}
     },
-    "e49e8725-4d73-40e9-b1c0-638754357376": {
-      "type": "image-feature",
-      "settings": {
-        "image": "shopify://shop_images/b6c2808507e2--3-198b35.jpg",
-        "image_mobile": "shopify://shop_images/b6c2808507e2--3-198b35.jpg",
-        "vimeo_desktop": "",
-        "vimeo_mobile": "",
-        "title": "Page Template",
-        "subtitle": "",
-        "copy": "",
-        "layout": "full-width",
-        "text-alignment": "center",
-        "text-color": "white",
-        "link": ""
-      }
-    },
-    "4faa384f-6082-4402-ad4a-ffd3b499d3bd": {
-      "type": "content-blocks",
+    "main_sustainability_xRfXYN": {
+      "type": "main-sustainability",
       "blocks": {
-        "cc14044e-4321-4848-8fab-15d573842a86": {
-          "type": "text",
+        "menu_9CpYth": {
+          "type": "menu",
           "settings": {
-            "grid_x": 8,
-            "text_title": "",
-            "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pretium imperdiet massa. Nulla varius id metus sit amet hendrerit. Phasellus mi est, fermentum rhoncus dolor ut, faucibus egestas leo. Praesent ut mauris arcu doren liquam molestie libero sed interdum posuere. <br/>Phasellus mi est, fermentum rhoncus dolor ut, faucibus egestas leo. Praesent ut mauris arcu doren. Fusce ac augue in justo tincidunt accumsan lorem ipsum caller fretem glorenium. <br/>Aliquam molestie libero sed interdum posuere:<br/>Lorem ipsum dolor sit amet<br/>Consectetur adipiscing elit<br/>Nulla pretium imperdiet massa</p>"
-          }
-        }
-      },
-      "block_order": [
-        "cc14044e-4321-4848-8fab-15d573842a86"
-      ],
-      "settings": {
-        "grid_gap_value": "",
-        "horizontal_padding": "small",
-        "vertical_padding": "medium",
-        "vertical_alignment": "center"
-      }
-    },
-    "1383d4a5-7b14-4f11-a438-d93b7448bcc4": {
-      "type": "content-blocks",
-      "blocks": {
-        "900efc4f-78d2-44c7-b26b-8e64daa42942": {
-          "type": "image",
-          "settings": {
-            "grid_x": 6,
-            "image": "shopify://shop_images/b6c2808507e2--3-198b35.jpg",
-            "image_title": "My title",
-            "image_subtitle": "Subtitle",
-            "popup_products": [
-              "abraham-top-coral",
-              "abraham-top-day-in-the-garden"
-            ]
+            "link": "shopify://pages/sustainability-ourcommitment",
+            "number": "V",
+            "title": "Our Commitment",
+            "image": "shopify://shop_images/christobal-fullpiece-campari-campaign-3.jpg"
           }
         },
-        "c34b943c-d5b3-4be7-9021-be6b9c340fdc": {
-          "type": "text",
+        "menu_8AGN78": {
+          "type": "menu",
           "settings": {
-            "grid_x": 6,
-            "text_title": "asdsadasdsadsada",
-            "description": "<p>asdasdadas dasdasdasd asdasdadad adasdasdasdasdasdasdadasdasdas d ad ada asd asd adas</p>"
+            "link": "shopify://pages/sustainability-advocacy",
+            "number": "I",
+            "title": "Advocacy",
+            "image": "shopify://shop_images/gareth-top-cactus-campaign-3.jpg"
+          }
+        },
+        "menu_Lt9cHp": {
+          "type": "menu",
+          "settings": {
+            "link": "shopify://pages/sustainability-durabledesign",
+            "number": "III",
+            "title": "Durable Design",
+            "image": "shopify://shop_images/lucifer-fullpiece-cactus-campaign-3.jpg"
+          }
+        },
+        "menu_zqcqT4": {
+          "type": "menu",
+          "settings": {
+            "link": "shopify://pages/sustainability-manufacturing",
+            "number": "IV",
+            "title": "Manufacturing",
+            "image": "shopify://shop_images/christobal-fullpiece-noir-campaign-3_1d3f8fdb-d5d5-4f6b-a1d6-31613bab07f4.jpg"
+          }
+        },
+        "menu_Gx7tdt": {
+          "type": "menu",
+          "settings": {
+            "link": "shopify://pages/sustainability-packaging",
+            "number": "VI",
+            "title": "Packaging",
+            "image": "shopify://shop_images/12_6e8494a1-3840-46c7-babe-5844216af23e.jpg"
+          }
+        },
+        "menu_e4wHX4": {
+          "type": "menu",
+          "settings": {
+            "link": "shopify://pages/sustainability-carbonemissions",
+            "number": "II",
+            "title": "Carbon Missions",
+            "image": "shopify://shop_images/marcus-bottom-campari-campaign-3.jpg"
+          }
+        },
+        "menu_NgL7hz": {
+          "type": "menu",
+          "settings": {
+            "link": "shopify://pages/sustainability-responsiblehomecare",
+            "number": "VII",
+            "title": "Responsible Home",
+            "image": "shopify://shop_images/474946674_28198019409842273_323854685879777938_n.jpg"
+          }
+        },
+        "menu_3d7fa6": {
+          "type": "menu",
+          "settings": {
+            "link": "shopify://pages/sustainability-takebackprogram",
+            "number": "VIII",
+            "title": "Tack Back Program",
+            "image": "shopify://shop_images/lucifer-fullpiece-cactus-1.png"
           }
         }
       },
       "block_order": [
-        "900efc4f-78d2-44c7-b26b-8e64daa42942",
-        "c34b943c-d5b3-4be7-9021-be6b9c340fdc"
+        "menu_9CpYth",
+        "menu_8AGN78",
+        "menu_Lt9cHp",
+        "menu_zqcqT4",
+        "menu_Gx7tdt",
+        "menu_e4wHX4",
+        "menu_NgL7hz",
+        "menu_3d7fa6"
       ],
       "settings": {
-        "grid_gap_value": "",
-        "horizontal_padding": "small",
-        "vertical_padding": "medium",
-        "vertical_alignment": "center"
+        "image": "shopify://shop_images/6_734a7bba-4ad9-4171-8f74-9d54b23c5f8d.jpg",
+        "subtitle": "Sustainability",
+        "title": "ADVOCACY",
+        "content": "<p>This world of ours is complex, vast and inimitably beautiful - to experience it is the ultimate luxury. With privilege comes responsibility and FELLA is committed to conscious initiatives that reduce our environmental impact and ensure future Fellas can also know this natural beauty. Since FELLA was founded in 2012, we’ve stayed true to the belief that less is more. We have built our brand on product integrity, and it is this same principle that informs the way we work, with all aspects of the business shaped by fair and ethical conduct. Whilst we know we are not perfect, we are committed to the journey of sustainability and vow efforts to make positive change in all areas that we can.</p>",
+        "show_form": false
       }
     }
   },
   "order": [
     "main",
-    "e49e8725-4d73-40e9-b1c0-638754357376",
-    "4faa384f-6082-4402-ad4a-ffd3b499d3bd",
-    "1383d4a5-7b14-4f11-a438-d93b7448bcc4"
+    "main_sustainability_xRfXYN"
   ]
 }
