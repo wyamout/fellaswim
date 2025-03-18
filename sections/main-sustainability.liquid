@@ -262,24 +262,13 @@
     </div>
   </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
 <script>
-document.addEventListener("shopify:section:load", function() {
-    initSwiper();
-});
-  document.addEventListener("turbo:load", function() {
-    initSwiper();
-});
-
-function initSwiper() {
-    // Ensure Swiper is destroyed before reinitializing
-    if (window.mySwiper) {
-        window.mySwiper.destroy();
-    }
-
-    window.mySwiper = new Swiper('#sus-image--{{ section.id }}-{{ section.settings.image.id }}', {
-       slidesPerView: 1,
+  
+    document.addEventListener("DOMContentLoaded", function () {
+      const swiper = new Swiper('#sus-image--{{ section.id }}-{{ section.settings.image.id }}', {
+        slidesPerView: 1,
         spaceBetween: 0,
         // Navigation arrows
         // Navigation arrows
@@ -288,13 +277,7 @@ function initSwiper() {
             prevEl: '.swiper-button-prev',
           },
         loop: true,
-    });
-}
-
-// Run the function on the first page load
-document.addEventListener("DOMContentLoaded", initSwiper);
-    document.addEventListener("DOMContentLoaded", function () {
-      initSwiper()
+      });
       
       const currentPath = window.location.pathname;
         const menuItems = document.querySelectorAll(".sus-menus--item");
