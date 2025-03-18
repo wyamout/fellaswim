@@ -162,7 +162,10 @@
             "image": "shopify://shop_images/SKIN_ONLY_3.jpg",
             "image_title": "",
             "image_subtitle": "",
-            "popup_products": []
+            "popup_products": [
+              "mikey-top-noir",
+              "herbie-bottom-noir"
+            ]
           }
         }
       },
