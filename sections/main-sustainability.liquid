@@ -262,10 +262,10 @@
     </div>
   </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" async></script>
 
 <script>
-
+    document.addEventListener("pageshow", function () {
       const swiper = new Swiper('#sus-image--{{ section.id }}-{{ section.settings.image.id }}', {
         slidesPerView: 1,
         spaceBetween: 0,
@@ -361,6 +361,7 @@
           }
         });
       });
+    });
 </script>
 
 {% schema %}
