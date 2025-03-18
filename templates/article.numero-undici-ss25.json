@@ -68,10 +68,12 @@
           "type": "image",
           "settings": {
             "grid_x": 12,
-            "image": "shopify://shop_images/FELLA-SUMMER-25_SHOT-8_634.jpg",
+            "image": "shopify://shop_images/FELLA-SUMMER-25_SHOT-8_634_512eb190-9c3f-4fe5-920d-00bf04322400.jpg",
             "image_title": "",
             "image_subtitle": "",
-            "popup_products": []
+            "popup_products": [
+              "dolce-fullpiece-noir"
+            ]
           }
         },
         "image_krrVMV": {
