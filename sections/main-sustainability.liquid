@@ -258,14 +258,14 @@
                 {% assign is_active = true %}
               {% endif %}
 
-              <a
+              <div
                 href="{{ block.settings.link }}"
                 class="sus-menus--item swiper-slide {% if is_active %}active-link{% endif %}"
                 data-id="sus-menus--item--{{ section.id }}-{{ block.id }}"
                 link="{{current_url  }}"
               >
                 {{ block.settings.title }}
-              </a>
+              </div>
           {% endcase %}
         {% endfor %}
       </div>
