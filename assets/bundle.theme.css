@@ -20004,7 +20004,7 @@ display: none !important;
 }
 .wizard__content p:first-of-type {
   display: none !important;
-  visibility: none !important;
+ visibility: hidden;
 }
 
 .globo-form-app {
