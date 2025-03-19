@@ -2124,7 +2124,6 @@ img.lazyload.lazyload-loaded,
   flex-wrap: wrap;
   max-width: 1200px;
   margin: auto;
-  column-gap: 15px;
 }
 
 .fabric-gallery-section .fabric-gallery-container .fabric {
