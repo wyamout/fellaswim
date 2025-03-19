@@ -319,7 +319,7 @@
        menuItems.forEach((item) => {
         item.addEventListener("click", function (event) {
           event.preventDefault();
-          const targetUrl = event.target.href; // Store the link destination
+          const targetUrl = item.getAttribute("href"); // Store the link destination
           console.log(targetUrl)
             // window.location.href = targetUrl;
         });
