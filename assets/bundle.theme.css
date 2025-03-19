@@ -19994,3 +19994,7 @@ flex-direction: row;
 .g-container .header {
   display: none !important;
 }
+
+.g-container .wizard__header {
+display: none !important;
+}
