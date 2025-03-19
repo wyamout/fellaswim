@@ -184,13 +184,7 @@
 
 <script>
 
-// Run this after the DOM is loaded
-    document.addEventListener('DOMContentLoaded', function() {
-        const poweredBy = document.querySelector('.globo-formbuilder-wizard p[style*="text-align: right"]');
-        if (poweredBy) {
-            poweredBy.remove(); // Or use poweredBy.innerHTML = '';
-        }
-    });
+
     document.addEventListener("DOMContentLoaded", function () {
     const swiper = new Swiper('#sus-image--{{ section.id }}-{{ section.settings.image.id }}', {
         slidesPerView: 1,
