@@ -19998,3 +19998,7 @@ flex-direction: row;
 .g-container .wizard__header {
 display: none !important;
 }
+
+.g-container {
+  padding: 0 30px !important;
+}
