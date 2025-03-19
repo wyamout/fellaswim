@@ -20013,3 +20013,7 @@ display: none !important;
 .globo-form-control .gfb__dropzone {
   background: #fdfcf9 !important;
 }
+
+.wizard__submit {
+  background: #000 !important;
+}
