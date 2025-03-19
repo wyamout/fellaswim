@@ -20005,3 +20005,11 @@ display: none !important;
 .wizard__content p:first-of-type {
   display: none !important;
 }
+
+.globo-form-app * {
+  background: #fdfcf9 !important;
+}
+
+.globo-form-control .gfb__dropzone {
+  background: #fdfcf9 !important;
+}
