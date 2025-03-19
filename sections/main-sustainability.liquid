@@ -85,7 +85,12 @@
         <div class="sub-heading--desc">
           {{ section.settings.content }}
         </div>
-
+  {% for block in section.blocks %}
+  {% case block.type %}
+    {% when '@app' %}
+      {% render block %}
+  {% endcase %}
+{% endfor %}
         {% if section.settings.show_form %}
           <div class="sub-content-form">
             {% form 'contact' %}
@@ -423,6 +428,9 @@
         },
   ],
   "blocks": [
+    {
+      "type": "@app"
+    },
     {
       "type": "menu",
       "name": "Menu",
