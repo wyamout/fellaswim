@@ -20002,6 +20002,6 @@ display: none !important;
 .g-container {
   padding: 0 30px !important;
 }
-.wizard__content p:first-child {
+.wizard__content p:first-of-type {
   display: none !important;
 }
