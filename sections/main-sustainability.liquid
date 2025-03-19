@@ -257,14 +257,14 @@
                 {% assign is_active = true %}
               {% endif %}
 
-              <a
+              <div
                 href="{{ block.settings.link }}"
                 class="sus-menus--item swiper-slide {% if is_active %}active-link{% endif %}"
                 data-id="sus-menus--item--{{ section.id }}-{{ block.id }}"
                 link="{{current_url  }}"
               >
                 {{ block.settings.title }}
-              </a>
+              </div>
           {% endcase %}
         {% endfor %}
       </div>
@@ -319,9 +319,9 @@
        menuItems.forEach((item) => {
         item.addEventListener("click", function (event) {
           event.preventDefault();
-          console.log(this.href)
           const targetUrl = this.href; // Store the link destination
-            window.location.href = targetUrl;
+          console.log(targetUrl)
+            // window.location.href = targetUrl;
         });
       });
 
