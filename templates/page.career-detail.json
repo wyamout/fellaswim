@@ -12,15 +12,6 @@
     "main": {
       "type": "careers",
       "blocks": {
-        "d04bdf4b-488a-46bf-b22e-5403e110dfc4": {
-          "type": "Career",
-          "settings": {
-            "title": "Retail + Customer Care Support",
-            "location": "Paddington, NSW",
-            "page": "retail-customer-care-support",
-            "external_link": ""
-          }
-        },
         "career_xzhWBV": {
           "type": "Career",
           "settings": {
@@ -36,6 +27,16 @@
             "title": "eCommerce Manager",
             "location": "Paddington, NSW",
             "page": "ecommerce-manager",
+            "external_link": ""
+          }
+        },
+        "d04bdf4b-488a-46bf-b22e-5403e110dfc4": {
+          "type": "Career",
+          "disabled": true,
+          "settings": {
+            "title": "Retail + Customer Care Support",
+            "location": "Paddington, NSW",
+            "page": "retail-customer-care-support",
             "external_link": ""
           }
         },
@@ -111,9 +112,9 @@
         }
       },
       "block_order": [
-        "d04bdf4b-488a-46bf-b22e-5403e110dfc4",
         "career_xzhWBV",
         "career_HzJTRx",
+        "d04bdf4b-488a-46bf-b22e-5403e110dfc4",
         "5ffd462d-b849-40d9-a943-e831928bc7bb",
         "a94a000d-e0c6-4cf1-841b-90d366440a8b",
         "b9163a7a-2df8-4387-9eb1-e9e226cf76e3",

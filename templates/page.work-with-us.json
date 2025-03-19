@@ -32,6 +32,7 @@
         },
         "7676129d-c954-4499-868d-36d8ce30de14": {
           "type": "Career",
+          "disabled": true,
           "settings": {
             "title": "Retail + Customer Care Support",
             "location": "Paddington, NSW",
