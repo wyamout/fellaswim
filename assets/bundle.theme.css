@@ -19990,3 +19990,7 @@ flex-direction: row;
 .sus-images .swiper-button-next:after,.sus-images .swiper-button-prev:after {
   font-size:24px;
 }
+
+.g-container .header {
+  display: none !important;
+}
