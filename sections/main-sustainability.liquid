@@ -317,11 +317,23 @@
     
 
        menuItems.forEach((item) => {
+        let isTouch = false;
+  
         item.addEventListener("touchend", function (event) {
           event.preventDefault();
-          const targetUrl = item.getAttribute("href"); // Store the link destination
-          console.log(targetUrl)
+          isTouch = true;
+          const targetUrl = item.getAttribute("href");
+          console.log(targetUrl);
+          window.location.href = targetUrl;
+        });
+        
+        item.addEventListener("click", function (event) {
+          if (!isTouch) {
+            event.preventDefault();
+            const targetUrl = item.getAttribute("href");
+            console.log(targetUrl);
             window.location.href = targetUrl;
+          }
         });
       });
 
