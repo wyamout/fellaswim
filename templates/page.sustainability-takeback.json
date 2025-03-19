@@ -89,6 +89,12 @@
             "title": "Responsible Home",
             "image": "shopify://shop_images/474946674_28198019409842273_323854685879777938_n.jpg"
           }
+        },
+        "powerful_form_builder_app_block_Kdqjrq": {
+          "type": "shopify://apps/powerful-form-builder/blocks/app-block/e4bcb1eb-35b2-42e6-bc37-bfe0e1542c9d",
+          "settings": {
+            "shortcode": ""
+          }
         }
       },
       "block_order": [
@@ -99,7 +105,8 @@
         "menu_Gx7tdt",
         "menu_3d7fa6",
         "menu_e4wHX4",
-        "menu_NgL7hz"
+        "menu_NgL7hz",
+        "powerful_form_builder_app_block_Kdqjrq"
       ],
       "settings": {
         "image": "shopify://shop_images/6_TakeBack.jpg",
