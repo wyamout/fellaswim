@@ -13,20 +13,6 @@
       "type": "index",
       "settings": {}
     },
-    "image_feature_raK86d": {
-      "type": "image-feature",
-      "settings": {
-        "image": "shopify://shop_images/250320_SALE_00.jpg",
-        "image_mobile": "shopify://shop_images/250320_SALE_002.jpg",
-        "title": "",
-        "subtitle": "TAKE A FURTHER 30% OFF",
-        "copy": "",
-        "layout": "full-width",
-        "text-alignment": "bottom-left",
-        "text-color": "black",
-        "link": "shopify://collections/sale"
-      }
-    },
     "1597296526534": {
       "type": "image-feature",
       "settings": {
@@ -41,6 +27,22 @@
         "text-alignment": "bottom-left",
         "text-color": "white",
         "link": "shopify://collections/spring-summer-25"
+      }
+    },
+    "image_feature_raK86d": {
+      "type": "image-feature",
+      "settings": {
+        "image": "shopify://shop_images/250320_SALE_00.jpg",
+        "image_mobile": "shopify://shop_images/250320_SALE_002.jpg",
+        "vimeo_desktop": "",
+        "vimeo_mobile": "",
+        "title": "",
+        "subtitle": "TAKE A FURTHER 30% OFF",
+        "copy": "",
+        "layout": "full-width",
+        "text-alignment": "bottom-left",
+        "text-color": "black",
+        "link": "shopify://collections/sale"
       }
     },
     "image_feature_3_GJpymd": {
@@ -159,8 +161,8 @@
   },
   "order": [
     "main",
-    "image_feature_raK86d",
     "1597296526534",
+    "image_feature_raK86d",
     "image_feature_3_GJpymd",
     "collection_MGJt6Y",
     "image_feature_mTQfHL",
