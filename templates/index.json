@@ -29,37 +29,22 @@
         "link": "shopify://collections/spring-summer-25"
       }
     },
-    "image_feature_raK86d": {
-      "type": "image-feature",
-      "settings": {
-        "image": "shopify://shop_images/250320_SALE_00.jpg",
-        "image_mobile": "shopify://shop_images/250320_SALE_002.jpg",
-        "vimeo_desktop": "",
-        "vimeo_mobile": "",
-        "title": "",
-        "subtitle": "TAKE A FURTHER 30% OFF",
-        "copy": "",
-        "layout": "full-width",
-        "text-alignment": "bottom-left",
-        "text-color": "black",
-        "link": "shopify://collections/sale"
-      }
-    },
     "image_feature_3_GJpymd": {
       "type": "image-feature-3",
       "blocks": {
         "item_mEhkQK": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/FELLA_SQUARETILES_1800x1700_SS25_1.jpg",
+            "image": "shopify://shop_images/250320_SALE_003.jpg",
+            "image_mobile": "shopify://shop_images/250320_SALE_002.jpg",
             "vimeo_desktop": "",
             "vimeo_mobile": "",
             "title": "",
-            "subtitle": "SHOP SARONGS",
+            "subtitle": "TAKE A FURTHER 30% OFF SALE",
             "copy": "",
             "text-alignment": "bottom-left",
-            "link": "shopify://collections/accessories",
-            "text-color": "white"
+            "link": "shopify://collections/sale",
+            "text-color": "black"
           }
         },
         "item_Fxqyqm": {
@@ -162,7 +147,6 @@
   "order": [
     "main",
     "1597296526534",
-    "image_feature_raK86d",
     "image_feature_3_GJpymd",
     "collection_MGJt6Y",
     "image_feature_mTQfHL",
