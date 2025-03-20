@@ -29,21 +29,35 @@
         "link": "shopify://collections/spring-summer-25"
       }
     },
+    "image_feature_GW9KFY": {
+      "type": "image-feature",
+      "settings": {
+        "image": "shopify://shop_images/250320_SALE_00.jpg",
+        "image_mobile": "shopify://shop_images/250320_SALE_002.jpg",
+        "title": "",
+        "subtitle": "TAKE A FURTHER 30% OFF",
+        "copy": "",
+        "layout": "full-width",
+        "text-alignment": "bottom-left",
+        "text-color": "black",
+        "link": "shopify://collections/sale"
+      }
+    },
     "image_feature_3_GJpymd": {
       "type": "image-feature-3",
       "blocks": {
         "item_mEhkQK": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/250320_SALE_003.jpg",
-            "image_mobile": "shopify://shop_images/250320_SALE_002.jpg",
+            "image": "shopify://shop_images/FELLA_SQUARETILES_1800x1700_SS25_1_0ddc2849-c165-4f61-bac1-a57a54c66cd6.jpg",
+            "image_mobile": "shopify://shop_images/FELLA_MOBILESQUARETILES_750x1000_SS25_1_90e60436-fa15-45d7-a1aa-13b80a1b9834.jpg",
             "vimeo_desktop": "",
             "vimeo_mobile": "",
             "title": "",
-            "subtitle": "TAKE A FURTHER 30% OFF SALE",
+            "subtitle": "SHOP SARONGS",
             "copy": "",
             "text-alignment": "bottom-left",
-            "link": "shopify://collections/sale",
+            "link": "shopify://collections/pareo-sarongs",
             "text-color": "black"
           }
         },
@@ -147,6 +161,7 @@
   "order": [
     "main",
     "1597296526534",
+    "image_feature_GW9KFY",
     "image_feature_3_GJpymd",
     "collection_MGJt6Y",
     "image_feature_mTQfHL",
