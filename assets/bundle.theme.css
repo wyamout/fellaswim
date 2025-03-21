@@ -20017,6 +20017,7 @@ display: none !important;
 
 .globo-form-app {
   max-width: 100% !important;
+  margin: 0 !important;
 }
 
 .globo-form-app * {
