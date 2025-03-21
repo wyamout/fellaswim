@@ -20030,3 +20030,8 @@ display: none !important;
 .wizard__submit {
   background: #000 !important;
 }
+
+.globo-form-control input {
+      box-shadow: none !important;
+    border-bottom: 1px solid #e2e2e2 !important;
+}
