@@ -20024,6 +20024,11 @@ display: none !important;
   background: #000 !important;
   color: #fff !important;
 }
+.globo-form-app .message {
+      background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
 
 .globo-form-app * {
   background: #fdfcf9 !important;
@@ -20056,6 +20061,8 @@ display: none !important;
  font-size: 11.2px !important;
   line-height: 18px !important;
   margin-bottom: 0;
+      text-align: left;
+    font-weight: 400 !important;
 }
 
 .globo-form-input textarea {
