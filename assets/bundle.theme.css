@@ -20041,6 +20041,10 @@ display: none !important;
       font-size: 11.2px !important;
 }
 
+.globo-form-app .label-content {
+     font-size: 11.2px !important;
+}
+
 .globo-form-input textarea {
   min-height: 50px !important;
 }
