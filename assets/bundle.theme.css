@@ -20037,3 +20037,7 @@ display: none !important;
       box-shadow: none !important;
     border-bottom: 1px solid #e2e2e2 !important;
 }
+
+.globo-form-input textarea {
+  min-height: 50px !important;
+}
