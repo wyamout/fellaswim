@@ -20020,6 +20020,11 @@ display: none !important;
   margin: 0 !important;
 }
 
+.globo-form-app .spinner {
+  background: #000 !important;
+  color: #fff !important;
+}
+
 .globo-form-app * {
   background: #fdfcf9 !important;
   font-size: 11.2px;
