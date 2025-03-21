@@ -4,22 +4,87 @@
         {% paginate search.results by 24 %}
 
             <div class="search--products">
-                <div class="product-index six-col">
+                <div class="product-index six-col" id="product-container">
                     {% for product in search.results %}
                         {% render 'product-index', product: product %}
                     {% endfor %}
                 </div>
 
 	            {% if paginate.next.is_link %}
-	                <div class="pagination--next">
-	                    <a href="{{ paginate.next.url }}" class="pagination--link">{{ 'pagination.next-page' | t }}</a>
-	                    <span class="pagination--loading">{{ 'pagination.next-page-loading' | t }}</span>
-	                </div>
-	            {% endif %}
+                    <div class="pagination--next" data-next-url="{{ paginate.next.url }}">
+                        <span class="pagination--loading" style="display: none;">{{ 'pagination.next-page-loading' | t }}</span>
+                    </div>
+                {% endif %}
                 
             </div>
 
         {% endpaginate %}
     {% endif %}
-
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    let loading = false; // Prevent multiple AJAX requests
+
+    window.addEventListener("scroll", function () {
+        if (loading) return;
+
+        const nextPagination = document.querySelector(".pagination--next");
+        if (!nextPagination) return;
+
+        const nextUrl = nextPagination.getAttribute("data-next-url");
+        if (!nextUrl) return;
+
+        // Check if the user is near the bottom of the page
+        const scrollPosition = window.innerHeight + window.scrollY;
+        const pageHeight = document.body.offsetHeight;
+
+        if (scrollPosition >= pageHeight - 100) { // Adjust threshold as needed
+            loadMoreProducts(nextUrl);
+        }
+    });
+
+    function loadMoreProducts(url) {
+        loading = true;
+        const nextPagination = document.querySelector(".pagination--next");
+        const loadingText = document.querySelector(".pagination--loading");
+
+        if (loadingText) {
+            loadingText.style.display = "block";
+        }
+
+        fetch(url)
+            .then(response => response.text())
+            .then(data => {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(data, "text/html");
+                
+                const newProducts = doc.querySelector("#product-container");
+                const newPagination = doc.querySelector(".pagination--next");
+
+                if (newProducts) {
+                  setTimeout(() => {
+                    document.getElementById("product-container").appendChild(newProducts);
+                  },500)
+                }
+
+                if (newPagination) {
+                    nextPagination.setAttribute("data-next-url", newPagination.getAttribute("data-next-url"));
+                } else {
+                    nextPagination.remove(); // Remove pagination if no more pages
+                }
+
+                if (loadingText) {
+                    loadingText.style.display = "none";
+                }
+
+                loading = false;
+            })
+            .catch(error => {
+                console.error("Error loading more products:", error);
+                loading = false;
+            });
+    }
+});
+
+</script>
