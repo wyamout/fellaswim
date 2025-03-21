@@ -20022,6 +20022,7 @@ display: none !important;
 
 .globo-form-app * {
   background: #fdfcf9 !important;
+  font-size: 11.2px;
 }
 
 .globo-form-control .gfb__dropzone {
@@ -20043,6 +20044,7 @@ display: none !important;
 
 .globo-form-app .label-content {
      font-size: 11.2px !important;
+      line-height: 18px;
 }
 
 .globo-form-input textarea {
