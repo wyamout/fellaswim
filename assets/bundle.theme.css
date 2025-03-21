@@ -20058,13 +20058,12 @@ display: none !important;
 }
 
 .gfb__content-title {
- font-size: 11.2px !important;
+ font-size: 13px !important;
   line-height: 18px !important;
   margin-bottom: 0;
-      text-align: left;
-    font-weight: 400 !important;
+     text-align: left;
+    font-weight: 600 !important;
 }
-
 .globo-form-input textarea {
   min-height: 50px !important;
 }
