@@ -20031,7 +20031,9 @@ display: none !important;
   background: #000 !important;
 }
 
-.globo-form-control input {
+.globo-form-control input,
+.globo-form-control select,
+.globo-form-control textarea{
       box-shadow: none !important;
     border-bottom: 1px solid #e2e2e2 !important;
 }
