@@ -19,67 +19,67 @@
 </div>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      let loading = false; // Prevent multiple AJAX requests
+      document.addEventListener("DOMContentLoaded", function () {
+        let loading = false; // Prevent multiple AJAX requests
 
-      window.addEventListener("scroll", function () {
-          if (loading) return;
+        window.addEventListener("scroll", function () {
+            if (loading) return;
 
-          const nextPagination = document.querySelector(".pagination--next");
-          if (!nextPagination) return;
+            const nextPagination = document.querySelector(".pagination--next");
+            if (!nextPagination) return;
 
-          const nextUrl = nextPagination.getAttribute("data-next-url");
-          if (!nextUrl) return;
+            const nextUrl = nextPagination.getAttribute("data-next-url");
+            if (!nextUrl) return;
 
-          // Check if the user is near the bottom of the page
-          const scrollPosition = window.innerHeight + window.scrollY;
-          const pageHeight = document.body.offsetHeight;
+            // Check if the user is near the bottom of the page
+            const scrollPosition = window.innerHeight + window.scrollY;
+            const pageHeight = document.body.offsetHeight;
 
-          if (scrollPosition >= pageHeight - 100) { // Adjust threshold as needed
-              loadMoreProducts(nextUrl);
-          }
-      });
+            if (scrollPosition >= pageHeight - 100) { // Adjust threshold as needed
+                loadMoreProducts(nextUrl);
+            }
+        });
 
-      function loadMoreProducts(url) {
-          loading = true;
-          const nextPagination = document.querySelector(".pagination--next");
-          const loadingText = document.querySelector(".pagination--loading");
+        function loadMoreProducts(url) {
+            loading = true;
+            const nextPagination = document.querySelector(".pagination--next");
+            const loadingText = document.querySelector(".pagination--loading");
 
-          if (loadingText) {
-              loadingText.style.display = "block";
-          }
+            if (loadingText) {
+                loadingText.style.display = "block";
+            }
 
-          fetch(url)
-              .then(response => response.text())
-              .then(data => {
-                  const parser = new DOMParser();
-                  const doc = parser.parseFromString(data, "text/html");
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(data, "text/html");
 
-                  const newProducts = doc.querySelector("#product-container");
-                  const newPagination = doc.querySelector(".pagination--next");
-                  console.log(newProducts.innerHTML)
-                  if (newProducts) {
-                    setTimeout(() => {
-                      document.getElementById("product-container").appendChild(newProducts.innerHTML);
-                    },500)
-                  }
+                    const newProducts = doc.querySelector("#product-container");
+                    const newPagination = doc.querySelector(".pagination--next");
+                    console.log(newProducts.innerHTML)
+                    if (newProducts) {
+                      setTimeout(() => {
+  document.getElementById("product-container").insertAdjacentHTML("beforeend", newProducts.innerHTML);
+                      },500)
+                    }
 
-                  if (newPagination) {
-                      nextPagination.setAttribute("data-next-url", newPagination.getAttribute("data-next-url"));
-                  } else {
-                      nextPagination.remove(); // Remove pagination if no more pages
-                  }
+                    if (newPagination) {
+                        nextPagination.setAttribute("data-next-url", newPagination.getAttribute("data-next-url"));
+                    } else {
+                        nextPagination.remove(); // Remove pagination if no more pages
+                    }
 
-                  if (loadingText) {
-                      loadingText.style.display = "none";
-                  }
+                    if (loadingText) {
+                        loadingText.style.display = "none";
+                    }
 
-                  loading = false;
-              })
-              .catch(error => {
-                  console.error("Error loading more products:", error);
-                  loading = false;
-              });
-      }
-  });
+                    loading = false;
+                })
+                .catch(error => {
+                    console.error("Error loading more products:", error);
+                    loading = false;
+                });
+        }
+    });
 </script>
