@@ -57,7 +57,7 @@
 
                   const newProducts = doc.querySelector("#product-container");
                   const newPagination = doc.querySelector(".pagination--next");
-
+                  console.log(newProducts.innerHTML)
                   if (newProducts) {
                     setTimeout(() => {
                       document.getElementById("product-container").appendChild(newProducts.innerHTML);
