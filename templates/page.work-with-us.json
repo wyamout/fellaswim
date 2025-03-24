@@ -14,6 +14,7 @@
       "blocks": {
         "career_PMUbFA": {
           "type": "Career",
+          "disabled": true,
           "settings": {
             "title": "Graphic Design + Social Media Creative",
             "location": "Paddington, NSW",
@@ -23,6 +24,7 @@
         },
         "career_RkwpEB": {
           "type": "Career",
+          "disabled": true,
           "settings": {
             "title": "eCommerce Manager",
             "location": "Paddington, NSW",
