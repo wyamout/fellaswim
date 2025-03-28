@@ -81,10 +81,10 @@
     "1597296526534": {
       "type": "image-feature",
       "settings": {
-        "image": "shopify://shop_images/FELLA_MAINHERO_3600x1700_SS25.jpg",
-        "image_mobile": "shopify://shop_images/FELLA_MOBILEHERO_750x1000_SS25.jpg",
-        "vimeo_desktop": "https://vimeo.com/1063108075",
-        "vimeo_mobile": "https://vimeo.com/1063108083",
+        "image": "shopify://shop_images/FELLA_MAINHERO_3600x1700_SS25_a12bd5ab-b21a-4c18-b511-d4986476a232.jpg",
+        "image_mobile": "shopify://shop_images/FELLA_MOBILEHERO_750x1000_SS25_cd095dc4-662c-4703-9dfe-2365c06debd8.jpg",
+        "vimeo_desktop": "https://vimeo.com/1070290274",
+        "vimeo_mobile": "https://vimeo.com/1070290259",
         "title": "",
         "subtitle": "SPRING SUMMER 25",
         "copy": "",
@@ -100,8 +100,8 @@
         "item_mEhkQK": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/FELLA_SQUARETILES_1800x1700_SS25_1_0ddc2849-c165-4f61-bac1-a57a54c66cd6.jpg",
-            "image_mobile": "shopify://shop_images/FELLA_MOBILESQUARETILES_750x1000_SS25_1_90e60436-fa15-45d7-a1aa-13b80a1b9834.jpg",
+            "image": "shopify://shop_images/FELLA_SQUARETILES_1800x1700_SS25_1_aac7b06f-6411-47b0-b0e8-ef3459085397.jpg",
+            "image_mobile": "shopify://shop_images/FELLA_MOBILESQUARETILES_750x1000_SS25_1_96b07086-4930-4d4e-838c-a8a943b7d928.jpg",
             "vimeo_desktop": "",
             "vimeo_mobile": "",
             "title": "",
@@ -109,21 +109,21 @@
             "copy": "",
             "text-alignment": "bottom-left",
             "link": "shopify://collections/pareo-sarongs",
-            "text-color": "black"
+            "text-color": "white"
           }
         },
         "item_Fxqyqm": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/FELLA_SQUARETILES_1800x1700_SS25_2_7d6b040b-dd85-4307-bc2f-5833d95a83e6.jpg",
-            "image_mobile": "shopify://shop_images/FELLA_MOBILESQUARETILES_750x1000_SS25_2.jpg",
+            "image": "shopify://shop_images/FELLA_SQUARETILES_1800x1700_SS25_2_e2c6cf25-b7b4-4265-843d-184a8b9f098d.jpg",
+            "image_mobile": "shopify://shop_images/FELLA_MOBILESQUARETILES_750x1000_SS25_2_03d36ab7-4dfe-4455-8060-f8c836b358b9.jpg",
             "vimeo_desktop": "",
             "vimeo_mobile": "",
             "title": "",
-            "subtitle": "SHOP FULL PIECES",
+            "subtitle": "SHOP NOIR",
             "copy": "",
             "text-alignment": "bottom-right",
-            "link": "shopify://collections/full-pieces",
+            "link": "shopify://collections/noir-colour",
             "text-color": "white"
           }
         }
@@ -146,8 +146,8 @@
     "image_feature_mTQfHL": {
       "type": "image-feature",
       "settings": {
-        "image": "shopify://shop_images/FELLA_MAINHERO_3600x1700_SS25_2_8fa7b5c3-5bd4-4ae9-a81b-53984f3aa0e6.jpg",
-        "image_mobile": "shopify://shop_images/FELLA_MOBILEHERO_750x1000_SS25_2_92a50f6d-8a95-42f3-be3c-733eeddae0cd.jpg",
+        "image": "shopify://shop_images/FELLA_MAINHERO_3600x1700_SS25_50c95b53-a8ea-4480-9165-ca73cc416e37.jpg",
+        "image_mobile": "shopify://shop_images/FELLA_MOBILEHERO_750x1000_SS25_8ee81daf-1ca6-4d9c-9958-5cd3cf16142e.jpg",
         "vimeo_desktop": "",
         "vimeo_mobile": "",
         "title": "",
@@ -174,23 +174,23 @@
         "item_VHBAxm": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/FELLA_SQUARETILES_1800x1700_SS25_3_4c104f36-a772-409f-b0f5-b8a1236c1209.jpg",
-            "image_mobile": "shopify://shop_images/FELLA_MOBILESQUARETILES_750x1000_SS25_3.jpg",
+            "image": "shopify://shop_images/FELLA_SQUARETILES_1800x1700_SS25_3_a68cb35a-9eef-4344-885a-9d1dbdb100f0.jpg",
+            "image_mobile": "shopify://shop_images/FELLA_MOBILESQUARETILES_750x1000_SS25_3_ada7f49b-9f5d-458c-ac24-5ff559f80c0e.jpg",
             "vimeo_desktop": "",
             "vimeo_mobile": "",
             "title": "",
-            "subtitle": "SHOP ACCESSORIES",
+            "subtitle": "SHOP bottoms",
             "copy": "",
             "text-alignment": "bottom-left",
-            "link": "shopify://collections/accessories",
+            "link": "shopify://collections/bottoms",
             "text-color": "white"
           }
         },
         "item_mfjyQP": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/FELLA_SQUARETILES_1800x1700_SS25_4_19435ec2-47e2-4452-99cf-8c0a5eb02883.jpg",
-            "image_mobile": "shopify://shop_images/FELLA_MOBILESQUARETILES_750x1000_SS25_4.jpg",
+            "image": "shopify://shop_images/FELLA_SQUARETILES_1800x1700_SS25_4_3d738fe0-da22-4d50-af24-7cd1fe077848.jpg",
+            "image_mobile": "shopify://shop_images/FELLA_MOBILESQUARETILES_750x1000_SS25_4_008b6fe1-6bf4-46af-8f6b-543c25e6bce6.jpg",
             "vimeo_desktop": "",
             "vimeo_mobile": "",
             "title": "",
