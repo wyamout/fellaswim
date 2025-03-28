@@ -161,6 +161,7 @@
     },
     "collection_6AHmUn": {
       "type": "collection",
+      "disabled": true,
       "settings": {
         "collection": "ss25-homepage-carousel-2",
         "title": "",
