@@ -19,6 +19,7 @@
         "image": "shopify://shop_images/FELLA_MAINHERO_3600x1700_BRIDAL_c80d9244-d162-4250-a019-965b04ef99fc.jpg",
         "image_mobile": "shopify://shop_images/FELLA_MOBILEHERO_750x1000_BRIDAL_8030e195-8e51-4d62-a9ea-fc64d765ecf2.jpg",
         "vimeo_desktop": "https://vimeo.com/1070257364",
+        "vimeo_mobile": "https://vimeo.com/1070277165",
         "title": "",
         "subtitle": "Bridal Collection",
         "copy": "",
@@ -26,6 +27,15 @@
         "text-alignment": "bottom-left",
         "text-color": "white",
         "link": "shopify://collections/bridal-collection"
+      }
+    },
+    "collection_KJAPRM": {
+      "type": "collection",
+      "settings": {
+        "collection": "bridal-collection",
+        "title": "",
+        "link": "shopify://collections/bridal-collection",
+        "background_color": "vanilla"
       }
     },
     "image_feature_3_6MfGBY": {
@@ -67,15 +77,6 @@
         "item_reCqPh"
       ],
       "settings": {}
-    },
-    "collection_KJAPRM": {
-      "type": "collection",
-      "settings": {
-        "collection": "bridal-collection",
-        "title": "",
-        "link": "shopify://collections/bridal-collection",
-        "background_color": "vanilla"
-      }
     },
     "1597296526534": {
       "type": "image-feature",
@@ -211,8 +212,8 @@
   "order": [
     "main",
     "image_feature_DRcLnw",
-    "image_feature_3_6MfGBY",
     "collection_KJAPRM",
+    "image_feature_3_6MfGBY",
     "1597296526534",
     "image_feature_3_GJpymd",
     "collection_MGJt6Y",
