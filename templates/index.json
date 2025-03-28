@@ -28,15 +28,6 @@
         "link": "shopify://collections/bridal-collection"
       }
     },
-    "collection_KJAPRM": {
-      "type": "collection",
-      "settings": {
-        "collection": "bridal-collection",
-        "title": "",
-        "link": "shopify://collections/bridal-collection",
-        "background_color": "vanilla"
-      }
-    },
     "image_feature_3_6MfGBY": {
       "type": "image-feature-3",
       "blocks": {
@@ -76,6 +67,15 @@
         "item_reCqPh"
       ],
       "settings": {}
+    },
+    "collection_KJAPRM": {
+      "type": "collection",
+      "settings": {
+        "collection": "bridal-collection",
+        "title": "",
+        "link": "shopify://collections/bridal-collection",
+        "background_color": "vanilla"
+      }
     },
     "1597296526534": {
       "type": "image-feature",
@@ -211,8 +211,8 @@
   "order": [
     "main",
     "image_feature_DRcLnw",
-    "collection_KJAPRM",
     "image_feature_3_6MfGBY",
+    "collection_KJAPRM",
     "1597296526534",
     "image_feature_3_GJpymd",
     "collection_MGJt6Y",
