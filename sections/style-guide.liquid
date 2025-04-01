@@ -80,6 +80,18 @@
                 }}
               </p>
             {%- endif -%}
+
+            <div class="style-guide--feature--bottom">
+              {%- assign suggestions = collections[style.settings.suggestions] -%}
+
+              <div class="style-guide--feature--bottom--products style-guide--products">
+                {% render 'product-gallery',
+                  products: suggestions.products,
+                  types: true,
+                  translation: 'style_guide.suggested.'
+                %}
+              </div>
+            </div>
           </div>
           <a href="/pages/{{ section.settings.index_page }}" class="style-guide--feature--top--back">
             {% render 'icon', icon: 'chevron' %} Back to start
@@ -102,17 +114,7 @@
             </div>
           </div>
         {%- endif -%}
-        <div class="style-guide--feature--bottom">
-          {%- assign suggestions = collections[style.settings.suggestions] -%}
 
-          <div class="style-guide--feature--bottom--products style-guide--products">
-            {% render 'product-gallery',
-              products: suggestions.products,
-              types: true,
-              translation: 'style_guide.suggested.'
-            %}
-          </div>
-        </div>
         <div class="style-guide--feature--contact">
           <h3 class="style-guide--feature--contact--heading">{{ 'style_guide.unsure' | t }}</h3>
           <a class="style-guide--feature--contact--link" href="mailto:{{ shop.email }}">{{ shop.email }}</a>
