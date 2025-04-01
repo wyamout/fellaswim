@@ -72,8 +72,7 @@
     // Handle filter clicks
     document.querySelectorAll(".product-gallery--title").forEach((filter) => {
       filter.addEventListener("click", function () {
-        // Reinitialize Swiper
-        setTimeout(initSwiper, 100);
+        initSwiper();
       });
     });
   });
