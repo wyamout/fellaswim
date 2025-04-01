@@ -1293,13 +1293,22 @@
               "link": "https://open.spotify.com/user/0b03wnslxifxbigf3t5l0kfjh?si=-l8cbPmpTxyzKQldnujyNw",
               "type": "spotify"
             }
+          },
+          "follow_aeLFxf": {
+            "type": "follow",
+            "settings": {
+              "name": "LinkedIn",
+              "link": "https://www.linkedin.com/company/fella-swim/",
+              "type": "facebook"
+            }
           }
         },
         "block_order": [
           "1597632028424",
           "1597632214549",
           "1597632242888",
-          "a8560165-b57d-41ee-8474-6c68630ea9e7"
+          "a8560165-b57d-41ee-8474-6c68630ea9e7",
+          "follow_aeLFxf"
         ],
         "settings": {
           "footer_contact_page": "contact",
