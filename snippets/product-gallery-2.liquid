@@ -47,18 +47,34 @@
 </div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    new Swiper(".product-gallery--products", {
-      slidesPerView: 2,
-      spaceBetween: 10,
-      breakpoints: {
-        768: {
-          slidesPerView: 2,
-        },
-        1024: {
-          slidesPerView: 2,
-        }
+    document.addEventListener("DOMContentLoaded", function () {
+    let productGallerySwiper;
+
+    // Function to initialize Swiper
+    function initSwiper() {
+      if (productGallerySwiper) {
+        productGallerySwiper.destroy(true, true); // Remove old Swiper
       }
+
+      productGallerySwiper = new Swiper(".product-gallery--products", {
+        slidesPerView: 2,
+        spaceBetween: 10,
+        breakpoints: {
+          768: { slidesPerView: 2 },
+          1024: { slidesPerView: 2 },
+        },
+      });
+    }
+
+    // Initialize Swiper on page load
+    initSwiper();
+
+    // Handle filter clicks
+    document.querySelectorAll(".product-gallery--title").forEach((filter) => {
+      filter.addEventListener("click", function () {
+        // Reinitialize Swiper
+        setTimeout(initSwiper, 100);
+      });
     });
   });
 </script>
