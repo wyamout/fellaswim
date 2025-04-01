@@ -29,9 +29,49 @@
     </div>
   {% endif %}
 
-  <div class="product-gallery--products">
-    {%- for product in products -%}
-      {% render 'product-gallery-item', product: product %}
-    {%- endfor -%}
+  <div class="swiper product-gallery--products">
+    <div class="swiper-wrapper">
+      {%- for product in products -%}
+        <div class="swiper-slide">
+          {% render 'product-gallery-item', product: product %}
+        </div>
+      {%- endfor -%}
+    </div>
+
+    <!-- Swiper Navigation -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
+    <!-- Swiper Pagination -->
+    <div class="swiper-pagination"></div>
   </div>
 </div>
+
+<!-- Include Swiper (Ensure this is added in your theme if not already included) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    new Swiper(".product-gallery--products", {
+      slidesPerView: 2,
+      spaceBetween: 10,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 2,
+        },
+        1024: {
+          slidesPerView: 2,
+        }
+      }
+    });
+  });
+</script>
