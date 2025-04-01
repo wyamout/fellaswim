@@ -14327,18 +14327,7 @@
                     var e = n != t.getAttribute("data-product-type");
                     i(t, "product-gallery--hide", e);
                   });
-                    new Swiper(".product-gallery--products", {
-      slidesPerView: 2,
-      spaceBetween: 10,
-      breakpoints: {
-        768: {
-          slidesPerView: 2,
-        },
-        1024: {
-          slidesPerView: 2,
-        }
-      }
-    });
+                
               },
             },
             {
