@@ -10,19 +10,21 @@
     {% endcomment %}
     <div class="text-wrapper">
       <p>{{ section.settings.ahg_description }}</p>
-      <h2>PRIZE INCLUDES</h2>
-      <div class="prizes-wrapper">
-        {% for block in section.blocks %}
-          {% if block.type == 'prize' %}
-            <span>
-              <strong>{{ block.settings.brand }}</strong>
-              <span>{{ block.settings.item }}</span>
-            </span>
-          {% endif %}
-        {% endfor %}
-      </div>
+      <!--
+        <h2>PRIZE INCLUDES</h2>
+        <div class="prizes-wrapper">
+          {% for block in section.blocks %}
+            {% if block.type == 'prize' %}
+              <span>
+                <strong>{{ block.settings.brand }}</strong>
+                <span>{{ block.settings.item }}</span>
+              </span>
+            {% endif %}
+          {% endfor %}
+        </div>
 
-      <h2>TO ENTER</h2>
+        <h2>TO ENTER</h2>
+      -->
       <div class="how-to-wrapper">
         <p>{{ section.settings.ahg_instructions | newline_to_br | replace: '<br />', '</p><p>' }}</p>
       </div>
