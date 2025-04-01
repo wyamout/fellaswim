@@ -1301,6 +1301,14 @@
               "link": "https://www.linkedin.com/company/fella-swim/",
               "type": "facebook"
             }
+          },
+          "follow_CaUmnK": {
+            "type": "follow",
+            "settings": {
+              "name": "TikTok",
+              "link": "https://www.tiktok.com/@fellaswim",
+              "type": "facebook"
+            }
           }
         },
         "block_order": [
@@ -1308,7 +1316,8 @@
           "1597632214549",
           "1597632242888",
           "a8560165-b57d-41ee-8474-6c68630ea9e7",
-          "follow_aeLFxf"
+          "follow_aeLFxf",
+          "follow_CaUmnK"
         ],
         "settings": {
           "footer_contact_page": "contact",
