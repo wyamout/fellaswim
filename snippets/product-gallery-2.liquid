@@ -37,13 +37,6 @@
         </div>
       {%- endfor -%}
     </div>
-
-    <!-- Swiper Navigation -->
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-
-    <!-- Swiper Pagination -->
-    <div class="swiper-pagination"></div>
   </div>
 </div>
 
@@ -56,14 +49,6 @@
     new Swiper(".product-gallery--products", {
       slidesPerView: 2,
       spaceBetween: 10,
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
       breakpoints: {
         768: {
           slidesPerView: 2,
