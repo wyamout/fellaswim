@@ -68,15 +68,15 @@
         spaceBetween: 10,
        // Add navigation only for desktop
         navigation: {
-          nextEl: window.innerWidth >= 768 ? ".swiper-button-next" : null,
-          prevEl: window.innerWidth >= 768 ? ".swiper-button-prev" : null,
+          nextEl: window.innerWidth >= 768 ? ".product-gallery--products .swiper-button-next" : null,
+          prevEl: window.innerWidth >= 768 ? ".product-gallery--products .swiper-button-prev" : null,
         },
         breakpoints: {
           768: { 
             slidesPerView: 2,
             navigation: {
-              nextEl: ".swiper-button-next",
-              prevEl: ".swiper-button-prev",
+              nextEl: ".product-gallery--products .swiper-button-next",
+              prevEl: ".product-gallery--products .swiper-button-prev",
             }
           },
           1024: { slidesPerView: 2 },
