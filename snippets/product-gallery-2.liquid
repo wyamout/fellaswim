@@ -24,6 +24,13 @@
   .product-gallery--products .swiper-button-prev {
     left: -5px;
   }
+
+  @media screen and (max-width: 768px) {
+    .product-gallery--products .swiper-button-next,
+  .product-gallery--products .swiper-button-prev {
+    display: none;
+  }
+  }
 </style>
 
 {%- assign product_types = '' -%}
