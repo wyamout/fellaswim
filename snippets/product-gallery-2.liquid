@@ -66,8 +66,19 @@
       productGallerySwiper = new Swiper(".product-gallery--products", {
         slidesPerView: 2,
         spaceBetween: 10,
+       // Add navigation only for desktop
+        navigation: {
+          nextEl: window.innerWidth >= 768 ? ".swiper-button-next" : null,
+          prevEl: window.innerWidth >= 768 ? ".swiper-button-prev" : null,
+        },
         breakpoints: {
-          768: { slidesPerView: 2 },
+          768: { 
+            slidesPerView: 2,
+            navigation: {
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+            }
+          },
           1024: { slidesPerView: 2 },
         },
       });
