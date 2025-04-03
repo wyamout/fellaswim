@@ -59,7 +59,7 @@
           <h3 class="product-gallery--title" data-product-type="{{ type }}" style="font-size: 1.5rem;">
             <span class="hidden-mobile">{{ type_translation | t }}</span>
             <span class="hidden-desktop">
-              {{ type_translation | remove: 'Suggested ' }}
+              {{ type_translation | t | remove: 'Suggested ' }}
             </span>
           </h3>
         {%- endfor -%}
