@@ -82,48 +82,48 @@
 </div>
 
 <script>
-  // Define the Swiper initialization function
-  function initSwiper() {
-    let productGallerySwiper = document.querySelector(".product-gallery--products").swiper;
+    // Define the Swiper initialization function
+    function initSwiper() {
+      let productGallerySwiper = document.querySelector(".product-gallery--products").swiper;
 
-    // Destroy existing Swiper instance if it exists
-    if (productGallerySwiper) {
-      productGallerySwiper.destroy(true, true);
+      // Destroy existing Swiper instance if it exists
+      if (productGallerySwiper) {
+        productGallerySwiper.destroy(true, true);
+      }
+
+      // Initialize new Swiper instance
+      productGallerySwiper = new Swiper(".product-gallery--products", {
+        slidesPerView: 2,
+        spaceBetween: 10,
+        navigation: {
+          nextEl: window.innerWidth >= 768 ? ".product-gallery--products .swiper-button-next" : null,
+          prevEl: window.innerWidth >= 768 ? ".product-gallery--products .swiper-button-prev" : null,
+        },
+        breakpoints: {
+          768: {
+            slidesPerView: 2,
+            navigation: {
+              nextEl: ".product-gallery--products .swiper-button-next",
+              prevEl: ".product-gallery--products .swiper-button-prev",
+            },
+          },
+          1024: { slidesPerView: 2 },
+        },
+      });
     }
 
-    // Initialize new Swiper instance
-    productGallerySwiper = new Swiper(".product-gallery--products", {
-      slidesPerView: 2,
-      spaceBetween: 10,
-      navigation: {
-        nextEl: window.innerWidth >= 768 ? ".product-gallery--products .swiper-button-next" : null,
-        prevEl: window.innerWidth >= 768 ? ".product-gallery--products .swiper-button-prev" : null,
-      },
-      breakpoints: {
-        768: {
-          slidesPerView: 2,
-          navigation: {
-            nextEl: ".product-gallery--products .swiper-button-next",
-            prevEl: ".product-gallery--products .swiper-button-prev",
-          },
-        },
-        1024: { slidesPerView: 2 },
-      },
+  // Run Swiper on initial load
+  document.addEventListener("DOMContentLoaded", initSwiper);
+
+    // Re-run on filter clicks
+    document.querySelectorAll(".product-gallery--title").forEach((filter) => {
+      filter.addEventListener("click", function () {
+        initSwiper();
+      });
     });
-  }
 
-  // Run on initial load
-  initSwiper();
-
-  // Re-run on filter clicks
-  document.querySelectorAll(".product-gallery--title").forEach((filter) => {
-    filter.addEventListener("click", function () {
+    // Listen for Shopify's section load event (if applicable)
+    document.addEventListener("shopify:section:load", function () {
       initSwiper();
     });
-  });
-
-  // Listen for Shopify's section load event (if applicable)
-  document.addEventListener("shopify:section:load", function () {
-    initSwiper();
-  });
 </script>
