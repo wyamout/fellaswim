@@ -117,11 +117,170 @@
       "settings": {
         "sec_title": "Fit Guide"
       }
+    },
+    "table_size_hjzJHM": {
+      "type": "table-size",
+      "blocks": {
+        "col_9x9bif": {
+          "type": "col",
+          "settings": {
+            "boldCol": false,
+            "cmCol1": "XS",
+            "inCol1": "XS",
+            "cmCol2": "S",
+            "inCol2": "S",
+            "cmCol3": "M",
+            "inCol3": "M",
+            "cmCol4": "L",
+            "inCol4": "L",
+            "cmCol5": "XL",
+            "inCol5": "XL",
+            "cmCol6": "10D",
+            "inCol6": "10D",
+            "cmCol7": "10DD",
+            "inCol7": "10DD"
+          }
+        },
+        "col_erfa9b": {
+          "type": "col",
+          "settings": {
+            "boldCol": false,
+            "cmCol1": "XS",
+            "inCol1": "XS",
+            "cmCol2": "S",
+            "inCol2": "S",
+            "cmCol3": "M",
+            "inCol3": "M",
+            "cmCol4": "L",
+            "inCol4": "L",
+            "cmCol5": "XL",
+            "inCol5": "XL",
+            "cmCol6": "10D",
+            "inCol6": "10D",
+            "cmCol7": "10DD",
+            "inCol7": "10DD"
+          }
+        },
+        "col_jGFbwT": {
+          "type": "col",
+          "settings": {
+            "boldCol": false,
+            "cmCol1": "XS",
+            "inCol1": "XS",
+            "cmCol2": "S",
+            "inCol2": "S",
+            "cmCol3": "M",
+            "inCol3": "M",
+            "cmCol4": "L",
+            "inCol4": "L",
+            "cmCol5": "XL",
+            "inCol5": "XL",
+            "cmCol6": "10D",
+            "inCol6": "10D",
+            "cmCol7": "10DD",
+            "inCol7": "10DD"
+          }
+        },
+        "col_6MQ3rt": {
+          "type": "col",
+          "settings": {
+            "boldCol": false,
+            "cmCol1": "XS",
+            "inCol1": "XS",
+            "cmCol2": "S",
+            "inCol2": "S",
+            "cmCol3": "M",
+            "inCol3": "M",
+            "cmCol4": "L",
+            "inCol4": "L",
+            "cmCol5": "XL",
+            "inCol5": "XL",
+            "cmCol6": "10D",
+            "inCol6": "10D",
+            "cmCol7": "10DD",
+            "inCol7": "10DD"
+          }
+        },
+        "col_tj4DRG": {
+          "type": "col",
+          "settings": {
+            "boldCol": false,
+            "cmCol1": "XS",
+            "inCol1": "XS",
+            "cmCol2": "S",
+            "inCol2": "S",
+            "cmCol3": "M",
+            "inCol3": "M",
+            "cmCol4": "L",
+            "inCol4": "L",
+            "cmCol5": "XL",
+            "inCol5": "XL",
+            "cmCol6": "10D",
+            "inCol6": "10D",
+            "cmCol7": "10DD",
+            "inCol7": "10DD"
+          }
+        },
+        "col_W8Qkb4": {
+          "type": "col",
+          "settings": {
+            "boldCol": false,
+            "cmCol1": "XS",
+            "inCol1": "XS",
+            "cmCol2": "S",
+            "inCol2": "S",
+            "cmCol3": "M",
+            "inCol3": "M",
+            "cmCol4": "L",
+            "inCol4": "L",
+            "cmCol5": "XL",
+            "inCol5": "XL",
+            "cmCol6": "10D",
+            "inCol6": "10D",
+            "cmCol7": "10DD",
+            "inCol7": "10DD"
+          }
+        },
+        "col_xHikLL": {
+          "type": "col",
+          "settings": {
+            "boldCol": false,
+            "cmCol1": "XS",
+            "inCol1": "XS",
+            "cmCol2": "S",
+            "inCol2": "S",
+            "cmCol3": "M",
+            "inCol3": "M",
+            "cmCol4": "L",
+            "inCol4": "L",
+            "cmCol5": "XL",
+            "inCol5": "XL",
+            "cmCol6": "10D",
+            "inCol6": "10D",
+            "cmCol7": "10DD",
+            "inCol7": "10DD"
+          }
+        }
+      },
+      "block_order": [
+        "col_9x9bif",
+        "col_erfa9b",
+        "col_jGFbwT",
+        "col_6MQ3rt",
+        "col_tj4DRG",
+        "col_W8Qkb4",
+        "col_xHikLL"
+      ],
+      "settings": {
+        "totalColumn": 7,
+        "switchSize": false
+      }
     }
   },
   "order": [
     "main",
     "secondary",
-    "third"
+    "third",
+    "table_size_hjzJHM"
   ]
 }
