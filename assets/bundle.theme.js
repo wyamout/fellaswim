@@ -14308,6 +14308,39 @@
             {
               key: "productGalleryFiltersClickHandler",
               value: function (t) {
+                 // Define the Swiper initialization function
+                  function initSwiper() {
+                    let productGallerySwiper = document.querySelector(".product-gallery--products").swiper;
+              
+                    // Destroy existing Swiper instance if it exists
+                    if (productGallerySwiper) {
+                      productGallerySwiper.destroy(true, true);
+                    }
+              
+                    // Initialize new Swiper instance
+                    productGallerySwiper = new Swiper(".product-gallery--products", {
+                      slidesPerView: 2,
+                      spaceBetween: 10,
+                      navigation: {
+                        nextEl: window.innerWidth >= 768 ? ".product-gallery--products .swiper-button-next" : null,
+                        prevEl: window.innerWidth >= 768 ? ".product-gallery--products .swiper-button-prev" : null,
+                      },
+                      loop: true,
+                      breakpoints: {
+                        768: {
+                          slidesPerView: 2,
+                          navigation: {
+                            nextEl: ".product-gallery--products .swiper-button-next",
+                            prevEl: ".product-gallery--products .swiper-button-prev",
+                          },
+                        },
+                        1024: { slidesPerView: 2 },
+                      },
+                    });
+                  }
+
+                const swiperWrapperGallery = document.querySelector('.product-gallery--products .swiper-wrapper')
+                swiperWrapperGallery.innerHTML = ''
                 var e = t.currentTarget,
                   n = e.getAttribute("data-product-type"),
                   r = e.closest(".product-gallery"),
@@ -14326,8 +14359,15 @@
                   a.forEach(function (t) {
                     var e = n != t.getAttribute("data-product-type");
                     i(t, "product-gallery--hide", e);
+                    if(!e) {
+                      var slide = document.createElement("div");
+                        slide.classList.add("swiper-slide");
+                        slide.appendChild(t.cloneNode(true)); // Clone and append the product item
+                        swiperWrapperGallery.appendChild(slide);
+                    }
                   });
-                
+                window.lazyLoadInstance.update();
+                initSwiper();
               },
             },
             {
