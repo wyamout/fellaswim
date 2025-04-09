@@ -120,6 +120,157 @@
     },
     "table_size_hjzJHM": {
       "type": "table-size",
+      "blocks": {
+        "row_ytLgVc": {
+          "type": "row",
+          "settings": {
+            "boldRow": false,
+            "cmRow1": "XS",
+            "inRow1": "XS",
+            "cmRow2": "S",
+            "inRow2": "S",
+            "cmRow3": "M",
+            "inRow3": "M",
+            "cmRow4": "L",
+            "inRow4": "L",
+            "cmRow5": "XL",
+            "inRow5": "XL",
+            "cmRow6": "10D",
+            "inRow6": "10D",
+            "cmRow7": "10DD",
+            "inRow7": "10DD"
+          }
+        },
+        "row_WJFA7n": {
+          "type": "row",
+          "settings": {
+            "boldRow": false,
+            "cmRow1": "XS",
+            "inRow1": "XS",
+            "cmRow2": "S",
+            "inRow2": "S",
+            "cmRow3": "M",
+            "inRow3": "M",
+            "cmRow4": "L",
+            "inRow4": "L",
+            "cmRow5": "XL",
+            "inRow5": "XL",
+            "cmRow6": "10D",
+            "inRow6": "10D",
+            "cmRow7": "10DD",
+            "inRow7": "10DD"
+          }
+        },
+        "row_zD7nK8": {
+          "type": "row",
+          "settings": {
+            "boldRow": false,
+            "cmRow1": "XS",
+            "inRow1": "XS",
+            "cmRow2": "S",
+            "inRow2": "S",
+            "cmRow3": "M",
+            "inRow3": "M",
+            "cmRow4": "L",
+            "inRow4": "L",
+            "cmRow5": "XL",
+            "inRow5": "XL",
+            "cmRow6": "10D",
+            "inRow6": "10D",
+            "cmRow7": "10DD",
+            "inRow7": "10DD"
+          }
+        },
+        "row_3qwpnH": {
+          "type": "row",
+          "settings": {
+            "boldRow": false,
+            "cmRow1": "XS",
+            "inRow1": "XS",
+            "cmRow2": "S",
+            "inRow2": "S",
+            "cmRow3": "M",
+            "inRow3": "M",
+            "cmRow4": "L",
+            "inRow4": "L",
+            "cmRow5": "XL",
+            "inRow5": "XL",
+            "cmRow6": "10D",
+            "inRow6": "10D",
+            "cmRow7": "10DD",
+            "inRow7": "10DD"
+          }
+        },
+        "row_DRVVia": {
+          "type": "row",
+          "settings": {
+            "boldRow": false,
+            "cmRow1": "XS",
+            "inRow1": "XS",
+            "cmRow2": "S",
+            "inRow2": "S",
+            "cmRow3": "M",
+            "inRow3": "M",
+            "cmRow4": "L",
+            "inRow4": "L",
+            "cmRow5": "XL",
+            "inRow5": "XL",
+            "cmRow6": "10D",
+            "inRow6": "10D",
+            "cmRow7": "10DD",
+            "inRow7": "10DD"
+          }
+        },
+        "row_bfqa9k": {
+          "type": "row",
+          "settings": {
+            "boldRow": false,
+            "cmRow1": "XS",
+            "inRow1": "XS",
+            "cmRow2": "S",
+            "inRow2": "S",
+            "cmRow3": "M",
+            "inRow3": "M",
+            "cmRow4": "L",
+            "inRow4": "L",
+            "cmRow5": "XL",
+            "inRow5": "XL",
+            "cmRow6": "10D",
+            "inRow6": "10D",
+            "cmRow7": "10DD",
+            "inRow7": "10DD"
+          }
+        },
+        "row_THxirm": {
+          "type": "row",
+          "settings": {
+            "boldRow": false,
+            "cmRow1": "XS",
+            "inRow1": "XS",
+            "cmRow2": "S",
+            "inRow2": "S",
+            "cmRow3": "M",
+            "inRow3": "M",
+            "cmRow4": "L",
+            "inRow4": "L",
+            "cmRow5": "XL",
+            "inRow5": "XL",
+            "cmRow6": "10D",
+            "inRow6": "10D",
+            "cmRow7": "10DD",
+            "inRow7": "10DD"
+          }
+        }
+      },
+      "block_order": [
+        "row_ytLgVc",
+        "row_WJFA7n",
+        "row_zD7nK8",
+        "row_3qwpnH",
+        "row_DRVVia",
+        "row_bfqa9k",
+        "row_THxirm"
+      ],
       "settings": {
         "switchSize": false
       }
