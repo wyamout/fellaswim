@@ -271,6 +271,7 @@
         "row_bfqa9k",
         "row_THxirm"
       ],
+      "disabled": true,
       "settings": {
         "switchSize": false
       }
