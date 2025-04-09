@@ -1,15 +1,20 @@
 <div class="table-size size-guide-table-wrapper">
   <table>
     <tbody>
-      <tr>
-        <td class="highlighted">FELLA SIZE</td>
-        <td>AU</td>
-        <td>US</td>
-        <td>UK</td>
-        <td>FR/ESP</td>
-        <td>EU</td>
-        <td>JP</td>
-      </tr>
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'row' %}
+            <tr>
+              <td class="highlighted">{{ block.settings.cmRow1 }}</td>
+              <td>{{ block.settings.cmRow2 }}</td>
+              <td>{{ block.settings.cmRow3 }}</td>
+              <td>{{ block.settings.cmRow4 }}</td>
+              <td>{{ block.settings.cmRow5 }}</td>
+              <td>{{ block.settings.cmRow6 }}</td>
+              <td>{{ block.settings.cmRow7 }}</td>
+            </tr>
+        {% endcase %}
+      {% endfor %}
     </tbody>
   </table>
 </div>
@@ -27,8 +32,8 @@
   ],
   "blocks": [
     {
-      "type": "col",
-      "name": "Rowumn",
+      "type": "row",
+      "name": "Row",
       "settings": [
         {
           "type": "checkbox",
