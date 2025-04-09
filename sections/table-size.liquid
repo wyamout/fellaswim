@@ -1,6 +1,27 @@
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name": "Table size",
+  "settings": [
+    {
+      "type": "number",
+      "id": "totalColumn",
+      "label": "Total Column",
+      "default": 7
+    }
+  ],
+  "blocks": [
+    {
+      "type": "col",
+      "name": "Column",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "boldCol",
+          "label": "Bold column",
+          "default": false
+        }
+      ]
+    }
+  ]
+}
 {% endschema %}
