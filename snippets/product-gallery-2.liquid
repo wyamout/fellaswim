@@ -66,64 +66,16 @@
       {%- endif -%}
     </div>
   {% endif %}
+  <div style="visibility: hidden; height: 0; overflow: hidden; width: 0;">
+    {%- for product in products -%}
+      {% render 'product-gallery-item', product: product %}
+    {%- endfor -%}
+  </div>
 
   <div class="swiper product-gallery--products">
-    <div class="swiper-wrapper">
-      {%- for product in products -%}
-        <div class="swiper-slide">
-          {% render 'product-gallery-item', product: product %}
-        </div>
-      {%- endfor -%}
-    </div>
+    <div class="swiper-wrapper"></div>
     <!-- Navigation buttons -->
     <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
   </div>
 </div>
-
-<script>
-    // Define the Swiper initialization function
-    function initSwiper() {
-      let productGallerySwiper = document.querySelector(".product-gallery--products").swiper;
-
-      // Destroy existing Swiper instance if it exists
-      if (productGallerySwiper) {
-        productGallerySwiper.destroy(true, true);
-      }
-
-      // Initialize new Swiper instance
-      productGallerySwiper = new Swiper(".product-gallery--products", {
-        slidesPerView: 2,
-        spaceBetween: 10,
-        navigation: {
-          nextEl: window.innerWidth >= 768 ? ".product-gallery--products .swiper-button-next" : null,
-          prevEl: window.innerWidth >= 768 ? ".product-gallery--products .swiper-button-prev" : null,
-        },
-        breakpoints: {
-          768: {
-            slidesPerView: 2,
-            navigation: {
-              nextEl: ".product-gallery--products .swiper-button-next",
-              prevEl: ".product-gallery--products .swiper-button-prev",
-            },
-          },
-          1024: { slidesPerView: 2 },
-        },
-      });
-    }
-
-  // Run Swiper on initial load
-  document.addEventListener("DOMContentLoaded", initSwiper);
-
-    // Re-run on filter clicks
-    document.querySelectorAll(".product-gallery--title").forEach((filter) => {
-      filter.addEventListener("click", function () {
-        initSwiper();
-      });
-    });
-
-    // Listen for Shopify's section load event (if applicable)
-    document.addEventListener("shopify:section:load", function () {
-      initSwiper();
-    });
-</script>
