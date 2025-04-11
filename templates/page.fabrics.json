@@ -62,9 +62,9 @@
         "fabric_ziPwgR": {
           "type": "Fabric",
           "settings": {
-            "image": "shopify://shop_images/LYCRA.jpg",
+            "image": "shopify://shop_images/IMG_3675.jpg",
             "title": "Recycled Lycra",
-            "description": "An eco-sustainable performance fabric made of ECONYL® from the Healthy Seas initiative, our Eco Lycra is a regenerated nylon yarn from pre- and post-consumer waste materials. Featuring a matte surface, Eco Lycra is hyper-resistant and soft, it features a really pleasant hand feel and it perfectly blends compactness\nand elasticity. Elegant, fine and breathable, Eco Lycra has a unique mix of muscular compression, comfort\nand UV protection (UPF50+). Thanks to its innovative construction, it is also resistant to chlorine, suntan creams and oils.",
+            "description": "An eco-sustainable performance fabric made of ECONYL® from the Healthy Seas initiative, our Eco Lycra is a regenerated nylon yarn from pre- and post-consumer waste materials. Featuring a matte surface, Eco Lycra is hyper-resistant and soft, it has a really pleasant hand feel and it perfectly blends compactness\nand elasticity. Elegant, fine and breathable, Eco Lycra has a unique mix of muscular compression, comfort\nand UV protection (UPF50+). Thanks to its innovative construction, it is also resistant to chlorine, suntan creams and oils.",
             "collection": "recycled-lycra"
           }
         }
