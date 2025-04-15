@@ -18566,8 +18566,7 @@
                       if(window.location.pathname.includes("best-sellers-1") && document.querySelectorAll(
                               ".product-index--item:not(.hidden)"
                             ).length >= 20) {
-                        console.log(document.querySelector('.pagination--loading'))
-                             document.querySelector('.pagination--loading').content = ''
+                        document.querySelector('.pagination--loading').innerHTML = ''
                             return
                           }
                       
