@@ -20109,8 +20109,12 @@ display: none !important;
 }
 
 .table-size {
-  overflow: auto;
   padding-bottom: 30px;
+}
+
+.table-size-wrap {
+    overflow: auto;
+  width: 100%;
 }
 
 .table-size table {
