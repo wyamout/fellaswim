@@ -21,7 +21,7 @@
   {%- if page.template_suffix == 'style-guide' -%}
     <div class="style-guide--index">
       <h2 class="feature-page--heading">{{ 'style_guide.heading' | t }}</h2>
-      <p class="feature-page--subheading">{{ 'style_guide.subheading' | t }}</p>
+      <p class="feature-page--subheading">{{ section.settings.description }}</p>
       <div class="style-guide--grid">
         {%- for block in section.blocks -%}
           {%- assign block_page = block.settings.page | prepend: '/pages/' -%}
