@@ -20082,3 +20082,6 @@ display: none !important;
 }
 
 
+.product-index--item.hidden {
+  display: none;
+}
