@@ -20121,6 +20121,7 @@ display: none !important;
   width: auto;
   border-collapse: collapse;
   table-layout: fixed;
+   min-width: 100%;
 }
 
 
