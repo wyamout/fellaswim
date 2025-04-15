@@ -18567,7 +18567,7 @@
                               ".product-index--item:not(.hidden)"
                             ).length >= 20) {
                         console.log(document.querySelector('.pagination--loading'))
-                             document.querySelector('.pagination--loading').innerHtml = ''
+                             document.querySelector('.pagination--loading').content = ''
                             return
                           }
                       
