@@ -12454,6 +12454,16 @@
                   });
                 }
                 this.createRelatedProducts();
+
+                if(window.location.pathname.includes("best-sellers-1")) {
+                  this.el.querySelectorAll(
+                    ".product-index--item:not(.processed-links)"
+                  ).forEach((productIndex, index) => {
+                    if(index >= 20) {
+                      productIndex.classList.add('hidden')
+                    }
+                  })
+                }
               },
             },
 
@@ -18553,6 +18563,13 @@
                             return t.text();
                           });
                         });
+                      if(window.location.pathname.includes("best-sellers-1") && document.querySelectorAll(
+                              ".product-index--item:not(.hidden)"
+                            ).length >= 20) {
+                              t.showFilterFeedback();
+                            return
+                          }
+                      
                       Promise.all(n).then(function (e) {
                         var n = new DOMParser()
                           .parseFromString(
@@ -18581,6 +18598,12 @@
                           return t.text();
                         })
                         .then(function (n) {
+                           if(window.location.pathname.includes("best-sellers-1") && document.querySelectorAll(
+                              ".product-index--item:not(.hidden)"
+                            ).length >= 20) {
+                             t.showFilterFeedback();
+                            return
+                          }
                           var r = new DOMParser().parseFromString(
                               n,
                               "text/html"
