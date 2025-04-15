@@ -20086,38 +20086,127 @@ display: none !important;
   display: none;
 }
 
-<div class="custom-container">
-  <div class="page-heading">
-    {% if section.settings.title != '' %}
-      <h2 class="feature-page--heading">{{ section.settings.title }}</h2>
-    {% endif %}
-     {% if section.settings.des != '' %}
-      <p class="feature-page--subheading">{{ section.settings.des }}</p>
-      {% endif %} 
-  </div>
-</div>
+.custom-container {
+    width: 100%;
+    max-width: 1100px;    /* Sets maximum width */
+    margin: 0 auto;      /* Centers the container */
+    padding:30px 40px;       /* Adds internal spacing */
+    box-sizing: border-box; /* Includes padding in width calculation */
+}
 
-{% schema %}
-  {
-    "name": "Page heading",
-    "settings": [
-      {
-        "type": "text",
-        "id": "title",
-        "label": "Title",
-        "default": "Title"
-      },
-      {
-        "type": "inline_richtext",
-        "id": "des",
-        "label": "Description",
-        "default": "Description"
-      }
-    ],
-    "presets": [
-      {
-        "name": "Page heading"
-      }
-    ]
-  }
-{% endschema %}
+/* Optional: Responsive design with media queries */
+@media (max-width: 768px) {
+    .custom-container {
+        padding: 15px;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .custom-container {
+        padding: 10px;
+    }
+}
+
+.table-size {
+  overflow: auto;
+  padding-bottom: 30px;
+}
+
+.table-size table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.table-cm, .table-in {
+    width: 100%;
+    border-collapse: collapse;
+    display: none; /* Hide by default */
+}
+
+.table-cm.active, .table-in.active {
+    display: table;
+}
+
+.table-size table tr {
+  border-top: 1px solid #d8d8d8;
+   border-bottom: 1px solid #d8d8d8;
+}
+
+.table-size table td {
+      padding: 15px 10px;
+    font-size: 13px;
+    line-height: 16px;
+}
+
+.table-size table tr:first-child td {
+  font-weight: 500;
+}
+
+.table-size table tr td {
+  text-align: center;
+}
+
+.table-size table tr td:first-child {
+  font-weight: 500;
+  text-align: left;
+}
+
+.table-size-heading {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-top: 15px;
+}
+
+.table-size-heading p{
+  margin: 0;
+  position: relative;
+   font-size: 13px;
+    line-height: 16px;
+    font-family: Rubik, Helvetica, sans-serif;
+}
+
+.table-size-switch {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  position: absolute;
+    right: 0;
+    bottom: 0;
+  gap: 4px;
+}
+
+.table-size-switch .switch-btn {
+  background: none;
+  border: none;
+  font-size: 13px;
+    line-height: 16px;
+    font-family: Rubik, Helvetica, sans-serif;
+  cursor: pointer;
+}
+
+.table-size-switch .switch-btn.active {
+  font-weight: 500;
+}
+
+.page-heading {
+      display: flex;
+    flex-direction: column;
+    align-items: center;
+  max-width: 600px;
+  text-align: center;
+  margin-left: auto;
+    margin-right: auto;
+  margin-top: 30px;
+}
+
+.table-size-des {
+  text-align: center;
+    max-width: 390px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+}
