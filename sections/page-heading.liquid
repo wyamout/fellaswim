@@ -1,0 +1,35 @@
+<div class="custom-container">
+  <div class="page-heading">
+    {% if section.settings.title != '' %}
+      <h2 class="feature-page--heading">{{ section.settings.title }}</h2>
+    {% endif %}
+     {% if section.settings.des != '' %}
+      <p class="feature-page--subheading">{{ section.settings.des }}</p>
+      {% endif %} 
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Page heading",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "Title"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "des",
+        "label": "Description",
+        "default": "Description"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Page heading"
+      }
+    ]
+  }
+{% endschema %}
