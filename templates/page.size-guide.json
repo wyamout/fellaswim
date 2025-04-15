@@ -381,7 +381,7 @@
           "type": "row",
           "settings": {
             "cmRow1": "XS",
-            "inRow1": "XS IN",
+            "inRow1": "XS",
             "cmRow2": "60-64",
             "inRow2": "23.5-25",
             "cmRow3": "81-85",
