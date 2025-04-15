@@ -18566,6 +18566,7 @@
                       if(window.location.pathname.includes("best-sellers-1") && document.querySelectorAll(
                               ".product-index--item:not(.hidden)"
                             ).length >= 20) {
+                        console.log(t)
                               t.showFilterFeedback();
                             return
                           }
