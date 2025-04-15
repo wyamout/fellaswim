@@ -20114,10 +20114,12 @@ display: none !important;
 }
 
 .table-size table {
-  width: 100%;
+  width: auto;
   border-collapse: collapse;
   table-layout: fixed;
 }
+
+
 
 .table-cm, .table-in {
     width: 100%;
@@ -20146,6 +20148,7 @@ display: none !important;
 
 .table-size table tr td {
   text-align: center;
+  white-space: nowrap;
 }
 
 .table-size table tr td:first-child {
@@ -20209,4 +20212,13 @@ display: none !important;
     margin-left: auto;
     margin-right: auto;
     margin-top: 30px;
+}
+
+
+@media screen and (min-width: 768px) {
+  .table-size table {
+    width: 100%;
+  }
+  
+
 }
