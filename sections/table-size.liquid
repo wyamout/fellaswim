@@ -1,117 +1,119 @@
 <div class="custom-container section-{{ section.id }}">
-<div class="table-size size-guide-table-wrapper">
-  <div class="table-size-heading">
-    <p>{{ section.settings.tableTitle }}</p>
-  {% if section.settings.switchSize %}
-      <div class="table-size-switch">
-        <span class="switch-btn active" data-unit="cm">CM</span>
-        <span>|</span>
-        <span class="switch-btn" data-unit="in">IN</span>
-      </div>
-    {% endif %}
+  <div class="table-size size-guide-table-wrapper">
+    <div class="table-size-heading">
+      <p>{{ section.settings.tableTitle }}</p>
+      {% if section.settings.switchSize %}
+        <div class="table-size-switch">
+          <span class="switch-btn active" data-unit="cm">CM</span>
+          <span>|</span>
+          <span class="switch-btn" data-unit="in">IN</span>
+        </div>
+      {% endif %}
+    </div>
+    <div class="table-size-wrap">
+      <table class="table-cm active">
+        <tbody>
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'row' %}
+                <tr>
+                  <td class="highlighted">{{ block.settings.cmRow1 }}</td>
+                  <td>{{ block.settings.cmRow2 }}</td>
+                  <td>{{ block.settings.cmRow3 }}</td>
+                  {% if section.settings.numberColumn >= 4 %}
+                    <td>{{ block.settings.cmRow4 }}</td>
+                  {% endif %}
+                  {% if section.settings.numberColumn >= 5 %}
+                    <td>{{ block.settings.cmRow5 }}</td>
+                  {% endif %}
+                  {% if section.settings.numberColumn >= 6 %}
+                    <td>{{ block.settings.cmRow6 }}</td>
+                  {% endif %}
+                  {% if section.settings.numberColumn >= 7 %}
+                    <td>{{ block.settings.cmRow7 }}</td>
+                  {% endif %}
+                  {% if section.settings.numberColumn >= 8 %}
+                    <td>{{ block.settings.cmRow8 }}</td>
+                  {% endif %}
+                  {% if section.settings.numberColumn >= 9 %}
+                    <td>{{ block.settings.cmRow9 }}</td>
+                  {% endif %}
+                  {% if section.settings.numberColumn >= 10 %}
+                    <td>{{ block.settings.cmRow10 }}</td>
+                  {% endif %}
+                </tr>
+            {% endcase %}
+          {% endfor %}
+        </tbody>
+      </table>
+      <table class="table-in">
+        <tbody>
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'row' %}
+                <tr>
+                  <td class="highlighted">{{ block.settings.inRow1 }}</td>
+                  <td>{{ block.settings.inRow2 }}</td>
+                  <td>{{ block.settings.inRow3 }}</td>
+                  {% if section.settings.numberColumn >= 4 %}
+                    <td>{{ block.settings.inRow4 }}</td>
+                  {% endif %}
+                  {% if section.settings.numberColumn >= 5 %}
+                    <td>{{ block.settings.inRow5 }}</td>
+                  {% endif %}
+                  {% if section.settings.numberColumn >= 6 %}
+                    <td>{{ block.settings.inRow6 }}</td>
+                  {% endif %}
+                  {% if section.settings.numberColumn >= 7 %}
+                    <td>{{ block.settings.inRow7 }}</td>
+                  {% endif %}
+                  {% if section.settings.numberColumn >= 8 %}
+                    <td>{{ block.settings.inRow8 }}</td>
+                  {% endif %}
+                  {% if section.settings.numberColumn >= 9 %}
+                    <td>{{ block.settings.inRow9 }}</td>
+                  {% endif %}
+                  {% if section.settings.numberColumn >= 10 %}
+                    <td>{{ block.settings.inRow10 }}</td>
+                  {% endif %}
+                </tr>
+            {% endcase %}
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
   </div>
-  <table class="table-cm active">
-    <tbody>
-      {% for block in section.blocks %}
-        {% case block.type %}
-          {% when 'row' %}
-            <tr>
-              <td class="highlighted">{{ block.settings.cmRow1 }}</td>
-              <td>{{ block.settings.cmRow2 }}</td>
-              <td>{{ block.settings.cmRow3 }}</td>
-              {% if section.settings.numberColumn >=4 %}
-                <td>{{ block.settings.cmRow4 }}</td>
-              {% endif %}
-              {% if section.settings.numberColumn >=5 %}
-                <td>{{ block.settings.cmRow5 }}</td>
-              {% endif %}
-              {% if section.settings.numberColumn >=6 %}
-                <td>{{ block.settings.cmRow6 }}</td>
-              {% endif %}
-              {% if section.settings.numberColumn >=7 %}
-                <td>{{ block.settings.cmRow7 }}</td>
-              {% endif %}
-              {% if section.settings.numberColumn >=8 %}
-                <td>{{ block.settings.cmRow8 }}</td>
-              {% endif %}
-              {% if section.settings.numberColumn >=9 %}
-                <td>{{ block.settings.cmRow9 }}</td>
-              {% endif %}
-              {% if section.settings.numberColumn >=10 %}
-                <td>{{ block.settings.cmRow10 }}</td>
-              {% endif %}
-            </tr>
-        {% endcase %}
-      {% endfor %}
-    </tbody>
-  </table>
-   <table class="table-in">
-    <tbody>
-      {% for block in section.blocks %}
-        {% case block.type %}
-          {% when 'row' %}
-            <tr>
-              <td class="highlighted">{{ block.settings.inRow1 }}</td>
-              <td>{{ block.settings.inRow2 }}</td>
-              <td>{{ block.settings.inRow3 }}</td>
-               {% if section.settings.numberColumn >=4 %}
-                <td>{{ block.settings.inRow4 }}</td>
-              {% endif %}
-              {% if section.settings.numberColumn >=5 %}
-                <td>{{ block.settings.inRow5 }}</td>
-              {% endif %}
-              {% if section.settings.numberColumn >=6 %}
-                <td>{{ block.settings.inRow6 }}</td>
-              {% endif %}
-              {% if section.settings.numberColumn >=7 %}
-                <td>{{ block.settings.inRow7 }}</td>
-              {% endif %}
-              {% if section.settings.numberColumn >=8 %}
-                <td>{{ block.settings.inRow8 }}</td>
-              {% endif %}
-              {% if section.settings.numberColumn >=9 %}
-                <td>{{ block.settings.inRow9 }}</td>
-              {% endif %}
-              {% if section.settings.numberColumn >=10 %}
-                <td>{{ block.settings.inRow10 }}</td>
-              {% endif %}
-            </tr>
-        {% endcase %}
-      {% endfor %}
-    </tbody>
-  </table>
-</div>
   {% if section.settings.description != '' %}
     <div class="table-size-des ">
-        <div class="feature-page--subheading">{{ section.settings.description }}</div>
+      <div class="feature-page--subheading">{{ section.settings.description }}</div>
     </div>
-  {% endif %} 
+  {% endif %}
 </div>
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const buttons = document.querySelectorAll('.section-{{ section.id }} .switch-btn');
-    const tableCm = document.querySelector('.section-{{ section.id }} .table-cm');
-    const tableIn = document.querySelector('.section-{{ section.id }} .table-in');
+    document.addEventListener('DOMContentLoaded', () => {
+      const buttons = document.querySelectorAll('.section-{{ section.id }} .switch-btn');
+      const tableCm = document.querySelector('.section-{{ section.id }} .table-cm');
+      const tableIn = document.querySelector('.section-{{ section.id }} .table-in');
 
-    buttons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Remove active class from all buttons
-            buttons.forEach(btn => btn.classList.remove('active'));
-            // Add active class to clicked button
-            button.classList.add('active');
+      buttons.forEach(button => {
+          button.addEventListener('click', () => {
+              // Remove active class from all buttons
+              buttons.forEach(btn => btn.classList.remove('active'));
+              // Add active class to clicked button
+              button.classList.add('active');
 
-            // Switch tables based on data-unit
-            const unit = button.getAttribute('data-unit');
-            if (unit === 'cm') {
-                tableCm.classList.add('active');
-                tableIn.classList.remove('active');
-            } else if (unit === 'in') {
-                tableIn.classList.add('active');
-                tableCm.classList.remove('active');
-            }
-        });
-    });
-});
+              // Switch tables based on data-unit
+              const unit = button.getAttribute('data-unit');
+              if (unit === 'cm') {
+                  tableCm.classList.add('active');
+                  tableIn.classList.remove('active');
+              } else if (unit === 'in') {
+                  tableIn.classList.add('active');
+                  tableCm.classList.remove('active');
+              }
+          });
+      });
+  });
 </script>
 {% schema %}
 {
