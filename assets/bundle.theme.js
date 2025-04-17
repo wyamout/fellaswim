@@ -12461,8 +12461,8 @@
                     ".product-index--item:not(.processed-links)"
                   ).forEach((productIndex, index) => {
                     const tagProduct = productIndex.querySelector('.product-index--tag-callout')
-                    if(tagProduct.classList.includes('final-sale') || tagProduct.classList.includes('sale')) {
-                      productIndex.classList.add('hidden')
+                    if(tagProduct.classList.contains('final-sale') || tagProduct.classList.contains('sale')) {
+                        productIndex.classList.add('hidden')
                       countShow = countShow + 1
                     }
 
