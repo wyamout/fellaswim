@@ -20160,6 +20160,7 @@ display: none !important;
 .table-size table td:first-child {
   position: sticky;
   left: 0;
+  background-color: #fdfcf9;
 }
 
 .table-size table tr td {
