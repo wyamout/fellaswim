@@ -20165,7 +20165,6 @@ display: none !important;
 
 .table-size table tr td {
   text-align: center;
-  white-space: nowrap;
 }
 
 .table-size table tr td:first-child {
