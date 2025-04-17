@@ -12462,12 +12462,13 @@
                   ).forEach((productIndex, index) => {
                     const tagProduct = productIndex.querySelector('.product-index--tag-callout')
                     if(tagProduct?.classList.contains('final-sale') || tagProduct?.classList.contains('sale')) {
-                        productIndex.classList.add('hidden')
-                      countShow = countShow + 1
+                      productIndex.classList.add('hidden')
                     }
 
                     if(countShow >= 20) {
                       productIndex.classList.add('hidden')
+                    } else {
+                      countShow = countShow + 1
                     }
                   })
                 }
