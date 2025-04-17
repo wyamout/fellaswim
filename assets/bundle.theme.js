@@ -12459,6 +12459,7 @@
                   this.el.querySelectorAll(
                     ".product-index--item:not(.processed-links)"
                   ).forEach((productIndex, index) => {
+                    console.log(productIndex.querySelector('.product-index--tag-callout'))
                     if(index >= 20) {
                       productIndex.classList.add('hidden')
                     }
