@@ -20148,7 +20148,7 @@ display: none !important;
 
 @media screen and (max-width: 768px) {
   .table-size table td {
-  width: 60px;
+  min-width: 60px;
 }
 }
 
