@@ -20156,6 +20156,12 @@ display: none !important;
   font-weight: 500;
 }
 
+.table-size table th:first-child,
+.table-size table td:first-child {
+  position: sticky;
+  left: 0;
+}
+
 .table-size table tr td {
   text-align: center;
   white-space: nowrap;
