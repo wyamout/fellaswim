@@ -52,7 +52,7 @@
             "subtitle": "",
             "copy": "",
             "text-alignment": "center",
-            "link": "https://international.fellaswim.com/collections/bernie-marco-1",
+            "link": "shopify://collections/bernie-marco",
             "text-color": "black"
           }
         },
@@ -67,7 +67,7 @@
             "subtitle": "",
             "copy": "",
             "text-alignment": "center",
-            "link": "https://www.fellaswim.com/collections/core?_cd=ae70ef1e424d6a17536c12b170fd41d6ca32326f9265bfeb502cb942d1491b74&_uid=76730826832&preview_theme_id=125954261072&preview_token=l5euotia1bpv74r4kd0rptoxnyp9espx",
+            "link": "shopify://collections/core",
             "text-color": "black"
           }
         }
@@ -123,7 +123,7 @@
             "subtitle": "SHOP BEST-SELLERS",
             "copy": "",
             "text-alignment": "bottom-right",
-            "link": "https://www.fellaswim.com/collections/best-seller?_cd=ae70ef1e424d6a17536c12b170fd41d6ca32326f9265bfeb502cb942d1491b74&_uid=76730826832&preview_theme_id=125954261072&preview_token=atrxle76470ac03qv7lvmlpm2dfds6oc",
+            "link": "shopify://collections/best-seller",
             "text-color": "white"
           }
         }
