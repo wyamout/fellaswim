@@ -12456,11 +12456,17 @@
                 this.createRelatedProducts();
 
                 if(window.location.pathname.includes("best-seller")) {
+                  let countShow = 0;
                   this.el.querySelectorAll(
                     ".product-index--item:not(.processed-links)"
                   ).forEach((productIndex, index) => {
-                    console.log(productIndex.querySelector('.product-index--tag-callout'))
-                    if(index >= 20) {
+                    const tagProduct = productIndex.querySelector('.product-index--tag-callout')
+                    if(tagProduct.classList.includes('final-sale') || tagProduct.classList.includes('sale')) {
+                      productIndex.classList.add('hidden')
+                      countShow = countShow + 1
+                    }
+
+                    if(countShow >= 20) {
                       productIndex.classList.add('hidden')
                     }
                   })
