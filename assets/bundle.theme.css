@@ -20118,7 +20118,6 @@ display: none !important;
 }
 
 .table-size table {
-  width: auto;
   border-collapse: collapse;
   table-layout: fixed;
    min-width: 100%;
